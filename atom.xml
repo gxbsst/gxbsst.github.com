@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[My Octopress Blog]]></title>
+  <link href="http://gxbsst.github.com/atom.xml" rel="self"/>
+  <link href="http://gxbsst.github.com/"/>
+  <updated>2011-11-30T14:59:12+08:00</updated>
+  <id>http://gxbsst.github.com/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[测试]]></title>
+    <link href="http://gxbsst.github.com/blog/2011/11/30/ce-shi/"/>
+    <updated>2011-11-30T14:57:00+08:00</updated>
+    <id>http://gxbsst.github.com/blog/2011/11/30/ce-shi</id>
+    <content type="html"><![CDATA[<p><em>这个是一个文章</em></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[title]]></title>
+    <link href="http://gxbsst.github.com/blog/2011/11/30/title/"/>
+    <updated>2011-11-30T14:20:00+08:00</updated>
+    <id>http://gxbsst.github.com/blog/2011/11/30/title</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+</feed>
