@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Ruby | My Octopress Blog]]></title>
+  <link href="http://Weixuhong.github.io/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://Weixuhong.github.io/"/>
+  <updated>2014-10-22T12:33:33+08:00</updated>
+  <id>http://Weixuhong.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Test Post]]></title>
+    <link href="http://Weixuhong.github.io/blog/2014/10/22/test-post/"/>
+    <updated>2014-10-22T11:52:23+08:00</updated>
+    <id>http://Weixuhong.github.io/blog/2014/10/22/test-post</id>
+    <content type="html"><![CDATA[<h1>看这张图就可以知道什么</h1>
+
+<p>这里时内容</p>
+]]></content>
+  </entry>
+  
+</feed>
