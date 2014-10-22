@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Angularjs | 韦旭红的幸福时光]]></title>
-  <link href="http://gxbsst.github.io/blog/categories/angularjs/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Directive | 韦旭红的幸福时光]]></title>
+  <link href="http://gxbsst.github.io/blog/categories/directive/atom.xml" rel="self"/>
   <link href="http://gxbsst.github.io/"/>
   <updated>2014-10-22T18:15:59+08:00</updated>
   <id>http://gxbsst.github.io/</id>
@@ -25,15 +25,6 @@
 <h2>Binding Isolated ScopeDefined with an = symbolBi-directional binding between parent and directive You can define the binding as optional via =? Optimal for dealing with objects and collections</h2>
 
 <p><img class="left" src="/images/directive_2.png" width="600" title="&lsquo;image&rsquo; &lsquo;images&rsquo;" >##Expression Isolated ScopeDefined using an &amp; symbolAllows you to execute an expression on the parent scope To pass variables from child to parent expressions you must use an object map<img class="left" src="/images/directive_3.png" width="600" title="&lsquo;image&rsquo; &lsquo;images&rsquo;" ></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[为AngularJs的Service 是单例？]]></title>
-    <link href="http://gxbsst.github.io/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/"/>
-    <updated>2014-10-22T17:56:48+08:00</updated>
-    <id>http://gxbsst.github.io/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-?</id>
-    <content type="html"><![CDATA[<p><img class="left" src="/images/anguarjs-service.png" width="7"></p>
 ]]></content>
   </entry>
   

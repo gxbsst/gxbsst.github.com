@@ -4,7 +4,7 @@
   <title><![CDATA[韦旭红的幸福时光]]></title>
   <link href="http://gxbsst.github.io/atom.xml" rel="self"/>
   <link href="http://gxbsst.github.io/"/>
-  <updated>2014-10-22T18:02:20+08:00</updated>
+  <updated>2014-10-22T18:15:59+08:00</updated>
   <id>http://gxbsst.github.io/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
@@ -14,11 +14,26 @@
 
   
   <entry>
+    <title type="html"><![CDATA[看了解AngularJs的指令中的@,=]]></title>
+    <link href="http://gxbsst.github.io/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/"/>
+    <updated>2014-10-22T18:08:15+08:00</updated>
+    <id>http://gxbsst.github.io/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals</id>
+    <content type="html"><![CDATA[<h2>Attribute Isolated ScopeDefined with an @ symbolBinds a local scope property to the value of a DOM attribute The binding is uni-directional from parent to directiveThe result is always a string because DOM attributes are strings</h2>
+
+<p><img class="left" src="http://gxbsst.github.io/images/directive_1.png" width="600" title="image" alt="images"></p>
+
+<h2>Binding Isolated ScopeDefined with an = symbolBi-directional binding between parent and directive You can define the binding as optional via =? Optimal for dealing with objects and collections</h2>
+
+<p><img class="left" src="http://gxbsst.github.io/images/directive_2.png" width="600" title="image" alt="images">##Expression Isolated ScopeDefined using an &amp; symbolAllows you to execute an expression on the parent scope To pass variables from child to parent expressions you must use an object map<img class="left" src="http://gxbsst.github.io/images/directive_3.png" width="600" title="image" alt="images"></p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[为AngularJs的Service 是单例？]]></title>
     <link href="http://gxbsst.github.io/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/"/>
     <updated>2014-10-22T17:56:48+08:00</updated>
     <id>http://gxbsst.github.io/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-?</id>
-    <content type="html"><![CDATA[<p><img class="left" src="http://gxbsst.github.io/images/anguarjs-service.png" width="700" title="image" alt="images"></p>
+    <content type="html"><![CDATA[<p><img class="left" src="http://gxbsst.github.io/images/anguarjs-service.png" width="7"></p>
 ]]></content>
   </entry>
   
