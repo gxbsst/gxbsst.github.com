@@ -6,4 +6,4 @@ comments: true
 categories: angularjs
 ---
 
-{% img left /images/anguarjs-service.png 700 'image' 'images' %}
+{% img left /images/anguarjs-service.png 7Th00 'image' 'images' %}
