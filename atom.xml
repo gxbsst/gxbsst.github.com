@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
-  <link href="http://yoursite.com/atom.xml" rel="self"/>
-  <link href="http://yoursite.com/"/>
-  <updated>2014-10-22T17:35:16+08:00</updated>
-  <id>http://yoursite.com/</id>
+  <title><![CDATA[韦旭红的幸福时光]]></title>
+  <link href="http://gxbsst.github.io/atom.xml" rel="self"/>
+  <link href="http://gxbsst.github.io/"/>
+  <updated>2014-10-22T17:54:52+08:00</updated>
+  <id>http://gxbsst.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Weston Wei(韦旭红)]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
