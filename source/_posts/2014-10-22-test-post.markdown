@@ -1,0 +1,12 @@
+---
+layout: post
+title: "test post"
+date: 2014-10-22 11:52:23 +0800
+comments: true
+categories: ruby
+---
+
+#看这张图就可以知道什么
+
+这里时内容
+

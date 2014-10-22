@@ -4,11 +4,11 @@ require 'sass-globbing'
 project_type = :stand_alone
 
 # Publishing paths
-http_path = "/"
-http_images_path = "/images"
+http_path = "/weixuhong/"
+http_images_path = "/weixuhong/images"
 http_generated_images_path = "/images"
-http_fonts_path = "/fonts"
-css_dir = "public/stylesheets"
+http_fonts_path = "/weixuhong/fonts"
+css_dir = "public/weixuhong/stylesheets"
 
 # Local development paths
 sass_dir = "sass"
