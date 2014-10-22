@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[韦旭红的幸福时光]]></title>
-  <link href="http://gxbsst.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Angularjs | 韦旭红的幸福时光]]></title>
+  <link href="http://gxbsst.github.io/blog/categories/angularjs/atom.xml" rel="self"/>
   <link href="http://gxbsst.github.io/"/>
   <updated>2014-10-22T18:02:20+08:00</updated>
   <id>http://gxbsst.github.io/</id>
@@ -18,7 +18,7 @@
     <link href="http://gxbsst.github.io/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/"/>
     <updated>2014-10-22T17:56:48+08:00</updated>
     <id>http://gxbsst.github.io/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-?</id>
-    <content type="html"><![CDATA[<p><img class="left" src="http://gxbsst.github.io/images/anguarjs-service.png" width="700" title="image" alt="images"></p>
+    <content type="html"><![CDATA[<p><img class="left" src="/images/anguarjs-service.png" width="700" title="&lsquo;image&rsquo; &lsquo;images&rsquo;" ></p>
 ]]></content>
   </entry>
   
