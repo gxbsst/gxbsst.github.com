@@ -1,12 +1,7 @@
 ---
 layout: post
 title: "test post"
-date: 2014-10-22 11:52:23 +0800
+date: 2014-10-22 13:25:11 +0800
 comments: true
-categories: ruby
+categories: 
 ---
-
-#看这张图就可以知道什么
-
-这里时内容
-
