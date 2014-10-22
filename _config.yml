@@ -2,12 +2,13 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+url: http://gxbsst.github.io
+title: 韦旭红的幸福时光
+subtitle: 20，30，40...
+author: Weston Wei(韦旭红)
 simple_search: https://www.google.com/search
-description:
+description:	这个是一个个人博客，记录生活（厨艺），技术(Javascript/AngularJs/Ruby/Ruby On Rails/CSS/HTML5)等，还有我可以的大儿子韦晰(Simon) ^_^
+
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
