@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: 技术感想 | 韦旭红的幸福时光]]></title>
-  <link href="http://www.weixuhong.com/blog/categories/ji-zhu-gan-xiang/atom.xml" rel="self"/>
-  <link href="http://www.weixuhong.com/"/>
-  <updated>2014-10-23T17:52:25+08:00</updated>
-  <id>http://www.weixuhong.com/</id>
+  <link href="http://weixuhong.com/blog/categories/ji-zhu-gan-xiang/atom.xml" rel="self"/>
+  <link href="http://weixuhong.com/"/>
+  <updated>2014-10-23T18:26:05+08:00</updated>
+  <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Rubymine 不能输入中文？]]></title>
-    <link href="http://www.weixuhong.com/archives/595"/>
+    <link href="http://weixuhong.com/archives/595"/>
     <updated>2014-05-07T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/rubymine-%e4%b8%8d%e8%83%bd%e8%be%93%e5%85%a5%e4%b8%ad%e6%96%87%ef%bc%9f</id>
+    <id>http://weixuhong.com/archives/rubymine-%e4%b8%8d%e8%83%bd%e8%be%93%e5%85%a5%e4%b8%ad%e6%96%87%ef%bc%9f</id>
     <content type="html"><![CDATA[<p>如果你的rubymine 不能输入中文，请做这样的修改:</p>
 
 <p> </p>
@@ -50,9 +50,9 @@
   
   <entry>
     <title type="html"><![CDATA[关于backbone _.bindAll]]></title>
-    <link href="http://www.weixuhong.com/archives/563"/>
+    <link href="http://weixuhong.com/archives/563"/>
     <updated>2011-10-13T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e5%85%b3%e4%ba%8ebackbone-_-bindall</id>
+    <id>http://weixuhong.com/archives/%e5%85%b3%e4%ba%8ebackbone-_-bindall</id>
     <content type="html"><![CDATA[<pre lang="javasript">_.bindAll(this, 'render');
             this.model.bind('change', this.render);
 
@@ -100,9 +100,9 @@
   
   <entry>
     <title type="html"><![CDATA[APIdock in Textmate]]></title>
-    <link href="http://www.weixuhong.com/archives/561"/>
+    <link href="http://weixuhong.com/archives/561"/>
     <updated>2011-10-08T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/apidock-in-textmate</id>
+    <id>http://weixuhong.com/archives/apidock-in-textmate</id>
     <content type="html"><![CDATA[<pre lang="c">% mkdir -p ~/Library/Application Support/Textmate/Bundles
 % cd ~/Library/Application Support/Textmate/Bundles
 % git clone git://github.com/lautis/ruby-on-rails-tmbundle.git "Ruby on Rails.tmbundle"
@@ -117,9 +117,9 @@
   
   <entry>
     <title type="html"><![CDATA[使用VIM/VI批量替换]]></title>
-    <link href="http://www.weixuhong.com/archives/519"/>
+    <link href="http://weixuhong.com/archives/519"/>
     <updated>2011-06-28T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e4%bd%bf%e7%94%a8vimvi%e6%89%b9%e9%87%8f%e6%9b%bf%e6%8d%a2</id>
+    <id>http://weixuhong.com/archives/%e4%bd%bf%e7%94%a8vimvi%e6%89%b9%e9%87%8f%e6%9b%bf%e6%8d%a2</id>
     <content type="html"><![CDATA[<ol>
 <li>首先打开多个文件</li>
 </ol>
@@ -160,9 +160,9 @@ done
   
   <entry>
     <title type="html"><![CDATA[IOS开发资源推荐]]></title>
-    <link href="http://www.weixuhong.com/archives/503"/>
+    <link href="http://weixuhong.com/archives/503"/>
     <updated>2011-06-21T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/ios</id>
+    <id>http://weixuhong.com/archives/ios</id>
     <content type="html"><![CDATA[<p>以下列举自己常用的IOS开发资源(不断更新):</p>
 
 <p><a href="http://www.ios-developer.net/iphone-ipad-programmer">Our resources for other geeks, designers and engineers.(推荐)</a></p>

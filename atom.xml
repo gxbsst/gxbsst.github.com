@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[韦旭红的幸福时光]]></title>
-  <link href="http://www.weixuhong.com/atom.xml" rel="self"/>
-  <link href="http://www.weixuhong.com/"/>
-  <updated>2014-10-23T17:52:25+08:00</updated>
-  <id>http://www.weixuhong.com/</id>
+  <link href="http://weixuhong.com/atom.xml" rel="self"/>
+  <link href="http://weixuhong.com/"/>
+  <updated>2014-10-23T18:26:05+08:00</updated>
+  <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Rubymine 不能输入中文？]]></title>
-    <link href="http://www.weixuhong.com/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/"/>
+    <link href="http://weixuhong.com/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/"/>
     <updated>2014-10-23T10:14:26+08:00</updated>
-    <id>http://www.weixuhong.com/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-?</id>
+    <id>http://weixuhong.com/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-?</id>
     <content type="html"><![CDATA[<p>如果你的rubymine 不能输入中文，请做这样的修改:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -53,41 +53,41 @@
   
   <entry>
     <title type="html"><![CDATA[看了解AngularJs的指令中的@,=]]></title>
-    <link href="http://www.weixuhong.com/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/"/>
+    <link href="http://weixuhong.com/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/"/>
     <updated>2014-10-22T18:08:15+08:00</updated>
-    <id>http://www.weixuhong.com/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals</id>
+    <id>http://weixuhong.com/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals</id>
     <content type="html"><![CDATA[<h3>Attribute Isolated Scope</h3>
 
 <p>Defined with an @ symbolBinds a local scope property to the value of a DOM attribute The binding is uni-directional from parent to directiveThe result is always a string because DOM attributes are strings</p>
 
-<p><img src="http://www.weixuhong.com/images/directive_1.png" width="600" title="image" alt="images"></p>
+<p><img src="http://weixuhong.com/images/directive_1.png" width="600" title="image" alt="images"></p>
 
 <h3>Binding Isolated Scope</h3>
 
 <p>Defined with an = symbolBi-directional binding between parent and directive You can define the binding as optional via =? Optimal for dealing with objects and collections</p>
 
-<p><img src="http://www.weixuhong.com/images/directive_2.png" width="600" title="image" alt="images"></p>
+<p><img src="http://weixuhong.com/images/directive_2.png" width="600" title="image" alt="images"></p>
 
 <h3>Expression Isolated Scope</h3>
 
-<p>Defined using an &amp; symbolAllows you to execute an expression on the parent scope To pass variables from child to parent expressions you must use an object map<img src="http://www.weixuhong.com/images/directive_3.png" width="600" title="image" alt="images"></p>
+<p>Defined using an &amp; symbolAllows you to execute an expression on the parent scope To pass variables from child to parent expressions you must use an object map<img src="http://weixuhong.com/images/directive_3.png" width="600" title="image" alt="images"></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[为AngularJs的Service 是单例？]]></title>
-    <link href="http://www.weixuhong.com/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/"/>
+    <link href="http://weixuhong.com/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/"/>
     <updated>2014-10-22T17:56:48+08:00</updated>
-    <id>http://www.weixuhong.com/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-?</id>
-    <content type="html"><![CDATA[<p><img class="left" src="http://www.weixuhong.com/images/anguarjs-service.png" width="7"></p>
+    <id>http://weixuhong.com/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-?</id>
+    <content type="html"><![CDATA[<p><img class="left" src="http://weixuhong.com/images/anguarjs-service.png" width="7"></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[为什么说AngularJs的Service是单例？]]></title>
-    <link href="http://www.weixuhong.com/archives/602"/>
+    <link href="http://weixuhong.com/archives/602"/>
     <updated>2014-10-21T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e4%b8%ba%e4%bb%80%e4%b9%88%e8%af%b4angularjs%e7%9a%84service%e6%98%af%e5%8d%95%e4%be%8b%ef%bc%9f</id>
+    <id>http://weixuhong.com/archives/%e4%b8%ba%e4%bb%80%e4%b9%88%e8%af%b4angularjs%e7%9a%84service%e6%98%af%e5%8d%95%e4%be%8b%ef%bc%9f</id>
     <content type="html"><![CDATA[<p>看这张图够清楚了吧!</p>
 
 <p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/602">为什么说AngularJs的Service是单例？</a></p>
@@ -96,9 +96,9 @@
   
   <entry>
     <title type="html"><![CDATA[Rubymine 不能输入中文？]]></title>
-    <link href="http://www.weixuhong.com/archives/595"/>
+    <link href="http://weixuhong.com/archives/595"/>
     <updated>2014-05-07T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/rubymine-%e4%b8%8d%e8%83%bd%e8%be%93%e5%85%a5%e4%b8%ad%e6%96%87%ef%bc%9f</id>
+    <id>http://weixuhong.com/archives/rubymine-%e4%b8%8d%e8%83%bd%e8%be%93%e5%85%a5%e4%b8%ad%e6%96%87%ef%bc%9f</id>
     <content type="html"><![CDATA[<p>如果你的rubymine 不能输入中文，请做这样的修改:</p>
 
 <p> </p>
@@ -131,9 +131,9 @@
   
   <entry>
     <title type="html"><![CDATA[推荐一个高质量的技术博客]]></title>
-    <link href="http://www.weixuhong.com/archives/593"/>
+    <link href="http://weixuhong.com/archives/593"/>
     <updated>2014-04-25T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e6%8e%a8%e8%8d%90%e4%b8%80%e4%b8%aa%e9%ab%98%e8%b4%a8%e9%87%8f%e7%9a%84%e6%8a%80%e6%9c%af%e5%8d%9a%e5%ae%a2</id>
+    <id>http://weixuhong.com/archives/%e6%8e%a8%e8%8d%90%e4%b8%80%e4%b8%aa%e9%ab%98%e8%b4%a8%e9%87%8f%e7%9a%84%e6%8a%80%e6%9c%af%e5%8d%9a%e5%ae%a2</id>
     <content type="html"><![CDATA[<p><a href="http://www.integralist.co.uk">http://www.integralist.co.uk</a></p>
 
 <p> </p>
@@ -146,9 +146,9 @@
   
   <entry>
     <title type="html"><![CDATA[马尔代夫－卡尼岛(Kani)]]></title>
-    <link href="http://www.weixuhong.com/archives/591"/>
+    <link href="http://weixuhong.com/archives/591"/>
     <updated>2013-05-05T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e9%a9%ac%e5%b0%94%e4%bb%a3%e5%a4%ab%ef%bc%8d%e5%8d%a1%e5%b0%bc%e5%b2%9b</id>
+    <id>http://weixuhong.com/archives/%e9%a9%ac%e5%b0%94%e4%bb%a3%e5%a4%ab%ef%bc%8d%e5%8d%a1%e5%b0%bc%e5%b2%9b</id>
     <content type="html"><![CDATA[<p>值得再去一次的地方, 吃的喝的都免费</p>
 
 <p>离4月19日度假归来已经4天， 但是一回到家，就伴随着耳鸣、咳嗽，流鼻涕、全身乏力， 一直到今天还是如此;-(， 相当难受！</p>
@@ -161,21 +161,21 @@
 
 <p>）， 行程为6日4晚， 意思就是两天在飞机， 4天在岛上。</p>
 
-<p><img src="http://www.weixuhong.com/content/uploads/psu-2.jpeg" alt="" /></p>
+<p><img src="http://weixuhong.com/content/uploads/psu-2.jpeg" alt="" /></p>
 
-<p><img src="http://www.weixuhong.com/content/uploads/psu.jpeg" alt="" /></p>
+<p><img src="http://weixuhong.com/content/uploads/psu.jpeg" alt="" /></p>
 
-<p><img src="http://www.weixuhong.com/content/uploads/psu-3.jpeg" alt="" /></p>
+<p><img src="http://weixuhong.com/content/uploads/psu-3.jpeg" alt="" /></p>
 
-<p><img src="http://www.weixuhong.com/content/uploads/psu-4.jpeg" alt="" /></p>
+<p><img src="http://weixuhong.com/content/uploads/psu-4.jpeg" alt="" /></p>
 
-<p><img src="http://www.weixuhong.com/content/uploads/psu-5.jpeg" alt="" /></p>
+<p><img src="http://weixuhong.com/content/uploads/psu-5.jpeg" alt="" /></p>
 
-<p><img src="http://www.weixuhong.com/content/uploads/psu-6.jpeg" alt="" /></p>
+<p><img src="http://weixuhong.com/content/uploads/psu-6.jpeg" alt="" /></p>
 
-<p><img src="http://www.weixuhong.com/content/uploads/psu-7.jpeg" alt="" /></p>
+<p><img src="http://weixuhong.com/content/uploads/psu-7.jpeg" alt="" /></p>
 
-<p><img src="http://www.weixuhong.com/content/uploads/psu-8.jpeg" alt="" /></p>
+<p><img src="http://weixuhong.com/content/uploads/psu-8.jpeg" alt="" /></p>
 
 <p>我们4月14日启程， 刚开始不顺利， 早上我闹钟不醒， 我没有洗漱就出门， 接着是我的Parter 忘记带了护照， 还好有磁悬浮， 最终我们顺利赶到机场， 乘坐新加坡航空飞6个小时到新加坡，然后等7个小时， 再从新加坡飞4个小时到达马尔代夫马累机场，然后坐30分钟的船， 晚上10点（北京时间4月15日凌晨1点）到达卡尼岛。</p>
 
@@ -239,9 +239,9 @@
   
   <entry>
     <title type="html"><![CDATA[关于backbone _.bindAll]]></title>
-    <link href="http://www.weixuhong.com/archives/563"/>
+    <link href="http://weixuhong.com/archives/563"/>
     <updated>2011-10-13T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e5%85%b3%e4%ba%8ebackbone-_-bindall</id>
+    <id>http://weixuhong.com/archives/%e5%85%b3%e4%ba%8ebackbone-_-bindall</id>
     <content type="html"><![CDATA[<pre lang="javasript">_.bindAll(this, 'render');
             this.model.bind('change', this.render);
 
@@ -289,9 +289,9 @@
   
   <entry>
     <title type="html"><![CDATA[APIdock in Textmate]]></title>
-    <link href="http://www.weixuhong.com/archives/561"/>
+    <link href="http://weixuhong.com/archives/561"/>
     <updated>2011-10-08T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/apidock-in-textmate</id>
+    <id>http://weixuhong.com/archives/apidock-in-textmate</id>
     <content type="html"><![CDATA[<pre lang="c">% mkdir -p ~/Library/Application Support/Textmate/Bundles
 % cd ~/Library/Application Support/Textmate/Bundles
 % git clone git://github.com/lautis/ruby-on-rails-tmbundle.git "Ruby on Rails.tmbundle"
@@ -306,9 +306,9 @@
   
   <entry>
     <title type="html"><![CDATA[安装passenger for Rails3]]></title>
-    <link href="http://www.weixuhong.com/archives/557"/>
+    <link href="http://weixuhong.com/archives/557"/>
     <updated>2011-09-07T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e5%ae%89%e8%a3%85passenger-for-rails3</id>
+    <id>http://weixuhong.com/archives/%e5%ae%89%e8%a3%85passenger-for-rails3</id>
     <content type="html"><![CDATA[<pre lang="c">gem install passenger
 
 </pre>
@@ -363,9 +363,9 @@ yum install httpd-devel
   
   <entry>
     <title type="html"><![CDATA[如果使用ruby Gem Redis查看redis的keys]]></title>
-    <link href="http://www.weixuhong.com/archives/553"/>
+    <link href="http://weixuhong.com/archives/553"/>
     <updated>2011-08-04T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e5%a6%82%e6%9e%9c%e4%bd%bf%e7%94%a8ruby-gem-redis%e6%9f%a5%e7%9c%8bredis%e7%9a%84keys</id>
+    <id>http://weixuhong.com/archives/%e5%a6%82%e6%9e%9c%e4%bd%bf%e7%94%a8ruby-gem-redis%e6%9f%a5%e7%9c%8bredis%e7%9a%84keys</id>
     <content type="html"><![CDATA[<pre lang="ruby">irb(main):002:0> require 'rubygems'
 => true
 irb(main):003:0> require 'redis'
@@ -389,9 +389,9 @@ r.sort("Listen:1")
   
   <entry>
     <title type="html"><![CDATA[Rails 3.1 Mountable Engines 使用方法]]></title>
-    <link href="http://www.weixuhong.com/archives/551"/>
+    <link href="http://weixuhong.com/archives/551"/>
     <updated>2011-08-01T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/rails-3-1-mountable-engines-%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95</id>
+    <id>http://weixuhong.com/archives/rails-3-1-mountable-engines-%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95</id>
     <content type="html"><![CDATA[<p>在了解 Moutable之前， 先看这个视频：</p>
 
 <p><a href="http://railscasts.com/episodes/277-mountable-engines">http://railscasts.com/episodes/277-mountable-engines</a></p>
@@ -443,9 +443,9 @@ vim config/routs.rb
   
   <entry>
     <title type="html"><![CDATA[关于Rails使用Callback和Observer的区别]]></title>
-    <link href="http://www.weixuhong.com/archives/547"/>
+    <link href="http://weixuhong.com/archives/547"/>
     <updated>2011-07-27T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e5%85%b3%e4%ba%8erails%e4%bd%bf%e7%94%a8callback%e5%92%8cobserver%e7%9a%84%e5%8c%ba%e5%88%ab</id>
+    <id>http://weixuhong.com/archives/%e5%85%b3%e4%ba%8erails%e4%bd%bf%e7%94%a8callback%e5%92%8cobserver%e7%9a%84%e5%8c%ba%e5%88%ab</id>
     <content type="html"><![CDATA[<p>可以参考：</p>
 
 <p><a href="http://stackoverflow.com/questions/1531514/observers-vs-callbacks">http://stackoverflow.com/questions/1531514/observers-vs-callbacks</a></p>
@@ -484,9 +484,9 @@ m.update_attributes(:name => "mary")
   
   <entry>
     <title type="html"><![CDATA[Rails 3, RSpec, Cucumber, jQuery, Devise, Mongoid, and Compass(转)]]></title>
-    <link href="http://www.weixuhong.com/archives/545"/>
+    <link href="http://weixuhong.com/archives/545"/>
     <updated>2011-07-19T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/rails-3-rspec-cucumber-jquery-devise-mongoid-and-compass%e8%bd%ac</id>
+    <id>http://weixuhong.com/archives/rails-3-rspec-cucumber-jquery-devise-mongoid-and-compass%e8%bd%ac</id>
     <content type="html"><![CDATA[<p>来源:<a href="http://jimdrannbauer.com/2011/01/29/rails-3-rspec-cucumber-jquery-devise-mongoid-and-compass/">http://jimdrannbauer.com/2011/01/29/rails-3-rspec-cucumber-jquery-devise-mongoid-and-compass/</a></p>
 
 <p>Want to build a Rails 3 app with this stuff?</p>
@@ -1154,9 +1154,9 @@ Compass/Haml/Sass/Blueprintcss
   
   <entry>
     <title type="html"><![CDATA[常用gem]]></title>
-    <link href="http://www.weixuhong.com/archives/537"/>
+    <link href="http://weixuhong.com/archives/537"/>
     <updated>2011-07-18T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e5%b8%b8%e7%94%a8gem</id>
+    <id>http://weixuhong.com/archives/%e5%b8%b8%e7%94%a8gem</id>
     <content type="html"><![CDATA[<pre lang="ruby">source 'http://rubygems.org'
 
 # --------------------
@@ -1240,9 +1240,9 @@ end
   
   <entry>
     <title type="html"><![CDATA[小组级git服务器搭建（转)]]></title>
-    <link href="http://www.weixuhong.com/archives/541"/>
+    <link href="http://weixuhong.com/archives/541"/>
     <updated>2011-07-18T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e5%b0%8f%e7%bb%84%e7%ba%a7git%e6%9c%8d%e5%8a%a1%e5%99%a8%e6%90%ad%e5%bb%ba%ef%bc%88%e8%bd%ac</id>
+    <id>http://weixuhong.com/archives/%e5%b0%8f%e7%bb%84%e7%ba%a7git%e6%9c%8d%e5%8a%a1%e5%99%a8%e6%90%ad%e5%bb%ba%ef%bc%88%e8%bd%ac</id>
     <content type="html"><![CDATA[<p>来自：<a href="http://blog.prosight.me/index.php/2009/11/485">http://blog.prosight.me/index.php/2009/11/485</a></p>
 
 <p>如果使用git的人数较少，可以使用下面的步骤快速部署一个git服务器环境。<br/>
@@ -1358,9 +1358,9 @@ Connection to gitserver closed. （gitserver 连接已断开。）</p>
   
   <entry>
     <title type="html"><![CDATA[RuntimeError (!!! Missing the Mysql2 Gem. Add It to Your Gemfile: Gem &#8216;mysql2&#8242;):]]></title>
-    <link href="http://www.weixuhong.com/archives/533"/>
+    <link href="http://weixuhong.com/archives/533"/>
     <updated>2011-07-07T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/runtimeerror-missing-the-mysql2-gem-add-it-to-your-gemfile-gem-mysql2</id>
+    <id>http://weixuhong.com/archives/runtimeerror-missing-the-mysql2-gem-add-it-to-your-gemfile-gem-mysql2</id>
     <content type="html"><![CDATA[<p>在Rails3 出现这个错误，做以下工作:</p>
 
 <ol>
@@ -1407,9 +1407,9 @@ Connection to gitserver closed. （gitserver 连接已断开。）</p>
   
   <entry>
     <title type="html"><![CDATA[导入Three20]]></title>
-    <link href="http://www.weixuhong.com/archives/531"/>
+    <link href="http://weixuhong.com/archives/531"/>
     <updated>2011-07-07T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e5%af%bc%e5%85%a5three20</id>
+    <id>http://weixuhong.com/archives/%e5%af%bc%e5%85%a5three20</id>
     <content type="html"><![CDATA[<pre lang="c">sudo python three20/src/scripts/ttmodule.py -p /Users/weston/LearnIphone/Three20_hello/Three20_hello.xcodeproj:Three20_hello  Three20  -c Debug -c Release
 </pre>
 
@@ -1420,9 +1420,9 @@ Connection to gitserver closed. （gitserver 连接已断开。）</p>
   
   <entry>
     <title type="html"><![CDATA[Objective-c Enum 与 Typedef]]></title>
-    <link href="http://www.weixuhong.com/archives/529"/>
+    <link href="http://weixuhong.com/archives/529"/>
     <updated>2011-07-06T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/objective-c-enum-%e4%b8%8e-typedef</id>
+    <id>http://weixuhong.com/archives/objective-c-enum-%e4%b8%8e-typedef</id>
     <content type="html"><![CDATA[<p>今天看到enum 和 typedef， 在两个小节中书中分别出现了2个例子，如下<br/>
 enum direction {north, south, east, west};<br/>
 typedef enum {north, south, east, west} direction;<br/>
@@ -1445,9 +1445,9 @@ typedef enum {north, south, east, west} direction;<br/>
   
   <entry>
     <title type="html"><![CDATA[Objective-C 入门知识（转)]]></title>
-    <link href="http://www.weixuhong.com/archives/525"/>
+    <link href="http://weixuhong.com/archives/525"/>
     <updated>2011-07-06T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/objective-c-%e5%85%a5%e9%97%a8%e7%9f%a5%e8%af%86%ef%bc%88%e8%bd%ac</id>
+    <id>http://weixuhong.com/archives/objective-c-%e5%85%a5%e9%97%a8%e7%9f%a5%e8%af%86%ef%bc%88%e8%bd%ac</id>
     <content type="html"><![CDATA[<p>罗朝辉（<a href="http://www.cppblog.com/kesalin%EF%BC%89">http://www.cppblog.com/kesalin%EF%BC%89</a></p>
 
 <p>转载请注明出处</p>

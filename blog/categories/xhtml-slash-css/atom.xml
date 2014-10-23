@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Xhtml/css | 韦旭红的幸福时光]]></title>
-  <link href="http://www.weixuhong.com/blog/categories/xhtml-slash-css/atom.xml" rel="self"/>
-  <link href="http://www.weixuhong.com/"/>
-  <updated>2014-10-23T17:52:25+08:00</updated>
-  <id>http://www.weixuhong.com/</id>
+  <link href="http://weixuhong.com/blog/categories/xhtml-slash-css/atom.xml" rel="self"/>
+  <link href="http://weixuhong.com/"/>
+  <updated>2014-10-23T18:26:05+08:00</updated>
+  <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[如何使用html5播放flash]]></title>
-    <link href="http://www.weixuhong.com/archives/443"/>
+    <link href="http://weixuhong.com/archives/443"/>
     <updated>2010-01-29T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8html5%e6%92%ad%e6%94%beflash</id>
+    <id>http://weixuhong.com/archives/%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8html5%e6%92%ad%e6%94%beflash</id>
     <content type="html"><![CDATA[<p><img src="http://www.weixuhong.com/content/uploads/2010/01/Screen-shot-2010-01-30-at-1.47.27-AM.png" alt="Screen shot 2010-01-30 at 1.47.27 AM.png" border="0" width="652" height="373" /><br/>
 [code lang=&ldquo;html&rdquo;]</p>
 
@@ -74,9 +74,9 @@ Alternatively, you may use the video download links to the right.
   
   <entry>
     <title type="html"><![CDATA[业余设计作品（1）]]></title>
-    <link href="http://www.weixuhong.com/archives/327"/>
+    <link href="http://weixuhong.com/archives/327"/>
     <updated>2009-11-14T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e4%b8%9a%e4%bd%99%e8%ae%be%e8%ae%a1%e4%bd%9c%e5%93%81%ef%bc%881%ef%bc%89</id>
+    <id>http://weixuhong.com/archives/%e4%b8%9a%e4%bd%99%e8%ae%be%e8%ae%a1%e4%bd%9c%e5%93%81%ef%bc%881%ef%bc%89</id>
     <content type="html"><![CDATA[<p>最近闲来没事，帮一个公司设计一个产品展示网站， 但是实际证明，设计真的不是我的强项。</p>
 
 <p>最终的网站成型: www.petitavril.com</p>
@@ -93,9 +93,9 @@ Alternatively, you may use the video download links to the right.
   
   <entry>
     <title type="html"><![CDATA[SEO参考]]></title>
-    <link href="http://www.weixuhong.com/archives/291"/>
+    <link href="http://weixuhong.com/archives/291"/>
     <updated>2009-09-17T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/seo%e5%8f%82%e8%80%83</id>
+    <id>http://weixuhong.com/archives/seo%e5%8f%82%e8%80%83</id>
     <content type="html"><![CDATA[<p><a href="http://www.weixuhong.com/content/uploads/2009/09/SEO_Web_Developer_Cheat_Sheet.pdf" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/09/SEO_Web_Developer_Cheat_Sheet.pdf','popup','width=1024,height=768,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/09/SEO_Web_Developer_Cheat_Sheet-tm.jpg" height="500" width="666" border="1" hspace="4" vspace="4" alt="Seo Web Developer Cheat Sheet" /></a><br/>
 有大量关于标签、定向、站点地图语法、robots.txt 语法等等的信息。以小手册的形式给出了大量有用的信息。SEO 工作者必备。</p>
 
@@ -105,9 +105,9 @@ Alternatively, you may use the video download links to the right.
   
   <entry>
     <title type="html"><![CDATA[HTML5手册]]></title>
-    <link href="http://www.weixuhong.com/archives/276"/>
+    <link href="http://weixuhong.com/archives/276"/>
     <updated>2009-09-08T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/html5%e6%89%8b%e5%86%8c</id>
+    <id>http://weixuhong.com/archives/html5%e6%89%8b%e5%86%8c</id>
     <content type="html"><![CDATA[<p><a href="http://www.weixuhong.com/content/uploads/2009/09/WOORK-HTML-5-Cheat-Sheet-1.jpg" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/09/WOORK-HTML-5-Cheat-Sheet-1.jpg','popup','width=4961,height=3508,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/09/WOORK-HTML-5-Cheat-Sheet-1-tm.jpg" height="400" width="565" border="1" hspace="4" vspace="4" alt="Woork - Html 5 Cheat Sheet-1" /></a></p>
 
 <p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/276">HTML5手册</a></p>
@@ -116,9 +116,9 @@ Alternatively, you may use the video download links to the right.
   
   <entry>
     <title type="html"><![CDATA[How a Browser Uses HTTP to Display a Simple HTML Resource]]></title>
-    <link href="http://www.weixuhong.com/archives/272"/>
+    <link href="http://weixuhong.com/archives/272"/>
     <updated>2009-09-05T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/how-a-browser-uses-http-to-display-a-simple-html-resource</id>
+    <id>http://weixuhong.com/archives/how-a-browser-uses-http-to-display-a-simple-html-resource</id>
     <content type="html"><![CDATA[<ul>
 <li><span style="font-family:STHeiti;">这</span>个是来自《<span style="font-family:serif;">HTTP The Definitive Guide</span>》的解<span style="font-family:STHeiti;">释</span>，当然<span style="font-family:STHeiti;">这</span>个只是<span style="font-family:STHeiti;">层</span>面上的解<span style="font-family:STHeiti;">释</span>，如果要理解底<span style="font-family:STHeiti;">层</span>的<span style="font-family:STHeiti;">知识，应该看《unix网络编程><br /> </span><br/>
 (a)<br/>

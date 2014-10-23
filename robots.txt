@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://www.weixuhong.com/sitemap.xml 
+Sitemap: http://weixuhong.com/sitemap.xml 

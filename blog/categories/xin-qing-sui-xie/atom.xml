@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: 心情随写 | 韦旭红的幸福时光]]></title>
-  <link href="http://www.weixuhong.com/blog/categories/xin-qing-sui-xie/atom.xml" rel="self"/>
-  <link href="http://www.weixuhong.com/"/>
-  <updated>2014-10-23T17:52:25+08:00</updated>
-  <id>http://www.weixuhong.com/</id>
+  <link href="http://weixuhong.com/blog/categories/xin-qing-sui-xie/atom.xml" rel="self"/>
+  <link href="http://weixuhong.com/"/>
+  <updated>2014-10-23T18:26:05+08:00</updated>
+  <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Disable/enable Spotlight on Mac]]></title>
-    <link href="http://www.weixuhong.com/archives/496"/>
+    <link href="http://weixuhong.com/archives/496"/>
     <updated>2010-11-12T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/mac</id>
+    <id>http://weixuhong.com/archives/mac</id>
     <content type="html"><![CDATA[<p>Disabling Spotlight<br/>
 Launch Terminal and type the following: sudo nano /etc/hostconfig<br/>
 Navigate using the arrow keys down the following entry: SPOTLIGHT=-YES-<br/>
@@ -63,9 +63,9 @@ Reboot, and Spotlight is back as usual</p>
   
   <entry>
     <title type="html"><![CDATA[配置RT的rt-mailgate在Postfix , Extmail]]></title>
-    <link href="http://www.weixuhong.com/archives/487"/>
+    <link href="http://weixuhong.com/archives/487"/>
     <updated>2010-10-21T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/postfix-rt-mailgate-extmail</id>
+    <id>http://weixuhong.com/archives/postfix-rt-mailgate-extmail</id>
     <content type="html"><![CDATA[<p>请参考这个地方配置：</p>
 
 <p><a href="http://www.ptitov.net/2008/07/request-tracker-installation-o.html">http://www.ptitov.net/2008/07/request-tracker-installation-o.html</a></p>
@@ -98,9 +98,9 @@ Reboot, and Spotlight is back as usual</p>
   
   <entry>
     <title type="html"><![CDATA[关于iPhone的outlet, Delegate, Window, File&#8217;s Owner的关系(本文逻辑有欠紧密，请不要随便转载，以免误人子弟)]]></title>
-    <link href="http://www.weixuhong.com/archives/476"/>
+    <link href="http://weixuhong.com/archives/476"/>
     <updated>2010-04-14T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e5%85%b3%e4%ba%8eiphone%e7%9a%84outlet-delegate-window-files-owner%e7%9a%84%e5%85%b3%e7%b3%bb%e6%9c%ac%e6%96%87%e9%80%bb%e8%be%91%e6%9c%89%e6%ac%a0%e7%b4%a7%e5%af%86%ef%bc%8c%e8%af%b7%e4%b8%8d</id>
+    <id>http://weixuhong.com/archives/%e5%85%b3%e4%ba%8eiphone%e7%9a%84outlet-delegate-window-files-owner%e7%9a%84%e5%85%b3%e7%b3%bb%e6%9c%ac%e6%96%87%e9%80%bb%e8%be%91%e6%9c%89%e6%ac%a0%e7%b4%a7%e5%af%86%ef%bc%8c%e8%af%b7%e4%b8%8d</id>
     <content type="html"><![CDATA[<p>*本文仅供参考，不是权威教程，欢迎讨论</p>
 
 <div style="text-align:center;">
@@ -200,9 +200,9 @@ SwitchViewController </em>switchViewController;<br/>
   
   <entry>
     <title type="html"><![CDATA[如果使用SSH隧道翻墙上网&#8211;Windows 篇(原创)]]></title>
-    <link href="http://www.weixuhong.com/archives/341"/>
+    <link href="http://weixuhong.com/archives/341"/>
     <updated>2009-11-30T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e5%a6%82%e6%9e%9c%e4%bd%bf%e7%94%a8ssh%e9%9a%a7%e9%81%93%e7%bf%bb%e5%a2%99%e4%b8%8a%e7%bd%91-windows-%e7%af%87%e5%8e%9f%e5%88%9b</id>
+    <id>http://weixuhong.com/archives/%e5%a6%82%e6%9e%9c%e4%bd%bf%e7%94%a8ssh%e9%9a%a7%e9%81%93%e7%bf%bb%e5%a2%99%e4%b8%8a%e7%bd%91-windows-%e7%af%87%e5%8e%9f%e5%88%9b</id>
     <content type="html"><![CDATA[<p><span style="color:#ff0000;"><strong>更新（重要</strong></span><span style="color:#ff0000;"><strong>):</strong></span><br/>
 新版FroxyProxy做了一个很<span style="font-family:STHeiti;">重要功能的更新:</p> <p>
   将再全局设置中的“</span><span style="font-family:STHeiti;color:#ff0000;"><strong>使用SOCKS代理服务器查找DNS(U)&#8221;</strong></span><span style="font-family:STHeiti;">移除了，用每个Proxy设置来设置，而不是全局，如下图</p> <p>
@@ -231,9 +231,9 @@ SwitchViewController </em>switchViewController;<br/>
   
   <entry>
     <title type="html"><![CDATA[如果使用SSH隧道上网&#8211;For Mac篇]]></title>
-    <link href="http://www.weixuhong.com/archives/328"/>
+    <link href="http://weixuhong.com/archives/328"/>
     <updated>2009-11-14T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e5%a6%82%e6%9e%9c%e4%bd%bf%e7%94%a8ssh%e9%9a%a7%e9%81%93%e4%b8%8a%e7%bd%91-for-mac%e7%af%87</id>
+    <id>http://weixuhong.com/archives/%e5%a6%82%e6%9e%9c%e4%bd%bf%e7%94%a8ssh%e9%9a%a7%e9%81%93%e4%b8%8a%e7%bd%91-for-mac%e7%af%87</id>
     <content type="html"><![CDATA[<p>本教程限使用在Linux或者Mac下面，但是如果在Windows使用，原理一样(但是需要用Putty登录代理主机), 本教程或许需要你有一定的计算机知识，一些设置也可以在视频找到。</p>
 
 <ol>

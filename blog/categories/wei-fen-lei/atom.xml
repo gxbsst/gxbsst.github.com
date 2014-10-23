@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: 未分类 | 韦旭红的幸福时光]]></title>
-  <link href="http://www.weixuhong.com/blog/categories/wei-fen-lei/atom.xml" rel="self"/>
-  <link href="http://www.weixuhong.com/"/>
-  <updated>2014-10-23T17:52:25+08:00</updated>
-  <id>http://www.weixuhong.com/</id>
+  <link href="http://weixuhong.com/blog/categories/wei-fen-lei/atom.xml" rel="self"/>
+  <link href="http://weixuhong.com/"/>
+  <updated>2014-10-23T18:26:05+08:00</updated>
+  <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[为什么说AngularJs的Service是单例？]]></title>
-    <link href="http://www.weixuhong.com/archives/602"/>
+    <link href="http://weixuhong.com/archives/602"/>
     <updated>2014-10-21T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e4%b8%ba%e4%bb%80%e4%b9%88%e8%af%b4angularjs%e7%9a%84service%e6%98%af%e5%8d%95%e4%be%8b%ef%bc%9f</id>
+    <id>http://weixuhong.com/archives/%e4%b8%ba%e4%bb%80%e4%b9%88%e8%af%b4angularjs%e7%9a%84service%e6%98%af%e5%8d%95%e4%be%8b%ef%bc%9f</id>
     <content type="html"><![CDATA[<p>看这张图够清楚了吧!</p>
 
 <p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/602">为什么说AngularJs的Service是单例？</a></p>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Ruby/ruby on Rails | 韦旭红的幸福时光]]></title>
-  <link href="http://www.weixuhong.com/blog/categories/ruby-slash-ruby-on-rails/atom.xml" rel="self"/>
-  <link href="http://www.weixuhong.com/"/>
-  <updated>2014-10-23T17:52:25+08:00</updated>
-  <id>http://www.weixuhong.com/</id>
+  <link href="http://weixuhong.com/blog/categories/ruby-slash-ruby-on-rails/atom.xml" rel="self"/>
+  <link href="http://weixuhong.com/"/>
+  <updated>2014-10-23T18:26:05+08:00</updated>
+  <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[安装passenger for Rails3]]></title>
-    <link href="http://www.weixuhong.com/archives/557"/>
+    <link href="http://weixuhong.com/archives/557"/>
     <updated>2011-09-07T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e5%ae%89%e8%a3%85passenger-for-rails3</id>
+    <id>http://weixuhong.com/archives/%e5%ae%89%e8%a3%85passenger-for-rails3</id>
     <content type="html"><![CDATA[<pre lang="c">gem install passenger
 
 </pre>
@@ -72,9 +72,9 @@ yum install httpd-devel
   
   <entry>
     <title type="html"><![CDATA[如果使用ruby Gem Redis查看redis的keys]]></title>
-    <link href="http://www.weixuhong.com/archives/553"/>
+    <link href="http://weixuhong.com/archives/553"/>
     <updated>2011-08-04T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e5%a6%82%e6%9e%9c%e4%bd%bf%e7%94%a8ruby-gem-redis%e6%9f%a5%e7%9c%8bredis%e7%9a%84keys</id>
+    <id>http://weixuhong.com/archives/%e5%a6%82%e6%9e%9c%e4%bd%bf%e7%94%a8ruby-gem-redis%e6%9f%a5%e7%9c%8bredis%e7%9a%84keys</id>
     <content type="html"><![CDATA[<pre lang="ruby">irb(main):002:0> require 'rubygems'
 => true
 irb(main):003:0> require 'redis'
@@ -98,9 +98,9 @@ r.sort("Listen:1")
   
   <entry>
     <title type="html"><![CDATA[Rails 3.1 Mountable Engines 使用方法]]></title>
-    <link href="http://www.weixuhong.com/archives/551"/>
+    <link href="http://weixuhong.com/archives/551"/>
     <updated>2011-08-01T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/rails-3-1-mountable-engines-%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95</id>
+    <id>http://weixuhong.com/archives/rails-3-1-mountable-engines-%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95</id>
     <content type="html"><![CDATA[<p>在了解 Moutable之前， 先看这个视频：</p>
 
 <p><a href="http://railscasts.com/episodes/277-mountable-engines">http://railscasts.com/episodes/277-mountable-engines</a></p>
@@ -152,9 +152,9 @@ vim config/routs.rb
   
   <entry>
     <title type="html"><![CDATA[关于Rails使用Callback和Observer的区别]]></title>
-    <link href="http://www.weixuhong.com/archives/547"/>
+    <link href="http://weixuhong.com/archives/547"/>
     <updated>2011-07-27T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e5%85%b3%e4%ba%8erails%e4%bd%bf%e7%94%a8callback%e5%92%8cobserver%e7%9a%84%e5%8c%ba%e5%88%ab</id>
+    <id>http://weixuhong.com/archives/%e5%85%b3%e4%ba%8erails%e4%bd%bf%e7%94%a8callback%e5%92%8cobserver%e7%9a%84%e5%8c%ba%e5%88%ab</id>
     <content type="html"><![CDATA[<p>可以参考：</p>
 
 <p><a href="http://stackoverflow.com/questions/1531514/observers-vs-callbacks">http://stackoverflow.com/questions/1531514/observers-vs-callbacks</a></p>
@@ -193,9 +193,9 @@ m.update_attributes(:name => "mary")
   
   <entry>
     <title type="html"><![CDATA[Rails 3, RSpec, Cucumber, jQuery, Devise, Mongoid, and Compass(转)]]></title>
-    <link href="http://www.weixuhong.com/archives/545"/>
+    <link href="http://weixuhong.com/archives/545"/>
     <updated>2011-07-19T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/rails-3-rspec-cucumber-jquery-devise-mongoid-and-compass%e8%bd%ac</id>
+    <id>http://weixuhong.com/archives/rails-3-rspec-cucumber-jquery-devise-mongoid-and-compass%e8%bd%ac</id>
     <content type="html"><![CDATA[<p>来源:<a href="http://jimdrannbauer.com/2011/01/29/rails-3-rspec-cucumber-jquery-devise-mongoid-and-compass/">http://jimdrannbauer.com/2011/01/29/rails-3-rspec-cucumber-jquery-devise-mongoid-and-compass/</a></p>
 
 <p>Want to build a Rails 3 app with this stuff?</p>

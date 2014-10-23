@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Linux/unix | 韦旭红的幸福时光]]></title>
-  <link href="http://www.weixuhong.com/blog/categories/linux-slash-unix/atom.xml" rel="self"/>
-  <link href="http://www.weixuhong.com/"/>
-  <updated>2014-10-23T17:52:25+08:00</updated>
-  <id>http://www.weixuhong.com/</id>
+  <link href="http://weixuhong.com/blog/categories/linux-slash-unix/atom.xml" rel="self"/>
+  <link href="http://weixuhong.com/"/>
+  <updated>2014-10-23T18:26:05+08:00</updated>
+  <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[小组级git服务器搭建（转)]]></title>
-    <link href="http://www.weixuhong.com/archives/541"/>
+    <link href="http://weixuhong.com/archives/541"/>
     <updated>2011-07-18T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e5%b0%8f%e7%bb%84%e7%ba%a7git%e6%9c%8d%e5%8a%a1%e5%99%a8%e6%90%ad%e5%bb%ba%ef%bc%88%e8%bd%ac</id>
+    <id>http://weixuhong.com/archives/%e5%b0%8f%e7%bb%84%e7%ba%a7git%e6%9c%8d%e5%8a%a1%e5%99%a8%e6%90%ad%e5%bb%ba%ef%bc%88%e8%bd%ac</id>
     <content type="html"><![CDATA[<p>来自：<a href="http://blog.prosight.me/index.php/2009/11/485">http://blog.prosight.me/index.php/2009/11/485</a></p>
 
 <p>如果使用git的人数较少，可以使用下面的步骤快速部署一个git服务器环境。<br/>
@@ -133,9 +133,9 @@ Connection to gitserver closed. （gitserver 连接已断开。）</p>
   
   <entry>
     <title type="html"><![CDATA[使用VIM/VI批量替换]]></title>
-    <link href="http://www.weixuhong.com/archives/519"/>
+    <link href="http://weixuhong.com/archives/519"/>
     <updated>2011-06-28T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e4%bd%bf%e7%94%a8vimvi%e6%89%b9%e9%87%8f%e6%9b%bf%e6%8d%a2</id>
+    <id>http://weixuhong.com/archives/%e4%bd%bf%e7%94%a8vimvi%e6%89%b9%e9%87%8f%e6%9b%bf%e6%8d%a2</id>
     <content type="html"><![CDATA[<ol>
 <li>首先打开多个文件</li>
 </ol>
@@ -176,9 +176,9 @@ done
   
   <entry>
     <title type="html"><![CDATA[TCP/IP状态变迁图]]></title>
-    <link href="http://www.weixuhong.com/archives/470"/>
+    <link href="http://weixuhong.com/archives/470"/>
     <updated>2010-02-06T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/tcp-ip-status</id>
+    <id>http://weixuhong.com/archives/tcp-ip-status</id>
     <content type="html"><![CDATA[<p><img src="http://www.weixuhong.com/content/uploads/2010/02/ddvshrpj_18c4drttfv.png" alt="ddvshrpj_18c4drttfv.png" border="0" width="694" height="1026" /></p>
 
 <p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/470">TCP/IP状态变迁图</a></p>
@@ -187,9 +187,9 @@ done
   
   <entry>
     <title type="html"><![CDATA[在Dreamhost上使用svnmailer]]></title>
-    <link href="http://www.weixuhong.com/archives/366"/>
+    <link href="http://weixuhong.com/archives/366"/>
     <updated>2010-01-05T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e5%9c%a8dreamhost%e4%b8%8a%e4%bd%bf%e7%94%a8svnmailer</id>
+    <id>http://weixuhong.com/archives/%e5%9c%a8dreamhost%e4%b8%8a%e4%bd%bf%e7%94%a8svnmailer</id>
     <content type="html"><![CDATA[<p>首先你要装好SVN,可以参考我以前的文章: <a href="http://weixuhong.com/%E6%8A%80%E6%9C%AF%E6%84%9F%E6%83%B3/2008/09/27/%E5%9C%A8dreamhost%E4%B8%8A%E9%85%8D%E7%BD%AEtrac-and-svn/">http://weixuhong.com/%E6%8A%80%E6%9C%AF%E6%84%9F%E6%83%B3/2008/09/27/%E5%9C%A8dreamhost%E4%B8%8A%E9%85%8D%E7%BD%AEtrac-and-svn/</a></p>
 
 <p>svnmailer官方网站: <a href="http://opensource.perlig.de">http://opensource.perlig.de</a></p>
@@ -214,7 +214,7 @@ smtp_host = localhost:25
 config_charset = utf-8</p></blockquote>
 
 <p>[author table]
-weston = <a href="&#109;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#x79;&#x6f;&#117;&#114;&#x65;&#x6d;&#x61;&#x69;&#108;&#x40;&#103;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#99;&#x6f;&#x6d;">&#121;&#x6f;&#x75;&#114;&#x65;&#x6d;&#97;&#105;&#108;&#64;&#x67;&#x6d;&#x61;&#105;&#x6c;&#46;&#x63;&#x6f;&#x6d;</a></p>
+weston = <a href="&#109;&#97;&#x69;&#108;&#116;&#111;&#58;&#x79;&#x6f;&#117;&#x72;&#x65;&#x6d;&#x61;&#105;&#108;&#64;&#103;&#109;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#109;">&#x79;&#x6f;&#x75;&#114;&#101;&#x6d;&#97;&#x69;&#x6c;&#64;&#x67;&#x6d;&#x61;&#105;&#x6c;&#46;&#99;&#x6f;&#109;</a></p>
 
 <p>[maps]
 from_addr = [author table]
@@ -235,7 +235,7 @@ mail_transfer_encoding = 8bit
 </p></p>
 
 <p><p>
-  * 其中smtp_host = localhost:25是你发送email的smtp服务器<br /> * weston = <a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#x6f;&#x3a;&#x79;&#x6f;&#x75;&#x72;&#101;&#x6d;&#97;&#105;&#x6c;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#121;&#x6f;&#x75;&#x72;&#101;&#109;&#97;&#105;&#x6c;&#64;&#103;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#x6d;</a> 是谁接收email
+  * 其中smtp_host = localhost:25是你发送email的smtp服务器<br /> * weston = <a href="&#109;&#x61;&#105;&#108;&#116;&#x6f;&#58;&#121;&#x6f;&#x75;&#x72;&#101;&#109;&#x61;&#x69;&#x6c;&#x40;&#103;&#x6d;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#109;">&#x79;&#111;&#117;&#114;&#101;&#109;&#97;&#105;&#x6c;&#64;&#103;&#x6d;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#109;</a> 是谁接收email
 </p></blockquote></p>
 
 <p><h4>
@@ -267,9 +267,9 @@ mail_transfer_encoding = 8bit
   
   <entry>
     <title type="html"><![CDATA[密钥协商的形象化比喻]]></title>
-    <link href="http://www.weixuhong.com/archives/301"/>
+    <link href="http://weixuhong.com/archives/301"/>
     <updated>2009-10-09T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e5%af%86%e9%92%a5%e5%8d%8f%e5%95%86%e7%9a%84%e5%bd%a2%e8%b1%a1%e5%8c%96%e6%af%94%e5%96%bb</id>
+    <id>http://weixuhong.com/archives/%e5%af%86%e9%92%a5%e5%8d%8f%e5%95%86%e7%9a%84%e5%bd%a2%e8%b1%a1%e5%8c%96%e6%af%94%e5%96%bb</id>
     <content type="html"><![CDATA[<p><span style="font-family:STHeiti;">详细</span>: <a href="http://www.nsfocus.net/index.php?act=magazine&amp;do=view&amp;mid=841">http://www.nsfocus.net/index.php?act=magazine&amp;do=view&amp;mid=841</a></p>
 
 <p>我<span style="font-family:STHeiti;">们假设</span>A与B通信，A是SSL客<span style="font-family:STHeiti;">户端，</span>B是SSL服<span style="font-family:STHeiti;">务器端，加密后的消息放在方括号</span>[]里，以突出明文消息的区别。双方的<span style="font-family:STHeiti;">处理动作的说明用圆括号（）括起。</span></p>

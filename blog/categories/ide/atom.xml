@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Ide | 韦旭红的幸福时光]]></title>
-  <link href="http://www.weixuhong.com/blog/categories/ide/atom.xml" rel="self"/>
-  <link href="http://www.weixuhong.com/"/>
-  <updated>2014-10-23T17:52:25+08:00</updated>
-  <id>http://www.weixuhong.com/</id>
+  <link href="http://weixuhong.com/blog/categories/ide/atom.xml" rel="self"/>
+  <link href="http://weixuhong.com/"/>
+  <updated>2014-10-23T18:26:05+08:00</updated>
+  <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Rubymine 不能输入中文？]]></title>
-    <link href="http://www.weixuhong.com/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/"/>
+    <link href="http://weixuhong.com/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/"/>
     <updated>2014-10-23T10:14:26+08:00</updated>
-    <id>http://www.weixuhong.com/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-?</id>
+    <id>http://weixuhong.com/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-?</id>
     <content type="html"><![CDATA[<p>如果你的rubymine 不能输入中文，请做这样的修改:</p>
 
 <pre><code class="bash"> vim /Applications/RubyMine.app/bin/idea.vmoptions

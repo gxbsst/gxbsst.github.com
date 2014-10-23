@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Ios | 韦旭红的幸福时光]]></title>
-  <link href="http://www.weixuhong.com/blog/categories/ios/atom.xml" rel="self"/>
-  <link href="http://www.weixuhong.com/"/>
-  <updated>2014-10-23T17:52:25+08:00</updated>
-  <id>http://www.weixuhong.com/</id>
+  <link href="http://weixuhong.com/blog/categories/ios/atom.xml" rel="self"/>
+  <link href="http://weixuhong.com/"/>
+  <updated>2014-10-23T18:26:05+08:00</updated>
+  <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[导入Three20]]></title>
-    <link href="http://www.weixuhong.com/archives/531"/>
+    <link href="http://weixuhong.com/archives/531"/>
     <updated>2011-07-07T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e5%af%bc%e5%85%a5three20</id>
+    <id>http://weixuhong.com/archives/%e5%af%bc%e5%85%a5three20</id>
     <content type="html"><![CDATA[<pre lang="c">sudo python three20/src/scripts/ttmodule.py -p /Users/weston/LearnIphone/Three20_hello/Three20_hello.xcodeproj:Three20_hello  Three20  -c Debug -c Release
 </pre>
 
@@ -28,9 +28,9 @@
   
   <entry>
     <title type="html"><![CDATA[Objective-c Enum 与 Typedef]]></title>
-    <link href="http://www.weixuhong.com/archives/529"/>
+    <link href="http://weixuhong.com/archives/529"/>
     <updated>2011-07-06T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/objective-c-enum-%e4%b8%8e-typedef</id>
+    <id>http://weixuhong.com/archives/objective-c-enum-%e4%b8%8e-typedef</id>
     <content type="html"><![CDATA[<p>今天看到enum 和 typedef， 在两个小节中书中分别出现了2个例子，如下<br/>
 enum direction {north, south, east, west};<br/>
 typedef enum {north, south, east, west} direction;<br/>
@@ -53,9 +53,9 @@ typedef enum {north, south, east, west} direction;<br/>
   
   <entry>
     <title type="html"><![CDATA[Objective-C 入门知识（转)]]></title>
-    <link href="http://www.weixuhong.com/archives/525"/>
+    <link href="http://weixuhong.com/archives/525"/>
     <updated>2011-07-06T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/objective-c-%e5%85%a5%e9%97%a8%e7%9f%a5%e8%af%86%ef%bc%88%e8%bd%ac</id>
+    <id>http://weixuhong.com/archives/objective-c-%e5%85%a5%e9%97%a8%e7%9f%a5%e8%af%86%ef%bc%88%e8%bd%ac</id>
     <content type="html"><![CDATA[<p>罗朝辉（<a href="http://www.cppblog.com/kesalin%EF%BC%89">http://www.cppblog.com/kesalin%EF%BC%89</a></p>
 
 <p>转载请注明出处</p>
@@ -480,9 +480,9 @@ g_age = age;
   
   <entry>
     <title type="html"><![CDATA[IOS开发资源推荐]]></title>
-    <link href="http://www.weixuhong.com/archives/503"/>
+    <link href="http://weixuhong.com/archives/503"/>
     <updated>2011-06-21T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/ios</id>
+    <id>http://weixuhong.com/archives/ios</id>
     <content type="html"><![CDATA[<p>以下列举自己常用的IOS开发资源(不断更新):</p>
 
 <p><a href="http://www.ios-developer.net/iphone-ipad-programmer">Our resources for other geeks, designers and engineers.(推荐)</a></p>
@@ -517,9 +517,9 @@ g_age = age;
   
   <entry>
     <title type="html"><![CDATA[关于iPhone的启动流程]]></title>
-    <link href="http://www.weixuhong.com/archives/492"/>
+    <link href="http://weixuhong.com/archives/492"/>
     <updated>2010-11-07T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/iphone</id>
+    <id>http://weixuhong.com/archives/iphone</id>
     <content type="html"><![CDATA[<div style="text-align:center;">
   <img src="http://www.weixuhong.com/content/uploads/2010/11/Screen-shot-2010-11-08-at-1.19.12-PM.png" alt="Screen shot 2010-11-08 at 1.19.12 PM.png" border="0" width="260" height="245" />
 </div>

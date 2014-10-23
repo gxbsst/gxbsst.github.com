@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Javascript | 韦旭红的幸福时光]]></title>
-  <link href="http://www.weixuhong.com/blog/categories/javascript/atom.xml" rel="self"/>
-  <link href="http://www.weixuhong.com/"/>
-  <updated>2014-10-23T17:52:25+08:00</updated>
-  <id>http://www.weixuhong.com/</id>
+  <link href="http://weixuhong.com/blog/categories/javascript/atom.xml" rel="self"/>
+  <link href="http://weixuhong.com/"/>
+  <updated>2014-10-23T18:26:05+08:00</updated>
+  <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[关于backbone _.bindAll]]></title>
-    <link href="http://www.weixuhong.com/archives/563"/>
+    <link href="http://weixuhong.com/archives/563"/>
     <updated>2011-10-13T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e5%85%b3%e4%ba%8ebackbone-_-bindall</id>
+    <id>http://weixuhong.com/archives/%e5%85%b3%e4%ba%8ebackbone-_-bindall</id>
     <content type="html"><![CDATA[<pre lang="javasript">_.bindAll(this, 'render');
             this.model.bind('change', this.render);
 
@@ -65,9 +65,9 @@
   
   <entry>
     <title type="html"><![CDATA[如果将C源文件(.c)生成目标文件(.o)]]></title>
-    <link href="http://www.weixuhong.com/archives/259"/>
+    <link href="http://weixuhong.com/archives/259"/>
     <updated>2009-08-05T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e5%a6%82%e6%9e%9c%e5%b0%86c%e6%ba%90%e6%96%87%e4%bb%b6c%e7%94%9f%e6%88%90%e7%9b%ae%e6%a0%87%e6%96%87%e4%bb%b6o</id>
+    <id>http://weixuhong.com/archives/%e5%a6%82%e6%9e%9c%e5%b0%86c%e6%ba%90%e6%96%87%e4%bb%b6c%e7%94%9f%e6%88%90%e7%9b%ae%e6%a0%87%e6%96%87%e4%bb%b6o</id>
     <content type="html"><![CDATA[<pre>cc -c -o source.c target.o 
 或者可以把其做成lib 
 gcc -g -c source.c 
@@ -82,9 +82,9 @@ ar -rc libsource.a source.o
   
   <entry>
     <title type="html"><![CDATA[在Yii使用Mixin &#8211; Behavior]]></title>
-    <link href="http://www.weixuhong.com/archives/257"/>
+    <link href="http://weixuhong.com/archives/257"/>
     <updated>2009-05-10T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/%e5%9c%a8yii%e4%bd%bf%e7%94%a8mixin-behavior</id>
+    <id>http://weixuhong.com/archives/%e5%9c%a8yii%e4%bd%bf%e7%94%a8mixin-behavior</id>
     <content type="html"><![CDATA[<p>我们知道Ruby有Mixin的功能，可以扩展类的实例方法或者类方法，只需要include就可以做这样的事情，但是PHP好像没有这样好用的方法？但是在Yii有这样的方法，怎么实现呢？</p>
 
 <p>下面有一个例子:</p>
@@ -119,9 +119,9 @@ Yii::app()->fileCache->test()调用。</p>
   
   <entry>
     <title type="html"><![CDATA[Ruby 中的self]]></title>
-    <link href="http://www.weixuhong.com/archives/68"/>
+    <link href="http://weixuhong.com/archives/68"/>
     <updated>2008-04-26T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/ruby-%e4%b8%ad%e7%9a%84self</id>
+    <id>http://weixuhong.com/archives/ruby-%e4%b8%ad%e7%9a%84self</id>
     <content type="html"><![CDATA[<p>在方法声明里面，表示当前类</p>
 
 <p>在实例方法体里面，表示当前实例</p>
@@ -140,9 +140,9 @@ Yii::app()->fileCache->test()调用。</p>
   
   <entry>
     <title type="html"><![CDATA[JavaScript 的 New， 好久不见啊]]></title>
-    <link href="http://www.weixuhong.com/archives/113"/>
+    <link href="http://weixuhong.com/archives/113"/>
     <updated>2008-04-26T00:00:00+08:00</updated>
-    <id>http://www.weixuhong.com/archives/javascript-%e7%9a%84-new%ef%bc%8c-%e5%a5%bd%e4%b9%85%e4%b8%8d%e8%a7%81%e5%95%8a</id>
+    <id>http://weixuhong.com/archives/javascript-%e7%9a%84-new%ef%bc%8c-%e5%a5%bd%e4%b9%85%e4%b8%8d%e8%a7%81%e5%95%8a</id>
     <content type="html"><![CDATA[<p>原文： JavaScript, We Hardly new Ya －－Douglas Crockford。</p>
 
 <p>JavaScript是一门基于原型的语言，但它却拥有一个 new 操作符使得其看起来象一门经典的面对对象语言。那样也迷惑了程序员们，导致一些有问题的编程模式。</p>
