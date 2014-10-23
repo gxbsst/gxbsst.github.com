@@ -16,20 +16,25 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>http://gxbsst.github.io/2006/08/17/__call-%e9%80%9a%e8%bf%87%e4%b8%80%e4%b8%aa%e7%b1%bbclass%e7%9a%84%e5%ae%9e%e4%be%8b%ef%bc%88instance%e8%b0%83%e7%94%a8%e5%8f%a6%e5%a4%96%e4%b8%80%e4%b8%aaclass%e7%9a%84%e5%ae%9e%e4%be%8b%e7%9a%84/</loc>
+    <lastmod>2006-08-17T00:00:00+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>http://gxbsst.github.io/blog/archives/</loc>
-    <lastmod>2014-10-23T14:55:45+08:00</lastmod>
+    <lastmod>2014-10-23T15:23:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://gxbsst.github.io/</loc>
-    <lastmod>2014-10-23T14:55:45+08:00</lastmod>
+    <lastmod>2014-10-23T15:23:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://gxbsst.github.io/photos/</loc>
-    <lastmod>2014-10-23T14:55:45+08:00</lastmod>
+    <lastmod>2014-10-23T15:23:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
