@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Angularjs | 韦旭红的幸福时光]]></title>
   <link href="http://gxbsst.github.io/blog/categories/angularjs/atom.xml" rel="self"/>
   <link href="http://gxbsst.github.io/"/>
-  <updated>2014-10-23T10:57:37+08:00</updated>
+  <updated>2014-10-23T13:34:27+08:00</updated>
   <id>http://gxbsst.github.io/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
@@ -22,17 +22,17 @@
 
 <p>Defined with an @ symbolBinds a local scope property to the value of a DOM attribute The binding is uni-directional from parent to directiveThe result is always a string because DOM attributes are strings</p>
 
-<p><img src="/images/directive_1.png" width="600" title="&lsquo;image&rsquo; &lsquo;images&rsquo;" ></p>
+<p>{% img  /images/directive_1.png  600 &lsquo;image&rsquo; &lsquo;images&rsquo; %}</p>
 
 <h3>Binding Isolated Scope</h3>
 
 <p>Defined with an = symbolBi-directional binding between parent and directive You can define the binding as optional via =? Optimal for dealing with objects and collections</p>
 
-<p><img src="/images/directive_2.png" width="600" title="&lsquo;image&rsquo; &lsquo;images&rsquo;" ></p>
+<p>{% img  /images/directive_2.png  600 &lsquo;image&rsquo; &lsquo;images&rsquo; %}</p>
 
 <h3>Expression Isolated Scope</h3>
 
-<p>Defined using an &amp; symbolAllows you to execute an expression on the parent scope To pass variables from child to parent expressions you must use an object map<img src="/images/directive_3.png" width="600" title="&lsquo;image&rsquo; &lsquo;images&rsquo;" ></p>
+<p>Defined using an &amp; symbolAllows you to execute an expression on the parent scope To pass variables from child to parent expressions you must use an object map{% img  /images/directive_3.png  600 &lsquo;image&rsquo; &lsquo;images&rsquo; %}</p>
 ]]></content>
   </entry>
   
@@ -41,7 +41,7 @@
     <link href="http://gxbsst.github.io/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/"/>
     <updated>2014-10-22T17:56:48+08:00</updated>
     <id>http://gxbsst.github.io/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-?</id>
-    <content type="html"><![CDATA[<p><img class="left" src="/images/anguarjs-service.png" width="7"></p>
+    <content type="html"><![CDATA[<p>{% img left /images/anguarjs-service.png 7Th00 &lsquo;image&rsquo; &lsquo;images&rsquo; %}</p>
 ]]></content>
   </entry>
   

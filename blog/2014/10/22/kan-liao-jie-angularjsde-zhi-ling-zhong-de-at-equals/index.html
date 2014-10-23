@@ -57,6 +57,7 @@
   
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
+  <li><a href="/photos">Photos</a></li>
   <li><a href="/blog/archives">Archives</a></li>
 </ul>
 
@@ -78,6 +79,9 @@
 
 
 <time class='entry-date' datetime='2014-10-22T18:08:15+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2014</span></span> <span class='time'>6:08 pm</span></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://gxbsst.github.io">Comments</a>
         
       </p>
     
@@ -128,7 +132,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://gxbsst.github.io/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/" data-via="" data-counturl="http://gxbsst.github.io/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://gxbsst.github.io/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/" data-via="Weixuhong" data-counturl="http://gxbsst.github.io/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/" >Tweet</a>
   
   
   
@@ -145,6 +149,12 @@
     </p>
   </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -178,6 +188,35 @@
   </ul>
 </section>
 
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'gxbsst',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
 
 
 
@@ -195,6 +234,22 @@
 
 </footer>
   
+
+<script type="text/javascript">
+      var disqus_shortname = 'Weixuhong';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://gxbsst.github.io/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/';
+        var disqus_url = 'http://gxbsst.github.io/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 
