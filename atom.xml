@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[韦旭红的幸福时光]]></title>
-  <link href="http://gxbsst.github.io/atom.xml" rel="self"/>
-  <link href="http://gxbsst.github.io/"/>
-  <updated>2014-10-23T15:49:19+08:00</updated>
-  <id>http://gxbsst.github.io/</id>
+  <link href="http://www.weixuhong.com/atom.xml" rel="self"/>
+  <link href="http://www.weixuhong.com/"/>
+  <updated>2014-10-23T15:54:26+08:00</updated>
+  <id>http://www.weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Rubymine 不能输入中文？]]></title>
-    <link href="http://gxbsst.github.io/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/"/>
+    <link href="http://www.weixuhong.com/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/"/>
     <updated>2014-10-23T10:14:26+08:00</updated>
-    <id>http://gxbsst.github.io/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-?</id>
+    <id>http://www.weixuhong.com/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-?</id>
     <content type="html"><![CDATA[<p>如果你的rubymine 不能输入中文，请做这样的修改:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -53,41 +53,41 @@
   
   <entry>
     <title type="html"><![CDATA[看了解AngularJs的指令中的@,=]]></title>
-    <link href="http://gxbsst.github.io/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/"/>
+    <link href="http://www.weixuhong.com/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/"/>
     <updated>2014-10-22T18:08:15+08:00</updated>
-    <id>http://gxbsst.github.io/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals</id>
+    <id>http://www.weixuhong.com/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals</id>
     <content type="html"><![CDATA[<h3>Attribute Isolated Scope</h3>
 
 <p>Defined with an @ symbolBinds a local scope property to the value of a DOM attribute The binding is uni-directional from parent to directiveThe result is always a string because DOM attributes are strings</p>
 
-<p><img src="http://gxbsst.github.io/images/directive_1.png" width="600" title="image" alt="images"></p>
+<p><img src="http://www.weixuhong.com/images/directive_1.png" width="600" title="image" alt="images"></p>
 
 <h3>Binding Isolated Scope</h3>
 
 <p>Defined with an = symbolBi-directional binding between parent and directive You can define the binding as optional via =? Optimal for dealing with objects and collections</p>
 
-<p><img src="http://gxbsst.github.io/images/directive_2.png" width="600" title="image" alt="images"></p>
+<p><img src="http://www.weixuhong.com/images/directive_2.png" width="600" title="image" alt="images"></p>
 
 <h3>Expression Isolated Scope</h3>
 
-<p>Defined using an &amp; symbolAllows you to execute an expression on the parent scope To pass variables from child to parent expressions you must use an object map<img src="http://gxbsst.github.io/images/directive_3.png" width="600" title="image" alt="images"></p>
+<p>Defined using an &amp; symbolAllows you to execute an expression on the parent scope To pass variables from child to parent expressions you must use an object map<img src="http://www.weixuhong.com/images/directive_3.png" width="600" title="image" alt="images"></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[为AngularJs的Service 是单例？]]></title>
-    <link href="http://gxbsst.github.io/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/"/>
+    <link href="http://www.weixuhong.com/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/"/>
     <updated>2014-10-22T17:56:48+08:00</updated>
-    <id>http://gxbsst.github.io/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-?</id>
-    <content type="html"><![CDATA[<p><img class="left" src="http://gxbsst.github.io/images/anguarjs-service.png" width="7"></p>
+    <id>http://www.weixuhong.com/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-?</id>
+    <content type="html"><![CDATA[<p><img class="left" src="http://www.weixuhong.com/images/anguarjs-service.png" width="7"></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[__call 通过一个类(Class)的实例（instance)调用另外一个class的实例的方法]]></title>
-    <link href="http://gxbsst.github.io/archives/166"/>
+    <link href="http://www.weixuhong.com/archives/166"/>
     <updated>2006-08-17T00:00:00+08:00</updated>
-    <id>http://gxbsst.github.io/archives/__call-%e9%80%9a%e8%bf%87%e4%b8%80%e4%b8%aa%e7%b1%bbclass%e7%9a%84%e5%ae%9e%e4%be%8b%ef%bc%88instance%e8%b0%83%e7%94%a8%e5%8f%a6%e5%a4%96%e4%b8%80%e4%b8%aaclass%e7%9a%84%e5%ae%9e%e4%be%8b%e7%9a%84</id>
+    <id>http://www.weixuhong.com/archives/__call-%e9%80%9a%e8%bf%87%e4%b8%80%e4%b8%aa%e7%b1%bbclass%e7%9a%84%e5%ae%9e%e4%be%8b%ef%bc%88instance%e8%b0%83%e7%94%a8%e5%8f%a6%e5%a4%96%e4%b8%80%e4%b8%aaclass%e7%9a%84%e5%ae%9e%e4%be%8b%e7%9a%84</id>
     <content type="html"><![CDATA[<p><img src="http://www.weixuhong.com/content/uploads/2008/08/picture-7.png" height="678" width="533" border="1" align="left" hspace="4" vspace="4" alt="Picture 7" /></p>
 
 <div style="clear:both;">

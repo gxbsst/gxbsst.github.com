@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://gxbsst.github.io/sitemap.xml 
+Sitemap: http://www.weixuhong.com/sitemap.xml 
