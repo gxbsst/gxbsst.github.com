@@ -2,7 +2,7 @@
 title: __call 通过一个类(Class)的实例（instance)调用另外一个class的实例的方法
 author: gxbsst
 layout: post
-permalink: /2006/08/17/__call-%e9%80%9a%e8%bf%87%e4%b8%80%e4%b8%aa%e7%b1%bbclass%e7%9a%84%e5%ae%9e%e4%be%8b%ef%bc%88instance%e8%b0%83%e7%94%a8%e5%8f%a6%e5%a4%96%e4%b8%80%e4%b8%aaclass%e7%9a%84%e5%ae%9e%e4%be%8b%e7%9a%84/
+permalink: /archives/166
 post_views_count:
   - 113
 views:
@@ -32,4 +32,4 @@ function __construct()
 转载请注明：[韦旭红的点点滴滴][1] &raquo; [__call 通过一个类(Class)的实例（instance)调用另外一个class的实例的方法][2]
 
  [1]: http://www.weixuhong.com
- [2]: http://www.weixuhong.com/2006/08/17/__call-%e9%80%9a%e8%bf%87%e4%b8%80%e4%b8%aa%e7%b1%bbclass%e7%9a%84%e5%ae%9e%e4%be%8b%ef%bc%88instance%e8%b0%83%e7%94%a8%e5%8f%a6%e5%a4%96%e4%b8%80%e4%b8%aaclass%e7%9a%84%e5%ae%9e%e4%be%8b%e7%9a%84/
+ [2]: http://www.weixuhong.com/archives/166
