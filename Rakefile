@@ -2,6 +2,9 @@ require "rubygems"
 require "bundler/setup"
 require "stringex"
 
+editor = "vim"
+
+
 ## -- Rsync Deploy config -- ##
 # Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
 ssh_user       = "user@domain.com"
@@ -117,6 +120,9 @@ task :new_post, :title do |t, args|
     post.puts "comments: true"
     post.puts "categories: "
     post.puts "---"
+  end
+  if editor
+    system "#{editor} #{filename}"
   end
 end
 
