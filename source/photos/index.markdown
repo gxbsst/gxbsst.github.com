@@ -8,4 +8,3 @@ footer: true
 ---
 
 
-{% flickr_set 72157648516568668 t nodesc %}
