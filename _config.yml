@@ -65,13 +65,13 @@ default_asides: [custom/asides/category_list.html, asides/recent_posts.html, asi
 # ----------------------- #
 
 # Github repositories
-github_user:
+github_user: gxbsst
 github_repo_count: 0
 github_show_profile_link: true
 github_skip_forks: true
 
 # Twitter
-twitter_user:
+twitter_user: Weixuhong
 twitter_tweet_button: true
 
 # Google +1
@@ -92,11 +92,14 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name:
-disqus_show_comment_count: false
+disqus_short_name: Weixuhong
+disqus_show_comment_count: true
 
 # Google Analytics
 google_analytics_tracking_id:
 
 # Facebook Like
 facebook_like: false
+flickr:
+  api_key: c29170ce1b0dcdd5d7bb9138b89a243a
+  shared_secret: 8113ab6357514e4e
