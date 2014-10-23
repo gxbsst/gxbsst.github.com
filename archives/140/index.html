@@ -1,0 +1,956 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>SSH权威指南 - 韦旭红的幸福时光</title>
+  <meta name="author" content="Weston Wei(韦旭红)">
+
+  
+  <meta name="description" content="来源：http://www.toplee.com/blog/39.html#pp0 注意：由于openssh是开源软件，各版间的配置方法和设置参数可能会不同，所以设置时要以最新版的手册为准，不要硬套本文的设置。 第一章 SSH简介
+ssh(secure shell)是一种通用， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.weixuhong.com/archives/140">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="韦旭红的幸福时光" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script> 
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">韦旭红的幸福时光</a></h1>
+  
+    <h2>20，30，40&#8230;</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.weixuhong.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/photos">Photos</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">SSH权威指南</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-06-21T00:00:00+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>来源：<a href="http://www.toplee.com/blog/39.html#pp0  ">http://www.toplee.com/blog/39.html#pp0  </a>
+注意：由于openssh是开源软件，各版间的配置方法和设置参数可能会不同，所以设置时要以最新版的手册为准，不要硬套本文的设置。</p>
+
+<p>第一章 SSH简介<br/>
+ssh(secure shell)是一种通用，功能强大的基于软件的网络安全解决方案，计算机每次向网络发送数据时，SSH都会自动对其进行加密。数据到达目的地时，SSH自动对加密数据进行解密。整个过程都是透明的。它使用了现代的安全加密算法，足以胜任大型公司的任务繁重的应用程序的要求。</p>
+
+<p>SSH协议内容涉及认证AUTHENTICATION,加密ENCRYPTION,和网络上传输数据的完整性INTEGRITY。</p>
+
+<p>SSH特性概述<br/>
+1、远程登录<br/>
+$ ssh -l root host.example.com<br/>
+2、安全文件传输<br/>
+$ scp myfile metoo@secondacount.com<br/>
+3、安全执行远程命令，能确保传输的数据安全。<br/>
+4、密钥和代理<br/>
+基于密钥的认证方法不用记住多个帐号密码。<br/>
+5、访问控制，能授权别人访问自已帐号。<br/>
+6、端口转发<br/>
+$ ssh -L 3002:localhost:119 xxx.xxx.com</p>
+
+<p>相关安全技术<br/>
+rsh命令族，rsh,rlogin and rcp。连接不加密，认证模型十分脆弱。<br/>
+PGP加密程序。它是基于文件的。<br/>
+Kerberos认证系统，用于网络可能被监视，而且计算机不是中心控制的环境。基于麻省理工学院的Athena项目。它SSH不是，SSH是轻量级的，容易部署。Kerberos使用前必须构建一些重要基础。<br/>
+IPSEC，Internet安全协议。<br/>
+SRP，安全远程密码协议，是Stanford大学开发的。是一种专用的认证协议。<br/>
+SSL,安全套接字。<br/>
+stunnel，是一种SSL工具，它为UNIX环境现有的基于TCP的服务（POP,IMAP等）增加SSL保护，而不用修改服务器源程序。</p>
+
+<p>第二章 SSH客户端的基本用法<br/>
+最常用功能，1、经由安全连接登录到远程计算机。2、通过安全连接在计算机间拷贝文件。</p>
+
+<p>当你第一次连接SSH服务器时，出现问答时要回答“yes”，把已知名主机的密钥的公共部分拷贝一份存在本地。之后你每次连接这台服务器，就用这个公钥来验证远程主机。最好是能在首次连接前就能获得这个公钥，否则第一次连接服务器时你可能已受到中间人攻击。</p>
+
+<p>使用密钥进行认证，SSH支持公钥认证，可以使用加密密钥，密钥比密码更安全。<br/>
+SSH证书使用一对密钥，一个私钥，一个公钥，私钥只保存你独有的一些秘密信息。SSH用其向服务器证明自已的身份。公钥是公开的，可以随便将其放入SSH服务器上自已的帐号中,在认证时，进行私钥和公钥协商，如果匹配，那么身份就得以证明，认证就成功。</p>
+
+<p>在使用公钥认证以前，首先要进行一些设置：<br/>
+1、需要一对密钥，还需要使用一个口令来保护自已的私钥。<br/>
+使用ssh-keygen程序生成一对密钥。如果不存在SSH目录，程序为自动创建本地SSH目录~/.ssh，并将所生成的密钥分成两个文件存储，公有部份identity.pub,私有部分identity，或id_dsa_1024_a,id_dsa_1024_a.pub(ssh2)。<br/>
+2、需要在SSH服务器上安装自已的公钥。<br/>
+通过配置SSH目录中的一个文件实现，对于SSH1 AND OPENSSH来说该文件是~/.ssh/authorized_keys。对SSH2来说是~/.ssh2/authorization。OPENSSH中的SSH-2连接自3.0版本起也一同使用authorized_keys文件。3.0版本前的使用authorized_keys2。把用户本地机器生成identity.pub文件内容加入其中。对SSH2来说，用户需编辑两个文件，一个客户端一个在服务器端，在客户端，要创建或编辑文件~/.ssh2/identification并在其中插入一行，说明自已的私钥文件名： IdKey id_dsa_1024_a.<br/>
+在服务器端，要创建或编辑文件~/.ssh2/authorization，该文件包含有公钥信息，每行一个，但和SSH1的authorized_keys文件不同（authorized_keys中包含有公钥的拷贝），authorization中只给出公钥文件名：Key id_dsa_1024_a.pub。最后，把这个文件从本地机器上拷贝到服务器~/.ssh2中。为安全起见，要确保ssh目录的安全，只有所有者才有权写入。如果远程用户的SSH配置文件的权限设置不当，服务器可能会拒绝进行认证。</p>
+
+<p>公钥认证比密码认证更安全，因为：<br/>
+1、 公钥认证需要两个加密部份（磁盘上的identify文件和用户头脑中的口令），入侵都必须<br/>
+2、 具备两种条件才行。密码认证只需要一个部份，那就是密码，它可能更容易被窃取。<br/>
+3、 在公钥认证中，口令和密钥都不用发给远程主机，只要把前面讨论的认证者发给远程主<br/>
+4、 机就可以了，因此，并没有秘密信息传出客户端。<br/>
+3、机器生成的密钥是不可能猜测出来的，而人生成的密码容易受到字典攻击。<br/>
+通过禁用密码认证并只允许使用密钥认证能极大提高主机的安全性。</p>
+
+<p>如果要修改密钥<br/>
+如果已经生成一个密钥对，并把公钥拷贝到多个SSH服务器上了，用户有一天决定修改自已的身份，因为再运行ssh-keygen。这样，就会覆盖identify and identify.pub文件，用户之前的公钥就没用了，必须把新公钥再次拷贝到各个服务器上。这是很头疼的，所以建议：<br/>
+1、 不能局限于仅仅使用一个密钥对，可随意生一此密钥对，将其保存在不同的文件中，并<br/>
+2、 将其用作不同的用途。<br/>
+3、 如果只是想修改口令，就不必重新生成一个密钥对，ssh-keygen有一个命令行选项可以<br/>
+4、 替换现有的密钥口令。ssh1 and openssh是-p,对于ssh2是-e。这样，因为私钥没变，所以<br/>
+5、 公钥依然不效，中需使用新口令对私钥进行解密就可以了。</p>
+
+<p>ssh代理<br/>
+它可以把私钥保存在内存中，为认证提供服务，不用重复输入密码。直到用户退出为止。代理程序是ssh-agent。可手工运行也可编辑~/.login 或~/.xsession来自动运行。<br/>
+$ ssh-agent $SHELL 其中SHELL是用户登录shell的环境变量。运行该命令后，打开另外一个shell，在这个shell中可以访问代理。接着用ssh-add命令装入私钥。这样，使用ssh and scp命令就不用再提醒输入口令了。口令<br/>
+装入内存中。如果用户正运行x window系统，并设置了DISPLAY环境变量，而标准输入不是终端，那么ssh-add就使用一个图形化X程序ssh-askpass来读取口令。要强制ssh-add使用X来读取口令，请在命令行中输入ssh-add &lt; /dev/null。<br/>
+-l 参数显示内存中的密钥<br/>
+-d 参数从代理中删除密钥 $ ssh-add -d ~/.ssh/id_xxx.pub<br/>
+-D 是删除所有密钥<br/>
+-t 对加载的密钥设置超时时间，超时代理将自动卸载密钥。<br/>
+-L -U 对代理进行加锁和解锁，当你离开计算机而不想退出登录时有用。</p>
+
+<p>代理转发<br/>
+可能通过代理转发功能，可以用SCP把文件从远程SSH服务器上拷贝到第三方SSH主机上。条件是你在第三方SSH主机上必须有一个帐号。具体操作是这样的：<br/>
+1、 在本地主机上运行命令：# scp pat@shell.isp.com:print-me<br/>
+2、 psmith@other.host.net:other-print-me<br/>
+2、这个scp进程与本地代理进行联系，并让用户和shell.isp.com进行认证。<br/>
+3、自动在shell.isp.com上执行第二个scp，用来把文件拷贝到other.host.net主机上。<br/>
+3、 由于启用了代理转发（SSH1 AND SSH2默认是打开的，openssh默认是关闭的），因此<br/>
+4、 shell.isp.com上的SSH服务器就充当一个代理。<br/>
+5、第二个scp进程通过联系shell.isp.com上的代理试图让用户和other.host.net进行认证。<br/>
+5、 shell.isp.net上ssh服务器秘密与用户的本地代理进行通信，从而构建出一个认证者来提<br/>
+6、 供用户的证书并将其传回服务器。<br/>
+7、服务器为第二个scp进程验证用户的身份，other.host.net上的认证获得成功。<br/>
+8、开始拷贝文件。<br/>
+由于代理转发不会把私钥发送到远程主机上，而是把认证返回第一台机进行处理，因此密钥是安全的。</p>
+
+<p>不用密码或口令进行连接方式<br/>
+1、使用代理的公钥认证。<br/>
+2、可信主机认证。<br/>
+3、Kerberos认证。<br/>
+在后文中将会讨论这些方式的优缺点。</p>
+
+<p>sftp<br/>
+它是在SSH上的一个独立文件传输工具，操作与ftp类似，可以在一个会话中调用多个命令进行文件拷贝和处理，而scp每次调用时都要打开一个会话。sftp不区分ascii and binary传输模式，只使用二进制模式，因此，如果使用它在windows and unix之间拷贝ascii文件，那么就不能正确转换行结束符。</p>
+
+<p>第三章 SSH内幕<br/>
+SSH协议的主要特性和优点：<br/>
+1、 使用强加密技术来保证数据的私密性。端到端通信用随机密钥进行加密，随机密钥为会话进行安全协商，会话结束后被丢弃。支持的算法有ARCFOUR,Blowfish,DES,IDEA,3DES等。<br/>
+2、通信完整性，确保通信不会被修改。SSH-2基于MD5 AND SHA-1的加密hash算法。<br/>
+3、认证，即发送者和接收者的身份证明。客户机和服务器双向认证。<br/>
+4、授权，即对账号进行访问控制。<br/>
+5、使用转发或隧道技术对其它基于tcp/ip的会话进行加密。支持三种转发，tcp端口转发，X转发，代理转发。</p>
+
+<p>SSH可以防止的攻击<br/>
+1、网络窃听，SSH通信是加密的，即使截获会话内容，也不能将其解密。<br/>
+2、名字服务和IP伪装，SSH通过加密验证服务器主机身份可避免这类风险。<br/>
+3、连接劫持，SSH的完整性检测负责确定会话在传输过程是否被修改，如果被修改过，就关闭连接。<br/>
+4、 中间人攻击，SSH利用两种方法防止这种攻击，第一种是服务器主机认证。除非攻击者已经成功攻击了服务器主机，获得服务器的私有主机密钥。第二种是限制使用容易受到这种攻击的认证方法，密码认证容易受到中间人攻击，而公钥和基于主机的/RhostsRSA则对中间人攻击可以免疫。<br/>
+5、插入攻击，这种攻击可以客户和服务器之间发送的正文数据流之间插入任意数据。ssh1 1.2.25后和openssh的所有版本都专门进行了设计，来检测并防止这种攻击。这种检测程序增大了插入攻击的难度，但是并不能完全防止。ssh2使用强加密完整性检测手段来防止这个问题。可以用3DES算法来防止这种攻击。</p>
+
+<p>SSH不能防止的攻击<br/>
+1、 密码崩溃，密码认证是一种脆弱的认证形式，尽量使用公钥认证方式。如果必须要密码认证，可考虑使用S/Key之类的一次性密码机制。<br/>
+2、 IP AND TCP攻击，由于SSH是在TCP之上进行操作的，因此容易受到针对TCP和IP缺陷而发起的攻击。SYN flood,TCP不同步和TCP劫持等。只能通过更低层的防护措施来保护。<br/>
+3、流量分析。<br/>
+4、隐秘通道。<br/>
+5、粗心大意。安全是一个过程，而不是一个产品，不要认为装上SSH就安全了。</p>
+
+<p>第四章 SSH的安装和编译时配置</p>
+
+<p>第五章 服务器范围的配置<br/>
+sshd可以在三个层次上进行配置，第一层次是上面的安装和编译时配置；第二层次是本章的服务器范围配置；第三层次是每账号配置（第八章），前者是服务器编译时就指定了包含哪些特定功能，不包含哪些功能，后者则是由终端用户来修改自已账号所使用的服务器的行为。</p>
+
+<p>以普通用户身份运行SSH服务器<br/>
+1、得到管理员许可。<br/>
+2、生成一个主机密钥。<br/>
+$ ssh-keygen -N ” -b 1024 -f ~/myserver/hostkey 生成hostkey and hostkey.pub两个文件<br/>
+3、选择端口号。 要选择大于或等1024的端口，因为只有超级用户才有权使用小于1024的端口 。<br/>
+4、创建服务器配置文件(可选) 可创建自已的配置文件，否则，服务就使用内建的特性或使用服务器范围的配置文件。<br/>
+启动服务器方式：$ sshd -h ~/myserver/hostkey -p 2345 -f ~/myserver/config<br/>
+由普通用户运行的服务器有一些缺点：<br/>
+1、由于不是由root的uid下运行，因此只能连接到用户自已的账号上。<br/>
+2、它需手工调用，不能自启动。<br/>
+3、 日志用户没权看到，因为服务器把它写到syslog日志系统中，但可用调试模式运行服务<br/>
+4、 器，这样信息就显示在终端机上。</p>
+
+<p>服务器配置文件<br/>
+SSH1 AND OPENSSH的配置文件通常是/etc/sshd_config,而SSH2的配置文件通常是/etc/ssh2/sshd2_config。</p>
+
+<p>以非缺省的配置文件来调用sshd，可以使用命令 -f 选项。$ sshd -f /usr/local/ssh/my_config。</p>
+
+<p>以*号作为标号的语名都会被sshd忽略。</p>
+
+<p>修改完配置后，修改不会马上影响到服务器，可重启服务器或发送SIGHUP信号。$ kill -HUP `cat /etc/sshd.pid`</p>
+
+<p>如果在命令行改动了配置，用SIGHUP信号重启服务器不能覆盖命令行的配置，它的优先级高。</p>
+
+<p>主机密钥，sshd主机密钥向SSH客户端唯一地标识SSH服务器。主机密钥保存在一对文件中，一个文件包含私钥，一个文件包含公钥。对于SSH1 AND OPENSSH，它是/etc/ssh_host_key。文件位置可用HostKey关键字修改 HostKey /usr/local/ssh/key。服务器的公钥保存在.pub文件中。<br/>
+OPENSSH服务器有一个SSH-2的主机密钥，缺省是在/etc/ssh_host_dsa_key。其位置可用HostDsaKey /usr/local/openssh/key2修改。</p>
+
+<p>对于SSH2，如果服务器是由超级用户运行，缺省私钥文件是/etc/ssh2/hostkey。如果是其它用户运行，则在~/.ssh2/hostkey。可用HostKeyFile /etc/local/ssh/key修改。公钥是hostkey.pub文件，可用publicHostKeyFile关键字修改。</p>
+
+<p>可以用命令行选项指定私钥文件：$ sshd -h /usr/local/ssh/key。</p>
+
+<p>随机数种子文件<br/>
+如果用户的系统中有一个随机位源，如/dev/urandom，那么OPENSSH就不能创建随机数种子文件。</p>
+
+<p>服务器配置文件<br/>
+通常是/etc/sshd_config /etc/ssh2/ssh2_config，可以用-f 选项重新指定其配置文件。可用于一台机器运行多个sshd的情况。</p>
+
+<p>每账号认证文件。~/.ssh/authorized_keys 。</p>
+
+<p>文件权限<br/>
+由于配置文件的权限设置错误，会降低系统的安全性，所以可以设置StrictModes YES/NO关键字，对sshd的重要文件和目录的权限进行检查，如果检查失败，服务器就拒绝对该用户的SSH连接。</p>
+
+<p>在多宿主主机上，使用ListenAddress xxx.xxx.xxx.xxx来限制SSH只监听一个网络接口。</p>
+
+<p>空闲连接时间，IdleTimeout xx 如果是0代表什么都不做，保持连接。否则，超时就断开连接，可以用s,m,h,d,w表示。</p>
+
+<p>KeepAlive YES/NO 可以断开失效的连接，比如客户端崩溃。</p>
+
+<p>失败的登录<br/>
+LogingGraceTime 60 限定用户必须在60秒内成功进行认证。 0值表禁用。命令行选项用 -g</p>
+
+<p>PasswordGuesses 5 如果连接请求使用密码认证，那么sshd2就只允许客户端尝试五次。（SSH2)</p>
+
+<p>限制并发连接<br/>
+MaxConnections 32 最大32个连接（SSH2）</p>
+
+<p>逆向IP映射<br/>
+SSH2服务器可以根据客户端地址进行逆向DNS查询，以确保客户端的地址就是这个地址。<br/>
+如果检查失败，连接拒绝。<br/>
+RequireReverseMapping yes (ssh2)</p>
+
+<p>转发<br/>
+AllowTcp-Forwarding yes<br/>
+X11Forwarding yes</p>
+
+<p>服务器密钥生成<br/>
+该密钥用来对客户端/服务器之间的通信进行保护。是临时的，永远不会保存在磁盘上。服务器在启动时生成这个密钥。并以固定的周期重新生成。缺省长度是768位，最小为512，可以ServerKeyBits 2048 指定长度。用KeyRegenerationInterval 1200指定周期。 命令行选项：-k</p>
+
+<p>加密算法<br/>
+Ciphers any 允许所有支持算法。其它算法包括<br/>
+3des-cbc,blowfish-cbc,twofish-cbc,arcfour,none</p>
+
+<p>mac算法<br/>
+MAC关键字可以让用户选择sshd2进行完整性检测所使用的算法，称为消息认证代码。用于sshd2的有hmac-sha1,hmac-md5,hmac-md5-96。</p>
+
+<p>在OPENSSH中，用户可以用Protocol关键字选择支持SSH-1 AND SSH-2,1 代表SSH-1,2 代表SSH-2, 1，2 代表都支持。</p>
+
+<p>允许用户登录：认证和访问控制<br/>
+1、认证负责对发起连接请求的用户的身份进行验证。<br/>
+密码认证<br/>
+PasswordAuthentication yes AllowedAuthentications password (ssh2)<br/>
+公钥认证<br/>
+RSAAuthentication yes (ssh1,openssh/1)<br/>
+AllowedAuthentications publickey (ssh2)<br/>
+DEAAuthentication yes (openssh/2)<br/>
+Rhosts认证，可信主机认证通过检查远程主机名和相关用户名来实现对客户端的身份认证。<br/>
+RhostsAuthentication yes (ssh1,openssh)<br/>
+IgnoreRhosts yes (ssh1,ssh2,openssh)不使用系统的hosts.equiv and ~/.rhosts，使用SSH专用的/etc/shosts.equiv and ~/.shosts<br/>
+强可信主机认证。<br/>
+RhostsRSAAuthentication yes ssh1,openssh<br/>
+AllowedAuthentications hostbased ssh2<br/>
+提取已知名主机的公钥<br/>
+UserKnownHosts no ssh2<br/>
+IgnoreUserKnownHosts yes openssh<br/>
+PGP认证<br/>
+Kerberos认证<br/>
+S/key认证<br/>
+SecurID认证<br/>
+PAM认证</p>
+
+<p>2、访问控制负责允许或禁止来自特定用户、机器在或INTERNET域的SSH连接到服务器上。<br/>
+通常，只要设置正确，任何账号都可以接收SSH连接，这种访问权限可以使用服务器关键字AllowUsers and DenyUsers覆盖。<br/>
+AllowUsers smith<br/>
+如果配置文件中单独出现一个AllowUsers,后面没有任何内容，就表示禁止所有没提到的用户连接，如果没有AllowUsers这个关键字，则所有用户都可连接。DenyUsers表示禁止连接。<br/>
+可用通配符，</p>
+
+<p>可以用组访问控制AllowGroups DenyGroups</p>
+
+<p>主机名访问控制<br/>
+AllowHosts hostname<br/>
+DenyHosts hostname</p>
+
+<p>超级用户的访问控制<br/>
+sshd对超级用户专门使用一种特殊的访问机制，PermiRootLogin来允许或禁止使用SSH来访问root账号。</p>
+
+<p>显示用户的欢迎信息<br/>
+PrintMotd yes/no default is yes</p>
+
+<p>显示邮件信息<br/>
+CheckMail yes/no default is yes</p>
+
+<p>空密码<br/>
+PermitEmptyPasswords yes/no 如果使用密码认证，并且有个账号没有设定密码，那么服务器就可以拒绝访问这个账号<br/>
+如果系统中存在/etc/nologin，那么sshd就只允许root用户登录，其它都不能登录。因此，touch /etc/nologin是把访问权只授给系统管理员的一种快速方法。这样并不需要重新配置ssh。也不需要重启ssh。</p>
+
+<p>子系统<br/>
+定义和调用远程命令的一个抽象层，用户可以通过在客户端命令行中给出命令来调用远程命令，如：ssh server.examply.com /bin/tar c /home 这个命令调用tar,远程把/home拷贝到磁带上。子系统是服务器机器上预定义的一组远程命令，这样就可以方便地执行。在服务器配置文档中定义：subsystem backups /bin/tar c /home，要在服务器上运行该命令，可以使用 -s 选项。<br/>
+ssh -s backups server.example.com。缺省情况下，sshd_config中定义了一个子系统,subsystem sftp 。不要删除这个子系统，这是scp2和sftp必须的。</p>
+
+<p>日志<br/>
+Fascisl Logging mode 把调试信息打印到系统日志文件中，可以使用FascistLogging关键字启用。<br/>
+调试模式 可以使用-d命令选项启用<br/>
+安静模式 只能输出严重错误，而不能输出 普通日志，可以使用QuietMode关键字或-q命令行启用。<br/>
+openssh中的日志配置关键字是SyslogFacility and LogLevel。SyslogFacility设置syslog的facility（KERN,DAEMON,USER,AUTH,MAIL等），LogLevel记录日志提供的详细程度，该值从低到高顺序是：QUIET,FATAL,ERROR,INFO,VERBOSE,DEBUG,使用DEBUG会侵犯用户的隐私权，这个级别只能用于诊断，而不能用于普通操作。</p>
+
+<p>第六章 密钥管理与代理<br/>
+一个身份标识由两部份组成，分别称为私钥（Private Key）和公钥（Public Key），合称一个密钥对。</p>
+
+<p>SSH1,SSH2 AND OPENSSH身份标识文件的格式各不相同。<br/>
+SSH1缺省设置中，私钥存储在文件identity中，公钥存储在文件identity.pub中。这个密钥对存放在~/.ssh目录下，在使用前，把公钥拷贝到服务器上的一个认证文件里，如SSH1 AND OPENSSH中的~/.ssh/authorized_keys，此后，当客户请求连接到你的服务器上的帐号时，就会用一个私钥作为证明身份的标识，服务器则在authorized_keys文件中寻找与之匹配的公钥。</p>
+
+<p>SSH2密钥对文件的命名通常是根据该密钥使用的加密算法的性质来起的，例如一个用DSA加密的1024位密钥生成时其缺省文件名是id_dsa_1024_a and id_dsa_1024_a.pub。用户必须把私钥放在identification文件中，缺省是~/.ssh2/目录，一个私钥在这个文件中占一行，在公钥认证中，每一行的开头都有一个关键字IdKey，后跟一个私钥文件名。如：<br/>
+IdKey id_dsa_1024_a<br/>
+IdKey my-other-ssh2-key<br/>
+在服务器端的认证文件~/.ssh2/authorization中，SSH2不包含公钥的实际拷贝，只是把公钥文件列出来，前面用关键字kEY标识。如：<br/>
+Key id_dsa_1024_a.pub<br/>
+Key something-else.pub<br/>
+这样维护起来更容易，更方便。</p>
+
+<p>OPENSSH对SSH-1连接使用的标识和授权文件与SSH1完全相同，对于SSH-2连接，缺省的密钥则存储在~/.ssh/id_dsa(private key)和~/.ssh/id_dsa.pub(public key)中，服务器上的授权文件是~/.ssh/authorized_keys。</p>
+
+<p>创建身份标识用ssh-keygen命令。</p>
+
+<p>OPENSSH的ssh-keygen可以支持SSH1中相应程序的所有功能和选项，它还新增了为SSH-2连接生成DSA密钥的能力。<br/>
+$ ssh-keygen -t dsa -b 1024 -e -x 选项可把OPENSSH格式的密钥存储格式转换成SSH2格式 (直接回车，按提示输入转换文件名)<br/>
+-i -X 选项把SSH2格式的密钥转换成OPENSSH格式。这样可用SSH2客户端连接OPENSSH服务器。(直接回车，按提示输入转换文件名)<br/>
+-y 如果不小心删掉了OPENSSH的公钥，可用-y恢复。<br/>
+-l 可计算出公钥的指纹，指纹是鉴别位置不同的两个密钥是否相同的常用的一种密码学技术。这项技术用于不可能逐位对比两个密钥的情况。OPENSSH AND SSH2都能计算指纹。<br/>
+它是根据密钥计算出来一个长度较短的值，它是原理与校验和类似，用于验证一串信息（在我们的例子中是密钥）的不可替换性。</p>
+
+<p>启动代理<br/>
+1、单shell方式，使用当前登录的shell. $ eval `ssh-agent`<br/>
+2、子shell方式，派生出一个子shell，并继承父shell的某些环境变量。 $ ssh-agent $SHELL<br/>
+不要想当然运行 $ ssh-agent，这样客户端是无法有代理联系的。删除代理用kill命令就可以了。</p>
+
+<p>SSH-1 与 SSH-2代理的兼容性<br/>
+SSH-1的代理不能处理SSH-2的代理，SSH-2的代理却可以处理SSH-1的代理请求。</p>
+
+<p>第七章 客户端的高级用法<br/>
+$ ssh -a -p 220 -c blowfish -l sally -i myself server.example.com 可通过配置文件简化命令输入</p>
+
+<p>Host myserver<br/>
+ForwardAgent no<br/>
+Port 220<br/>
+Cipher blowfish<br/>
+User sally<br/>
+IdentifyFile myself<br/>
+HostName server.example.com<br/>
+配置了该文件后，就可以在客户端简单地输入<br/>
+$ ssh myserver</p>
+
+<p>全局文件和本地文件<br/>
+全局文件通常是由管理员创建的，用来维护整台计算机上的客户行为。该文件通常位于/etc/ssh_config or /etc/ssh2/ssh2_config。每个客户也可以在自已账号中创建本地客户配置文件，通常是~/.ssh/config or ~/.ssh2/ssh2_config。本地配置文件优先级高于全局配置文件。命令行选项的优先级又高于本地配置文件。</p>
+
+<p>scp有关命令参数<br/>
+-r 递归拷贝目录<br/>
+-p 保持文件权限和时间戳<br/>
+-u 拷贝完成后删除源文件<br/>
+-d 防止覆盖文件<br/>
+-n 描述操作<br/>
+-q 不显示统计信息</p>
+
+<p>第八章 每账号服务器配置<br/>
+这种配置可以让SSH服务器区分每个服务器上的各个用户。利用服务器目标账号的认证文件（authorized_keys）配置。局限有两点，它不能覆盖编译时配置和服务器范围配置所采用的安全措施，第二，如果使用公钥认证，每账号配置是十分灵活的，如果采用可信主机和密码认证，提供的选择范围就很小。</p>
+
+<p>基于公钥的配置<br/>
+1、认证文件的完全格式 依次包含三项内容，一些选项，公钥和注释。多个选项用逗号分开。<br/>
+2、用于限制客户端可以在服务器上调用的程序的强制命令。如客户端请求执行/bin/ls命令，而服务器端强制命令却运行/bin/who命令，它十分有用，可用于加强安全性，了为授权提供方便。如要让你的助手每次连接上来都运行email命令程序pine，则可以这样：<br/>
+command= “/usr/local/bin/pine” …key…。最多可给每个密钥关联一个强制命令，要关联多个命令可把这些命令放入远程主机的一个脚本中，并将该脚本作为强制命令运行。如果强制命令有shell出口，那会存在安全问题，等于没有强制，客户可以运行任何程序。以下规则可以用来判断一个程序是否适合用作强制命令。<br/>
+a、 避免使用具有shell出口的程序（如：文件编辑器vi,Emacs; 分页程序 more,less;调用分<br/>
+b、 页的man,新闻阅读程序rn，邮件阅读程序pine以及调试程序adb，非交互的程序find,xargs<br/>
+c、 等）。<br/>
+b、避免使用编译器，解释器或其它可以让用户生成并运行任意执行代码的程序。<br/>
+c、可创建或删除文件的程序，如cp,mv,rm,scp,ftp等。<br/>
+d、避免使用setuid or setgid的程序，特别是setuid 是root的程序。<br/>
+d、 如果使用脚本作为强制命令，就要遵循编写安全脚本的传统规则，在一个脚本之内，要限制使用相对路径作为搜索路径，应该使用绝对路径来调用所有的程序；不要盲目地把用户提供的字符串作为命令来执行；不要让脚本执行任何setuid的工作。不要调用具有shell出口的程序。<br/>
+e、考虑使用受限shell。<br/>
+f. 为一个单独的、专用的SSH密钥（不要用你登录的那个密钥）关联一个强制命令。这样不会影响你的登录能力就可以方便地禁用该密钥。<br/>
+g、禁用不必要的SSH特性。如no-port-forwarding,no-agent-forwarding,no-pty(禁用tty分配)。<br/>
+几个常用的强制命令介绍：<br/>
+使用定制消息拒绝连接：command=”/bin/echo Sorry,buddy,but you’ve terminated!” …key… 千万不要用more and less之类的分页程序显示命令菜单：利用脚本检查客户端的原始程序：command=”/bin/echo you tried to invoke $SSH_ORIGINAL_COMMAND” …key… $SSH_ORIGINAL_COMMAND环境变量保存着客户连接时运行的原始命令。<br/>
+限制客户端的原始命令，创建一个脚本，该脚本根据$SSH_ORIGINAL_COMMAND内容选择不同的操作。<br/>
+把客户端的原始命令记录在日志中：也是根据$SSH_ORIGINAL_COMMAND变量来做的一个脚本。脚本内容如一：</p>
+
+<h1>!/bin/sh</h1>
+
+<p>if [ -n &ldquo;$SSH_ORIGINAL_COMMAND&rdquo; ]<br/>
+then<br/>
+echo “`/bin/date`: $SSH_ORIGINAL_COMMAND” >> $HOME/ssh-command-log<br/>
+exec $SSH_ORIGINAL_COMMAND<br/>
+fi</p>
+
+<p>3、限制来自特定主机的连接。由from选项完成。from=”client.example.com” …key…。强制连接必须来自client.example.com。否则断开。from=”!client.example.com” …key…表示拒绝该地址的连接。支持通配符。SSH2不支持该功能。但可以通过$SSH2_CLIENT变量提取客户ip，编写强制命令脚本达到同样效果。<br/>
+4、为远程程序设置环境变量。environment=”EDITOR=emacs” …key…,为每个连接修改默认的环境变量。<br/>
+5、设置空闲超时时间，这样如果客户端用户不再发送数据就强制将其断开。idle-timeout=5m,该选项会覆盖服务器范围配置。<br/>
+6、对到达的SSH连接禁用某些特性，例如端口转发和tty分配。禁用tty分配会使客户端没有交互会话的能力。$SSH_TTY变量可显示tty情况。</p>
+
+<p>用户的rc文件<br/>
+ssh服务器会在每个连接到达时调用shell脚本/etc/sshrc，用户可把一些登录后想运行的脚本写到这个文件中。用户可以在自已的目录下定义类似的脚本，如果有自定义的~/.ssh/rc则/etc/sshrc则不会执行。</p>
+
+<p>第九章 端口转发与X转发<br/>
+使用SSH对其它应用程序在别的TCP端口上建立的TCP/IP传输进行加密和解密，这一过程称为端口转发，其绝大多数操作都是透明的，功能非常强大。TELNET,SMTP,NNTP,IMAP和一些基于TCP的不安全协议都可变得安全，只要将其连接通过SSH转发即可。端口转发有时又叫做隧道传输。<br/>
+例子：一个运行IMAP的服务器S，在家里的主机H上运行一个email程序，现在想用ssh保护IMAP连接。<br/>
+$ ssh -L2001:localhost:143 S<br/>
+-L 表明是本地转发，，上面这命令可完成登录到S的功能，现在的这个SSH会话同时将H的2001端口转发到S的143端口，在退出会话之前一直有效。并告知email程序使用被转发的端口，通常邮件程序连接服务器的143端口，即套接字 （S，143）。现在要令其连接本地主机H自已的2001端口，也就是套接字（localhost,2001）。创建本地转发时可以不用-L选项，而在客户端配置文件中用LocalForward关键字。<br/>
+LocalForward 2001 localhost:143 ssh1 openssh<br/>
+LocalForward “2001:localhost:143″ ssh2</p>
+
+<p>-g 选项和GatewayPorts yes/no关键字可以配置除本地主机外的机器是否能使用本地的端口转发功能。出于安全问题，该禁止这个功能。</p>
+
+<p>远程转发端口与本地转发几乎完全相同，只是方向相反。此时服务器在本地，转发连接由远程主机发起。假设你已登录进服务器S。则$ ssh -R2001:localhost:143 H-R代表远程转发。命令执行后，一条从远程主机H的2001端口到服务器S的143端口的安全隧道就建立起来了。H上的任何程序都可以通过连接（localhost,2001）来使用此安全隧道。<br/>
+而在客户端配置文件中用RemoteForward关键字.<br/>
+RemoteForward 2001 S:143 ssh openssh<br/>
+RemoteForward “2001:S:143″ ssh2</p>
+
+<p>$ ssh -o ClearAllForwardings=yes server.example.com 阻止第二条命令建立隧道</p>
+
+<p>本地转发与远程转发<br/>
+在本地转发中，应用程序客户端与监听端同SSH客户端在一起，应用程序服务器与连接端同SSH服务器在一起。<br/>
+在远程转发中，应用程序客户端与监听端同SSH服务器在一起，应用程序服务器与连接端同SSH客户端在一起。</p>
+
+<p>无远程登录的端口转发，连接时带-f参数。一次性转发用-fo，ssh1与openssh不支持这个功能，但可用以下语句实现：<br/>
+$ ssh -f -L2001:localhost:143 server sleep 10</p>
+
+<p>终止<br/>
+如果一个SSH会话现在还在活动当中，终止会出错。在SSH2中，如果退出有活动转发连接的会话，该会话会依然打开，但会转到后台运行。直到转发连接终止。ssh1 and openssh与此相反，如果要断开还在活动的会话，会出现警告，仍然在前台运行。</p>
+
+<p>TIME_WAIT问题。在某些情况下，TCP连接断连时，其一端的套接字在很短一段时间内变得不可用，所以在断连过程结束前不能把该端口用于TCP转发。</p>
+
+<p>第十章 推荐配置<br/>
+服务器范围配置<br/>
+1、禁用其它访问方式。<br/>
+关掉r-命令，方法如下：删除/etc/hosts.equiv文件，或改为只读空文件。禁用rshd,rlogind and rexecd，通过修改inetd.conf文件。<br/>
+2、/etc/sshd_config配置<br/>
+HostKey /etc/ssh_host_key<br/>
+PidFile /etc/sshd.pid<br/>
+RandomSeed /etc/ssh_random_seed</p>
+
+<p>StrictModes yes 要求用户保护其与SSH有关的文件及目录<br/>
+Umask 0077 保证所有SSHD1创建是文件和目录都只能由其所有者（SSHD 运行的UID）读取</p>
+
+<p>port 22<br/>
+ListenAddress 0.0.0.0<br/>
+IdleTimeout 15m 15分钟空闲超时<br/>
+KeepAlive yes 客户机死机时连接将会终止，而不会长期挂起。</p>
+
+<p>LoginGraceTime 30 登录时成功认证的时限为30秒。</p>
+
+<p>ServerKeyBits 768 服务器密钥长度<br/>
+KeyRegenerationInterval 3600 服务器密钥一小时重新生成一次</p>
+
+<p>PasswordAuthentication no 禁用密码认证<br/>
+RhostsAuthentication no 禁用可信主机认证<br/>
+RhostsRSAAuthentication no 禁用增强可信主机认证<br/>
+RSAAuthentication yes 启用公钥认证</p>
+
+<p>IgnoreRhosts yes 完全禁止SSHD使用.rhosts文件<br/>
+IgnoreRootRhosts yes</p>
+
+<p>UseLogin no 禁用UseLogin，防止万一使用了其它登录程序</p>
+
+<p>AllowHosts xxx 根据需要设置<br/>
+SilentDeny yes 任何被DenyHosts拒绝的连接都不会向用户返回消息，不必告诉攻击者发生了什么，可以增加了排错的难度。</p>
+
+<p>PermitRootLogin nopwd 允许超级用户通过SSH连接，但不能用密码认证</p>
+
+<p>FascistLogging no 禁用FascistLogging日志方式，因为它会在日志中记录用户特定信息，对攻击者有用。<br/>
+QuietMode no 禁用QuietMode日志方式，使用日志更详细，敏感度更低</p>
+
+<p>AllowTcpForwarding yes 允许tcp端口转发和X转发，保护其它的tcp连接<br/>
+X11Forwarding yes</p>
+
+<p>3、/etc/ssh2/sshd2_config配置<br/>
+HostKeyFile /etc/ssh2/hostkey<br/>
+PublicHostKeyFile /etc/ssh2/hostkey.pub<br/>
+RandmoSeedFile /etc/ssh2/random_seed</p>
+
+<p>UserConfigDirectory<br/>
+IdentityFile<br/>
+AuthorizstionFile</p>
+
+<p>StrictModes yes</p>
+
+<p>port 22<br/>
+listenAddress 0.0.0.0<br/>
+KeepAlive yes<br/>
+RequireReverseMapping no</p>
+
+<p>LoginGraceTime 30</p>
+
+<p>由于sshd2没有设置服务器密钥的位数的关键字，用户得在启动时使用 -b 选项 $ sshd2 -b 1024 ….</p>
+
+<p>AllowedAuthentications publickey<br/>
+RequiredAuthentications publickey</p>
+
+<p>IgnoreRhosts yes<br/>
+UserKnownHosts no 禁用该项可防止用户给未知主机提供信任权限。</p>
+
+<p>PermitRootLogin nopwd</p>
+
+<p>Ciphers any 不能选none</p>
+
+<p>QuietMode no<br/>
+VerboseMode yes</p>
+
+<p>Ssh1Compatibility no 禁用SSH-1兼容模式</p>
+
+<h1>Ssh1Path /usr/local/ssh1/sshd1 出于实用原因，也可以启用此模式，之前要指明ssh1服务器可执行文件位置</h1>
+
+<p>4、每账号配置<br/>
+对于SSH1 AND OPENSSH，~/.ssh/authorized_keys中的每一个密钥都必须用适当的选项进行限制，from选项限制只能从特定的主机访问特定的密钥。例如，假设文件中包含你家那台pc（myhome.isp.net）的公钥,而其它机器根本不可能用那个密钥来认证，我们就可以明确限定这一关系：from = “myhome.isp.net” …key…。还要对适当的密钥设置空闲超时时间：from = “myhome.isp.net” ，idle-timeout=5m …key…。<br/>
+最后，考虑每一个密钥是否需要对到达的连接使用端口转发，代理转发以及分配tty等，如果不需要，就可以分别用no-port-forwarding,no-agent-forwarding and no-pty禁用这些特性。</p>
+
+<p>5、密钥管理<br/>
+至少创建1024位长的用户密钥，并用好的口令对密钥进行保护。</p>
+
+<p>6、客户端配置<br/>
+离开正在运行的ssh客户端时，一定要用密码保护。<br/>
+在客户端配置文件中启用某些安全功能，并将其设置为最强<br/>
+Host *<br/>
+FallBackToRsh no 禁止使用不安全的r-命令（ssh2）没有这个问题。<br/>
+UseRsh no<br/>
+GatewayPorts no 禁止远程客户端连接本地的转发端口<br/>
+StrictHostKeyChecking ask 在主机密钥发生变化时提醒你。请求你的处理意见。<br/>
+配置“/etc/ssh/ssh_config”文件　<br/>
+“/etc/ssh/ssh_config”文件是OpenSSH系统范围的配置文件，允许你通过设置不同的选项来改变客户端程序的运行方式。这个文件的每一行包含“关键词－值”的匹配，其中“关键词”是忽略大小写的。下面列出来的是最重要的关键词，用man命令查看帮助页（ssh　(1)）可以得到详细的列表。　</p>
+
+<p>编辑“ssh_config”文件（vi　/etc/ssh/ssh_config），添加或改变下面的参数：　</p>
+
+<h1>　Site-wide　defaults　for　various　options　</h1>
+
+<p>Host　*　<br/>
+ForwardAgent　no　<br/>
+ForwardX11　no　<br/>
+RhostsAuthentication　no　<br/>
+RhostsRSAAuthentication　no　<br/>
+RSAAuthentication　yes　<br/>
+PasswordAuthentication　yes　<br/>
+FallBackToRsh　no　<br/>
+UseRsh　no　<br/>
+BatchMode　no　<br/>
+CheckHostIP　yes　<br/>
+StrictHostKeyChecking　no　<br/>
+IdentityFile　~/.ssh/identity　<br/>
+Port　22　<br/>
+Cipher　blowfish　<br/>
+EscapeChar　~　</p>
+
+<p>下面逐行说明上面的选项设置：　</p>
+
+<p>Host　<em>　<br/>
+选项“Host”只对能够匹配后面字串的计算机有效。“</em>”表示所有的计算机。　</p>
+
+<p>ForwardAgent　no　<br/>
+“ForwardAgent”设置连接是否经过验证代理（如果存在）转发给远程计算机。　</p>
+
+<p>ForwardX11　no　<br/>
+“ForwardX11”设置X11连接是否被自动重定向到安全的通道和显示集（DISPLAY　set）。　</p>
+
+<p>RhostsAuthentication　no　<br/>
+“RhostsAuthentication”设置是否使用基于rhosts的安全验证。　</p>
+
+<p>RhostsRSAAuthentication　no　<br/>
+“RhostsRSAAuthentication”设置是否使用用RSA算法的基于rhosts的安全验证。　</p>
+
+<p>RSAAuthentication　yes　<br/>
+“RSAAuthentication”设置是否使用RSA算法进行安全验证。　</p>
+
+<p>PasswordAuthentication　yes　<br/>
+“PasswordAuthentication”设置是否使用口令验证。　</p>
+
+<p>FallBackToRsh　no　<br/>
+“FallBackToRsh”设置如果用ssh连接出现错误是否自动使用rsh。　</p>
+
+<p>UseRsh　no　<br/>
+“UseRsh”设置是否在这台计算机上使用“rlogin/rsh”。　</p>
+
+<p>BatchMode　no　<br/>
+“BatchMode”如果设为“yes”，passphrase/password（交互式输入口令）的提示将被禁止。<br/>
+当不能交互式输入口令的时候，这个选项对脚本文件和批处理任务十分有用。　</p>
+
+<p>CheckHostIP　yes　</p>
+
+<p>“CheckHostIP”设置ssh是否查看连接到服务器的主机的IP地址以防止DNS欺骗。建议设置为“yes”。　</p>
+
+<p>StrictHostKeyChecking　no　<br/>
+“StrictHostKeyChecking”如果设置成“yes”，ssh就不会自动把计算机的密匙加入“$HOME/.ssh/known_hosts”文件，并且一旦计算机的密匙发生了变化，就拒绝连接。　</p>
+
+<p>IdentityFile　~/.ssh/identity　<br/>
+“IdentityFile”设置从哪个文件读取用户的RSA安全验证标识。　</p>
+
+<p>Port　22　<br/>
+“Port”设置连接到远程主机的端口。　</p>
+
+<p>Cipher　blowfish　<br/>
+“Cipher”设置加密用的密码。　</p>
+
+<p>EscapeChar　~　<br/>
+“EscapeChar”设置escape字符。　</p>
+
+<p>配置“/etc/ssh/sshd_config”文件　<br/>
+“/etc/ssh/sshd_config”是OpenSSH的配置文件，允许设置选项改变这个daemon的运行。这个文件的每一行包含“关键词－值”的匹配，其中“关键词”是忽略大小写的。下面列出来的是最重要的关键词，用man命令查看帮助页（sshd　(8)）可以得到详细的列表。　</p>
+
+<p>编辑“sshd_config”文件（vi　/etc/ssh/sshd_config），加入或改变下面的参数：　</p>
+
+<h1>　This　is　ssh　server　systemwide　configuration　file.　</h1>
+
+<p>Port　22　<br/>
+ListenAddress　192.168.1.1　<br/>
+HostKey　/etc/ssh/ssh_host_key　<br/>
+ServerKeyBits　1024　<br/>
+LoginGraceTime　600　<br/>
+KeyRegenerationInterval　3600　<br/>
+PermitRootLogin　no　<br/>
+IgnoreRhosts　yes　<br/>
+IgnoreUserKnownHosts　yes　<br/>
+StrictModes　yes　<br/>
+X11Forwarding　no　<br/>
+PrintMotd　yes　<br/>
+SyslogFacility　AUTH　<br/>
+LogLevel　INFO　<br/>
+RhostsAuthentication　no　<br/>
+RhostsRSAAuthentication　no　<br/>
+RSAAuthentication　yes　<br/>
+PasswordAuthentication　yes　<br/>
+PermitEmptyPasswords　no　<br/>
+AllowUsers　admin　</p>
+
+<p>下面逐行说明上面的选项设置：　</p>
+
+<p>Port　22　<br/>
+“Port”设置sshd监听的端口号。　</p>
+
+<p>ListenAddress　192.168.1.1　<br/>
+“ListenAddress”设置sshd服务器绑定的IP地址。　</p>
+
+<p>HostKey　/etc/ssh/ssh_host_key　</p>
+
+<p>“HostKey”设置包含计算机私人密匙的文件。　</p>
+
+<p>ServerKeyBits　1024　<br/>
+“ServerKeyBits”定义服务器密匙的位数。　</p>
+
+<p>LoginGraceTime　600　<br/>
+“LoginGraceTime”设置如果用户不能成功登录，在切断连接之前服务器需要等待的时间（以秒为单位）。　</p>
+
+<p>KeyRegenerationInterval　3600　<br/>
+“KeyRegenerationInterval”设置在多少秒之后自动重新生成服务器的密匙（如果使用密匙）。重新生成密匙是为了防止用盗用的密匙解密被截获的信息。　</p>
+
+<p>PermitRootLogin　no　<br/>
+“PermitRootLogin”设置root能不能用ssh登录。这个选项一定不要设成“yes”。　</p>
+
+<p>IgnoreRhosts　yes　<br/>
+“IgnoreRhosts”设置验证的时候是否使用“rhosts”和“shosts”文件。　</p>
+
+<p>IgnoreUserKnownHosts　yes　<br/>
+“IgnoreUserKnownHosts”设置ssh　daemon是否在进行RhostsRSAAuthentication安全验证的时候忽略用户的“$HOME/.ssh/known_hosts”　</p>
+
+<p>StrictModes　yes　<br/>
+“StrictModes”设置ssh在接收登录请求之前是否检查用户家目录和rhosts文件的权限和所有权。这通常是必要的，因为新手经常会把自己的目录和文件设成任何人都有写权限。　</p>
+
+<p>X11Forwarding　no　<br/>
+“X11Forwarding”设置是否允许X11转发。　</p>
+
+<p>PrintMotd　yes　<br/>
+“PrintMotd”设置sshd是否在用户登录的时候显示“/etc/motd”中的信息。　</p>
+
+<p>SyslogFacility　AUTH　<br/>
+“SyslogFacility”设置在记录来自sshd的消息的时候，是否给出“facility　code”。　</p>
+
+<p>LogLevel　INFO　<br/>
+“LogLevel”设置记录sshd日志消息的层次。INFO是一个好的选择。查看sshd的man帮助页，已获取更多的信息。　</p>
+
+<p>RhostsAuthentication　no　<br/>
+“RhostsAuthentication”设置只用rhosts或“/etc/hosts.equiv”进行安全验证是否已经足够了。　</p>
+
+<p>RhostsRSAAuthentication　no　<br/>
+“RhostsRSA”设置是否允许用rhosts或“/etc/hosts.equiv”加上RSA进行安全验证。　</p>
+
+<p>RSAAuthentication　yes　<br/>
+“RSAAuthentication”设置是否允许只有RSA安全验证。　</p>
+
+<p>PasswordAuthentication　yes　<br/>
+“PasswordAuthentication”设置是否允许口令验证。　</p>
+
+<p>PermitEmptyPasswords　no　<br/>
+“PermitEmptyPasswords”设置是否允许用口令为空的帐号登录。　</p>
+
+<p>AllowUsers　admin　<br/>
+“AllowUsers”的后面可以跟着任意的数量的用户名的匹配串（patterns）或user@host这样的匹配串，这些字符串用空格隔开。主机名可以是DNS名或IP地址。　</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/140">SSH权威指南</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">gxbsst</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2008-06-21T00:00:00+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ji-zhu-gan-xiang/'>技术感想</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.weixuhong.com/archives/140" data-via="Weixuhong" data-counturl="http://www.weixuhong.com/archives/140" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/archives/138" title="Previous Post: safari开新标签不用按command的方法">&laquo; safari开新标签不用按command的方法</a>
+      
+      
+        <a class="basic-alignment right" href="/archives/141" title="Next Post: Rails2_0新特性_Action Mailer设置的调整">Rails2_0新特性_Action Mailer设置的调整 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
+</section><section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/angularjs/'>angularjs (2)</a></li>
+<li class='category'><a href='/blog/categories/directive/'>directive (1)</a></li>
+<li class='category'><a href='/blog/categories/ide/'>ide (1)</a></li>
+<li class='category'><a href='/blog/categories/ios/'>ios (6)</a></li>
+<li class='category'><a href='/blog/categories/javascript/'>javascript (8)</a></li>
+<li class='category'><a href='/blog/categories/linux-unix/'>linux/unix (24)</a></li>
+<li class='category'><a href='/blog/categories/php/'>php (28)</a></li>
+<li class='category'><a href='/blog/categories/regular-expressions/'>regular expressions (2)</a></li>
+<li class='category'><a href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails (36)</a></li>
+<li class='category'><a href='/blog/categories/rubymine/'>rubymine (1)</a></li>
+<li class='category'><a href='/blog/categories/xhtml-css/'>xhtml/css (9)</a></li>
+<li class='category'><a href='/blog/categories/工作计划/'>工作计划 (3)</a></li>
+<li class='category'><a href='/blog/categories/心情随写/'>心情随写 (67)</a></li>
+<li class='category'><a href='/blog/categories/技术感想/'>技术感想 (47)</a></li>
+<li class='category'><a href='/blog/categories/未分类/'>未分类 (1)</a></li>
+<li class='category'><a href='/blog/categories/杂谈/'>杂谈 (5)</a></li>
+<li class='category'><a href='/blog/categories/生活点滴/'>生活点滴 (4)</a></li>
+<li class='category'><a href='/blog/categories/软件试用/'>软件试用 (4)</a></li>
+
+  </ul>
+</section><section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/595">Rubymine 不能输入中文？</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'gxbsst',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Weston Wei(韦旭红) -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'Weixuhong';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

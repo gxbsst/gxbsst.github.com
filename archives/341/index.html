@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>如果使用SSH隧道翻墙上网&#8211;Windows 篇(原创) - 韦旭红的幸福时光</title>
+  <meta name="author" content="Weston Wei(韦旭红)">
+
+  
+  <meta name="description" content="更新（重要):
+新版FroxyProxy做了一个很重要功能的更新: 将再全局设置中的“使用SOCKS代理服务器查找DNS(U)&#8221;移除了，用每个Proxy设置来设置，而不是全局，如下图 *影响： 如果不使用这个功能， 有一些网址将使用本地的DNS，那么重要的网站就可能无法访问了， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.weixuhong.com/archives/341">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="韦旭红的幸福时光" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script> 
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">韦旭红的幸福时光</a></h1>
+  
+    <h2>20，30，40&#8230;</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.weixuhong.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/photos">Photos</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">如果使用SSH隧道翻墙上网&#8211;Windows 篇(原创)</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2009-11-30T00:00:00+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2009</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><span style="color:#ff0000;"><strong>更新（重要</strong></span><span style="color:#ff0000;"><strong>):</strong></span><br/>
+新版FroxyProxy做了一个很<span style="font-family:STHeiti;">重要功能的更新:</p> <p>
+  将再全局设置中的“</span><span style="font-family:STHeiti;color:#ff0000;"><strong>使用SOCKS代理服务器查找DNS(U)&#8221;</strong></span><span style="font-family:STHeiti;">移除了，用每个Proxy设置来设置，而不是全局，如下图</p> <p>
+    </span><span style="font-family:STHeiti;color:#d21217;">*影响： 如果不使用这个功能， 有一些网址将使用本地的DNS，那么重要的网站就可能无法访问了，希望用</span><span style="color:#d21217;"><em>FroxyProxy</em></span><span style="color:#d21217;">一定要重</span><span style="font-family:STHeiti;color:#d21217;">视</span><span style="color:#d21217;"><em>.</em></span><span style="font-family:STHeiti;color:#d21217;"><br /> </span><br /> <a href="http://www.weixuhong.com/content/uploads/2009/12/2009-12-05_1105.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/12/2009-12-05_1105.png','popup','width=692,height=419,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/12/2009-12-05_1105-tm.jpg" height="419" width="692" border="1" hspace="4" vspace="4" alt="2009-12-05 1105" /></a><br /> (旧版)中有&#8221;<span style="font-family:STHeiti;">将再全局设置中的“</span><span style="font-family:STHeiti;color:#ff0000;">使用SOCKS代理服务器查找DNS(U)</span><span style="font-family:STHeiti;">&#8221;</p> <p>
+      </span><a href="http://www.weixuhong.com/content/uploads/2009/12/Picture-5-2.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/12/Picture-5-2.png','popup','width=753,height=534,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/12/Picture-5-2-tm.jpg" height="534" width="753" border="1" hspace="4" vspace="4" alt="Picture 5-2" /></a><br /> 新版已<span style="font-family:STHeiti;">经</span>将<span style="font-family:STHeiti;">这个</span>移除了
+    </p></p>
+
+<pre><code>&lt;p&gt;
+  &lt;a href="http://www.weixuhong.com/content/uploads/2009/12/Picture-6-1.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/12/Picture-6-1.png','popup','width=761,height=519,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"&gt;&lt;img src="http://www.weixuhong.com/content/uploads/2009/12/Picture-6-1-tm.jpg" height="519" width="761" border="1" hspace="4" vspace="4" alt="Picture 6-1" /&gt;&lt;/a&gt;&lt;br /&gt; 将“ &lt;span style="color:#ff0000;"&gt;Use this Proxy for all DNS Lookups&lt;/span&gt;&amp;#8221; &lt;span style="font-family:STHeiti;"&gt;选&lt;/span&gt;上就可以了
+&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;span style="font-family:STHeiti;"&gt;&lt;br /&gt; &lt;/span&gt;需要&lt;span style="font-family:STHeiti;"&gt;软件或其他&lt;/span&gt;&lt;br /&gt; 1. FireFox （&lt;span style="font-family:STHeiti;"&gt;浏览器）&lt;/span&gt;&lt;a href="%20http://www.mozilla.com/en-US/firefox/firefox.html"&gt; http://www.mozilla.com/en-US/firefox/firefox.html&lt;/a&gt;&lt;br /&gt; 2. FoxyProxy(FireFox的插件)*看&lt;span style="font-family:STHeiti;"&gt;视频如何添加&lt;/span&gt;&lt;br /&gt; 3. 需要一个SSH&lt;span style="font-family:STHeiti;"&gt;帐号&lt;/span&gt;&lt;br /&gt; 4. Putty( Windows SSH 登&lt;span style="font-family:STHeiti;"&gt;录客户端&lt;/span&gt;) &lt;a href="http://dl.pconline.com.cn/html_2/1/97/id=3978&amp;pn=0.html"&gt;http://dl.pconline.com.cn/html_2/1/97/id=3978&amp;pn=0.html&lt;/a&gt;&lt;br /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+  *原理和之前的&lt;a href="http://weixuhong.com/%E5%BF%83%E6%83%85%E9%9A%8F%E5%86%99/2009/11/14/%E5%A6%82%E6%9E%9C%E4%BD%BF%E7%94%A8ssh%E9%9A%A7%E9%81%93%E4%B8%8A%E7%BD%91-for-mac%E7%AF%87/"&gt;For Mac&lt;/a&gt;一&lt;span style="font-family:STHeiti;"&gt;样&lt;/span&gt;&lt;br /&gt; *以上&lt;span style="font-family:STHeiti;"&gt;软件请自行下载安装&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+  转载请注明：&lt;a href="http://www.weixuhong.com"&gt;韦旭红的点点滴滴&lt;/a&gt; &amp;raquo; &lt;a href="http://www.weixuhong.com/archives/341"&gt;如果使用SSH隧道翻墙上网&amp;#8211;Windows 篇(原创)&lt;/a&gt;
+&lt;/p&gt;
+</code></pre>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">gxbsst</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2009-11-30T00:00:00+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2009</span></span> <span class='time'>12:00 am</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/xin-qing-sui-xie/'>心情随写</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.weixuhong.com/archives/341" data-via="Weixuhong" data-counturl="http://www.weixuhong.com/archives/341" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/archives/339" title="Previous Post: Mac常用软件之Dropbox">&laquo; Mac常用软件之Dropbox</a>
+      
+      
+        <a class="basic-alignment right" href="/archives/361" title="Next Post: 用过的Twitter的客户端">用过的Twitter的客户端 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
+</section><section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/angularjs/'>angularjs (2)</a></li>
+<li class='category'><a href='/blog/categories/directive/'>directive (1)</a></li>
+<li class='category'><a href='/blog/categories/ide/'>ide (1)</a></li>
+<li class='category'><a href='/blog/categories/ios/'>ios (6)</a></li>
+<li class='category'><a href='/blog/categories/javascript/'>javascript (8)</a></li>
+<li class='category'><a href='/blog/categories/linux-unix/'>linux/unix (24)</a></li>
+<li class='category'><a href='/blog/categories/php/'>php (28)</a></li>
+<li class='category'><a href='/blog/categories/regular-expressions/'>regular expressions (2)</a></li>
+<li class='category'><a href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails (36)</a></li>
+<li class='category'><a href='/blog/categories/rubymine/'>rubymine (1)</a></li>
+<li class='category'><a href='/blog/categories/xhtml-css/'>xhtml/css (9)</a></li>
+<li class='category'><a href='/blog/categories/工作计划/'>工作计划 (3)</a></li>
+<li class='category'><a href='/blog/categories/心情随写/'>心情随写 (67)</a></li>
+<li class='category'><a href='/blog/categories/技术感想/'>技术感想 (47)</a></li>
+<li class='category'><a href='/blog/categories/未分类/'>未分类 (1)</a></li>
+<li class='category'><a href='/blog/categories/杂谈/'>杂谈 (5)</a></li>
+<li class='category'><a href='/blog/categories/生活点滴/'>生活点滴 (4)</a></li>
+<li class='category'><a href='/blog/categories/软件试用/'>软件试用 (4)</a></li>
+
+  </ul>
+</section><section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/595">Rubymine 不能输入中文？</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'gxbsst',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Weston Wei(韦旭红) -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'Weixuhong';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

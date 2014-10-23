@@ -1,0 +1,1000 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>韦旭红的幸福时光</title>
+  <meta name="author" content="Weston Wei(韦旭红)">
+
+  
+  <meta name="description" content="$sql = “select count(*) as ctr from users where username='foo' and password='' or '1'='1' limit 1”; 以上语句总是返回1。。。怎麽辦？對or &#8217;1&#8242;=&#8217;1&# &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.weixuhong.com/posts/12">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="韦旭红的幸福时光" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script> 
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">韦旭红的幸福时光</a></h1>
+  
+    <h2>20，30，40&#8230;</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.weixuhong.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/photos">Photos</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/171">PHP防mysql注入有用的函数mysql_real_escape_string()</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-09-01T00:00:00+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/171#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/171">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><pre lang="mysql">$sql = “select count(*) as ctr  from users where 
+  username='foo' and password='' or '1'='1' limit 1”;
+
+</pre>
+
+
+<p>以上语句总是返回1。。。怎麽辦？對or &#8217;1&#8242;=&#8217;1&#8242;轉義，就用以下函數<br/>
+mysql_real_escape_string()</p>
+
+<pre lang="php"><?php
+$okay = 0;
+$username = $_POST['user'];
+$pw = $_POST['pw'];
+
+$sql = "select count(*) as ctr from users where 
+username='".mysql_real_escape_string($username)."' 
+and password='". mysql_real_escape_string($pw)."' limit 1"; 
+
+$result = mysql_query($sql);
+
+while ($data = mysql_fetch_object($result)){
+if ($data->ctr == 1){
+//they're okay to enter the application!
+$okay = 1;
+}
+}
+
+if ($okay){
+$_SESSION['loginokay'] = true;
+header(“index.php”);
+}else{
+header(“login.php”);
+}
+?>
+
+</pre>
+
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/171">PHP防mysql注入有用的函数mysql_real_escape_string()</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/169">关于Rails模板系统的运行原理（ERP &#038; Binding)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-08-31T00:00:00+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>31</span><span class='date-suffix'>st</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/169#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/169">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>一直想看研究Rails的模板系统， 但总是有各种各样的原因，给延误了，之前也和我的同事Jerry Guo<a href="http://weixuhong.com/rubyruby-on-rails/2008/08/05/%E5%85%B3%E4%BA%8Erails%E5%BC%95%E7%94%A8binding%E7%9A%84%E5%AF%B9%E8%AF%9D/">讨论过这个问题</a>，但是一直没有把结果写出来，Jerry的这篇文章相信解了很多同学的疑问了&#8230;</p>
+
+<p>大家可以到这里访问: <a href="http://hozaka.blogspot.com/2008/08/actionview-erb-binding.html">http://hozaka.blogspot.com/2008/08/actionview-erb-binding.html</a></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/169">关于Rails模板系统的运行原理（ERP &amp; Binding)</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/168">查询订单demo</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-08-24T00:00:00+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/168#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/168">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>如果客户订的EVF比送的REDONE多，而且那些EVF还没有全部送货</p>
+
+<pre lang="ruby">lines = ERP::SalesLine.find(:all, 
+:conditions => ['item_id =  ? OR item_id = ?', '301001', '101001'],
+:joins => 'JOIN erp_sales_orders ON erp_sales_orders.id = erp_sales_lines.erp_sales_order_id 
+JOIN erp_customers ON erp_customers.id = erp_sales_orders.erp_customer_id'
+)
+
+result = {}
+
+lines.each do |line| 
+
+  unless result.key?(  account  = line.sales_order.customer.account_num)
+    result.merge!( account => { :red_one => 0, :evf => 0, :remain_sales_physical => 0 } )
+  end
+  s = result[account]  
+
+  if line.item_id == '101001'
+    unless line.invoiced_in_total.blank?
+      s[:red_one] += 1
+    end
+  elsif line.item_id = '301001'
+    s[:remain_sales_physical] += line.remain_sales_physical
+    s[:evf] += 1
+  end
+end
+
+
+
+
+
+accounts = []
+result.each do |key,value|
+  if (value[:red_one] > 0 and value[:red_one] >= value[:evf] and value[:remain_sales_physical] > 0)
+    accounts &lt;&lt; (key)
+    a = ERP::Customer.find_by_account_num(key)
+    open("#{RAILS_ROOT}/log/accountn_numbers.log", "a+") { |file| file &lt;&lt; "#{key} #{}n" }
+      
+  end
+end
+</pre>
+
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/168">查询订单demo</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/163">Installing ImageMagick/RMagick on Leopard (脚本)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-08-10T00:00:00+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>10</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/163#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/163">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>*这个脚本估中，有些软件不一定能下载，所以大家运行这个脚本的时候要注意检查</p>
+
+<pre lang="shell">#!/bin/sh
+curl -O http://download.savannah.gnu.org/releases/freetype/freetype-2.3.5.tar.gz
+tar xzvf freetype-2.3.5.tar.gz
+cd freetype-2.3.5
+./configure --prefix=/usr/local
+make
+sudo make install
+cd ..
+
+curl -O http://superb-east.dl.sourceforge.net/sourceforge/libpng/libpng-1.2.23.tar.bz2
+tar jxvf libpng-1.2.23.tar.bz2
+cd libpng-1.2.23
+./configure --prefix=/usr/local
+make
+sudo make install
+cd ..
+
+curl -O http://www.ijg.org/files/jpegsrc.v6b.tar.gz
+tar xzvf jpegsrc.v6b.tar.gz
+cd jpeg-6b
+ln -s `which glibtool` ./libtool
+export MACOSX_DEPLOYMENT_TARGET=10.5
+./configure --enable-shared --prefix=/usr/local
+make
+sudo make install
+cd ..
+
+curl -O ftp://ftp.remotesensing.org/libtiff/tiff-3.8.2.tar.gz
+tar xzvf tiff-3.8.2.tar.gz
+cd tiff-3.8.2
+./configure --prefix=/usr/local
+make
+sudo make install
+cd ..
+
+curl -O http://superb-east.dl.sourceforge.net/sourceforge/wvware/libwmf-0.2.8.4.tar.gz
+tar xzvf libwmf-0.2.8.4.tar.gz
+cd libwmf-0.2.8.4
+make clean
+./configure
+make
+sudo make install
+cd ..
+
+curl -O http://www.littlecms.com/lcms-1.17.tar.gz
+tar xzvf lcms-1.17.tar.gz
+cd lcms-1.17
+make clean
+./configure
+make
+sudo make install
+cd ..
+
+curl -O http://superb-east.dl.sourceforge.net/sourceforge/ghostscript/ghostscript-8.61.tar.gz
+tar zxvf ghostscript-8.61.tar.gz
+cd ghostscript-8.61/
+./configure  --prefix=/usr/local
+make
+sudo make install
+cd ..
+
+curl -O http://mirror.cs.wisc.edu/pub/mirrors/ghost/GPL/current/ghostscript-fonts-std-8.11.tar.gz
+tar zxvf ghostscript-fonts-std-8.11.tar.gz
+sudo mv fonts /usr/local/share/ghostscript
+
+curl -O ftp://ftp.imagemagick.org/pub/ImageMagick/ImageMagick-6.3.7-1.tar.gz
+tar xzvf ImageMagick-6.3.7-1.tar.gz
+cd ImageMagick-6.3.7
+export CPPFLAGS=-I/usr/local/include
+export LDFLAGS=-L/usr/local/lib
+./configure --prefix=/usr/local --disable-static --with-modules --without-perl --without-magick-plus-plus --with-quantum-depth=8 --with-gs-font-dir=/usr/local/share/ghostscript/fonts
+make
+sudo make install
+cd ..
+</pre>
+
+
+<ul>
+<li>安装RMagick:sudo gem install RMagick</li>
+</ul>
+
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/163">Installing ImageMagick/RMagick on Leopard (脚本)</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/164">情感事（转)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-08-10T00:00:00+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>10</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/164#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/164">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><span style="text-decoration:underline;">声明：以下故事純屬虛構</span><span style="text-decoration:underline;">, </span><span style="text-decoration:underline;">如有雷同，純屬巧合</span><span style="text-decoration:underline;">.</span></p>
+
+<p>一直不想在自己的Blog抒<span style="font-family:STHeiti;">发自己的感情，因为这样很容易被人骂无病呻吟</span>, 但是又不知道要把<span style="font-family:STHeiti;">这些内容放在哪里，为了让更少人往下看，我只有在标题加了个</span> “<span style="font-family:STHeiti;">转</span>” 字了&#8230;只希望以后自己老了以后，可以拿出来看看&#8230;</p>
+
+<p>其<span style="font-family:STHeiti;">实相信很多人都有这样几段的感情经历，当然如果初恋就能结婚，</span> <span style="font-family:STHeiti;">这会令很多人羡慕的吧</span>! 但不是每个人都是<span style="font-family:STHeiti;">这样</span>&#8230;</p>
+
+<p><strong>初恋</strong><br/>
+<span style="font-family:STHeiti;">记得最早的对异性有相思之苦的是高中的时候，那时坐在我旁边的是一个身材匀称，很小巧、可爱的</span>H， 其<span style="font-family:STHeiti;">实最初吸引我的是她走路的姿势，</span> <span style="font-family:STHeiti;">轻飘飘的，然后我就开始注意她的小脚，</span> 很白很<span style="font-family:STHeiti;">细，让我惊为天人（声明：</span> 我不是恋脚癖），因<span style="font-family:STHeiti;">为喜欢她走路的姿势，然后到注意她的脚，</span> 然后注意她的手，再到她的脖子（她的脖子很<span style="font-family:STHeiti;">细，看起来也很性感</span>)&#8230; 所以高中的<span style="font-family:STHeiti;">时候我就特别喜欢到夏天，</span> <span style="font-family:STHeiti;">这样她就会穿校裙，</span> 我就可以大<span style="font-family:STHeiti;">饱眼福了，</span> 也<span style="font-family:STHeiti;">许从那段时间养成的习惯，</span> 以后<span style="font-family:STHeiti;">谈朋友，都喜欢特别注意女性的脚，手，脖子，</span> <span style="font-family:STHeiti;">对于手脚粗，脖子短的，吸引力已经大打折扣了</span>&#8230;</p>
+
+<p>就<span style="font-family:STHeiti;">这样默默暗恋了人家一直到高中毕业，一直都不敢表白，</span> <span style="font-family:STHeiti;">现在想真是后悔死了，</span> <span style="font-family:STHeiti;">读大学的时候，</span> <span style="font-family:STHeiti;">还专门摄文抒发这段感情，</span> 后来知道她在一家婚<span style="font-family:STHeiti;">纱店工作，</span> 就<span style="font-family:STHeiti;">过去找他，但是已经发现她不是我心中完美的小天使了，她脸上长了很多雀斑，</span> 不知道<span style="font-family:STHeiti;">为什么刚</span>20<span style="font-family:STHeiti;">岁，就长这么多的雀斑？</span> 当<span style="font-family:STHeiti;">时我郁闷了一段时间，</span> 但是<span style="font-family:STHeiti;">还是还是没有表白</span>&#8230;</p>
+
+<p>后来我来上海， 在网上也能<span style="font-family:STHeiti;">联系到她了，我也肆无忌惮的说她是我的初恋，</span> 当然是半开玩笑的， 她<span style="font-family:STHeiti;">骂我是傻子，</span> 后面在我强烈表白之后，她相信是真的， <span style="font-family:STHeiti;">给我一句：</span> 美好的<span style="font-family:STHeiti;">东西还是留给过去吧！</span> 当<span style="font-family:STHeiti;">时她正失恋，</span> 我只能安慰她， 但是我<span style="font-family:STHeiti;">们只是要好的朋友而已。</span></p>
+
+<p>今年回家<span style="font-family:STHeiti;">过年，</span> <span style="font-family:STHeiti;">请她出来吃了顿饭，</span> <span style="font-family:STHeiti;">这是我</span>7年之后第一次<span style="font-family:STHeiti;">见到她，</span> 只能感<span style="font-family:STHeiti;">叹时间已经把女人折磨成不成样子了</span>&#8230;最后我<span style="font-family:STHeiti;">们还是成为最好的异性朋友</span>&#8230;<span style="font-family:STHeiti;">时间可以冲淡一切的</span>&#8230;</p>
+
+<p><strong>校园恋情</strong><br/>
+在<span style="font-family:STHeiti;">读大学的时候，</span> 曾<span style="font-family:STHeiti;">经有两段感情，</span> 也是<span style="font-family:STHeiti;">值得回忆的，因为在学校谈的也是很纯的</span>&#8230;</p>
+
+<p>当<span style="font-family:STHeiti;">时在大学里，</span>M和D是两个很好的朋友， 真是不知道何德何能，D会喜<span style="font-family:STHeiti;">欢上我，</span> 但是当<span style="font-family:STHeiti;">时我暗恋的是</span>M， 但是当<span style="font-family:STHeiti;">时很傻，</span> 傻到想先和D<span style="font-family:STHeiti;">谈，然后等毕业了在分手，</span> 当<span style="font-family:STHeiti;">时我已经和</span>M<span style="font-family:STHeiti;">谈了，</span> M也同意我的做法， <span style="font-family:STHeiti;">这样谁都不伤害，</span> 但是后面<span style="font-family:STHeiti;">给</span>M的<span style="font-family:STHeiti;">妈妈知道了，</span> <span style="font-family:STHeiti;">这样的事情当然不能发生了，所以没有办法，</span> 只有在<span style="font-family:STHeiti;">毕业之前的几个月，用街道边的电话亭跟</span>D<span style="font-family:STHeiti;">说分手，当时找不到任何理由（很傻</span>)， 我知道D同学一定很<span style="font-family:STHeiti;">伤心，</span> 只是我当<span style="font-family:STHeiti;">时没有体会到，很明显，当时我就是彻头彻尾的混蛋，只是这个是在几年以后我才明白的</span>&#8230;</p>
+
+<p>后面<span style="font-family:STHeiti;">毕业了，</span> 我和M同学去了更<span style="font-family:STHeiti;">远的地方工作，</span> 小两口在外面也<span style="font-family:STHeiti;">过得比较惬意，毕竟年轻嘛，</span> 其中， D同学也打<span style="font-family:STHeiti;">电话到我家咨询我到情况，</span> <span style="font-family:STHeiti;">现在想真是痛心啊</span>&#8230;当然后来跟M同学<span style="font-family:STHeiti;">发生了很多事情，</span> 有苦，有快<span style="font-family:STHeiti;">乐，</span> 有<span style="font-family:STHeiti;">伤心，</span> 有幸福， 但是没有<span style="font-family:STHeiti;">办法，最终以离散收场，</span> 当然承<span style="font-family:STHeiti;">认是别人甩了我，</span> 当<span style="font-family:STHeiti;">时比较不爽的，</span> <span style="font-family:STHeiti;">现在理智分析，</span> 我知道都是我的<span style="font-family:STHeiti;">错，</span> 我已<span style="font-family:STHeiti;">经没有任何怨言了</span>&#8230;很多歌曲或文章都<span style="font-family:STHeiti;">说分手亦是朋友，</span> 我想那是屁<span style="font-family:STHeiti;">话，</span> 反正分手之后，我再也没有M的任何信息， 也不想去关心， 只能<span style="font-family:STHeiti;">这么说：我们已经不能喜欢对方，因为我们彼此伤害过，</span> 也不能恨<span style="font-family:STHeiti;">对方，因为我们曾经相爱过。</span> 就当成<span style="font-family:STHeiti;">长过程的一段经历吧。</span> 和M分手后， 我打<span style="font-family:STHeiti;">电话给了</span>D， 倒不是想<span style="font-family:STHeiti;">倾诉什么苦，</span> 因<span style="font-family:STHeiti;">为我体会什么是苦，所以我必须赎罪，</span> 我要道歉&#8230;不<span style="font-family:STHeiti;">过还好，</span> D<span style="font-family:STHeiti;">过得很好，</span> 前年<span style="font-family:STHeiti;">结婚，去年生了个女儿，</span> 很可<span style="font-family:STHeiti;">爱，</span> 祝福她&#8230;<br/>
+* 关于以上的恋情，<span style="font-family:STHeiti;">还</span>有很多<span style="font-family:STHeiti;">东</span>西可以<span style="font-family:STHeiti;">书</span>写，本来我在2006年的<span style="font-family:STHeiti;">时</span>候就想写了，但是一直无从下手，只好再等等，也<span style="font-family:STHeiti;">许这</span>就像我当初的誓言，3年吧&#8230;.</p>
+
+<p><strong>上海之恋</strong><br/>
+因<span style="font-family:STHeiti;">为经历过刻骨铭心的感情经历之后，</span> 也<span style="font-family:STHeiti;">许已经对新的恋情找不到任何的激情了，</span> <span style="font-family:STHeiti;">这样感觉很可怕。</span><br/>
+<span style="font-family:STHeiti;">刚开始到上海的时候，</span> 可能是因<span style="font-family:STHeiti;">为无聊，就厚着脸皮追了</span>z妹妹， 不<span style="font-family:STHeiti;">过人家也接受了</span>&#8230;但是就是不是我喜<span style="font-family:STHeiti;">欢的，我知道我在玩弄感情，</span> <span style="font-family:STHeiti;">这种状态就这样过了一年，</span> 后来z妹妹叫我打<span style="font-family:STHeiti;">电话给她妈妈，</span> 吓我一跳， 她希望我能和她<span style="font-family:STHeiti;">结婚，</span> 我<span style="font-family:STHeiti;">觉得这怎么可能，</span> 她<span style="font-family:STHeiti;">绝对不是我喜欢的类型，</span> 算了，不要欺<span style="font-family:STHeiti;">骗别人，</span> 也不要欺<span style="font-family:STHeiti;">骗自己吧，</span> 也<span style="font-family:STHeiti;">许这样的罪恶感会少点，</span> 最后我<span style="font-family:STHeiti;">还提出了分手，</span> <span style="font-family:STHeiti;">这次还好，能说出很多理由</span>&#8230;虽然她很<span style="font-family:STHeiti;">伤心，</span> 也想挽回， 但是我已<span style="font-family:STHeiti;">经不给自己任何机会了</span>&#8230;后面我听<span style="font-family:STHeiti;">说她和他那边的小伙子谈恋爱了，我也祝福他们</span>&#8230;</p>
+
+<p>今年，真的想<span style="font-family:STHeiti;">谈一段纯的感情，</span> <span style="font-family:STHeiti;">经同事介绍，认识了</span>T， T是没有任何<span style="font-family:STHeiti;">闪光点的一个人，</span> 但是有<span style="font-family:STHeiti;">时我就喜欢她呆呆的样子，很可爱</span>&#8230;但是<span style="font-family:STHeiti;">说实话，我感觉我和她有时更像哥妹，</span> 至少到<span style="font-family:STHeiti;">现在还没有出任何火花，</span> 也<span style="font-family:STHeiti;">许是我心里的保护意识太强了吧，</span> 所以有<span style="font-family:STHeiti;">时就比较冷谈，</span> T好像也感<span style="font-family:STHeiti;">觉到了，</span> 但是她什么也没有<span style="font-family:STHeiti;">说，</span> 我不知道我<span style="font-family:STHeiti;">们下去会是怎么样？</span></p>
+
+<p>上个星期五， 去喝朋友的喜酒， 遇<span style="font-family:STHeiti;">见了</span>W， 我被她吸引住了， 我已<span style="font-family:STHeiti;">经好久好久没有这种感觉了，</span> 我被她<span style="font-family:STHeiti;">说话的声音，</span> 她的性格吸引住了(很直爽)&#8230;本来我<span style="font-family:STHeiti;">对异性很少说脸红的时候，</span> 一般都能找到<span style="font-family:STHeiti;">话题，</span> 不知道<span style="font-family:STHeiti;">为什么当晚，</span> 面<span style="font-family:STHeiti;">对她，</span> 我竟然有点不知所措，甚至有些窒息的感<span style="font-family:STHeiti;">觉</span>， 但是<span style="font-family:STHeiti;">这样的感觉我觉得很高兴，这才是我自己的真实体现</span>&#8230; 吃完<span style="font-family:STHeiti;">饭，</span> 大家各自回去， 但是我心里<span style="font-family:STHeiti;">还是不听的想她，</span> 在网上，就希望她在<span style="font-family:STHeiti;">线（我写这篇搏文的时候，</span> 她正在去吃<span style="font-family:STHeiti;">饭</span>), 但是她在<span style="font-family:STHeiti;">线，</span> 我又不敢和她聊天， 我<span style="font-family:STHeiti;">总是找出很多理由，</span> <span style="font-family:STHeiti;">说服自己对这份感情是不可能的，</span> 不段的<span style="font-family:STHeiti;">说服自己，</span> 但是到后面越来越来勉强了&#8230;以至于昨晚睡<span style="font-family:STHeiti;">觉的时候，</span> 心中所想都是她， 我失眠了&#8230;我已<span style="font-family:STHeiti;">经很久很久没有这样的感觉了，也许我的判断是对的，</span> 如果<span style="font-family:STHeiti;">谈下去，也不会有任何的结果，</span> 但是有<span style="font-family:STHeiti;">这样的感觉就好，</span> <span style="font-family:STHeiti;">说明我还未死去</span>&#8230;</p>
+
+<p>更新：<br/>
+<span style="font-family:STHeiti;">经过长时间</span>考<span style="font-family:STHeiti;">虑</span>，我已<span style="font-family:STHeiti;">经</span>决定放弃<span style="font-family:STHeiti;">这</span>次心<span style="font-family:STHeiti;">动</span>了，感<span style="font-family:STHeiti;">觉</span>虽然是美好的，但是思念更加的痛苦， 也<span style="font-family:STHeiti;">许</span>理想和<span style="font-family:STHeiti;">现实总</span>是有差距的吧&#8230; 人在很多<span style="font-family:STHeiti;">现实</span>面前，<span style="font-family:STHeiti;">总</span>要做些<span style="font-family:STHeiti;">让</span>步， 我已<span style="font-family:STHeiti;">经对</span>生活的些事情做些<span style="font-family:STHeiti;">让</span>步， <span style="font-family:STHeiti;">这</span>是我得以<span style="font-family:STHeiti;">专</span>注工作的原因之一， 因<span style="font-family:STHeiti;">为</span>我知道有些事情，我是不可以控制的，但是有些事情， 就是我要怎么做，我自己是可以控制的&#8230;</p>
+
+<p><span style="font-family:STHeiti;">这</span>段<span style="font-family:STHeiti;">时间</span>一直和黄Sir<span style="font-family:STHeiti;">讨论</span>投<span style="font-family:STHeiti;">资</span>方面的<span style="font-family:STHeiti;">问题</span>，当然<span style="font-family:STHeiti;">现</span>在我<span style="font-family:STHeiti;">们</span>真的没有找到好突破口， 但是我<span style="font-family:STHeiti;">们</span>真的付出了，真的想了，我也一直<span style="font-family:STHeiti;">坚</span>信<span style="font-family:STHeiti;">这样</span>会有好的<span style="font-family:STHeiti;">结</span>果， <span style="font-family:STHeiti;">这样</span>的信念一直未<span style="font-family:STHeiti;">变</span>， 当然我也知道<span style="font-family:STHeiti;">过</span>程是相当的痛苦， <span style="font-family:STHeiti;">这就是我或我们的宿命&#8230;</span></p>
+
+<p>也<span style="font-family:STHeiti;">许</span>哪一天我真的会<span style="font-family:STHeiti;">远离这</span>座城市&#8230;</p>
+
+<ul>
+<li>其中有位女孩我不能不提到就是J, 像<span style="font-family:STHeiti;">这样说话</span>口无遮<span style="font-family:STHeiti;">拦</span>的人，当然会引起人家的<span style="font-family:STHeiti;">误</span>会了，J是向我表白<span style="font-family:STHeiti;">过</span>的，但是我没有做任何回<span style="font-family:STHeiti;">应</span>，因<span style="font-family:STHeiti;">为</span>我<span style="font-family:STHeiti;">觉</span>得她是个太好的女孩子， 我不想<span style="font-family:STHeiti;">伤</span>害她，<span style="font-family:STHeiti;">这样连</span>朋友都没有得做了&#8230;因<span style="font-family:STHeiti;">为</span>我知道一个道理， 朋友比恋人的关系更<span style="font-family:STHeiti;">长</span>久&#8230;</li>
+<li>以上我相信会很多雷同的地方， 但是不管你<span style="font-family:STHeiti;">认为</span>是不是你，都不用多想吧， 只愿意我以上提到的人，你<span style="font-family:STHeiti;">们</span>都<span style="font-family:STHeiti;">过</span>得很好，<span style="font-family:STHeiti;">这</span>个是真心的愿望</li>
+<li>从98年到<span style="font-family:STHeiti;">现</span>在，一直陪伴我的老<span style="font-family:STHeiti;">师</span>， 他<span style="font-family:STHeiti;">让</span>我真的一步步走出困境， <span style="font-family:STHeiti;">我一定好好遵从他的话，好好做下去, 因为我是一定要回去的，不管付出多少，也许我现在真的做的不好，对不起，老师:-(<br /> * 最近老是有奇怪的想法，想去香港或者新西兰，或者其它地方工作&#8230;也许这就是我不安分的因素都在起作用了<br /> * Mr Lu 生了一个女儿， 希望这个小宝宝能好好成长<br /> * HAN ，我不知道他现在怎么样了<br /> * 其实在工作中的牢骚不是我真意，我不是这么想不开的人&#8230;<br /> * 我现在所做的工作，就是希望有一天， 我可以脱离Coding这个工作，如果没有更好的工作，我会不会去摆地摊的呢&#8230;</p> <p>
+8.15<br /> 决定放弃之后，我的心理压力轻松了许多， 至少说心无旁骛了，原来的过去几天都是感到心情沉重的，原来是因为我想得到太多了， 想通就好了，感谢生活所给予我的一切&#8230;
+</p></li>
+</ul>
+
+
+<p>
+  8.23
+</p>
+
+
+
+
+<p>
+  这段时间老是在想出国的事情，今天咨询了一个移民咨询的公司， 她跟我讲如果要移民到加拿大，至少雅思要有4门是7分，澳大利亚是6分，而且是要等1年多两年的时间&#8230;也许我更希望能找到一份工作是在境外的，希望下一分工作是这样吧&#8230;
+</p>
+
+
+
+
+<p>
+  11.17
+</p>
+
+
+
+
+<p>
+  前两个星期， T向我提出了分手， 我竟然没有感觉， 感觉无所谓这样&#8230;这个和预料的一样， 女孩子先提出分手，这样对大家都好&#8230;既然不能给人家幸福， 那就放手吧&#8230;祝她找到好的归宿了 <img src="http://www.weixuhong.com/content/themes/d82.0/img/smilies/icon_smile.gif" alt=":-)" class="wp-smiley" /><br /> </span>
+</p>
+
+
+
+
+<p>
+  转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/164">情感事（转)</a>
+</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/162">Crontab Demo</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-08-05T00:00:00+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/162#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/162">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><pre lang="c">3 # Core Website/ERP &#038; RSS Sync Tools
+ 4 # m h  dom mon dow   command
+ 5   0  0   15  *   *    cd /dir &#038;&#038; rake db:ipdb:create
+ 6   0  0   *   *   *    cd /dir &#038;&#038; RAILS_ENV=production rake report:website_ax_variance >/dev/null 
+ 7   0  0   *   *   *    cd /dir &#038;&#038; RAILS_ENV=production rake report:website_ax_inventories_variance >/dev/null 
+ 8 */15 *   *   *   *    cd /dir &#038;&#038; RAILS_ENV=production rake rss:refresh >/dev/null 
+ 9   0 */4  *   *   *    cd /dir &#038;&#038; RAILS_ENV=production rake ax:hourly >/dev/null 2>&#038;1
+10   0 */1  *   *   *    /dir/script/erp_process_batch production >/dev/null 2>&#038;1 &lt;/dev/null
+11 # Run the AX Customer/Sales Order Update Every 5 Minutes...
+12  */5 *   *   *   *    cd /dir &#038;&#038; RAILS_ENV=production rake erp:sync >/dev/null 
+13 
+14 # Delete Expired Cache Files
+15 */30 *   *   *   *    find /dir/public/downloads/ -noleaf -cmin +30 -delete
+16   1  *   *   *   *    find /dir/tmp/sessions -noleaf -name 'ruby_sess*' -ctime +1 -delete
+17   1  *   *   *   *    find /dir/tmp/cache/ -noleaf -name “_*.cache” | xargs rm -f
+18 */15 *   *   *   *    rm -f /dir/public/{zh_CN.html,cs_CZ.html,es_ES.html,ja_JP.html,index.html}
+19   1  *   *   *   *    find /tmp -noleaf -name 'ruby_sess*' -ctime +1 -delete >/dev/null
+20 
+21 # Backup Databases
+22   2  *   *   *   *    /var/www/store/current/script/backup_db.sh 
+23   5  0   *   *   0    /var/www/store/current/script/backup_db_weekly.sh
+24   00 23  *   *   0    /mail_backup/mailbackup
+25 
+26 # Security Checks and System Maintance
+27 #*/60 *   *   *   *    /bin/df -h
+28 # 5  *   *   *   *    /usr/sbin/st_snapshot.hourly # SysTraq
+29   1  1   *   *   *    /usr/bin/updatedb
+30   00 */8 *   *   *    /usr/bin/chkrootk
+31   45 */8 *   *   *    /usr/bin/rkhunt
+32   00 5   *   *   *    /usr/local/etc/logcheck.sh
+
+
+24* #!/bin/bash
+EXTENSION=`/bin/date “+%Y-%m-%d”`
+/usr/bin/mysqldump -A --default-character-set=utf8 -u root -p passwd database | gzip --fast > /mail_backup/database.$EXTENSION.gz
+</pre>
+
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/162">crontab demo</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/161">关于rails引用binding的对话</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-08-05T00:00:00+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/161#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/161">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li>以下是我同事Jerry的谈话介绍</li>
+</ul>
+
+
+<p>鸡蛋黄(77883817) 19:29:17<br/>
+我说的简单了点，真正的 Rails 的代码会另外复制一个状态创造 binding 的</p>
+
+<p>鸡蛋黄(77883817) 19:29:44<br/>
+比如有个模板是 &lt;%= @name %></p>
+
+<p>鸡蛋黄(77883817) 19:30:09<br/>
+然后有个对象<br/>
+class People<br/>
+def initialize(name)<br/>
+@name = name<br/>
+end<br/>
+end</p>
+
+<p>鸡蛋黄(77883817) 19:30:29<br/>
+那么 People.new(“your name”).send(:binding) 就会得到一个 binding 对象</p>
+
+<p>鸡蛋黄(77883817) 19:30:51<br/>
+可以说这个对象就是保存了这个 people 实例的环境，自然包括了 @name</p>
+
+<p>微风(297749) 19:31:13<br/>
+binding是这个对象的context，可以这样理解？</p>
+
+<p>鸡蛋黄(77883817) 19:31:15<br/>
+ERB.new(“&lt;%= @name %>”).result( binding ) 能得到结果</p>
+
+<p>鸡蛋黄(77883817) 19:31:17<br/>
+可以</p>
+
+<p>鸡蛋黄(77883817) 19:31:35<br/>
+有了binding</p>
+
+<p>鸡蛋黄(77883817) 19:31:42<br/>
+甚至可以调用私有方法……</p>
+
+<p>古月星辰(65009835) 19:31:44<br/>
+可以给action指定layout吗？</p>
+
+<p>鸡蛋黄(77883817) 19:31:46<br/>
+有点不太干净哦？</p>
+
+<p>鸡蛋黄(77883817) 19:31:58<br/>
+render :action => “action”, :layout => “abc</p>
+
+<ul>
+<li><ol>
+<li>将实例的变量放到binding环境<br/>
+People.new(”your name“).send(:binding)</li>
+</ol>
+</li>
+<li><ol>
+<li>引用binding的环境的变量&#8230;<br/>
+ERB.new(”&lt;%= @name %>“).result( binding )</li>
+</ol>
+</li>
+<li><ol>
+<li>甚至可以调用私有方法…… (如果People有私有方法，也可以调用)</li>
+</ol>
+</li>
+</ul>
+
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/161">关于rails引用binding的对话</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/160">用mysql命令将数据导入到文本</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-07-31T00:00:00+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>31</span><span class='date-suffix'>st</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/160#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/160">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>为了方便程序的处理，我需要将数据库的数据导入文本</p>
+
+<p>select * from mail_tasks into outfile “/Users/weston/test/test.txt”;<br/>
+*确定test这个文件夹的写权限</p>
+
+<p>后面有空我将介绍用程序怎么处理文本&#8230;</p>
+
+<p>更新:<br/>
+我想用其他方法把文本的字段直接都转成数组，但都不是很理想，水平有限吧，我用了一个折中的方法，就是把内容复制到Excel，然后导出CVS文件，这样就好办了</p>
+
+<p>require &#8216;fastercsv&#8217;</p>
+
+<p>csv = FasterCSV.read(&#8216;test.csv&#8217;) #=>Array</p>
+
+<p>然後還有什麽事情不可以做的呢&#8230;.</p>
+
+<p>*水平有限，真的需要指正，謝謝&#8230;.</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/160">用mysql命令将数据导入到文本</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/159">Ruby Long String Block(ruby长字符串的处理)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-07-27T00:00:00+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/159#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/159">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://rubyluabridge.rubyforge.org/">http://rubyluabridge.rubyforge.org/</a></p>
+
+<p>*主要是为了使用long string，不用写些转义字符&#8230;</p>
+
+<pre lang="ruby">l.eval &lt;&lt;LUA_END
+        n = 5                 -- see how Ruby long strings
+        s = "hello"           -- make it easy to embed Lua code?
+        a = { 1, 2, 3, 4 }
+        h = { a='x', b='y', }
+   LUA_END
+   l.n       # => 5
+   l.s       # => “hello”
+   l.a       # => Lua::Table
+   l.a[1]    # => 1
+   l.h       # => Lua::Table
+   l.h['a']  # => “x”
+   l.h.a     # => “x”
+</pre>
+
+
+<p>*当然这个LUA_END，主要是和下面的配对就行吧&#8230;.</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/159">Ruby long string block(ruby长字符串的处理)</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/158">英语表达拒绝的27个经典句</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-07-27T00:00:00+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/158#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/158">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ol>
+<li>Stop complaining! 别发牢骚！</li>
+<li><p>You make me sick! 你真让我恶心！</p></li>
+<li><p>What&#8217;s wrong with you? 你怎么回事？</p></li>
+<li><p>You shouldn&#8217;t have done that! 你真不应该那样做!</p></li>
+<li><p>You&#8217;re a jerk! 你是个废物/混球！</p></li>
+<li><p>Don&#8217;t talk to me like that! 别那样和我说话!</p></li>
+<li><p>Who do you think you are? 你以为你是谁？</p></li>
+<li><p>What&#8217;s your problem? 你怎么回事啊？</p></li>
+<li><p>I hate you! 我讨厌你！</p></li>
+<li><p>I don&#8217;t want to see your face!我不愿再见到你！</p></li>
+<li><p>You&#8217;re crazy! 你疯了!</p></li>
+<li><p>Are you insane/crazy/out of your mind?</p></li>
+</ol>
+
+
+<p>你疯了吗？（美国人绝对常用！）</p>
+
+<ol>
+<li><p>Don&#8217;t bother me. 别烦我。</p></li>
+<li><p>Knock it off. 少来这一套。</p></li>
+<li><p>Get out of my face. 从我面前消失！</p></li>
+<li><p>Leave me alone. 走开。</p></li>
+<li><p>Get lost.滚开！</p></li>
+<li><p>Take a hike! 哪儿凉快哪儿歇着去吧。</p></li>
+<li><p>You piss me off. 你气死我了。</p></li>
+<li><p>It&#8217;s none of your business. 关你屁事！</p></li>
+<li><p>What&#8217;s the meaning of this? 这是什么意思？</p></li>
+<li><p>How dare you! 你敢！</p></li>
+<li><p>Cut it out. 省省吧。</p></li>
+<li><p>You stupid jerk! 你这蠢猪！</p></li>
+<li><p>You have a lot of nerve. 脸皮真厚。</p></li>
+<li><p>I&#8217;m fed up. 我厌倦了。</p></li>
+<li><p>I can&#8217;t take it anymore. 我受不了了！</p></li>
+</ol>
+
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/158">英语表达拒绝的27个经典句</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/13">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/11">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
+</section><section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/angularjs/'>angularjs (2)</a></li>
+<li class='category'><a href='/blog/categories/directive/'>directive (1)</a></li>
+<li class='category'><a href='/blog/categories/ide/'>ide (1)</a></li>
+<li class='category'><a href='/blog/categories/ios/'>ios (6)</a></li>
+<li class='category'><a href='/blog/categories/javascript/'>javascript (8)</a></li>
+<li class='category'><a href='/blog/categories/linux-unix/'>linux/unix (24)</a></li>
+<li class='category'><a href='/blog/categories/php/'>php (28)</a></li>
+<li class='category'><a href='/blog/categories/regular-expressions/'>regular expressions (2)</a></li>
+<li class='category'><a href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails (36)</a></li>
+<li class='category'><a href='/blog/categories/rubymine/'>rubymine (1)</a></li>
+<li class='category'><a href='/blog/categories/xhtml-css/'>xhtml/css (9)</a></li>
+<li class='category'><a href='/blog/categories/工作计划/'>工作计划 (3)</a></li>
+<li class='category'><a href='/blog/categories/心情随写/'>心情随写 (67)</a></li>
+<li class='category'><a href='/blog/categories/技术感想/'>技术感想 (47)</a></li>
+<li class='category'><a href='/blog/categories/未分类/'>未分类 (1)</a></li>
+<li class='category'><a href='/blog/categories/杂谈/'>杂谈 (5)</a></li>
+<li class='category'><a href='/blog/categories/生活点滴/'>生活点滴 (4)</a></li>
+<li class='category'><a href='/blog/categories/软件试用/'>软件试用 (4)</a></li>
+
+  </ul>
+</section><section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/595">Rubymine 不能输入中文？</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'gxbsst',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Weston Wei(韦旭红) -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'Weixuhong';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

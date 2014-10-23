@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 工作计划 | 韦旭红的幸福时光]]></title>
+  <link href="http://www.weixuhong.com/blog/categories/gong-zuo-ji-hua/atom.xml" rel="self"/>
+  <link href="http://www.weixuhong.com/"/>
+  <updated>2014-10-23T17:52:25+08:00</updated>
+  <id>http://www.weixuhong.com/</id>
+  <author>
+    <name><![CDATA[Weston Wei(韦旭红)]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[如果将C源文件(.c)生成目标文件(.o)]]></title>
+    <link href="http://www.weixuhong.com/archives/259"/>
+    <updated>2009-08-05T00:00:00+08:00</updated>
+    <id>http://www.weixuhong.com/archives/%e5%a6%82%e6%9e%9c%e5%b0%86c%e6%ba%90%e6%96%87%e4%bb%b6c%e7%94%9f%e6%88%90%e7%9b%ae%e6%a0%87%e6%96%87%e4%bb%b6o</id>
+    <content type="html"><![CDATA[<pre>cc -c -o source.c target.o 
+或者可以把其做成lib 
+gcc -g -c source.c 
+ar -rc libsource.a source.o 
+ 
+</pre>
+
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/259">如果将C源文件(.c)生成目标文件(.o)</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[在Yii使用Mixin &#8211; Behavior]]></title>
+    <link href="http://www.weixuhong.com/archives/257"/>
+    <updated>2009-05-10T00:00:00+08:00</updated>
+    <id>http://www.weixuhong.com/archives/%e5%9c%a8yii%e4%bd%bf%e7%94%a8mixin-behavior</id>
+    <content type="html"><![CDATA[<p>我们知道Ruby有Mixin的功能，可以扩展类的实例方法或者类方法，只需要include就可以做这样的事情，但是PHP好像没有这样好用的方法？但是在Yii有这样的方法，怎么实现呢？</p>
+
+<p>下面有一个例子:</p>
+
+<pre lang="php">Yii::app()->fileCache->attachBehavior('EFileCacheBehavior', array('class'=>'EFileCacheBehavior'));
+
+</pre>
+
+
+<p>如果要在App启动的时候就能永这个EFileCacheBehavior,可以在Main.php配置这个文件&#8230;</p>
+
+<pre lang="php">'fileCache'=>array(
+            'class'=>'application.extensions.filecache.EFileCache',
+            'autoCleanExpiredCache'=>false,
+            'behaviors'=>array(
+                'EFileCacheBehavior'=>array(
+                    'class'=>'EFileCacheBehavior',
+                ),
+            ),
+        ), 
+</pre>
+
+
+<p>这样就可以扩展的方法了。<br/>
+就是说如果EFileCacheBehavior有一个方法叫test();<br/>
+那么你就可以通过：<br/>
+Yii::app()->fileCache->test()调用。</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/257">在Yii使用Mixin &#8211; Behavior</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[近况]]></title>
+    <link href="http://www.weixuhong.com/archives/43"/>
+    <updated>2008-02-29T00:00:00+08:00</updated>
+    <id>http://www.weixuhong.com/archives/%e8%bf%91%e5%86%b5</id>
+    <content type="html"><![CDATA[<p>很多朋友都在问我最近忙什么&#8230;（更新）<br/>
+1. 做好本分的事情<br/>
+2. 做一些投资方面的事情<br/>
+3. 看些技术(数据结构、SQL)和营销方面的书籍<br/>
+4. 如果有足够的时间，我想学习英语口语&#8230;<br/>
+5. 做好Our Happy Life&#8230;</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/43">近况</a></p>
+]]></content>
+  </entry>
+  
+</feed>

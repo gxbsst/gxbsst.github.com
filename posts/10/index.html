@@ -1,0 +1,1119 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>韦旭红的幸福时光</title>
+  <meta name="author" content="Weston Wei(韦旭红)">
+
+  
+  <meta name="description" content="建立svn版本 ssh baiselife
+svnadmin create /home/weston/svn/colorunn.com
+mkdir /home/weston/websites/colorunn.com/
+svn import /home/weston/websites/ &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.weixuhong.com/posts/10">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="韦旭红的幸福时光" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script> 
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">韦旭红的幸福时光</a></h1>
+  
+    <h2>20，30，40&#8230;</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.weixuhong.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/photos">Photos</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/213">配置一个工作项目（svn+trac)[这个仅限于我自己的工作环境)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-11-03T00:00:00+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>3</span><span class='date-suffix'>rd</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/213#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/213">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>建立svn版本</p>
+
+<pre lang="c">ssh baiselife
+svnadmin create /home/weston/svn/colorunn.com
+mkdir /home/weston/websites/colorunn.com/
+svn import /home/weston/websites/colorunn.com/  file:///home/weston/svn/colorunn.com/project  --message=“Importing Project”
+</pre>
+
+
+<h1>这个是在服务器上</h1>
+
+<pre lang="c">svn co file:///home/weston/svn/colounn.com/project colorunn.com
+</pre>
+
+
+<p>＃本机</p>
+
+<pre lang="c">svn co svn+ssh://baiselife/home/weston/svn/colorunn.com/project colorunn.com
+</pre>
+
+
+<p>＃配置trac+svn</p>
+
+<pre lang="c">＃存放trac版本
+trac-admin /home/weston/trac.weixuhong.com/colorunn.com initenv
+
+# svn路径/home/weston/svn/colorunn.com
+
+</pre>
+
+
+
+
+<pre lang="c">cd ~/trac.weixuhong.com
+cp linyufang.cgi colorunn.cgi
+</pre>
+
+
+<h1>将linyufang.net替换成colorunn.com</h1>
+
+<pre lang="c">vim colorunn.cgi 
+</pre>
+
+
+<h1>修改默认utf8</h1>
+
+<pre lang="c">vim colorunn.com/conf/trac.ini
+
+
+将 default_charset = utf-8 
+</pre>
+
+
+<p>访问 trac.weixuhogn.com</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; [配置一个工作项目（svn+trac)<a href="http://www.weixuhong.com/archives/213">这个仅限于我自己的工作环境)</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/210">环境变量的继承，fork、source、exec区别差异(转)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-10-17T00:00:00+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/210#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/210">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li>这个对理解线程的环境相当有用，知道什么时候应该用fork，exec</li>
+<li>部分来自网上， 有部分是自己添加了注解&#8230;</li>
+</ul>
+
+
+<pre lang="lang">fork
+   使用 fork 方式运行 script 时, 就是让 shell(parent process) 产生一个 child
+   process 去执行该 script, 当 child process 结束后, 会返回 parent process,
+   但 parent process 的环境是不会因 child process 的改变而改变的.
+
+source
+   使用 source 方式运行 script 时, 就是让 script 在当前 process 内执行, 而不
+   是产生一个 child process 来执行. 由于所有执行结果均于当前 process 内完成,
+   若 script 的环境有所改变, 当然也会改变当前 process 环境了.
+
+exec
+   使用 exec 方式运行script时, 它和 source 一样, 也是让 script 在当前process
+   内执行, 但是 process 内的原代码剩下部分将被终止. 同样, process 内的环境随
+   script 改变而改变.
+</pre>
+
+
+<p><strong>结论：通常如果我们执行时，都是默认为fork的。大家可以通过pstree命令看看关于父子进程的关系。如上，如果想让父进程得到子进程的环境变量，就是source方式了。</strong></p>
+
+<p>测试脚本练习：parent.sh</p>
+
+<pre lang="c">#!/bin/bash
+A=B
+echo “PID is parent.sh before child.sh :$$”
+export A
+echo “parent.sh: $A is $A => 这个来自父进程的变量, 而且是默认的...”
+case $1 in
+       fork)
+               echo “using fork by default...1111111111”
+               ./child.sh ;;
+       source)
+               echo “using source...”
+               . ./child.sh ;;
+       exec)
+               echo “using exec...”
+               exec ./child.sh ;;
+esac
+echo “PID is parent.sh after child.sh :$$”
+echo “parent.sh: $A is $A 444444444 => 这个是来自父进程的变量...(如果用fork，这个应该是B,因为fork不影响父进程的环境...如果是source或者exec，这个应该是C,因为他们会影响到进程的环境....)”
+</pre>
+
+
+<p>测试脚本练习：child.sh</p>
+
+<pre lang="c">#!/bin/bash
+echo “PID for child.sh:$$”
+echo “child.sh get $A=$A from parent.sh 22222222 => 这个是来自父进程的变量...”
+A=C
+export A
+echo “child.sh: $A is $A 3333333 => 这个是来自子进程的变量....”
+</pre>
+
+
+<p>执行结果</p>
+
+<pre lang="c">weston@life:/tmp$ ./parent.sh fork
+PID is parent.sh before child.sh :5179
+parent.sh: $A is B => 这个来自父进程的变量, 而且是默认的...
+using fork by default...1111111111
+PID for child.sh:5180
+child.sh get $A=B from parent.sh 22222222 => 这个是来自父进程的变量...
+child.sh: $A is C 3333333 => 这个是来自子进程的变量....
+PID is parent.sh after child.sh :5179
+parent.sh: $A is B 444444444 => 这个是来自父进程的变量...(如果用fork，这个应该是B,因为fork不影响父进程的环境...如果是source或者exec，这个应该是C,因为他们会影响到进程的环境....)
+</pre>
+
+
+
+
+<pre lang="c">PID is parent.sh before child.sh :5181
+parent.sh: $A is B => 这个来自父进程的变量, 而且是默认的...
+using source...
+PID for child.sh:5181
+child.sh get $A=B from parent.sh 22222222 => 这个是来自父进程的变量...
+child.sh: $A is C 3333333 => 这个是来自子进程的变量....
+PID is parent.sh after child.sh :5181
+parent.sh: $A is C 444444444 => 这个是来自父进程的变量...(如果用fork，这个应该是B,因为fork不影响父进程的环境...如果是source或者exec，这个应该是C,因为他们会影响到进程的环境....)
+</pre>
+
+
+
+
+<pre lang="c">weston@life:/tmp$ ./parent.sh exec
+PID is parent.sh before child.sh :5182
+parent.sh: $A is B => 这个来自父进程的变量, 而且是默认的...
+using exec...
+PID for child.sh:5182
+child.sh get $A=B from parent.sh 22222222 => 这个是来自父进程的变量...
+child.sh: $A is C 3333333 => 这个是来自子进程的变量....
+</pre>
+
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/210">环境变量的继承，fork、source、exec区别差异(转)</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/209">关于标准输入，输出在Web中的运用</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-10-09T00:00:00+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>9</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/209#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/209">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><span class="Apple-style-span" style="WORD-SPACING: 0px; FONT: 15px/22px 宋体; TEXT-TRANSFORM: none; COLOR: rgb(0,0,0); TEXT-INDENT: 0px; WHITE-SPACE: normal; LETTER-SPACING: normal; BORDER-COLLAPSE: separate; orphans: 2; widows: 2; webkit-border-horizontal-spacing: 0px; webkit-border-vertical-spacing: 0px; webkit-text-decorations-in-effect: none; webkit-text-size-adjust: auto; webkit-text-stroke-width: 0"> <p>
+  *找了很久才找到相关的介绍STDIN,STDOUT在Web中的运用，记住加黑的部分，能解释很多东西&#8230;(<strong><u>任何一个被系统激活的进程都拥有标准输入和输出这两个文件句柄)</u></strong>&nbsp;
+</p></p>
+
+<p>
+  利用通用网关接口CGI，WEB服务器可以执行一些外部程序，可以将这些外部程序所产生的输出结果和WEB服务器所管理的静态文本、图象和声音融合在一起传给相应的WEB浏览器。当客户方的浏览器向WEB服务器请求一个HTML文件时，服务器在收到请求后就去寻找这个文件并将找到的文件传送给客户方。而当客户方的请求是一个CGI程序时，WEB服务器将激活客户方所请求的CGI程序并把程序的执行结果传给客户方。
+</p>
+
+
+
+
+<p>
+  标准的CGI程序是通过环境变量和标准输入输出和WEB服务器交换信息的。<strong><u>任何一个被系统激活的进程都拥有标准输入和输出这两个文件句柄，CGI程序的进程也不例外</u></strong>。不过当CGI程序被WEB服务器激活以后，<strong><u>它的标准输入STDIN被连接到WEB服务器的标准输出STDOUT上，而CGI程序的标准输出STDOUT则被连到服务器的标准输入STDIN上。因此CGI程序从标准输入读取信息也就是从WEB服务器的标准输出读信息，而它向标准输出写信息也就是向WEB服务器的标准输入写信息。 </u></strong>&nbsp;
+</p>
+
+
+
+
+<p style="TEXT-INDENT: 2em">
+  WEB服务器一般将客户方传送来的信息放在它的标准输出和相关环境变量中，而CGI程序则从环境变量和它的标准输入（也就是WEB服务器的标准输出）获取所需的信息，程序的最终输出结果则被写向它的标准输出STDOUT（也就是WEB服务器的标准输入）。WEB服务器将从它的标准输入STDIN（也就是CGI程序的标准输出）获取CGI程序的输出结果并将它传送给客户方。客户方、WEB服务器和CGI程序之间的信息交流如图1所示，显然，WEB服务器就象是客户方和CGI程序间的中介人。
+</p>
+
+
+
+
+<p>
+  </span>
+</p>
+
+
+
+
+<p>
+  转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/209">关于标准输入，输出在Web中的运用</a>
+</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/203">What Beautiful HTML Code Looks Like</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-10-07T00:00:00+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/203#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/203">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.weixuhong.com/content/uploads/2008/10/cleancode.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/10/cleancode.png','popup','width=1584,height=1224,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/10/cleancode-tm.jpg" height="100" width="129" border="1" hspace="4" vspace="4" alt="CleanCode" title="CleanCode" /></a></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/203">What Beautiful HTML Code Looks Like</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/199">Ruby 读取目录（Diretories)，文件(files), 网页的几个方法小结</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-10-06T00:00:00+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/199#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/199">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li><p>因为经常在console下面工作，操作文件的命令都还可以，但是想想用程式来操作，那也是更有意思，特别是在shell程序的时候&#8230;<br/>
+* 熟悉*inx命令的人，相信对这些ruby的方法会很熟悉的</p></li>
+<li><p>操作目录（Directories）</p></li>
+<li>创建</li>
+</ul>
+
+
+<pre lang="ruby">Dir.chdir( “/Users/weston” )  #进入目录
+home =Dir.pwd # => “/Users/weston/” * 显示目录
+Dir.mkdir( “/Users/weston/” )  ＃创建目录，和*nix命令一样吧
+Dir.rmdir( “/Users/weston/test” ) # 删除目录
+Dir.mkdir( “/Users/weston/test”,755 ) #常见目录，设置权限
+</pre>
+
+
+<p>B.查看</p>
+
+<pre lang="ruby">d = Dir.entries( “/Users/weston” ).each { |e| puts e } #=> Array
+
+＃ 当然会有些隐藏文件，很方便的用数组操作，不显示隐藏文件
+
+d2 = d.delete_if{ |e| e=~ /^..*/} #=>这样出来的就是不包含隐藏文件了
+
+</pre>
+
+
+<ol type="a">
+<li>打开目录</li>
+</ol>
+
+
+<pre lang="ruby">dir = Dir.open( “/Users/weston” ) # => #&lt;Dir:0x1cd784> 
+dir.path # => “/Users/weston” 
+dir.tell # => “.” 
+dir.read # => 1
+dir.tell # => “..” 
+dir.rewind # => rewind to beginning 
+dir.each { |e| puts e } # puts each entry in dir 
+dir.close # => close stream 
+</pre>
+
+
+<ol>
+<li>文件（ Files ）</li>
+<li>创建</li>
+</ol>
+
+
+<pre lang="ruby">file = File.new( “file.rb”, “w” ) # => #&lt;File:file.rb> 
+* 其中的w是表示可以写，还有很多模式：r, r+, w, w+, a, a+,b
+</pre>
+
+
+<ol type="a">
+<li>打开文件</li>
+</ol>
+
+
+<pre lang="ruby">file = File.open( “sonnet_129.txt” ) 
+file.each { |line| print “#{file.lineno}. ”, line } 
+file.close
+
+#lineno 是行号
+</pre>
+
+
+<ol type="a">
+<li>删除或重命名文件</li>
+</ol>
+
+
+<pre lang="ruby">File.new( “books.txt”, “w” ) 
+File.rename( “books.txt”, “chaps.txt” ) 
+File.delete( “chaps.txt” ) 
+
+</pre>
+
+
+<ol>
+<li>操作URI</li>
+</ol>
+
+
+<pre lang="ruby">require 'open-uri' 
+url = “http://www.google.com/search?q=ruby” 
+open(url) { |page| page_content = page.read()
+links = page_content.scan(/&lt;a class=l.*?href="(.*?)"/).flatten 
+links.each {|link| puts link} 
+}
+</pre>
+
+
+<ol>
+<li>File Inquiries</li>
+</ol>
+
+
+<pre lang="ruby">File::open(“file.rb”) if File::exists?( “file.rb” ) 
+File.file?( “sonnet29.txt” ) # => true 
+# try it with a directory 
+File::directory?( “/usr/local/bin” ) # => true 
+
+＃ 是否是目录
+# try it with a file...oops 
+File::directory?( “file.rb” ) # => false 
+
+＃ 文件操作权限
+File.readable?( “sonnet_119.txt” ) # => true 
+File.writable?( “sonnet_119.txt” ) # => true 
+File.executable?( “sonnet_119.txt” ) # => false 
+system(“touch chap.txt”) # Create a zero-length file with a system command 
+File.zero?( “chap.txt” ) # => true 
+
+
+＃ 文件大小
+# Get its size in bytes withsize? orsize: 
+File.size?( “sonnet_129.txt” ) # => 594 
+File.size( “sonnet_129.txt” ) # => 594 
+
+# 文件类型
+# Finally, inquire about the type of a file withftype: 
+File::ftype( “file.rb” ) # => “file” 
+＃ 创建，修改时间
+File::ctime( “file.rb” ) # => Wed Nov 08 10:06:37 -0700 2006 
+File::mtime( “file.rb” ) # => Wed Nov 08 10:44:44 -0700 2006 
+File::atime( “file.rb” ) # => Wed Nov 08 10:45:01 -0700 2006 
+
+
+</pre>
+
+
+<ol>
+<li>Changing File Modes and Owner</li>
+</ol>
+
+
+<pre lang="ruby">file = File.new( “books.txt”, “w” ) 
+file.chmod( 0755 ) 
+
+
+or: 
+file = File.new( “books.txt”, “w” ).chmod(0755 ) 
+system “ls -l books.txt” # => -rwxr-xr-x     1 mikejfz  mikejfz     0 Nov  8 22:13 
+books.txt
+</pre>
+
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/199">Ruby 读取目录（Diretories)，文件(files), 网页的几个方法小结</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/198">關於 Gettext (一、簡介)（转)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-10-06T00:00:00+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/198#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/198">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>来自: <a href="http://twpug.net/modules/smartsection/item.php?itemid=29">http://twpug.net/modules/smartsection/item.php?itemid=29</a></p>
+
+<ul>
+<li>看到一篇getext不错的文档，当然E文够好最好去官方去看文档&#8230;:)</li>
+<li>如果要实现具体的例子，可以google，或者baidu，这样的例子应该已经泛滥&#8230;</li>
+</ul>
+
+
+<p><a href="http://www.gnu.org/software/gettext/manual/gettext.html">http://www.gnu.org/software/gettext/manual/gettext.html</a></p>
+
+<p>關於 gettext (一、簡介)<br/>
+由 Kiang 發佈於 2005/2/3 (3416 次瀏覽)<br/>
+發信人: <a href="&#x6d;&#x61;&#x69;&#108;&#116;&#x6f;&#58;&#80;&#108;&#97;&#116;&#105;&#110;&#x2e;&#x62;&#98;&#115;&#64;&#99;&#x73;&#105;&#x65;&#x2e;&#110;&#x63;&#116;&#x75;&#46;&#x65;&#x64;&#x75;&#46;&#116;&#x77;">&#80;&#x6c;&#97;&#x74;&#x69;&#x6e;&#x2e;&#x62;&#x62;&#115;&#64;&#99;&#115;&#105;&#101;&#x2e;&#110;&#x63;&#116;&#x75;&#x2e;&#x65;&#x64;&#x75;&#x2e;&#116;&#119;</a> (小虫), 看板: Linux<br/>
+標 題: [REF] 關於 gettext (一、簡介)<br/>
+發信站: 交大資工鳳凰城資訊站 (Tue Jul 21 13:40:05 1998) gateway.ccafps.khc.edu.tw<br/>
+轉信站: Maxwell!bbs.ee.ntu!freebsd.ntu!news.cs.nthu!news.cis.nctu!news.csie.nc</p>
+
+<p>gettext 簡介</p>
+
+<p>一、前言：</p>
+
+<p>gettext 套件是 GNU 對訊息國際化 (i18n) 提出的解決方案；有寫過程式<br/>
+的人都知道，過去大家寫程式的時候都把程式的訊息寫死在程式碼裡面，<br/>
+例如說：<br/>
+printf(&amp;quotHello World!!“);</p>
+
+<p>假如要把程式的訊息改成其他的語言的話，必須要取改原始碼，然後再重新<br/>
+編譯，這樣的作法在國際化的時候就行不通了；GNU 的 gettext 套件就是<br/>
+提出了一套標準的方法，讓程式不須重新編譯就能顯示多國的訊息，讓國際<br/>
+化 (i18n) 的工作可以更簡單的達成。</p>
+
+<p>gettext 現在的版本是 0.10 版，雖然說還不是 1.0 版，但是對於訊息國<br/>
+際化的支援 (LC_MESSAGES) 已經算是穩定了，幾乎所有的 GNU 程式也都支<br/>
+援 gettext ，因此現在把它當作一個標準，來作 Linux 上訊息中文化<br/>
+的工作，應該是一個適當的時機。</p>
+
+<p>二、工作原理：</p>
+
+<p>底下這個流程圖可以總括 gettext 套件的工作原理：</p>
+
+<p>引言:</p>
+
+<pre>Original C Sources ---> PO mode ---> Marked C Sources ---.
+|
+.---------&lt;--- GNU gettext Library |
+.- - make &lt;---+ |
+| `---------&lt;--------------------+-----------'
+| |
+| .-----&lt;--- PACKAGE.pot &lt;--- xgettext &lt;---' .---&lt;--- PO Compendium
+| | | ^
+| | `---. |
+| `---. +---> PO mode ---.
+| +----> tupdate -------> LANG.pox --->--------' |
+| .---' |
+| | |
+| `-------------&lt;---------------. |
+| +--- LANG.po &lt;--- New LANG.pox &lt;----'
+| .--- LANG.gmo &lt;--- msgfmt &lt;---'
+| |
+| `---> install ---> /.../LANG/PACKAGE.mo ---.
+| +---> &#038;quotHello world!”
+`-------> install ---> /.../bin/PROGRAM -------'
+</pre>
+
+
+<p>這個圖是從 GNU 的 info page 剪下來的，它說的比較複雜；我底下再用<br/>
+簡單的程序說明：</p>
+
+<p>要讓你的程式支援國際化，程式設計師在寫程式時必須標出要國際化的訊<br/>
+息，就是要被翻譯成他國文字的訊息；比如說，“%s %d” 這樣的字串是不<br/>
+必被翻譯的，而 &amp;quotHello World!!“ 就需要標示出來，標示方法如下：</p>
+
+<p>printf(gettext(&amp;quotHello World”));</p>
+
+<p>在這裡懂 C 的朋友就可以看出來，程式在印出訊息時，並不是直接取得<br/>
+訊息的字串，而是透過一個 gettext 函式來獲得字串；這個 gettext 函<br/>
+式在程式真正被執行時，會檢查 locale 的情況 (事實上是檢查 LC_ALL 或<br/>
+LC_MESSAGES 或 LANG 這環境變數)，然後以 gettext 的參<br/>
+數 ( &amp;quotHello World“ )作為一個 id key，去訊息資料庫裡面抓合<br/>
+乎 locale 設定的訊息，這樣子同一個程式，就可以 show 出許多不同語言<br/>
+的訊息了!!<br/>
+這就是上面 Original C Sources -> PO mode &#8212;> Marked C Sources &#8211;<br/>
+&#8211;> make &#8211;> install &#8212;> /&#8230;/bin/PROGRAM &#8212;> &amp;quotHello world!”<br/>
+這一段流程，是程式設計師的工作，也是程式 i18n 的過程。</p>
+
+<p>那訊息資料庫是甚麼??要怎麼作呢??<br/>
+gettext 套件裡面有一個程式叫 xgettext，他可以用來處<br/>
+理 Marked C Sources，把原始碼裡面有標記的訊息抓出來，產生一個<br/>
+.pot 檔 (Portable Object Template)，它的格式大約如下：</p>
+
+<h1>: hello.c:22</h1>
+
+<p>msgid &amp;quotHello, World!!“<br/>
+msgstr ”“</p>
+
+<p>&#8216;#&#8217; 開頭的行是註解，msgid 欄位是原先的訊息，msgstr 就是用<br/>
+來填翻譯過的訊息的，我們可以把翻譯過的訊息填進去，製造出一<br/>
+個 po 檔；在上面的流程裡面，大家可以看到有一個 .pox 檔；這是<br/>
+GNU 建議對還沒完全翻譯好的 po 檔的稱呼，.pox 是施工中的，等到<br/>
+完工定案了，再把它改成 .po 檔。</p>
+
+<p>另外，或許你想要動手翻譯的程式已經有舊版的 .po 訊息檔了，我們<br/>
+當然不希望把已經翻譯過的訊息再打一次，這時就可以用 &amp;quottupdate” 這<br/>
+個程式來把舊的 .po 檔裡面的訊息合併進來。</p>
+
+<p>作好 .po 檔以後，就可以用 &amp;quotmsgfmt“ 這個程式來把 .po 檔變成真正的<br/>
+機器可以處理的 .mo 檔 (Machine Object)；這個 .mo 檔就是真正的訊息<br/>
+資料庫檔案，它會被放到你的 LOCALEDIR 裡面去，RedHat-5.0 的話，就<br/>
+是在 /usr/share/locale/*/LC_MESSAGES/ ，* 就是 locale 的名稱，也就<br/>
+是你在環境變數 LC_ALL or LANG or LC_MESSAGES 裡面指定的字串，比如說<br/>
+你 export LC_ALL=zh_TW.BIG5 的話，那程式執行時，gettext 就會去<br/>
+/usr/share/locale/zh_TW.BIG5/LC_MESSAGES/ 底下找訊息檔，找到的話，<br/>
+你就可以看到中文啦!!&#8230; <img src="http://www.weixuhong.com/content/themes/d82.0/img/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /></p>
+
+<p>這個部份可以慨括如下：</p>
+
+<p>xgettext editor msgfmt (install)<br/>
+source code &#8211;> .pot &#8211;> .pox &#8211;> .gmo &#8211;> .mo &#8211;> &amp;ltrun time></p>
+
+<p>.gmo 就是 .mo 檔，他是 GNU 建議用來稱呼還沒安裝到定位的 .mo 檔，<br/>
+表示是由 Gnu gettext 套件產生的。</p>
+
+<p>這一段工作不必要由程式設計師來完成，是屬於 l10n 的工作，理論上<br/>
+該由世界各地使用不同語言的人來自願當翻譯的工作。</p>
+
+<p>所以這就是我們可以出力的地方了。 <img src="http://www.weixuhong.com/content/themes/d82.0/img/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/198">關於 gettext (一、簡介)（转)</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/200">关于写程序的一些标准</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-10-06T00:00:00+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/200#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/200">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li>对于初学者，很不注重这方面，所以代码写出来，人家看不懂，这个给后来人带来很多不便，如果多花的时间在命名，注解上，对自己或对别人都会有好处的，毕竟人不是机器人，久了都会忘记&#8230;</li>
+<li>今天在网上看到了一篇2003年的关于PHP标准的翻译，但是我觉得对其他程序应该也使用，特别是初学者，真的要培养这方面</li>
+</ul>
+
+
+<p>译文： <a href="http://twpug.net/modules/smartsection/item.php?itemid=1  ">http://twpug.net/modules/smartsection/item.php?itemid=1  </a>
+原文：</p>
+
+<p>搜尋關鍵字﹝Gotcha Keywords﹞<br/>
+:TODO: 主題<br/>
+表示這裡還有工作尚待完成，不要忘記了。<br/>
+:BUG: [bugid] 主題<br/>
+表示這裡有一個已知的臭蟲，並加以解釋，或許再給一個臭蟲編號。<br/>
+:KLUDGE:<br/>
+當您很笨拙的完成某件事情時，就明白的說出來，並說明您下次想採取 怎樣不同的方法去做，如果您還有時間的話。<br/>
+:TRICKY:<br/>
+告訴別人以下的程式碼是非常有技巧的，請不要不加思索的修改它。<br/>
+:WARNING:<br/>
+要注意某件事情。<br/>
+:PARSER:<br/>
+偶爾您必須設法解決程式語言剖析器所產生的問題。請加以註明。這個剖析器的 問題終會被修正。<br/>
+:ATTRIBUTE: value<br/>
+這是個一般格式，說明該註解所內含的屬性。您可以創造您自己的屬性，它們 也會被析取出來。<br/>
+搜尋格式﹝Gotcha Formatting﹞<br/>
+將搜尋關鍵字放在註解的最前面，亦即第一個符號。<br/>
+註解也許會包含好幾行，然而第一行必須是獨立而有意義的簡要說明。<br/>
+作者的名字與註解的日期也應該寫在註解裡面。這兩項資訊雖然也可以 在原始碼的倉儲裝置中找到，但是這或許需要一段時間才能查明這段註解 到底是誰、在什麼時後所加上去的。通常這會浪費許多時間去搜尋。 將日期資訊寫在註解裡面，可以讓其他程式設計師在做決定時有所依據。 將作者資訊寫在註解裡面，可以讓我們知道應該找誰問問題。<br/>
+範例<br/>
+// :TODO: 年月日 960810: 執行效率問題<br/>
+// 其實我們應該在這裡使用雜湊表，但是現在先使用線性搜尋。</p>
+
+<p>// :KLUDGE: 年月日 960810: 不安全的強制轉型<br/>
+// 這裡我們需要作一個強制轉型，以回復原本的衍生型別。或許我們應該<br/>
+// 使用一個 virtual method、或是使用 template。</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/200">关于写程序的一些标准</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/206">中英文对照的正则表达式cheatsheet</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-10-06T00:00:00+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/206#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/206">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.weixuhong.com/content/uploads/2008/10/regular-expressions-cheat-sheet.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/10/regular-expressions-cheat-sheet.png','popup','width=1224,height=1584,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/10/regular-expressions-cheat-sheet-tm1.jpg" height="100" width="77" border="1" hspace="4" vspace="4" alt="Regular Expressions Cheat Sheet" /></a></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/206">中英文对照的正则表达式cheatsheet</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/197">Telnet 模拟HTTP</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-10-04T00:00:00+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>4</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/197#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/197">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>模拟GET方法</h3>
+
+<pre lang="c">% telnet www.weixuhong.com 80
+  Connected to www.wexiuhong.com.
+  GET / HTTP/1.0                         [RETURN]
+ Host linyufang.net
+</pre>
+
+
+<h3>模拟HEAD方法</h3>
+
+<pre lang="c">% telnet www.weixuhong.com 80
+  Connected to www.wexiuhong.com.
+  HEAD / HTTP/1.0                         [RETURN]
+</pre>
+
+
+<p><em>记住要用大写<br/>
+</em>你可以模拟其他http方法，POST ， PUT， DELETE&#8230;.</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/197">Telnet 模拟HTTP</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/196">VIM用正则分组捕获的方法</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-10-03T00:00:00+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>3</span><span class='date-suffix'>rd</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/196#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/196">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天看了<Mastering Regular Expressions 3>才解决了我这个很久的疑惑&#8230;.<br/>
+在一般其他语言里面捕获一般用$1,$2就可以了<br/>
+比如用Perl<br/>
+$string = “It just a test&#8230;”<br/>
+如果要找just可以这样</p>
+
+<p>$string =~ m/(just)/i</p>
+
+<p>$1 的结果就是just了<br/>
+很多语言都是这样，ruby，javascript等</p>
+
+<p>但是我在vim一直没有办法实现，原来说用这样的方法<br/>
+比如要把just 变换成 is just 应该可以这样，当我的例子很不好<br/>
+在vim的用法<br/>
+:%s/(just)/is 1/</p>
+
+<p>如果分组应该说这样<br/>
+:%s/(just|jst)/is 1/</p>
+
+<p><em>在vim需要转义<br/>
+</em>捕获用1而不是$1</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/196">VIM用正则分组捕获的方法</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/11">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/9">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
+</section><section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/angularjs/'>angularjs (2)</a></li>
+<li class='category'><a href='/blog/categories/directive/'>directive (1)</a></li>
+<li class='category'><a href='/blog/categories/ide/'>ide (1)</a></li>
+<li class='category'><a href='/blog/categories/ios/'>ios (6)</a></li>
+<li class='category'><a href='/blog/categories/javascript/'>javascript (8)</a></li>
+<li class='category'><a href='/blog/categories/linux-unix/'>linux/unix (24)</a></li>
+<li class='category'><a href='/blog/categories/php/'>php (28)</a></li>
+<li class='category'><a href='/blog/categories/regular-expressions/'>regular expressions (2)</a></li>
+<li class='category'><a href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails (36)</a></li>
+<li class='category'><a href='/blog/categories/rubymine/'>rubymine (1)</a></li>
+<li class='category'><a href='/blog/categories/xhtml-css/'>xhtml/css (9)</a></li>
+<li class='category'><a href='/blog/categories/工作计划/'>工作计划 (3)</a></li>
+<li class='category'><a href='/blog/categories/心情随写/'>心情随写 (67)</a></li>
+<li class='category'><a href='/blog/categories/技术感想/'>技术感想 (47)</a></li>
+<li class='category'><a href='/blog/categories/未分类/'>未分类 (1)</a></li>
+<li class='category'><a href='/blog/categories/杂谈/'>杂谈 (5)</a></li>
+<li class='category'><a href='/blog/categories/生活点滴/'>生活点滴 (4)</a></li>
+<li class='category'><a href='/blog/categories/软件试用/'>软件试用 (4)</a></li>
+
+  </ul>
+</section><section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/595">Rubymine 不能输入中文？</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'gxbsst',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Weston Wei(韦旭红) -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'Weixuhong';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

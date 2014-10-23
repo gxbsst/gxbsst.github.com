@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Javascript | 韦旭红的幸福时光]]></title>
+  <link href="http://www.weixuhong.com/blog/categories/javascript/atom.xml" rel="self"/>
+  <link href="http://www.weixuhong.com/"/>
+  <updated>2014-10-23T17:52:25+08:00</updated>
+  <id>http://www.weixuhong.com/</id>
+  <author>
+    <name><![CDATA[Weston Wei(韦旭红)]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[关于backbone _.bindAll]]></title>
+    <link href="http://www.weixuhong.com/archives/563"/>
+    <updated>2011-10-13T00:00:00+08:00</updated>
+    <id>http://www.weixuhong.com/archives/%e5%85%b3%e4%ba%8ebackbone-_-bindall</id>
+    <content type="html"><![CDATA[<pre lang="javasript">_.bindAll(this, 'render');
+            this.model.bind('change', this.render);
+
+</pre>
+
+
+<p>以上这两行代码主要为了当model改变时， view执行render， 那_.bindAll有什么用呢？</p>
+
+<p>看这里：<a href="http://stackoverflow.com/questions/6079055/why-do-bindall-in-backbone-js-views">http://stackoverflow.com/questions/6079055/why-do-bindall-in-backbone-js-views</a></p>
+
+<p>其中有一段是这样的：</p>
+
+<pre>Without _.bindAll( this, 'render' ) when model changes this in render will be pointing to the model, not to the view, so we won't have neither this.el nor this.$ or any other view's properties available.
+</pre>
+
+
+<p>当model被change时， this指向model, 但是我们要执行render, 那么就需要_.bindAll(this, &#8216;render&#8217;)， 使model也有这个render的方法？</p>
+
+<p>请达人解答?</p>
+
+<ul>
+<li><p>新版本这样就可以</p></li>
+</ul>
+
+
+<p>this.model.bind(&#8216;change&#8217;, this.render, this);</p>
+
+<p><img style="display:block; margin-left:auto; margin-right:auto;" src="http://www.weixuhong.com/content/uploads/2011/10/Screen-Shot-2011-10-14-at-1.55.50-PM.png" alt="Screen Shot 2011-10-14 at 1.55.50 PM.png" border="0" width="406" height="567" /></p>
+
+<p><img style="display:block; margin-left:auto; margin-right:auto;" src="http://www.weixuhong.com/content/uploads/2011/10/Screen-Shot-2011-10-14-at-2.06.54-PM.png" alt="Screen Shot 2011-10-14 at 2.06.54 PM.png" border="0" width="600" height="352" /></p>
+
+<p><img style="display:block; margin-left:auto; margin-right:auto;" src="http://www.weixuhong.com/content/uploads/2011/10/Screen-Shot-2011-10-14-at-2.18.03-PM.png" alt="Screen Shot 2011-10-14 at 2.18.03 PM.png" border="0" width="417" height="590" /></p>
+
+<p><img style="display:block; margin-left:auto; margin-right:auto;" src="http://www.weixuhong.com/content/uploads/2011/10/Screen-Shot-2011-10-14-at-3.31.51-PM.png" alt="Screen Shot 2011-10-14 at 3.31.51 PM.png" border="0" width="600" height="432" /></p>
+
+<p><img style="display:block; margin-left:auto; margin-right:auto;" src="http://www.weixuhong.com/content/uploads/2011/10/Screen-Shot-2011-10-14-at-3.33.11-PM.png" alt="Screen Shot 2011-10-14 at 3.33.11 PM.png" border="0" width="600" height="380" /></p>
+
+<p><img style="display:block; margin-left:auto; margin-right:auto;" src="http://www.weixuhong.com/content/uploads/2011/10/Screen-Shot-2011-10-17-at-5.20.27-PM.png" alt="Screen Shot 2011-10-17 at 5.20.27 PM.png" border="0" width="600" height="332" /></p>
+
+<p><img style="display:block; margin-left:auto; margin-right:auto;" src="http://www.weixuhong.com/content/uploads/2011/10/Screen-Shot-2011-10-18-at-3.37.23-PM.png" alt="Screen Shot 2011-10-18 at 3.37.23 PM.png" border="0" width="600" height="378" /></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/563">关于backbone _.bindAll</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[如果将C源文件(.c)生成目标文件(.o)]]></title>
+    <link href="http://www.weixuhong.com/archives/259"/>
+    <updated>2009-08-05T00:00:00+08:00</updated>
+    <id>http://www.weixuhong.com/archives/%e5%a6%82%e6%9e%9c%e5%b0%86c%e6%ba%90%e6%96%87%e4%bb%b6c%e7%94%9f%e6%88%90%e7%9b%ae%e6%a0%87%e6%96%87%e4%bb%b6o</id>
+    <content type="html"><![CDATA[<pre>cc -c -o source.c target.o 
+或者可以把其做成lib 
+gcc -g -c source.c 
+ar -rc libsource.a source.o 
+ 
+</pre>
+
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/259">如果将C源文件(.c)生成目标文件(.o)</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[在Yii使用Mixin &#8211; Behavior]]></title>
+    <link href="http://www.weixuhong.com/archives/257"/>
+    <updated>2009-05-10T00:00:00+08:00</updated>
+    <id>http://www.weixuhong.com/archives/%e5%9c%a8yii%e4%bd%bf%e7%94%a8mixin-behavior</id>
+    <content type="html"><![CDATA[<p>我们知道Ruby有Mixin的功能，可以扩展类的实例方法或者类方法，只需要include就可以做这样的事情，但是PHP好像没有这样好用的方法？但是在Yii有这样的方法，怎么实现呢？</p>
+
+<p>下面有一个例子:</p>
+
+<pre lang="php">Yii::app()->fileCache->attachBehavior('EFileCacheBehavior', array('class'=>'EFileCacheBehavior'));
+
+</pre>
+
+
+<p>如果要在App启动的时候就能永这个EFileCacheBehavior,可以在Main.php配置这个文件&#8230;</p>
+
+<pre lang="php">'fileCache'=>array(
+            'class'=>'application.extensions.filecache.EFileCache',
+            'autoCleanExpiredCache'=>false,
+            'behaviors'=>array(
+                'EFileCacheBehavior'=>array(
+                    'class'=>'EFileCacheBehavior',
+                ),
+            ),
+        ), 
+</pre>
+
+
+<p>这样就可以扩展的方法了。<br/>
+就是说如果EFileCacheBehavior有一个方法叫test();<br/>
+那么你就可以通过：<br/>
+Yii::app()->fileCache->test()调用。</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/257">在Yii使用Mixin &#8211; Behavior</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby 中的self]]></title>
+    <link href="http://www.weixuhong.com/archives/68"/>
+    <updated>2008-04-26T00:00:00+08:00</updated>
+    <id>http://www.weixuhong.com/archives/ruby-%e4%b8%ad%e7%9a%84self</id>
+    <content type="html"><![CDATA[<p>在方法声明里面，表示当前类</p>
+
+<p>在实例方法体里面，表示当前实例</p>
+
+<p>在类方法体里面，表示当前类</p>
+
+<p>在用 method.call method.send 之类的调用方式的话，情况还要复杂一点</p>
+
+<p>Java 和 JavaScript 里面的 this 指针更加富啊</p>
+
+<p>更加复杂</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/68">ruby 中的self</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[JavaScript 的 New， 好久不见啊]]></title>
+    <link href="http://www.weixuhong.com/archives/113"/>
+    <updated>2008-04-26T00:00:00+08:00</updated>
+    <id>http://www.weixuhong.com/archives/javascript-%e7%9a%84-new%ef%bc%8c-%e5%a5%bd%e4%b9%85%e4%b8%8d%e8%a7%81%e5%95%8a</id>
+    <content type="html"><![CDATA[<p>原文： JavaScript, We Hardly new Ya －－Douglas Crockford。</p>
+
+<p>JavaScript是一门基于原型的语言，但它却拥有一个 new 操作符使得其看起来象一门经典的面对对象语言。那样也迷惑了程序员们，导致一些有问题的编程模式。</p>
+
+<p>其实你永远不需要在JavaScript使用 new Object()。用字面量的形式{}去取代吧。</p>
+
+<p>同理，不要使用 new Array() ，而代之以字面量[]。JavaScript中的数组并不象Java中的数组那样工作的，使用类似Java的语法只会让你糊涂。</p>
+
+<p>同理不用使用 new Number, new String, 或者 new Boolean。这些的用法只会产生无用的类型封装对象。就直接使用简单的字面量吧。</p>
+
+<p>不要使用 new Function 去创建函数对象。用函数表达式更好。比如：</p>
+
+<p>frames[0].onfocus = new Function(”document.bgColor=’antiquewhite’”)</p>
+
+<p>更好的写法是：</p>
+
+<p>frames[0].onfocus = function () {document.bgColor = ‘antiquewhite’;};</p>
+
+<p>第二种形式让脚本编译器更快的看到函数主体，于是其中的语法错误也会更快被检测出来。有时候程序员使用 new Function 是因为他们没有理解内部函数是如何工作的。</p>
+
+<p>selObj.onchange = new Function(”dynamicOptionListObjects[”+<br/>
+dol.index+”].change(this)”);</p>
+
+<p>如果我们让用字符串做函数体，编译器不能看到它们。如果我们用字符串表达式做函数体，我们同样也看不到它们。更好的方式就是不要盲目编程。通过制造一个返回值为函数的函数调用，我们可以明确的按值传递我们想要绑定的值。这允许我们在循环中初始化一系列 selObj 对象。</p>
+
+<p>selObj.onchange = function (i) {<br/>
+return function () {<br/>
+dynamicOptionListObjects[i].change(this);</p>
+
+<p>};<br/>
+}(dol.index);</p>
+
+<p>直接对一个函数使用new永远不是一个好主意。比如， new function 对构造新对象没有提供什么优势。</p>
+
+<p>myObj = new function () {<br/>
+this.type = ‘core’;<br/>
+};</p>
+
+<p>更好的方式是使用对象字面量，它更轻巧，更快捷。</p>
+
+<p>myObj = {<br/>
+type: ‘core’<br/>
+};</p>
+
+<p>假如我们需要创建的对象包含的方法需要访问私有变量或者函数，更好的方式仍然是避免使用new.var foo = new function() {<br/>
+function processMessages(message) {<br/>
+alert(”Message: ” + message.content);<br/>
+}<br/>
+this.init = function() {<br/>
+subscribe(”/mytopic”, this, processMessages);<br/>
+}<br/>
+}通过使用 new 去调用函数，对象会持有一个无意义的原型对象。这只会浪费内存而不会带来任何好处。如果我们不使用new，我们就不用在对象链维护一个无用的prototype对象。所以我们可以用（）来正确的调用工厂函数。var foo = function () {<br/>
+function processMessages(message) {<br/>
+alert(”Message: ” + message.content);<br/>
+}<br/>
+return {<br/>
+init: function () {<br/>
+subscribe(”/mytopic”, this, processMessages);<br/>
+}<br/>
+};<br/>
+}();所以原则很简单： 唯一应该要用到new操作符的地方就是调用一个古老的构造器函数的时候。当调用一个构造器函数的时候，是强制要求使用new的。有时候可以来new一下, 有的时候还是不要了吧。</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/113">JavaScript 的 new， 好久不见啊</a></p>
+]]></content>
+  </entry>
+  
+</feed>

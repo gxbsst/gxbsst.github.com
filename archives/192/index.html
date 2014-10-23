@@ -1,0 +1,400 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>PHP 几个有用的变量 - 韦旭红的幸福时光</title>
+  <meta name="author" content="Weston Wei(韦旭红)">
+
+  
+  <meta name="description" content="虽然这个几个比较常见，但是未必每个人都会用，我就简单整理一下&#8230;. $_SERVER var_dump出的效果，说一个Array，你应该知道怎么用吧，其中的PHP_SELF,USER_AGENT等相信对你会有用 array 'HTTP_USER_AGENT' => string &#8217; &hellip;&#8221;>
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.weixuhong.com/archives/192">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="韦旭红的幸福时光" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script> 
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">韦旭红的幸福时光</a></h1>
+  
+    <h2>20，30，40&#8230;</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.weixuhong.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/photos">Photos</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">PHP 几个有用的变量</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-10-01T00:00:00+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>虽然这个几个比较常见，但是未必每个人都会用，我就简单整理一下&#8230;.</p>
+
+<h2>$_SERVER</h2>
+
+<p>var_dump出的效果，说一个Array，你应该知道怎么用吧，其中的PHP_SELF,USER_AGENT等相信对你会有用</p>
+
+<pre lang="php">array
+  'HTTP_USER_AGENT' => string 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_5; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1' (length=125)
+  'HTTP_CACHE_CONTROL' => string 'max-age=0' (length=9)
+  'HTTP_ACCEPT' => string 'text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5' (length=99)
+  'HTTP_ACCEPT_LANGUAGE' => string 'en-us' (length=5)
+  'HTTP_ACCEPT_ENCODING' => string 'gzip, deflate' (length=13)
+  'HTTP_COOKIE' => string 'ECS[user_id]=1; ECS[username]=admin; ECS[email]=webmastor%40yourdomain.com; ECS[visit_times]=2; uchome_auth=17720Ag3apHxh%2BuqAnNG8K5qnVoihVoPyRr%2FFlsyF2tXb2eNCHfN47eFyCvT0qgBtm6q1cWCMQL5FvsmoVgA; uchome_loginuser=gxbsst; mpH_cookietime=2592000; mpH_loginuser=gxbsst; mpH_activationauth=5085X8lEKxwsND0uhjEwcl1HBxdSgnky%2B8HAS%2BXMVSMCbac' (length=339)
+  'HTTP_CONNECTION' => string 'keep-alive' (length=10)
+  'HTTP_HOST' => string 'localhost' (length=9)
+  'PATH' => string '/usr/bin:/bin:/usr/sbin:/sbin' (length=29)
+  'SERVER_SIGNATURE' => string '' (length=0)
+  'SERVER_SOFTWARE' => string 'Apache/2.2.8 (Unix) mod_ssl/2.2.8 OpenSSL/0.9.7l DAV/2 PHP/5.2.6 mod_fastcgi/2.4.2' (length=82)
+  'SERVER_NAME' => string 'localhost' (length=9)
+  'SERVER_ADDR' => string '::1' (length=3)
+  'SERVER_PORT' => string '80' (length=2)
+  'REMOTE_ADDR' => string '::1' (length=3)
+  'DOCUMENT_ROOT' => string '/Users/weston/projects/linyufang.net' (length=36)
+  'SERVER_ADMIN' => string 'you@example.com' (length=15)
+  'SCRIPT_FILENAME' => string '/Users/weston/projects/linyufang.net/form_data.php' (length=50)
+  'REMOTE_PORT' => string '59715' (length=5)
+  'GATEWAY_INTERFACE' => string 'CGI/1.1' (length=7)
+  'SERVER_PROTOCOL' => string 'HTTP/1.1' (length=8)
+  'REQUEST_METHOD' => string 'GET' (length=3)
+  'QUERY_STRING' => string '' (length=0)
+  'REQUEST_URI' => string '/form_data.php' (length=14)
+  'SCRIPT_NAME' => string '/form_data.php' (length=14)
+  'PHP_SELF' => string '/form_data.php' (length=14)
+  'REQUEST_TIME' => int 1223026388
+  'argv' => 
+    array
+      empty
+  'argc' => int 0
+</pre>
+
+
+<h2>$_REQUEST</h2>
+
+<pre lang="php">array
+  'ECS' => 
+    array
+      'user_id' => string '1' (length=1)
+      'username' => string 'admin' (length=5)
+      'email' => string 'webmastor@yourdomain.com' (length=24)
+      'visit_times' => string '2' (length=1)
+  'uchome_auth' => string '17720Ag3apHxh+uqAnNG8K5qnVoihVoPyRr/FlsyF2tXb2eNCHfN47eFyCvT0qgBtm6q1cWCMQL5FvsmoVgA' (length=84)
+  'uchome_loginuser' => string 'gxbsst' (length=6)
+  'mpH_cookietime' => string '2592000' (length=7)
+  'mpH_loginuser' => string 'gxbsst' (length=6)
+  'mpH_activationauth' => string '5085X8lEKxwsND0uhjEwcl1HBxdSgnky+8HAS+XMVSMCbac' (length=47)
+</pre>
+
+
+<h2>$_COOKIE</h2>
+
+<pre lang="php">array
+  'ECS' => 
+    array
+      'user_id' => string '1' (length=1)
+      'username' => string 'admin' (length=5)
+      'email' => string 'webmastor@yourdomain.com' (length=24)
+      'visit_times' => string '2' (length=1)
+  'uchome_auth' => string '17720Ag3apHxh+uqAnNG8K5qnVoihVoPyRr/FlsyF2tXb2eNCHfN47eFyCvT0qgBtm6q1cWCMQL5FvsmoVgA' (length=84)
+  'uchome_loginuser' => string 'gxbsst' (length=6)
+  'mpH_cookietime' => string '2592000' (length=7)
+  'mpH_loginuser' => string 'gxbsst' (length=6)
+  'mpH_activationauth' => string '5085X8lEKxwsND0uhjEwcl1HBxdSgnky+8HAS+XMVSMCbac' (length=47)
+</pre>
+
+
+<h2>$_ENV</h2>
+
+<pre lang="php">array
+  'PATH' => string '/usr/bin:/bin:/usr/sbin:/sbin' (length=29)
+</pre>
+
+
+<p>当然还要$_GET,$_SESSION,$_COOKIE其实这些都可以在phpinfo看到的&#8230;.<br/>
+btw:要深入了解，相信PERL的CGI编程那本书对你会有用处&#8230;</p>
+
+<p>*当然其他Web开发语言都有类似变量&#8230;.</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/192">PHP 几个有用的变量</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">gxbsst</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2008-10-01T00:00:00+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/php/'>php</a>, <a class='category' href='/blog/categories/ji-zhu-gan-xiang/'>技术感想</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.weixuhong.com/archives/192" data-via="Weixuhong" data-counturl="http://www.weixuhong.com/archives/192" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/archives/193" title="Previous Post: HTTP Request with cURL">&laquo; HTTP Request with cURL</a>
+      
+      
+        <a class="basic-alignment right" href="/archives/196" title="Next Post: VIM用正则分组捕获的方法">VIM用正则分组捕获的方法 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
+</section><section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/angularjs/'>angularjs (2)</a></li>
+<li class='category'><a href='/blog/categories/directive/'>directive (1)</a></li>
+<li class='category'><a href='/blog/categories/ide/'>ide (1)</a></li>
+<li class='category'><a href='/blog/categories/ios/'>ios (6)</a></li>
+<li class='category'><a href='/blog/categories/javascript/'>javascript (8)</a></li>
+<li class='category'><a href='/blog/categories/linux-unix/'>linux/unix (24)</a></li>
+<li class='category'><a href='/blog/categories/php/'>php (28)</a></li>
+<li class='category'><a href='/blog/categories/regular-expressions/'>regular expressions (2)</a></li>
+<li class='category'><a href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails (36)</a></li>
+<li class='category'><a href='/blog/categories/rubymine/'>rubymine (1)</a></li>
+<li class='category'><a href='/blog/categories/xhtml-css/'>xhtml/css (9)</a></li>
+<li class='category'><a href='/blog/categories/工作计划/'>工作计划 (3)</a></li>
+<li class='category'><a href='/blog/categories/心情随写/'>心情随写 (67)</a></li>
+<li class='category'><a href='/blog/categories/技术感想/'>技术感想 (47)</a></li>
+<li class='category'><a href='/blog/categories/未分类/'>未分类 (1)</a></li>
+<li class='category'><a href='/blog/categories/杂谈/'>杂谈 (5)</a></li>
+<li class='category'><a href='/blog/categories/生活点滴/'>生活点滴 (4)</a></li>
+<li class='category'><a href='/blog/categories/软件试用/'>软件试用 (4)</a></li>
+
+  </ul>
+</section><section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/595">Rubymine 不能输入中文？</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'gxbsst',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Weston Wei(韦旭红) -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'Weixuhong';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

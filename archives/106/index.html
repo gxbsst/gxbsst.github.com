@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Ruby on Rails：控制器纵览 - 韦旭红的幸福时光</title>
+  <meta name="author" content="Weston Wei(韦旭红)">
+
+  
+  <meta name="description" content="　在一个基于MVC的Web应用程序中，应用程序逻辑以及数据的存取是由MVC中的C,也就是控制器来完成的。因此，深刻地理解MVC框架所提供控制器对于开发一个高效、可升级、稳定的应用程序是十分必要的。RoR也不例外。 　　RoR中所提供的控制器叫动作控制器(ActionController)。 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.weixuhong.com/archives/106">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="韦旭红的幸福时光" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script> 
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">韦旭红的幸福时光</a></h1>
+  
+    <h2>20，30，40&#8230;</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.weixuhong.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/photos">Photos</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Ruby on Rails：控制器纵览</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>　在一个基于MVC的Web应用程序中，应用程序逻辑以及数据的存取是由MVC中的C,也就是控制器来完成的。因此，深刻地理解MVC框架所提供控制器对于开发一个高效、可升级、稳定的应用程序是十分必要的。RoR也不例外。</p>
+
+<p>　　RoR中所提供的控制器叫动作控制器(ActionController)。本文将主要讨论动作控制器所提供的几种服务，以及如何使用动作控制器。</p>
+
+<p>　　什么是动作控制器</p>
+
+<p>　　在RoR中，动作包(Action Pack)是这个框架的核心。它包括两部分，动作视图和动作控制器。动作包的一个特点是除了Web程序，不能使用在其它类型的程序中。下面让我们看看在我们通过浏览器键入一个URL后，如<a href="http://localhost:3000/demo/say/hello%EF%BC%8C%E9%83%BD%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88%E3%80%82%E4%B8%8B%E9%9D%A2%E6%98%AF%E5%9C%A8RoR%E4%B8%AD%E5%A4%84%E7%90%86%E5%8A%A8%E4%BD%9C%E7%9A%84%E6%AD%A5%E9%AA%A4%EF%BC%9A">http://localhost:3000/demo/say/hello%EF%BC%8C%E9%83%BD%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88%E3%80%82%E4%B8%8B%E9%9D%A2%E6%98%AF%E5%9C%A8RoR%E4%B8%AD%E5%A4%84%E7%90%86%E5%8A%A8%E4%BD%9C%E7%9A%84%E6%AD%A5%E9%AA%A4%EF%BC%9A</a></p>
+
+<p>　　1. RoR首先装载了位于app/controllers目录中的say_controller.rb文件。这个文件只被装载一次。</p>
+
+<p>　　2. 然后 RoR建立了类SayController的实例。</p>
+
+<p>　　3. 一旦SayController类被实例化，RoR就会在app/helpers中查找say_helper.rb文件。如果这个文件存在，它就会被装载，并且这个文件将会和SayController对象混合。这就意味着在SayController对象中可以直接访问SayHelper中的方法。</p>
+
+<p>　　4. 最后在app/models中查找say.rb文件，如果存在，装载它。</p>
+
+<p>　　到现在为止，我们已经对应用程序的初始化过程非常清楚了，接下来让我们继续看看动作控制器所提供的服务。下面是RoR所提供的服务列表：</p>
+
+<p>　　1. URL映射</p>
+
+<p>　　2. 会话跟踪</p>
+
+<p>　　3. 过滤和验证</p>
+
+<p>　　4. 缓冲</p>
+
+<p>　　现在又带来一个问题。这些服务为什么由控制器来提供。当然，答案也很简单，这是因为控制器介于数据和应用程序之间，因此，它可以监视数据的存取，并且可以根据需要对URL进行映射。因此，这些服务理所当然由控制器来提供。下面我们将详细讨论控制器提供的这些服务。</p>
+
+<p>　　1. URL映射</p>
+
+<p>　　当我们在浏览器中输入<a href="http://localhost:3000/admin/show%E6%97%B6%EF%BC%8C%E4%BC%9A%E6%98%BE%E7%A4%BA%E7%9B%B8%E5%BA%94%E7%9A%84%E5%86%85%E5%AE%B9%E3%80%82%E4%BD%86%E4%BD%A0%E4%B9%9F%E8%AE%B8%E4%BC%9A%E6%9C%89%E7%96%91%E9%97%AE%EF%BC%8CRoR%E6%98%AF%E5%A6%82%E4%BD%95%E5%B0%86URL%E9%93%BE%E6%8E%A5%E6%98%A0%E5%B0%84%E6%88%90%E7%9B%B8%E5%BA%94%E7%9A%84%E7%B1%BB%E6%88%96%E6%96%B9%E6%B3%95%E5%91%A2%EF%BC%9F%E4%BA%8B%E5%AE%9E%E4%B8%8A%EF%BC%8C%E8%BF%99%E4%BA%9B%E6%98%A0%E5%B0%84%E7%9A%84%E4%BB%A3%E7%A0%81%E9%83%BD%E8%A2%AB%E5%86%99%E5%9C%A8%E4%BA%86config%E7%9B%AE%E5%BD%95%E4%B8%AD%E7%9A%84routers.rb%E4%B8%AD%E3%80%82%E4%B8%8B%E9%9D%A2%E6%98%AF%E8%BF%99%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E9%83%A8%E5%88%86%E4%BB%A3%E7%A0%81%E3%80%82">http://localhost:3000/admin/show%E6%97%B6%EF%BC%8C%E4%BC%9A%E6%98%BE%E7%A4%BA%E7%9B%B8%E5%BA%94%E7%9A%84%E5%86%85%E5%AE%B9%E3%80%82%E4%BD%86%E4%BD%A0%E4%B9%9F%E8%AE%B8%E4%BC%9A%E6%9C%89%E7%96%91%E9%97%AE%EF%BC%8CRoR%E6%98%AF%E5%A6%82%E4%BD%95%E5%B0%86URL%E9%93%BE%E6%8E%A5%E6%98%A0%E5%B0%84%E6%88%90%E7%9B%B8%E5%BA%94%E7%9A%84%E7%B1%BB%E6%88%96%E6%96%B9%E6%B3%95%E5%91%A2%EF%BC%9F%E4%BA%8B%E5%AE%9E%E4%B8%8A%EF%BC%8C%E8%BF%99%E4%BA%9B%E6%98%A0%E5%B0%84%E7%9A%84%E4%BB%A3%E7%A0%81%E9%83%BD%E8%A2%AB%E5%86%99%E5%9C%A8%E4%BA%86config%E7%9B%AE%E5%BD%95%E4%B8%AD%E7%9A%84routers.rb%E4%B8%AD%E3%80%82%E4%B8%8B%E9%9D%A2%E6%98%AF%E8%BF%99%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E9%83%A8%E5%88%86%E4%BB%A3%E7%A0%81%E3%80%82</a></p>
+
+<p>ActionController::Routing::Routes.drawdo|map|<br/>
+map.connect &#8216;:controller/service.wsdl&#8217;, :action => &#8216;wsdl&#8217;<br/>
+map.connect &#8216;:controller/:action/:id&#8217;<br/>
+end</p>
+
+<p>　　动作控制器通过它的映射组件将来自外部请求的URL和内部的应用程序连接了起来。上述代码的第3行就是完成这个功能的。在这行语句中，map.connect的连接字符串是&#8221;:controller/:action/:id&#8221;。请求的URL只有匹配这个字符串才能被接受。对于一个URL请求来说，它可以被RoR分成三部分：</p>
+
+<p>　　a. 第一部分是模式字符串中的:controller部分。</p>
+
+<p>　　b. 第二部分是模式字符串中的:action部分。</p>
+
+<p>　　c. 第三部分是模式字符串中的:id部分。</p>
+
+<p>　　根据上面所描述的三部分，URL：<a href="http://localhost:3000/demo/admin/show/1/%E5%B0%86%E8%A2%AB%E6%98%A0%E5%B0%84%E6%88%90%E4%BB%A5%E4%B8%8B%E4%B8%89%E9%83%A8%E5%88%86%EF%BC%9A">http://localhost:3000/demo/admin/show/1/%E5%B0%86%E8%A2%AB%E6%98%A0%E5%B0%84%E6%88%90%E4%BB%A5%E4%B8%8B%E4%B8%89%E9%83%A8%E5%88%86%EF%BC%9A</a></p>
+
+<p>:controller ： &#8216;admin&#8217;,<br/>
+:action ：&#8217;show&#8217;,<br/>
+:id ：1</p>
+
+<p>　　根据以上的三部分，RoR将调用admin控制器的show方法，并将参数1传到show方法中。因此，我们可以看出，RoR在其中做了很多本应该由我们做的事件。因此，RoR是一项十分强大技术。<br/>
+2. 会话跟踪</p>
+
+<p>　　跨应用跟踪用户是大多数Web应用程序都需要的功能。在RoR中，我们可使用由RoR框架提供cookies或session管理来跟踪用户。但在RoR中的cookies和session管理和其它框架所提供的类似的管理不同的，RoR的cookies和session管理无需显式地调用相应的cookies和session对象就可以做到这一切。下面让我们来看看它的实现代码：</p>
+
+<p>class CookiesController &lt; ApplicationController<br/>
+def create_cookie<br/>
+cookies[:the_time] = Time.now.to_s<br/>
+redirect_to :action =>&#8220;action_two&#8221;<br/>
+end</p>
+
+<p>def get_cookie<br/>
+cookie_value = cookies[:the_time]<br/>
+render(:text =>&#8221; #{cookie_value}&#8221;)<br/>
+end<br/>
+end</p>
+
+<p>　　在以上代码中，在控制器中有两个动作方法，一个是设置cookie的，另一个是读取和显示cookie值的。在这里cookies[]是一个cookies对象数组，我们不需要声明它，只需要将它看成一个普通数组即可。</p>
+
+<p>　　接下来使用redirect_to方法通过参数:action将请新进行重定向。在get_cookie动作中，cookies的值被取出来，然后使用render()方法显示这些值。</p>
+
+<p>　　上面讨论cookie的使用方法。但如果有一种方法可以透明使用cookie，那不是更好吗？这个技术就是session。就象cookie一样，session数组也无需声明。它的用法类似于cookie对象。下面的代码描述了session的使用。</p>
+
+<p>class SessionController &lt; ApplicationController<br/>
+def login<br/>
+user = User.find_by_name_and_password(params[:user], params[:password])<br/>
+if user<br/>
+session[:user_id] = user.id<br/>
+redirect_to :action =>&#8220;index&#8221;<br/>
+else<br/>
+reset_session<br/>
+flash[:note] =&#8221;有户名或密码不正确!&#8221;<br/>
+end<br/>
+end</p>
+
+<p>　　上面代码对user_id和password进行核对。如果用户存在，将这个用户的user-id保存在session中。其中session[:user_id] = user.id的形式和保存cookie的形式完全一样。接下来重定向到index页上。如果用户不存在，使用reset_session将session设为无效，并通过RoR返回简单的提示信息。</p>
+
+<p>　　3. 过滤和验证</p>
+
+<p>　　在一此情况下，在请求被处理之前，要进行一系列处理。这个过程就叫做过滤。过滤器所包含代码需要在许多动作执行前或执行后被调用。因此，过滤器分为两种，before过滤器和after过滤器。Before过滤器的代码在请求被处理前被执行，而after过滤器恰恰相反，是在请求被处理之后执行过滤代码。例如，验证用户身份代码必须要在调用一个动作之前被调用，代码如下示：</p>
+
+<p>def authorize<br/>
+unless session[:user_id]<br/>
+flash[:notice] =&#8221;请登录&#8221;<br/>
+redirect_to(:controller =>&#8221;login&#8221;, :action =>&#8221;login&#8221;)<br/>
+end<br/>
+end</p>
+
+<p>class AdminController &lt; ApplicationController<br/>
+before_filter :authorize<br/>
+… …</p>
+
+<p>　　以上代码在AdminController中的任何动作被执行之前调用，而在控制器中要想调用authorize函数，必须在其中加上before_filter。after_filter的使用方法和before_filter类似。</p>
+
+<p>　　过滤器虽然可以执行验证代码，但有时对请求需要更进一步的验证，如此一来，过滤器就显得捉襟见肘了。为了完成这些功能，我们就需要使用更为强大的验证机制。在控制器中，可以通过verify实现更强大的验证功能。如下面的代码验证了用户提交方式。即用户只能用post进行提交。</p>
+
+<p>class BlogController &lt; ApplicationController<br/>
+verify :only => :post_comment,<br/>
+:session => :user_id,<br/>
+:add_flash => { :note =>&#8221;You must log in to comment&#8221;},<br/>
+:redirect_to => :index</p>
+
+<p>… …</p>
+
+<p>　　4. 缓冲</p>
+
+<p>　　从以上代码可看出，服务器总是一遍一遍调用同样的动作，如果调用这些动作很费时间的话，将会严重影响服务器的性能。因此，RoR为了解决这一问题，为我们提供了缓冲的功能。如果某一个动作经常被调用，将这个动作进行缓冲将是一个好主意。</p>
+
+<p>　　在RoR中，可以通过caches_page来实现缓冲功能。缓冲可分为不同的层次，如对整个网页进行缓冲，对动作缓冲，或是同时对网页和动作进行缓冲。如在一个blog管理应用程序，将大家经常访问的内容进行缓冲的代码如下：</p>
+
+<p>class ContentController &lt; ApplicationController<br/>
+before_filter :verify_premium_user, :except => :public_content<br/>
+caches_page :public_content</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/106">Ruby on Rails：控制器纵览</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">gxbsst</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ruby-slash-ruby-on-rails/'>ruby/ruby on rails</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.weixuhong.com/archives/106" data-via="Weixuhong" data-counturl="http://www.weixuhong.com/archives/106" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/archives/107" title="Previous Post: Ruby on Rails项目文件目录结构和环境设置">&laquo; Ruby on Rails项目文件目录结构和环境设置</a>
+      
+      
+        <a class="basic-alignment right" href="/archives/73" title="Next Post: ruby on rails 环境的安装步骤">ruby on rails 环境的安装步骤 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
+</section><section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/angularjs/'>angularjs (2)</a></li>
+<li class='category'><a href='/blog/categories/directive/'>directive (1)</a></li>
+<li class='category'><a href='/blog/categories/ide/'>ide (1)</a></li>
+<li class='category'><a href='/blog/categories/ios/'>ios (6)</a></li>
+<li class='category'><a href='/blog/categories/javascript/'>javascript (8)</a></li>
+<li class='category'><a href='/blog/categories/linux-unix/'>linux/unix (24)</a></li>
+<li class='category'><a href='/blog/categories/php/'>php (28)</a></li>
+<li class='category'><a href='/blog/categories/regular-expressions/'>regular expressions (2)</a></li>
+<li class='category'><a href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails (36)</a></li>
+<li class='category'><a href='/blog/categories/rubymine/'>rubymine (1)</a></li>
+<li class='category'><a href='/blog/categories/xhtml-css/'>xhtml/css (9)</a></li>
+<li class='category'><a href='/blog/categories/工作计划/'>工作计划 (3)</a></li>
+<li class='category'><a href='/blog/categories/心情随写/'>心情随写 (67)</a></li>
+<li class='category'><a href='/blog/categories/技术感想/'>技术感想 (47)</a></li>
+<li class='category'><a href='/blog/categories/未分类/'>未分类 (1)</a></li>
+<li class='category'><a href='/blog/categories/杂谈/'>杂谈 (5)</a></li>
+<li class='category'><a href='/blog/categories/生活点滴/'>生活点滴 (4)</a></li>
+<li class='category'><a href='/blog/categories/软件试用/'>软件试用 (4)</a></li>
+
+  </ul>
+</section><section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/595">Rubymine 不能输入中文？</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'gxbsst',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Weston Wei(韦旭红) -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'Weixuhong';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

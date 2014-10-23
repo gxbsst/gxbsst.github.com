@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 杂谈 | 韦旭红的幸福时光]]></title>
+  <link href="http://www.weixuhong.com/blog/categories/za-tan/atom.xml" rel="self"/>
+  <link href="http://www.weixuhong.com/"/>
+  <updated>2014-10-23T17:52:25+08:00</updated>
+  <id>http://www.weixuhong.com/</id>
+  <author>
+    <name><![CDATA[Weston Wei(韦旭红)]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[招聘PHP工程师和前端工程师(上海)]]></title>
+    <link href="http://www.weixuhong.com/archives/474"/>
+    <updated>2010-03-31T00:00:00+08:00</updated>
+    <id>http://www.weixuhong.com/archives/jobs2010</id>
+    <content type="html"><![CDATA[<p>我们在51job.com的招聘信息</p>
+
+<p><a href="http://search.51job.com/list/co,c,273404,0000,10,1.html">http://search.51job.com/list/co,c,273404,0000,10,1.html</a></p>
+
+<p>高级PHP程序员</p>
+
+<p>工作描述:<br/>
+1. 建立数据库模型<br/>
+2. 编写核心代码<br/>
+3. 扩展网站的框架<br/>
+技术要求：<br/>
+　　熟练使用PHP+Smarty开发<br/>
+　　有基于MySQL的Master/Slave架构的PHP应用开发经验,掌握数据库读写分开的开发<br/>
+　　使用过Memcached开发PHP项目<br/>
+　　熟悉PHP的PEAR模块，并且熟练运用过其中的部分模块进行开发<br/>
+　　了解PHP的框架，使用面向对象编程(OOP)，熟悉MVC的网站结构, 熟悉 YII或者其他PHP框架者优先<br/>
+　　熟悉基本的 Linux/FreeBSD 操作<br/>
+　　熟悉 Apache / Nginx基本技术和配置<br/>
+其他：<br/>
+　　两年以上php经验<br/>
+　　性别无要求，学历无要求</p>
+
+<p>初级PHP程序员</p>
+
+<p>工作描述:<br/>
+1. 编写网站的功能模块<br/>
+2. 配合前端工程师，编写Views模板<br/>
+技术要求:<br/>
+　　熟练使用PHP+Smarty开发<br/>
+熟悉MYSQL的基本操作<br/>
+熟悉基本的 Linux/FreeBSD 操作<br/>
+其他：<br/>
+　　1年以上php经验， 优秀毕业生亦可<br/>
+　　性别无要求，学历无要求</p>
+
+<p>前端工程师</p>
+
+<p>工作描述:<br/>
+1. 根据输出的数组会使用SMARTY进行模板制作<br/>
+2. 利用JAVASCIRPT提高用户使用体验(UED）<br/>
+3. 修复页面在各种主流浏览器的兼容性</p>
+
+<p>技术要求:<br/>
+了解主要HTML的标签语义。以及主要HTML标签的属性以及用法。<br/>
+对CSS在各浏览器下的差异有所了解。<br/>
+知道如何解决IE6的滤镜问题。<br/>
+对盒模型的主要BUG了解并知道解决方案。<br/>
+有一定的JS基础，有脱离框架书写JS的能力。掌握对DOM的节点操作、样式操作，知道事件及事件处理，了解COOKIE，对正则有一定了解。<br/>
+对框架使用不做强性要求，使用过MOOTOOLS或JQUERY框架尤佳。</p>
+
+<p>BTW， 我们也非常注重应聘者的人品，同时对互联网有足够的热情， 当然我们也会根据个人的能力给出合理的薪水</p>
+
+<p>其他<br/>
+* 公司有班车<br/>
+* 中餐免费<br/>
+* 应有的各种福利</p>
+
+<p>如果你对以上工作感兴趣，且相信足够胜任， 请Email: weixuhong#gmail.com Twitter:@Weixuhong</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/474">招聘PHP工程师和前端工程师(上海)</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[希拉里关于NetFreedom的演讲]]></title>
+    <link href="http://www.weixuhong.com/archives/438"/>
+    <updated>2010-01-21T00:00:00+08:00</updated>
+    <id>http://www.weixuhong.com/archives/%e5%b8%8c%e6%8b%89%e9%87%8c%e5%85%b3%e4%ba%8enetfreedom%e7%9a%84%e6%bc%94%e8%ae%b2</id>
+    <content type="html"><![CDATA[<p><img src="http://grab.by/1SA2" alt="" /></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/438">希拉里关于NetFreedom的演讲</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[安全360就是赤裸裸的病毒软件（看图)]]></title>
+    <link href="http://www.weixuhong.com/archives/436"/>
+    <updated>2010-01-16T00:00:00+08:00</updated>
+    <id>http://www.weixuhong.com/archives/%e5%ae%89%e5%85%a8360%e5%b0%b1%e6%98%af%e8%b5%a4%e8%a3%b8%e8%a3%b8%e7%9a%84%e7%97%85%e6%af%92%e8%bd%af%e4%bb%b6%ef%bc%88%e7%9c%8b%e5%9b%be</id>
+    <content type="html"><![CDATA[<p>360安全卫士开始将无界、自由门等代理服务器软件标志为木马病毒， 截图如下 ，周鸿祎花那么大精力占领用户客户端就是为了干这个？</p>
+
+<p><img src="http://grab.by/1N0Z" alt="" /></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/436">安全360就是赤裸裸的病毒软件（看图)</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[关于QQ空间]]></title>
+    <link href="http://www.weixuhong.com/archives/434"/>
+    <updated>2010-01-16T00:00:00+08:00</updated>
+    <id>http://www.weixuhong.com/archives/%e5%85%b3%e4%ba%8eqq%e7%a9%ba%e9%97%b4</id>
+    <content type="html"><![CDATA[<p>刚开始使用QQ空间的时候，就不待见这样一个弱智的东西，后来发现它有更多的好处</p>
+
+<p>一、传播更多的墙外新闻</p>
+
+<p>如果有更多人看到，那我当然开心，如果没有人看到，那我就留给我的后代， 我年轻的时候，在思考什么内容？ 至少一个我的思想不是空白的, 可以让其思考， 金钱似乎不是一个真正的人唯一在乎或者唯一追求的东西.</p>
+
+<p>当然我也想到了， 腾讯或许有一天会把我和谐我的内容，甚至封我的Q号，但是到时也将是我放弃QQ所有服务的时候（本来我就要求腾讯关掉我的空间), 所有我写Blog通常都会备份另外一份在我的私人博客上（国外的服务器)</p>
+
+<p>那我教我下一代去翻墙（除非把光缆拔掉），甚至人肉翻墙。</p>
+
+<p>不过我始终相信： 疯狂之后＝》毁灭， 黑暗之后＝》 黎明， 苦尽之后＝》甘来， 柳暗之后＝》花明&#8230;.</p>
+
+<p>似乎未变.</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/434">关于QQ空间</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Maybe U Understand]]></title>
+    <link href="http://www.weixuhong.com/archives/427"/>
+    <updated>2010-01-10T00:00:00+08:00</updated>
+    <id>http://www.weixuhong.com/archives/maybe-u-understand</id>
+    <content type="html"><![CDATA[<p><img src="http://grab.by/1Eon" alt="" /></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/427">Maybe U Understand</a></p>
+]]></content>
+  </entry>
+  
+</feed>

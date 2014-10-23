@@ -1,0 +1,918 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>韦旭红的幸福时光</title>
+  <meta name="author" content="Weston Wei(韦旭红)">
+
+  
+  <meta name="description" content="有些同学可能也跟我一样，为什么要传值，为什么要传引用，什么时候用？ 它们之间有什么优劣&#8230;现在看《编程卓越之道》第16章的内容，我总结了以下几点 什么时候传值？
+如果值的数据量小， 那优先考虑用传值的方式，且不需要修改原来值的内容 什么时候传引用？
+我们需要向过程传大型的数据结构， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.weixuhong.com/posts/9">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="韦旭红的幸福时光" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script> 
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">韦旭红的幸福时光</a></h1>
+  
+    <h2>20，30，40&#8230;</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.weixuhong.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/photos">Photos</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/233">关于传值和引用的一点理解</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-12-21T00:00:00+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/233#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/233">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>有些同学可能也跟我一样，为什么要传值，为什么要传引用，什么时候用？ 它们之间有什么优劣&#8230;现在看《编程卓越之道》第16章的内容，我总结了以下几点</p>
+
+<p>什么时候传值？<br/>
+如果值的数据量小， 那优先考虑用传值的方式，且不需要修改原来值的内容</p>
+
+<p>什么时候传引用？<br/>
+我们需要向过程传大型的数据结构， 例如数组， 记录时，</p>
+
+<p>为什么？</p>
+
+<p>因为调用过程的代码对参数数据生成一份拷贝， 如果数据很大的化，拷贝的过程本身就是一个耗时的过程，这个是为什么需要传引用的原因。。。但是传引用又比传值有个缺点，那就是每次都需要解析数据的地址， 看书里代码，确实比传值多引用多了一条指令。</p>
+
+<p>参考：《编程卓越之道》</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/233">关于传值和引用的一点理解</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/223">PHP小技巧－－获取文件的信息(exif_read_date ()</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-12-12T00:00:00+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/223#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/223">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><pre lang="php">$sourceImage = &lsquo;images/baby.jpg&rsquo;;
+$exif_data = exif_read_data( $sourceImage );
+echo &lsquo;<pre>&rsquo;;
+print_r($exif_data);
+echo &lsquo;</pre></p>
+
+<p><p>
+  &lsquo;;
+</p></p>
+
+<p><p>
+  显示
+</p></p>
+
+<p><pre lang="php"></p>
+
+<p>Array
+(
+    [FileName] => baby.jpg
+    [FileDateTime] => 1228665226
+    [FileSize] => 20161
+    [FileType] => 2
+    [MimeType] => image/jpeg
+    [SectionsFound] => APP12
+    [COMPUTED] => Array
+        (
+            [html] => width=“204” height=“225”
+            [Height] => 225
+            [Width] => 204
+            [IsColor] => 1
+        )</p>
+
+<pre><code>[Company] =&gt; Ducky
+[Info] =&gt; 
+</code></pre>
+
+<p>)</p>
+
+<p></pre></p>
+
+<p><p>
+  转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/223">PHP小技巧－－获取文件的信息(exif_read_date ()</a>
+</p></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/222">用PHP输出简单缩略图</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-12-12T00:00:00+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/222#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/222">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Note: JPEG support is only available if PHP was compiled against GD-1.8 or later.</p>
+
+<p>*参考 <a href="http://cn.php.net/imagecreatefromjpeg">http://cn.php.net/imagecreatefromjpeg</a></p>
+
+<p>前段时间一朋友问我最简单的做出缩略图，这里给了他答案，当然这样的方法非常不好</p>
+
+<pre lang="php">$sourceImage = 'images/baby.jpg';
+$thumbWidth = 200;
+$thumbHeight = 200;
+$original = imagecreatefromjpeg($sourceImage);
+$dims = getimagesize($sourceImage);
+$thumb = imagecreatetruecolor($thumbWidth,$thumbHeight);
+
+imagecopyresampled( $thumb, $original, 0, 0, 0, 0,
+ $thumbWidth, $thumbHeight, $dims[0], $dims[1] );
+
+header( “Content-type: image/jpeg” );
+imagejpeg( $thumb );
+
+</pre>
+
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/222">用PHP输出简单缩略图</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/232">关于文件描述符（原创)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-12-12T00:00:00+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/232#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/232">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近在看“UNIX环境高级编程（第二版)”, 其中文件描述符，进程，线程等经常出现在书本中，关于这几个几本的概念，也经常和同事Jerry讨论，他们是做什么的？ 在和WEB开发中有什么联系等等问题&#8230;.其中文件描述符这个概念始终有点困扰着我，下面我把网上整理和自己的体会，写出来，就当学习笔记吧，如有不当，请指正</p>
+
+<p>我们去wiki看看怎么解释文件描述符的</p>
+
+<p><a href="http://zh.wikipedia.org/wiki/%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6">http://zh.wikipedia.org/wiki/%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6</a></p>
+
+<pre>文件描述符在形式上是一个很小的正整数。实际上，它是一个索引值，指向内核为每一个进程所维护的该进程打开文件的记录表。在程序设计中，一些涉及底层的程序编写往往会围绕着文件描述符展开。但是文件描述符这一概念往往只适用于UNIX、Linux这样的操作系统。</pre>
+
+
+<p>详细介绍可以到wiki去了解&#8230;</p>
+
+<p>其中的几个关键字需要注意： 正整数， 索引值，进程, 记录表.</p>
+
+<p>那文件描述符和应用文件，系统内核又有什么联系呢？ 还要标准输入，标准输出，标准错误呢？ 它们和文件描述符又是什么关系呢？<br/>
+好，我们一一来解释:<br/>
+我们先引用一句话<br/>
+<quote><br/>
+当我们在s h e l l中执行命令的时候，每个进程都和三个打开的文件相联系，并使用文件描述符来引用这些文件。由于文件描述符不容易记忆， s h e l l同时也给出了相应的文件名。<br/>
+下面就是这些文件描述符及它们通常所对应的文件名：<br/>
+文件文件描述符<br/>
+输入文件—标准输入0：它是命令的输入，缺省是键盘，也可以是文件或其他命令的输出。<br/>
+输出文件—标准输出1：它是命令的输出，缺省是屏幕，也可以是文件。<br/>
+错误输出文件—标准错误2：这是命令错误的输出，缺省是屏幕，同样也可以是文件。<br/>
+</quote></p>
+
+<p>OK, 我们知道了， 其实标准输入，标准输出，标准错误就是文件描述符，分别代表0，1，2， 记住以上的一句话 “每个进程都和三个打开的文件相联系，并使用文件描述符来引用这些文件”， 例子:</p>
+
+<p>打开一个shell， 那么标准输入 ＝》 键盘， 标准输出 ＝》終端， 錯誤輸出 ＝》 終端 (* 当然这些都是可以改变的)</p>
+
+<p>奇怪？ 键盘是文件？ 为什么？</p>
+
+<p><quote><br/>
+*nix的设计思想便是把一切设备都视作文件，那一切都可以解释了。<br/>
+</quote></p>
+
+<p>好，我们通过上面已经知道一个打开的进程占用了3个描述符(0,1,2), 记住每个进程都会默认打开， 那么最大文件描述符是多少呢？ 它和我们写程序有什么关系么？什么时候这个描述符才会增加呢？我们来做一个例子<br/>
+我们在console打开一个irb的进程，然后用这个进程打开一个文件，如图:</p>
+
+<p><a href="http://www.weixuhong.com/content/uploads/2008/12/picture-13.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/12/picture-13.png','popup','width=211,height=87,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/12/picture-13-tm.jpg" alt="Picture 13" title="Picture 13" border="1" vspace="4" width="242" height="100" hspace="4" /></a></p>
+
+<p>我们打开两次，然后用lsof 查看test.php这个文件情况，</p>
+
+<pre>COMMAND  PID   USER   FD   TYPE DEVICE SIZE/OFF     NODE NAME
+ruby    1557 weston    3r   REG   14,2        6 12966193 test.php
+ruby    1557 weston    4r   REG   14,2        6 12966193 test.php</pre>
+
+
+<p><a href="http://www.weixuhong.com/content/uploads/2008/12/picture-14.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/12/picture-14.png','popup','width=502,height=63,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/12/picture-14-tm.jpg" alt="Picture 14" title="Picture 14" border="1" vspace="4" width="796" height="100" hspace="4" /></a></p>
+
+<p>*其中的 FD表示文件描述符，3，4和我们推断的结果是一样的，但是为什么多了一个r呢？ 详细的可以看这文章：<a href="http://blog.csdn.net/guoguo1980/archive/2008/04/24/2324454.aspx">http://blog.csdn.net/guoguo1980/archive/2008/04/24/2324454.aspx</a></p>
+
+<p>通過以上，我們知道了，進程每打開一個文件，文件描述符就往上增加。 有了描述符，那麼系統就知道怎麼去哪裡操作這個文件了。</p>
+
+<p>那文件描述符的最大值有什麼作用麼？<br/>
+舉例：<br/>
+如果一个Apache进程需要打开10000文件，但是系统规定一个进程最多能打开1000（文件描述符最大值为999）个，那是不是会出错呢？ 怎么办？ 看这篇文章:</p>
+
+<p><a href="http://blog.csdn.net/guoguo1980/archive/2008/04/26/2333001.aspx">http://blog.csdn.net/guoguo1980/archive/2008/04/26/2333001.aspx</a></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/232">关于文件描述符（原创)</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/224">一个有用的Unix/Linux命令(lsof)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-12-12T00:00:00+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/224#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/224">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>lsof（list open files）是一个列出当前系统打开文件的工具。在linux环境下，任何事物都以文件的形式存在，通过文件不仅仅可以访问常规数据，还可以访问网络连接和硬件。所以如传输控制协议 (TCP) 和用户数据报协议 (UDP) 套接字等，系统在后台都为该应用程序分配了一个文件描述符，无论这个文件的本质如何，该文件描述符为应用程序与基础操作系统之间的交互提供了通用接口。因为应用程序打开文件的描述符列表提供了大量关于这个应用程序本身的信息，因此通过lsof工具能够查看这个列表对系统监测以及排错将是很有帮助的。</p>
+
+<p>lsof使用实例</p>
+
+<p>恢复删除的文件</p>
+
+<p>当Linux计算机受到入侵时，常见的情况是日志文件被删除，以掩盖攻击者<br/>
+的踪迹。管理错误也可能导致意外删除重要的文件，比如在清理旧日志时，<br/>
+意外地删除了数据库的活动事务日志。有时可以通过lsof来恢复这些文件。</p>
+
+<p>当进程打开了某个文件时，只要该进程保持打开该文件，即使将其删除，<br/>
+它依然存在于磁盘中。这意味着，进程并不知道文件已经被删除，它仍然<br/>
+可以向打开该文件时提供给它的文件描述符进行读取和写入。除了该进程<br/>
+之外，这个文件是不可见的，因为已经删除了其相应的目录索引节点。<br/>
+在/proc 目录下，其中包含了反映内核和进程树的各种文件。/proc目录挂<br/>
+载的是在内存中所映射的一块区域，所以这些文件和目录并不存在于磁盘<br/>
+中，因此当我们对这些文件进行读取和写入时，实际上是在从内存中获取<br/>
+相关信息。大多数与 lsof 相关的信息都存储于以进程的 PID 命名的目录中<br/>
+，即 /proc/1234 中包含的是 PID 为 1234 的进程的信息。每个进程目录中<br/>
+存在着各种文件，它们可以使得应用程序简单地了解进程的内存空间、文<br/>
+件描述符列表、指向磁盘上的文件的符号链接和其他系统信息。lsof 程序<br/>
+使用该信息和其他关于内核内部状态的信息来产生其输出。所以lsof 可以<br/>
+显示进程的文件描述符和相关的文件名等信息。也就是我们通过访问进程<br/>
+的文件描述符可以找到该文件的相关信息。</p>
+
+<p>当系统中的某个文件被意外地删除了，只要这个时候系统中还有进程正在<br/>
+访问该文件，那么我们就可以通过lsof从/proc目录下恢复该文件的内容。 假如由于误操作将/var/log/messages文件删除掉了，那么这时要将/var/log/messages文件恢复的方法如下：<br/>
+首先使用lsof来查看当前是否有进程打开/var/logmessages文件，如下：<br/>
+# lsof |grep /var/log/messages<br/>
+syslogd 1283 root 2w REG 3,3 5381017 1773647 /var/log/messages (deleted)<br/>
+从上面的信息可以看到 PID 1283（syslogd）打开文件的文件描述符为 2。<br/>
+同时还可以看到/var/log/messages已经标记被删除了。因此我们可以在<br/>
+/proc/1283/fd/2 （fd下的每个以数字命名的文件表示进程对应的文件描<br/>
+述符）中查看相应的信息，如下：<br/>
+# head -n 10 /proc/1283/fd/2<br/>
+Aug 4 13:50:15 holmes86 syslogd 1.4.1: restart.<br/>
+Aug 4 13:50:15 holmes86 kernel: klogd 1.4.1, log source = /proc/kmsg started.<br/>
+Aug 4 13:50:15 holmes86 kernel: Linux version 2.6.22.1-8 (<a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#111;&#58;&#114;&#x6f;&#111;&#x74;&#64;&#101;&#x76;&#101;&#114;&#x65;&#115;&#x74;&#x62;&#x75;&#x69;&#x6c;&#x64;&#101;&#114;&#x2e;&#108;&#x69;&#x6e;&#x75;&#x78;&#x2d;&#114;&#101;&#110;&#x2e;&#111;&#114;&#103;">&#114;&#x6f;&#111;&#116;&#x40;&#x65;&#118;&#101;&#x72;&#x65;&#x73;&#x74;&#x62;&#x75;&#105;&#x6c;&#x64;&#x65;&#x72;&#x2e;&#x6c;&#x69;&#110;&#117;&#x78;&#45;&#114;&#101;&#110;&#x2e;&#111;&#114;&#103;</a>) (gcc version 4.2.0) #1 SMP Wed Jul 18 11:18:32 EDT 2007<br/>
+Aug 4 13:50:15 holmes86 kernel: BIOS-provided physical RAM map:<br/>
+Aug 4 13:50:15 holmes86 kernel: BIOS-e820: 0000000000000000 &#8211; 000000000009f000 (usable)<br/>
+Aug 4 13:50:15 holmes86 kernel: BIOS-e820: 000000000009f000 &#8211; 00000000000a0000 (reserved)<br/>
+Aug 4 13:50:15 holmes86 kernel: BIOS-e820: 0000000000100000 &#8211; 000000001f7d3800 (usable)<br/>
+Aug 4 13:50:15 holmes86 kernel: BIOS-e820: 000000001f7d3800 &#8211; 0000000020000000 (reserved)<br/>
+Aug 4 13:50:15 holmes86 kernel: BIOS-e820: 00000000e0000000 &#8211; 00000000f0007000 (reserved)<br/>
+Aug 4 13:50:15 holmes86 kernel: BIOS-e820: 00000000f0008000 &#8211; 00000000f000c000 (reserved)<br/>
+从上面的信息可以看出，查看 /proc/8663/fd/15 就可以得到所要恢复的数<br/>
+据。如果可以通过文件描述符查看相应的数据，那么就可以使用 I/O 重定<br/>
+向将其复制到文件中，如:<br/>
+cat /proc/1283/fd/2 > /var/log/messages<br/>
+对于许多应用程序，尤其是日志文件和数据库，这种恢复删除文件的方法<br/>
+非常有用。</p>
+
+<p>更多细节请看: <a href="http://blog.csdn.net/guoguo1980/archive/2008/04/24/2324454.aspx">http://blog.csdn.net/guoguo1980/archive/2008/04/24/2324454.aspx</a></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/224">一个有用的Unix/Linux命令(lsof)</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/221">在Dreamhost编译VIM</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-11-29T00:00:00+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/221#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/221">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ol>
+<li>下载源文件（www.vim.org)</li>
+<li>编译</li>
+</ol>
+
+
+<pre lang="c">#一定要指定  --prefix=/home/weston/user/local/ --enable-multibyte
+# 一是要编译到目录（不然没有编译权限)，二是要支持fileencodings，不然你根本就不能输入中文
+./configure --prefix=/home/weston/user/local/ --enable-multibyte
+make 
+make isntall
+</pre>
+
+
+<ol>
+<li>修改bin的地址</li>
+</ol>
+
+
+<pre lang="c">export EDITOR=“$HOME/user/local/bin/vim”
+export VIMRUNTIME=“$HOME/share/vim”
+</pre>
+
+
+<ul>
+<li>当然可以再配置你自己目录下的.vimrc</li>
+</ul>
+
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/221">在Dreamhost编译VIM</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/220">Html的一些特殊符合列表</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-11-20T00:00:00+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>20</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/220#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/220">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>做网<span style="font-family:STHeiti;">页有时需要用上一些特殊的字符，</span> 如果copyright， &amp; &#8230;等等, 在网上找了一下，<span style="font-family:STHeiti;">记录以备后用</span></p>
+
+<p>来源：<a href="http://htmlhelp.com/reference/html40/entities/latin1.html">http://htmlhelp.com/reference/html40/entities/latin1.html</a></p>
+
+<p><a href="http://www.weixuhong.com/content/uploads/2008/11/html4.0latin-1entities.jpg" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/11/html4.0latin-1entities.jpg','popup','width=1224,height=1584,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/11/html4.0latin-1entities-tm.jpg" height="100" width="77" border="1" hspace="4" vspace="4" alt="HTML4.0Latin-1Entities" title="HTML4.0Latin-1Entities" /></a></p>
+
+<p><a href="http://htmlhelp.com/reference/html40/entities/special.html">http://htmlhelp.com/reference/html40/entities/special.html</a></p>
+
+<p><a href="http://www.weixuhong.com/content/uploads/2008/11/picture-76.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/11/picture-76.png','popup','width=680,height=665,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/11/picture-76-tm.jpg" height="100" width="102" border="1" hspace="4" vspace="4" alt="Picture 76" title="Picture 76" /></a></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/220">Html的一些特殊符合列表</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/216">Live的FAQ的更新</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-11-18T00:00:00+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>18</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/216#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/216">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li>FAQ用的是wordpress</li>
+<li>为了解决FAQ的的菜单排序的问题， 我安装了Mycategoryorder的plugin, 但是不起效果</li>
+</ul>
+
+
+<p>*在那个 sidebar.php 我是这样用的</p>
+
+<pre lang="php"><?php wp_list_cats('sort_column=term_order&#038;optioncount=1&#038;hierarchical=0'); ?>
+
+
+</pre>
+
+
+<p>后面查了源代码，原来是 wp-includes/taxonomy.php有段代码是这样的</p>
+
+<pre lang="php">591     if ( 'count' == $orderby )
+ 592         $orderby = 'tt.count';
+ 593     else if ( 'name' == $orderby )
+ 594         $orderby = 't.name';
+ 595     else if ( 'slug' == $orderby )
+ 596         $orderby = 't.slug';
+ 597     else if ( 'term_group' == $orderby )
+ 598         $orderby = 't.term_group';
+ 599     else if ( 'term_order' == $orderby )  //这个是我后面添加的
+ 600         $orderby = 't.term_order';
+ 601     else
+ 602         $orderby = 't.term_id';
+
+</pre>
+
+
+<p>这样这个plugin才能正常的工作</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/216">Live的FAQ的更新</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/215">生活琐事（感情，经济，家庭）</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-11-16T00:00:00+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/215#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/215">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>活着，不可避免的在矛盾中生活着&#8230;因为矛盾，所以才会幸福，才会痛苦，才哭，才会笑，才会累&#8230;</p>
+
+<p>前天晚上， 一个好朋友跟我讲, 他非常想哭，我问他为什么？ 他大概的意思就是：因為他是農民的兒子，所以看不了他的同事（農民工）兄弟被欺負。 具體原因我也沒有聽出個所以了， 他現在應該是工地上的監工&#8230;我这个朋友估计太多愁善感了，因为长这么大，很多事情一碰到就知道怎么处理了， 但是感觉他很矛盾，想把农民工兄弟解救，但是自己又没有能力，所以他哭了&#8230;不要觉得自己有多伟大， 其实我们只是一个小小的老百姓，你也许可以把自己说得很伟大，但是我觉得人太脆弱，一场车祸， 一场病，或者不幸喝了毒奶粉，就有可能丧命。。。我们可以主宰我们的命运么？ 不能啊， 我们只能做好自己，尽量的不要伤害别人， 或者遇到了师傅， 那就好好跟着吧&#8230;你一定会很幸福的:-)</p>
+
+<p>再昨天网上， 一个朋友在QQ空间诉苦， 说她的感情路不顺利，觉得很苦， 已经不相信真爱了， 估计你在你的QQ里面会遇到很多这样的情况，大多数都是感情的问题。 我就跟她说了， 其实世上不是没有真爱，而是真爱或许来的有点晚。。。所以不必耿耿于怀了&#8230;后面她说她很需要小孩，不知道这辈子能不能生个小孩了&#8230;哎&#8230;我觉得她现在很辛苦，估计你身边的人也是这样吧&#8230;请记住，既然你来到这个世界，就一定会有你的位置， 为人子（女），为人父（母），为什么现在一定要觉得世界不公平呢?</p>
+
+<p>今晚有一个朋友给我发来她小孩的相片，说她的儿子很可爱， 很招人喜欢。 我确实蛮羡慕做父母的人， 也许我以后做了父母也能体会到这样的心情吧，小孩的一个动作，就能让你觉得你是世界上最幸福的人&#8230;祝福天下做父母，或者即将做父母的人， 当然， 你的父母，你也要更知道疼爱他们啊，因为他们老了，就是小孩了。。。：）</p>
+
+<p>又是今晚， 朋友T说她失业了（看来经济危机已经影响着每个人）， 那我就安慰了&#8230;失业不是倒霉的事情， 或许上另外一件事情的开始， 或许你有另外的使命呢？ 不要把你的职业看得多么的重要吧， 真的不重要&#8230;也许有的朋友会奇怪：难道我就不怕么？ 说实话我真的不怕， 因为这样我更有借口回家休息，看双亲&#8230;</p>
+
+<p>*上个星期， 经过一个星期的忙碌，终于把网站的皮肤换完了&#8230;公司的新产品也发布了<br/>
+* 经过几天的忙碌，colorunn的项目也完成得很顺利了<br/>
+* 我又是这样到不精进了， 老是不看书*&#8230;</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/215">生活琐事（感情，经济，家庭）</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/214">一道关于PHP的代码题 (转自Deminy的blog)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-11-04T00:00:00+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>4</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/214#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/214">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>原文：<a href="http://www.deminy.net/blog/archives/4461-y.html">http://www.deminy.net/blog/archives/4461-y.html</a></p>
+
+<ul>
+<li><em>看了这道题很有意思，深入理解PHP的 Array的遍历等有帮助的，特别是Deminy的解答，很详细&#8230;</em></li>
+</ul>
+
+
+<p>我们公司招聘PHP开发人员的时候，电话面试之前会有一个笔试。也就是说，给应聘者几道PHP语言和MySQL数据库开发方面相关的问题，再给他一个晚上的时间来回答这些问题；第二天早上之前应聘者需将答案通过电子邮件发回来，随后公司的核心开发人员会根据其回答问题的情况来决定是否需要进行下一阶段的面试（电话面试或当面面试）。</p>
+
+<p>设计比较好一点的技术方面的问题是比较困难的，因此公司常常也会让新来的开发人员设计几道问题以供参考。</p>
+
+<p>2007年12月4日（周二），我在编写程序生成两份数据报告的时候，根据程序调试过程中出现的问题总结了如下一道问题。这个问题着重考察对PHP中变量引用(variable reference，相当于C里面的指针)、数组遍历这两方面的掌握，需要对相关知识有清晰的理解才能回答准确。这类问题并不一定适合在面试的时候用，不过，用这个问题来温习一下PHP中的一些技术要点还是有些意思的，因此我一直把这个问题收录着。</p>
+
+<pre lang="php"><?php
+$data = array('a', 'b', 'c');
+
+foreach ($data as $key => $val) {
+    $val = &#038;$data[$key];
+}
+?>
+</pre>
+
+
+<p>解答一</p>
+
+<pre lang="c">我的猜测，$val是在$data外面临时开辟的内存空间。
+
+循环0: array(a, b, c) $val 引用 $data[0] = a 的地址;
+
+循环1: array(b, b, c) $val = b， 由于$val 引用了$data[0]的地址，所以，$data[0] = b，同时 $val 引用 $data[1] = b 的地址;
+
+循环2: array(b, c, c) 原理同循环1；
+
+执行程序验证了我的结果，但不知道我的解释是否正确，望不吝赐教。:)
+
+</pre>
+
+
+<p>Deminy的解答</p>
+
+<pre lang="c">blueManta说得很对。
+
+举例说明变量引用(reference)：
+$a = NULL; // 释放变量所占用的内存空间（如果该变量已经存在的话）
+$a = $b; // $a复制了变量$b的值。这个赋值导致变量$a创建并指向一个新的内存空间（$a指向该内存空间所在地址）；$a和$b指向不同的内存空间（指向不同的内存空间地址）。对$a的操作不影响$b（除非$b是个对象）。
+$a = &$b; // $a成为一个引用（引用类型的变量），直接指向变量$b。$a和$b指向相同的内存空间。通常情况下，对$a的操作等同于对$b进行操作。
+
+文中所述数组$data的完整表达形式如下：
+$data = array(
+0 => 'a', // 内存空间A
+1 => 'b', // 内存空间B
+2 => 'c', // 内存空间C
+);
+
+循环过程：
+$key = 0; $val = 'a'; // $val复制了变量$data[0]的值。这个赋值导致变量$val创建并指向一个新的内存空间X；$val和$data[0]指向不同的内存空间。
+$val = &#038;$data[0]; // $val成为一个引用，直接指向变量$data[0]（原始数组第一个单元）。$val和$data[0]指向相同的内存空间A。
+$key = 1; $val = 'b'; // 赋值操作导致$val所指向的内存空间的值被改变了；$data[0]指向相同的内存空间，所以$data[0]的值也改变了。
+$val = &#038;$data[1]; // $val还是一个引用，不过现在指向变量$data[1]（原始数组第二个单元）。$val和$data[1]指向相同的内存空间B。
+$key = 2; $val = 'c'; // 赋值操作导致$val所指向的内存空间的值被改变了；$data[1]指向相同的内存空间，所以$data[1]的值也改变了。
+$val = &#038;$data[2]; // $val还是一个引用，不过现在指向变量$data[2]（原始数组第三个单元）。$val和$data[2]指向相同的内存空间C。
+
+可参考PHP.net网站关于array、foreach和reference三个章节中的相关说明。
+
+</pre>
+
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/214">一道关于PHP的代码题 (转自Deminy的blog)</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/10">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/8">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
+</section><section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/angularjs/'>angularjs (2)</a></li>
+<li class='category'><a href='/blog/categories/directive/'>directive (1)</a></li>
+<li class='category'><a href='/blog/categories/ide/'>ide (1)</a></li>
+<li class='category'><a href='/blog/categories/ios/'>ios (6)</a></li>
+<li class='category'><a href='/blog/categories/javascript/'>javascript (8)</a></li>
+<li class='category'><a href='/blog/categories/linux-unix/'>linux/unix (24)</a></li>
+<li class='category'><a href='/blog/categories/php/'>php (28)</a></li>
+<li class='category'><a href='/blog/categories/regular-expressions/'>regular expressions (2)</a></li>
+<li class='category'><a href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails (36)</a></li>
+<li class='category'><a href='/blog/categories/rubymine/'>rubymine (1)</a></li>
+<li class='category'><a href='/blog/categories/xhtml-css/'>xhtml/css (9)</a></li>
+<li class='category'><a href='/blog/categories/工作计划/'>工作计划 (3)</a></li>
+<li class='category'><a href='/blog/categories/心情随写/'>心情随写 (67)</a></li>
+<li class='category'><a href='/blog/categories/技术感想/'>技术感想 (47)</a></li>
+<li class='category'><a href='/blog/categories/未分类/'>未分类 (1)</a></li>
+<li class='category'><a href='/blog/categories/杂谈/'>杂谈 (5)</a></li>
+<li class='category'><a href='/blog/categories/生活点滴/'>生活点滴 (4)</a></li>
+<li class='category'><a href='/blog/categories/软件试用/'>软件试用 (4)</a></li>
+
+  </ul>
+</section><section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/595">Rubymine 不能输入中文？</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'gxbsst',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Weston Wei(韦旭红) -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'Weixuhong';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

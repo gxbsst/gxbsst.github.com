@@ -1,0 +1,437 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>A Sea of Schemes - 韦旭红的幸福时光</title>
+  <meta name="author" content="Weston Wei(韦旭红)">
+
+  
+  <meta name="description" content="2.5 A Sea of Schemes In this section, we&#8217;ll take a look at the more common scheme formats on the Web. Appendix A gives a fairly exhaustive list &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.weixuhong.com/archives/273">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="韦旭红的幸福时光" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script> 
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">韦旭红的幸福时光</a></h1>
+  
+    <h2>20，30，40&#8230;</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.weixuhong.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/photos">Photos</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">A Sea of Schemes</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2009-09-05T00:00:00+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2009</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>2.5 A Sea of Schemes</p>
+
+<p>In this section, we&#8217;ll take a look at the more common scheme formats on the Web. Appendix A gives a fairly exhaustive list of schemes and references to their individual documentation.</p>
+
+<p>Table 2-4 summarizes some of the most popular schemes. Reviewing Section 2.2 will make the syntax portion of the table a little more familiar.</p>
+
+<p>Table 2-4. Common scheme formats</p>
+
+<p>Scheme</p>
+
+<p>Description</p>
+
+<p>http</p>
+
+<p>The Hypertext Transfer Protocol scheme conforms to the general URL format, except that there is no username or password. The port defaults to 80 if omitted.</p>
+
+<p>Basic form:</p>
+
+<p><a href="http://">http://</a><host>:<port>/<path>?<query>#<frag></p>
+
+<p>Examples:</p>
+
+<p><a href="http://www.joes-hardware.com/index.html">http://www.joes-hardware.com/index.html</a></p>
+
+<p><a href="http://www.joes-hardware.com:80/index.html">http://www.joes-hardware.com:80/index.html</a></p>
+
+<p>https</p>
+
+<p>The https scheme is a twin to the http scheme. The only difference is that the https scheme uses Netscape&#8217;s Secure Sockets Layer (SSL), which provides end-to-end encryption of HTTP connections. Its syntax is identical to that of HTTP, with a default port of 443.</p>
+
+<p>Basic form:</p>
+
+<p><a href="https://">https://</a><host>:<port>/<path>?<query>#<frag></p>
+
+<p>Example:</p>
+
+<p><a href="https://www.joes-hardware.com/secure.html">https://www.joes-hardware.com/secure.html</a></p>
+
+<p>mailto</p>
+
+<p>Mailto URLs refer to email addresses. Because email behaves differently from other schemes (it does not refer to objects that can be accessed directly), the format of a mailto URL differs from that of the standard URL. The syntax for Internet email addresses is documented in Internet RFC 822.</p>
+
+<p>Basic form:</p>
+
+<p>mailto:<RFC-822-addr-spec></p>
+
+<p>Example:</p>
+
+<p><a href="&#109;&#x61;&#105;&#108;&#116;&#x6f;&#x3a;&#106;&#x6f;&#101;&#x40;&#106;&#111;&#101;&#115;&#45;&#104;&#97;&#x72;&#x64;&#119;&#x61;&#114;&#x65;&#x2e;&#x63;&#x6f;&#109;">&#106;&#111;&#101;&#64;&#x6a;&#x6f;&#x65;&#x73;&#45;&#104;&#97;&#x72;&#100;&#x77;&#97;&#x72;&#x65;&#46;&#x63;&#x6f;&#109;</a></p>
+
+<p>ftp</p>
+
+<p>File Transfer Protocol URLs can be used to download and upload files on an FTP server and to obtain listings of the contents of a directory structure on an FTP server.</p>
+
+<p>FTP has been around since before the advent of the Web and URLs. Web applications have assimilated FTP as a data-access scheme. The URL syntax follows the general form.</p>
+
+<p>Basic form:</p>
+
+<p><a href="ftp://">ftp://</a><user>:<password>@<host>:<port>/<path>;<params></p>
+
+<p>Example:</p>
+
+<p><a href="ftp://anonymous:joe%40joes-hardware.com@prep.ai.mit.edu:21/pub/gnu/">ftp://anonymous:joe%40joes-hardware.com@prep.ai.mit.edu:21/pub/gnu/</a></p>
+
+<p>rtsp, rtspu</p>
+
+<p>RTSP URLs are identifiers for audio and video media resources that can be retrieved through the Real Time Streaming Protocol.</p>
+
+<p>The &#8220;u&#8221; in the rtspu scheme denotes that the UDP protocol is used to retrieve the resource.</p>
+
+<p>Basic forms:</p>
+
+<p>rtsp://<user>:<password>@<host>:<port>/<path></p>
+
+<p>rtspu://<user>:<password>@<host>:<port>/<path></p>
+
+<p>Example:</p>
+
+<p>rtsp://www.joes-hardware.com:554/interview/cto_video</p>
+
+<p>file</p>
+
+<p>The file scheme denotes files directly accessible on a given host machine (by local disk, a network filesystem, or some other file-sharing system). The fields follow the general form. If the host is omitted, it defaults to the local host from which the URL is being used.</p>
+
+<p>Basic form:</p>
+
+<p>file://<host>/<path></p>
+
+<p>Example:</p>
+
+<p>file://OFFICE-FS/policies/casual-fridays.doc</p>
+
+<p>news</p>
+
+<p>The news scheme is used to access specific articles or newsgroups, as defined by RFC 1036. It has the unusual property that a news URL in itself does not contain sufficient information to locate the resource.</p>
+
+<p>The news URL is missing information about where to acquire the resource—no hostname or machine name is supplied. It is the interpreting application&#8217;s job to acquire this information from the user. For example, in your Netscape browser, under the Options menu, you can specify your NNTP (news) server. This tells your browser what server to use when it has a news URL.</p>
+
+<p>News resources can be accessed from multiple servers. They are said to be location-independent, as they are not dependent on any one source for access.</p>
+
+<p>The &#8220;@&#8221; character is reserved within a news URL and is used to distinguish between news URLs that refer to newsgroups and news URLs that refer to specific news articles.</p>
+
+<p>Basic forms:</p>
+
+<p><a href="news:">news:</a><newsgroup></p>
+
+<p><a href="news:">news:</a><news-article-id></p>
+
+<p>Example:</p>
+
+<p><a href="news:rec.arts.startrek">news:rec.arts.startrek</a></p>
+
+<p>telnet</p>
+
+<p>The telnet scheme is used to access interactive services. It does not represent an object per se, but an interactive application (resource) accessible via the telnet protocol.</p>
+
+<p>Basic form:</p>
+
+<p>telnet://<user>:<password>@<host>:<port>/</p>
+
+<p>Example:</p>
+
+<p>telnet://slurp:webhound@joes-hardware.com:23/</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/273">A Sea of Schemes</a></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">gxbsst</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2009-09-05T00:00:00+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2009</span></span> <span class='time'>12:00 am</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/xhtml-slash-css/'>xhtml/css</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.weixuhong.com/archives/273" data-via="Weixuhong" data-counturl="http://www.weixuhong.com/archives/273" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/archives/269" title="Previous Post: Nginx结构图">&laquo; Nginx结构图</a>
+      
+      
+        <a class="basic-alignment right" href="/archives/272" title="Next Post: how a browser uses HTTP to display a simple HTML resource">how a browser uses HTTP to display a simple HTML resource &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
+</section><section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/angularjs/'>angularjs (2)</a></li>
+<li class='category'><a href='/blog/categories/directive/'>directive (1)</a></li>
+<li class='category'><a href='/blog/categories/ide/'>ide (1)</a></li>
+<li class='category'><a href='/blog/categories/ios/'>ios (6)</a></li>
+<li class='category'><a href='/blog/categories/javascript/'>javascript (8)</a></li>
+<li class='category'><a href='/blog/categories/linux-unix/'>linux/unix (24)</a></li>
+<li class='category'><a href='/blog/categories/php/'>php (28)</a></li>
+<li class='category'><a href='/blog/categories/regular-expressions/'>regular expressions (2)</a></li>
+<li class='category'><a href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails (36)</a></li>
+<li class='category'><a href='/blog/categories/rubymine/'>rubymine (1)</a></li>
+<li class='category'><a href='/blog/categories/xhtml-css/'>xhtml/css (9)</a></li>
+<li class='category'><a href='/blog/categories/工作计划/'>工作计划 (3)</a></li>
+<li class='category'><a href='/blog/categories/心情随写/'>心情随写 (67)</a></li>
+<li class='category'><a href='/blog/categories/技术感想/'>技术感想 (47)</a></li>
+<li class='category'><a href='/blog/categories/未分类/'>未分类 (1)</a></li>
+<li class='category'><a href='/blog/categories/杂谈/'>杂谈 (5)</a></li>
+<li class='category'><a href='/blog/categories/生活点滴/'>生活点滴 (4)</a></li>
+<li class='category'><a href='/blog/categories/软件试用/'>软件试用 (4)</a></li>
+
+  </ul>
+</section><section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/595">Rubymine 不能输入中文？</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'gxbsst',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Weston Wei(韦旭红) -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'Weixuhong';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,1995 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>韦旭红的幸福时光</title>
+  <meta name="author" content="Weston Wei(韦旭红)">
+
+  
+  <meta name="description" content="irb(main):002:0> require &#8216;rubygems&#8217;
+=> true
+irb(main):003:0> require &#8216;redis&#8217;
+=> true
+irb(main):004:0> r = Redis.new
+=> #&lt;Redis:0x8605b64 @sock=#& &hellip;&#8221;>
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.weixuhong.com/posts/2">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="韦旭红的幸福时光" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script> 
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">韦旭红的幸福时光</a></h1>
+  
+    <h2>20，30，40&#8230;</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.weixuhong.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/photos">Photos</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/553">如果使用ruby Gem Redis查看redis的keys</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2011-08-04T00:00:00+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>4</span><span class='date-suffix'>th</span>, <span class='date-year'>2011</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/553#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/553">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><pre lang="ruby">irb(main):002:0> require 'rubygems'
+=> true
+irb(main):003:0> require 'redis'
+=> true
+irb(main):004:0> r = Redis.new
+=> #&lt;Redis:0x8605b64 @sock=#&lt;TCPSocket:0x8605ab0>, @timeout=5, @port=6379, @db=0, @host="127.0.0.1">
+irb(main):005:0> r.keys('*')
+
+列出某个的key的值：
+
+r.sort("Listen:1")
+
+
+
+</pre>
+
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/553">如果使用ruby gem redis查看redis的keys</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/551">Rails 3.1 Mountable Engines 使用方法</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2011-08-01T00:00:00+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2011</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/551#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/551">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在了解 Moutable之前， 先看这个视频：</p>
+
+<p><a href="http://railscasts.com/episodes/277-mountable-engines">http://railscasts.com/episodes/277-mountable-engines</a></p>
+
+<p>了解Mountable Engines与Full Engines的区别， 看这篇文章:</p>
+
+<p><a href="http://stackoverflow.com/questions/6118905/rails-3-1-engine-vs-mountable-app">http://stackoverflow.com/questions/6118905/rails-3-1-engine-vs-mountable-app</a></p>
+
+<p>当我们使用：</p>
+
+<pre lang="ruby">rails plugin new uhoh --mountable
+</pre>
+
+
+<p>我们可以把这个创建好的plugin变成一个gem来使用。</p>
+
+<p>比如我们可以先创建一个rails app</p>
+
+<pre lang="ruby">rails new with_engine -T -O -J
+</pre>
+
+
+<p>编辑Gemfile, 添加以下一行:</p>
+
+<pre lang="ruby">gem 'uhoh', :path => '/Users/weston/Downloads/277-mountable-engines/uhoh-after/' #刚才创建的mountable 路径
+
+</pre>
+
+
+<p>执行</p>
+
+<pre lang="ruby">bundle install 
+
+vim config/routs.rb
+</pre>
+
+
+<p>添加以下一行:</p>
+
+<pre lang="ruby">mount Uhoh::Engine => "/uhoh", :as => "uhoh_engine"
+</pre>
+
+
+<p>这样我们就可以使用这个engines了&#8230;</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/551">rails 3.1 Mountable Engines 使用方法</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/547">关于Rails使用Callback和Observer的区别</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2011-07-27T00:00:00+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2011</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/547#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/547">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>可以参考：</p>
+
+<p><a href="http://stackoverflow.com/questions/1531514/observers-vs-callbacks">http://stackoverflow.com/questions/1531514/observers-vs-callbacks</a></p>
+
+<p>其中有一段是这样的：</p>
+
+<pre lang="ruby">class Model &lt; ActiveRecord::Base
+  before_update :disallow_bob
+
+  def disallow_bob
+  return false if model.name == "bob"
+  end
+end
+
+class ModelObserver &lt; ActiveRecord::Observer
+  def before_update(model)
+    return false if model.name == "mary"
+  end
+end
+
+m = Model.create(:name => "whatever")
+
+m.update_attributes(:name => "bob")
+=> false -- name will still be "whatever" in database
+
+m.update_attributes(:name => "mary")
+=> true -- name will be "mary" in database
+</pre>
+
+
+<p>Observers may only observe, they may not intervene.</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/547">关于Rails使用Callback和Observer的区别</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/545">Rails 3, RSpec, Cucumber, jQuery, Devise, Mongoid, and Compass(转)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2011-07-19T00:00:00+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>19</span><span class='date-suffix'>th</span>, <span class='date-year'>2011</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/545#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/545">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>来源:<a href="http://jimdrannbauer.com/2011/01/29/rails-3-rspec-cucumber-jquery-devise-mongoid-and-compass/">http://jimdrannbauer.com/2011/01/29/rails-3-rspec-cucumber-jquery-devise-mongoid-and-compass/</a></p>
+
+<p>Want to build a Rails 3 app with this stuff?</p>
+
+<p>Git<br/>
+RSpec<br/>
+Cucumber w/ Capybara<br/>
+Mongoid<br/>
+Devise<br/>
+CanCan<br/>
+jQuery<br/>
+Compass<br/>
+Blueprintcss<br/>
+Haml<br/>
+Sass<br/>
+Capistrano<br/>
+Passenger<br/>
+Factory Girl<br/>
+Shoulda<br/>
+metric_fu<br/>
+Here’s how.</p>
+
+<p>Just A Checklist</p>
+
+<p>This article is mostly written for myself so I don’t have to remember where I found all of the information. There’s nothing particularly difficult about anything here. I just like the idea of having it all in one place. I figured it might be helpful to others, so… uh… here it is.</p>
+
+<p>Having said that, this is not a tutorial. I don’t explain how to do Behavior Driven Development, how to use CanCan, or why to use any of this stuff. It’s just a checklist… a detailed checklist. It would probably make a good Rails Template.</p>
+
+<p>Prerequisites</p>
+
+<p>The installation of MongoDB and Git are beyond the scope…</p>
+
+<p>Initialize the app</p>
+
+<p>In your shell:</p>
+
+<pre lang="c">mkdir awesome-app
+cd awesome-app
+git init
+rails new . -T -J -O
+</pre>
+
+
+<p>Create the empty directory first so that you can init an empty git repo. The -T option excludes the Test/Unit files so that we can use RSpec instead. The -J option excludes the prototype.js files so that we can use jQuery instead. The -O option excludes ActiveRecord (O is for ORM) so that we can use Mongoid instead.</p>
+
+<p>Commit it:</p>
+
+<pre lang="c">git add .
+git commit -m "initial commit"
+Bundle the Gems
+</pre>
+
+
+<p>Here’s the first place you need to modify files. In Gemfile:</p>
+
+<pre lang="ruby">source 'http://rubygems.org'
+gem 'rails',    '3.0.3'
+gem 'mongoid',  '2.0.0.rc.6'
+gem 'bson_ext', '~> 1.2'
+gem 'devise'
+gem 'cancan'
+gem 'jquery-rails'
+gem 'passenger'
+gem 'capistrano'
+gem "compass", ">= 0.10.6"
+gem 'haml'
+group :development, :test do
+  gem 'capybara'
+  gem 'cucumber'
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'shoulda'
+  gem 'factory_girl_rails'
+  gem 'autotest'
+  gem 'launchy'
+  gem 'faker'
+  gem 'ruby-debug19'
+  gem 'haml-rails'
+  gem 'metric_fu'
+end
+
+</pre>
+
+
+<p>Then, back in your shell:</p>
+
+<pre lang="c">bundle install
+</pre>
+
+
+<p>Commit it:</p>
+
+<pre lang="c">git add .
+git commit -m "Added Gems"
+Mongoid
+</pre>
+
+
+<p>Mongoid is an ORM for MongoDB. I’ll assume you have it installed already. Dig it:</p>
+
+<pre lang="c"># Ignore this message if you see it since you're
+# running the command it's asking for right now:
+
+# Mongoid config not found. Create a config file at: config/mongoid.yml
+# to generate one run: rails generate mongoid:config
+rails g mongoid:config
+
+</pre>
+
+
+<p>After running the mongoid generator, your app is configured to use Mongoid instead of ActiveRecord. When you generate a model, Rails will generate a Mongoid Document.</p>
+
+<p>Let’s edit some files and get it set up.</p>
+
+<p>In config/mongoid.yml:</p>
+
+<pre lang="c">defaults: &#038;defaults
+  host: localhost
+  # mongoid defaults for configurable settings
+  autocreate_indexes: false
+  allow_dynamic_fields: true
+  include_root_in_json: false
+  parameterize_keys: true
+  persist_in_safe_mode: false
+  raise_not_found_error: true
+  reconnect_time: 3
+development:
+  &lt;&lt;: *defaults
+  database: awesome_app_development
+test: &#038;TEST
+  &lt;&lt;: *defaults
+  database: awesome_app_test
+cucumber:
+  &lt;&lt;: *TEST
+# set these environment variables on your prod server
+production:
+  host: &lt;%= ENV['MONGOID_HOST'] %>
+  port: &lt;%= ENV['MONGOID_PORT'] %>
+  username: &lt;%= ENV['MONGOID_USERNAME'] %>
+  password: &lt;%= ENV['MONGOID_PASSWORD'] %>
+  database: &lt;%= ENV['MONGOID_DATABASE'] %>
+</pre>
+
+
+<p>There are 2 things to notice here. First, the configurable settings can be excluded. Even though Mongoid will default to the above options, leave them so that you don’t have to look at the documentation. Second, we added an environment for Cucumber which just points back to the test environment.</p>
+
+<p>Commit it:</p>
+
+<pre lang="c">git add .
+git commit -m "Added Mongoid"
+RSpec
+</pre>
+
+
+<p>Now, we use the rails generator to install RSpec. Shell:</p>
+
+<pre lang="c">rails g rspec:install
+Next, in spec/spec_helper.rb:
+
+RSpec.configure do |config|
+  config.mock_with :rspec
+
+  require 'database_cleaner'
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.orm = "mongoid"
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.clean
+  end
+end
+</pre>
+
+
+<p>This is all you need in your RSpec configuration to use it with Mongoid. MongoDB doesn’t do transactions so we need to truncate the database between tests instead of rolling back. DatabaseCleaner helps with that.</p>
+
+<p>Commit it:</p>
+
+<pre lang="c">git add .
+git commit -m "Added RSpec"
+</pre>
+
+
+<p>Cucumber</p>
+
+<p>Next, we use the rails generator again to install Cucumber. Shell:</p>
+
+<pre lang="c">rails g cucumber:install --capybara --rspec --skip-database
+</pre>
+
+
+<p>The –capybara option sets up Capybara instead of Webrat. The –rspec option enables RSpec matchers for your step definitions.</p>
+
+<p>The Cucumber generator will bark at you about a missing database.yml file without the –skip-database option because we skipped the ORM when we created the app.</p>
+
+<p>Like RSpec, some configuration is necessary to make Cucumber play nice with Mongoid. Add this file, features/support/database_cleaner.rb:</p>
+
+<pre lang="c">require 'database_cleaner'
+DatabaseCleaner.strategy = :truncation
+DatabaseCleaner.orm = "mongoid"
+Before { DatabaseCleaner.clean }
+</pre>
+
+
+<p>This does the same thing for Cucumber that it does for RSpec: truncates your data between scenarios.</p>
+
+<p>Commit it:</p>
+
+<pre lang="c">git add .
+git commit -m "Added Cucumber"
+</pre>
+
+
+<p>Devise</p>
+
+<p>Devise is used for authentication.</p>
+
+<p>Shell it:</p>
+
+<p>rails g devise:install<br/>
+Devise needs a few things in place so that it can provide it’s functionality and it’ll let you know it when the installation is done:</p>
+
+<pre lang="c">===============================================================================
+
+Some setup you must do manually if you haven't yet:
+
+  1. Setup default url options for your specific environment. Here is an
+     example of development environment:
+
+       config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+     This is a required Rails configuration. In production it must be the
+     actual host of your application
+
+  2. Ensure you have defined root_url to *something* in your config/routes.rb.
+     For example:
+
+       root :to => "home#index"
+
+  3. Ensure you have flash messages in app/views/layouts/application.html.erb.
+     For example:
+
+       <p class="notice">
+  &lt;%= notice %>
+</p>
+       
+
+<p class="alert">
+  &lt;%= alert %>
+</p>
+
+===============================================================================
+</pre>
+
+
+<p>For now, all you need to do are steps 1 and 2 above. We’ll handle step 3 when we get into the Haml/Sass/Compass stuff later.</p>
+
+<p>In config/environments/development.rb, add this:</p>
+
+<pre lang="c">config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+</pre>
+
+
+<p>In config/routes.rb, add this:</p>
+
+<p><pre lang="c">root :to => &ldquo;home#index&rdquo;
+<pre></p>
+
+<p>Finally, Devise needs a model to hold login credentials. Let’s call it User. In the shell:
+<pre lang="c"></p>
+
+<p>rails g mongoid:devise User
+</pre></p>
+
+<p><p>
+  Take a look in app/models/user.rb. Notice that it generated a Mongoid Document.
+</p></p>
+
+<p><p>
+  Finish up by adding this to routes.rb:
+</p></p>
+
+<p><pre lang="c"></p>
+
+<p>devise_for :users
+Commit it:</p>
+
+<p>git add .
+git commit -m &ldquo;Added Devise&rdquo;
+</pre></p>
+
+<p><p>
+  CanCan
+</p></p>
+
+<p><p>
+  CanCan does role-based user authorization.
+</p></p>
+
+<p><pre lang="c"></p>
+
+<p>rails g cancan:ability
+That’s it.
+</pre></p>
+
+<p><p>
+  Commit it:
+</p></p>
+
+<p><pre lang="c"></p>
+
+<p>git add .
+git commit -m &ldquo;Added CanCan&rdquo;
+</pre></p>
+
+<p><p>
+  jQuery
+</p></p>
+
+<p><p>
+  We used the -J option when we created the app so that we could use jQuery instead of Prototype. In your shell, run the jQuery generator:
+</p></p>
+
+<p><pre lang="c"></p>
+
+<p>rails g jquery:install &ndash;ui
+</pre></p>
+
+<p><p>
+  This’ll do 3 main things: remove the existing protoypejs-based javascript files (which, in our case, aren’t there anyway), drop in the latest jQuery, and drop in the jQuery version of the Rails Unobtrusive Javascript (UJS) Adapter. Since jQueryUI is pretty cool too, we drop that in too with the –ui option.
+</p></p>
+
+<p><p>
+  In order to make the :defaults argument to javascript_include_tag load the .js files in the right order, we need to modify config/application.rb. Look for:
+</p></p>
+
+<p><pre lang="c"></p>
+
+<p>config.action_view.javascript_expansions[:defaults] = %w()
+and change it to:</p>
+
+<p>config.action_view.javascript_expansions[:defaults] =
+  %w(jquery.min jquery-ui.min rails)
+</pre></p>
+
+<p><p>
+  Notice that we load the minified versions which were downloaded by the generator.
+</p></p>
+
+<p><p>
+  Commit it:
+</p></p>
+
+<p><pre lang="c"></p>
+
+<p>git add .
+git commit -m &ldquo;Added jQuery&rdquo;
+Compass/Haml/Sass/Blueprintcss
+</pre></p>
+
+<p><p>
+  Haml is a template langauge like erb. When we added “gem ‘haml’” to the Gemfile, we made Rails recognize that files with the .haml extension contain Haml markup. Sass is a superset of css3 that helps keep your stylesheets clean. Blueprintcss is a css framework that provides easy to use reset, grid, and typographical styles. Compass ties all this together and provides a way to integrate it into your app.
+</p></p>
+
+<p><p>
+  Run this to install Compass into your app using Blueprintcss:
+</p></p>
+
+<p><pre lang="c"></p>
+
+<p>compass init rails . &ndash;using blueprint/semantic
+</pre></p>
+
+<p><p>
+  Compass will ask you a few questions. Just say yes to both of them.
+</p></p>
+
+<p><pre lang="c"></p>
+
+<p>Compass recommends that you keep your stylesheets in app/stylesheets
+  instead of the Sass default location of public/stylesheets/sass.
+  Is this OK? (Y/n) Y</p>
+
+<p>Compass recommends that you keep your compiled css in public/stylesheets/compiled/
+  instead the Sass default of public/stylesheets/.
+  However, if you&rsquo;re exclusively using Sass, then public/stylesheets/ is recommended.
+  Emit compiled stylesheets to public/stylesheets/compiled/? (Y/n) Y</p>
+
+<p></pre></p>
+
+<p><p>
+  After that, it’ll drop a bunch of files into the app and finish up with some instructions. We’ve already done the first suggestion, added Compass to the Gemfile. The second suggestion gives us the opportunity to put together our layout.
+</p></p>
+
+<p><p>
+  Create app/views/layout/application.html.haml and place this inside:
+</p></p>
+
+<p><pre lang="c"></p>
+
+<p>!!! XML
+!!!
+%html
+  %head
+    %title Awesome App
+    = javascript_include_tag :defaults
+    = csrf_meta_tag
+    = stylesheet_link_tag :all
+    = stylesheet_link_tag &lsquo;compiled/screen.css&rsquo;, :media => &lsquo;screen, projection&rsquo;
+    = stylesheet_link_tag &lsquo;compiled/print.css&rsquo;,  :media => &lsquo;print&rsquo;
+    /[if lt IE 8]
+      = stylesheet_link_tag &lsquo;compiled/ie.css&rsquo;, :media => &lsquo;screen, projection&rsquo;</p>
+
+<p>  %body.bp.two-col</p>
+
+<pre><code>#container
+
+  #header
+    %h1 Awesome App Header
+
+  #sidebar
+    %div item 1
+    %div item 2
+    %div item 3
+    %div item 4
+
+  #content
+
+    %p.notice= notice
+    %p.error= alert
+    %p.success= notice
+
+    = yield
+
+  #footer
+    %h3 Awesome App Footer
+</code></pre>
+
+<p></pre></p>
+
+<p><p>
+  There are a few things to notice in there. First, it’s Haml. Second, we’ve included the stylesheet info from the compass command output in the head. Third, we’re using the built-in Blueprintcss 2-column layout. Finally, we’ve added the notice and alert elements that Devise asked for earlier. There’s also a success element in there to show off some of the coloring that Blueprintcss gives you.
+</p></p>
+
+<p><p>
+  If you try to look at it now, it won’t work. Sit tight, we’re close.
+</p></p>
+
+<p><p>
+  Making Compass Just Work
+</p></p>
+
+<p><p>
+  The Compass documentation seems to lack a simple explanation of how to see if things just work. Here it is:
+</p></p>
+
+<p><p>
+  Create app/stylesheets/partials/_application.scss, and place this inside:
+</p></p>
+
+<p><pre lang="c"></p>
+
+<h1>container {</h1>
+
+<p>  @include showgrid;
+}
+</pre></p>
+
+<p><p>
+  Use this file to get started adding your own styles. The showgrid mixin is useful for debugging your Blueprintcss grid. Delete it or comment it out when you’re done.
+</p></p>
+
+<p><p>
+  Then, add this to app/stylesheets/screen.scss:
+</p></p>
+
+<p><p>
+  // Add the application styles.<br />
+  @import &ldquo;partials/application&rdquo;;<br />
+  This makes sure that your own styles are available when you get around to adding them.
+</p></p>
+
+<p><p>
+  Commit it:
+</p></p>
+
+<p><p>
+  git add .<br />
+  git commit -m &ldquo;Added Compass&rdquo;<br />
+  Last Steps Before Starting the App
+</p></p>
+
+<p><p>
+  Delete public/index.html:
+</p></p>
+
+<p><p>
+  rm public/index.html<br />
+  Earlier, Devise instructed us to setup the root route in routes.rb. The problem is the route we added won’t actually work until we have a home controller with an index action.
+</p></p>
+
+<p><p>
+  Shell it:
+</p></p>
+
+<p><p>
+  rails g controller home index<br />
+  Notice that the views generated use Haml. That works because we added the ‘haml-rails’ gem to the Gemfile.
+</p></p>
+
+<p><p>
+  Then, so that we can see Devise in action:
+</p></p>
+
+<p><p>
+  rails g controller vip index<br />
+  In app/controllers/vip_controller.rb, add:
+</p></p>
+
+<p><p>
+  before_filter :authenticate_user!<br />
+  Commit it:
+</p></p>
+
+<p><p>
+  git add .<br />
+  git commit -m &ldquo;Added Home and Vip controllers and views&rdquo;<br />
+  Start It Up
+</p></p>
+
+<p><p>
+  passenger start<br />
+  Now go to: <a href="http://localhost:3000">http://localhost:3000</a>
+</p></p>
+
+<p><p>
+  Nice! See the grid? Clean.
+</p></p>
+
+<p><p>
+  How about this one? <a href="http://localhost:3000/vip/index">http://localhost:3000/vip/index</a>
+</p></p>
+
+<p><p>
+  Go ahead. Mess with the login stuff. It’ll just kinda work.
+</p></p>
+
+<p><p>
+  One More Thing, metric_fu
+</p></p>
+
+<p><p>
+  Add this to your Rakefile:
+</p></p>
+
+<p><p>
+  require &lsquo;metric_fu&rsquo;<br />
+  MetricFu::Configuration.run do |config|<br />
+    config.rcov[:test_files] = [&lsquo;spec/<em>*/</em>_spec.rb&rsquo;]<br />
+    config.rcov[:rcov_opts] &lt;&lt; &ldquo;-Ispec&rdquo; # Needed to find spec_helper<br />
+  end<br />
+  Get your metrics by running this:
+</p></p>
+
+<p><p>
+  rake metrics:all<br />
+  Commit it:
+</p></p>
+
+<p><p>
+  git add .<br />
+  git commit -m &ldquo;Added metric_fu&rdquo;<br />
+  Conclusion
+</p></p>
+
+<p><p>
+  Okay, so it doesn’t really do anything… yet. That’s okay. You’re smart. Make.
+</p></p>
+
+<p><p>
+  There were a few things in the list at the top that I didn’t go into more detail about (Capistrano, Passenger, Factory Girl, and Shoulda). That’s because they’re ready to go; inclusion in the Gemfile was enough. Just start using ‘em.
+</p></p>
+
+<p><p>
+  Links
+</p></p>
+
+<p><p>
+  Here’s a list of links to the documentation and articles I used to pull this together:
+</p></p>
+
+<p><p>
+  <a href="http://relishapp.com/rspec/rspec-rails">http://relishapp.com/rspec/rspec-rails</a>
+</p></p>
+
+<p><p>
+  <a href="http://github.com/aslakhellesoy/cucumber-rails/blob/master/README.rdoc">http://github.com/aslakhellesoy/cucumber-rails/blob/master/README.rdoc</a>
+</p></p>
+
+<p><p>
+  <a href="http://github.com/thoughtbot/shoulda">http://github.com/thoughtbot/shoulda</a>
+</p></p>
+
+<p><p>
+  <a href="http://github.com/thoughtbot/factory_girl_rails">http://github.com/thoughtbot/factory_girl_rails</a>
+</p></p>
+
+<p><p>
+  <a href="http://mongoid.org/docs/installation">http://mongoid.org/docs/installation</a>
+</p></p>
+
+<p><p>
+  <a href="http://mongoid.org/docs/integration">http://mongoid.org/docs/integration</a>
+</p></p>
+
+<p><p>
+  <a href="http://mongoid.org/docs/extensions">http://mongoid.org/docs/extensions</a>
+</p></p>
+
+<p><p>
+  <a href="http://github.com/plataformatec/devise">http://github.com/plataformatec/devise</a>
+</p></p>
+
+<p><p>
+  <a href="https://github.com/ryanb/cancan">https://github.com/ryanb/cancan</a>
+</p></p>
+
+<p><p>
+  <a href="http://www.tonyamoyal.com/2010/07/28/rails-authentication-with-devise-and-cancan-customizing-devise-controllers/">http://www.tonyamoyal.com/2010/07/28/rails-authentication-with-devise-and-cancan-customizing-devise-controllers/</a>
+</p></p>
+
+<p><p>
+  <a href="https://github.com/indirect/jquery-rails">https://github.com/indirect/jquery-rails</a>
+</p></p>
+
+<p><p>
+  <a href="http://haml-lang.com/">http://haml-lang.com/</a>
+</p></p>
+
+<p><p>
+  <a href="http://sass-lang.com/">http://sass-lang.com/</a>
+</p></p>
+
+<p><p>
+  <a href="http://compass-style.org/">http://compass-style.org/</a>
+</p></p>
+
+<p><p>
+  <a href="http://blueprintcss.org/">http://blueprintcss.org/</a>
+</p></p>
+
+<p><p>
+  <a href="https://github.com/joshuaclayton/blueprint-css/wiki">https://github.com/joshuaclayton/blueprint-css/wiki</a>
+</p></p>
+
+<p><p>
+  转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/545">Rails 3, RSpec, Cucumber, jQuery, Devise, Mongoid, and Compass(转)</a>
+</p></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/537">常用gem</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2011-07-18T00:00:00+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>18</span><span class='date-suffix'>th</span>, <span class='date-year'>2011</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/537#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/537">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><pre lang="ruby">source 'http://rubygems.org'
+
+# --------------------
+#   Rails
+# --------------------
+# gem 'rails',                     '~> 3.0.0'
+gem 'rails',                     :git => 'git://github.com/rails/rails.git', :branch => '3-0-stable'
+# gem 'rails',                     :path => '/Users/fred/Downloads/Repos/Rails/rails-master'
+
+# --------------------
+#   Database
+# --------------------
+gem 'mysql2',                    :git => 'git://github.com/brianmario/mysql2.git'
+gem 'datamappify',               '>= 0.2.1'
+gem 'by_star',                   '~> 0.9.0'
+# gem 'slim_scrooge',              '~> 1.0.10', :group => :production
+# gem 'meta_where',                '>= 0.9.3'
+
+# --------------------
+#   Resources
+# --------------------
+gem 'inherited_resources',       '~> 1.1.2'
+gem 'inherited_resources_views'
+gem 'devise',                    '~> 1.1.2'
+gem 'cancan',                    '~> 1.3.0'
+gem 'carrierwave',               '~> 0.5.0'
+
+# --------------------
+#   Presentation
+# --------------------
+gem 'haml',                      '~> 3.0.18'
+gem 'compass'
+gem 'simple_form',               '~> 1.2.0'
+gem 'simple-navigation',         '~> 2.7.0'
+gem 'will_paginate',             '~> 3.0.pre'
+
+# --------------------
+#   Assets
+# --------------------
+gem 'rails_config'
+gem 'rdiscount',                 '>= 1.6.5'
+gem 'sanitize'
+gem 'rubyzip',                   :require => 'zip/zip'
+gem 'csv-mapper',                '>= 0.5.0'
+gem 'ffaker',                    '>= 0.4.0'
+
+# --------------------
+#   Server/Deployment
+# --------------------
+gem 'dalli'
+gem 'thin'
+gem 'capistrano-ext'
+gem 'deployer',                  :git => 'git://github.com/meskyanichi/deployer.git'
+gem 'hoptoad_notifier'
+gem 'newrelic_rpm'
+
+group :development do
+  gem 'bullet',                  '~> 2.0.0.rc1'
+  gem 'hpricot',                 '>= 0.8.2'
+  gem 'ruby_parser',             '>= 2.0.4'
+end
+
+group :development, :test do
+  gem 'rspec-rails',             '~> 2.0.0.beta.22'
+  gem 'steak',                   :git => 'git://github.com/cavalle/steak.git'
+  gem 'capybara',                :git => 'git://github.com/jnicklas/capybara.git'
+  gem 'delorean'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'parallel_tests',          :git => 'git://github.com/grosser/parallel_tests.git'
+  # gem 'parallel_tests',          :path => '/Users/fred/Downloads/Repos/Rails/fredwu-parallel_tests'
+end
+</pre>
+
+
+<p>也可以参考：<a href="http://thoughtrails.com/episodes/24-popular-and-useful-plugins-for-rails3">http://thoughtrails.com/episodes/24-popular-and-useful-plugins-for-rails3</a></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/537">常用gem</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/541">小组级git服务器搭建（转)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2011-07-18T00:00:00+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>18</span><span class='date-suffix'>th</span>, <span class='date-year'>2011</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/541#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/541">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>来自：<a href="http://blog.prosight.me/index.php/2009/11/485">http://blog.prosight.me/index.php/2009/11/485</a></p>
+
+<p>如果使用git的人数较少，可以使用下面的步骤快速部署一个git服务器环境。<br/>
+1. 生成 SSH 公钥<br/>
+每个需要使用git服务器的工程师，自己需要生成一个ssh公钥<br/>
+进入自己的~/.ssh目录，看有没有用 文件名 和 文件名.pub 来命名的一对文件，这个 文件名 通常是 id_dsa 或者 id_rsa。 .pub 文件是公钥，另一个文件是密钥。假如没有这些文件（或者干脆连 .ssh 目录都没有），你可以用 ssh-keygen 的程序来建立它们，该程序在 Linux/Mac 系统由 SSH 包提供， 在 Windows 上则包含在 MSysGit 包里:</p>
+
+<pre lang="c">$ ssh-keygen 
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/schacon/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /Users/schacon/.ssh/id_rsa.
+Your public key has been saved in /Users/schacon/.ssh/id_rsa.pub.
+The key fingerprint is:
+43:c5:5b:5f:b1:f1:50:43:ad:20:a6:92:6a:1f:9a:3a schacon@agadorlaptop.local
+</pre>
+
+
+<p>它先要求你确认保存公钥的位置（.ssh/id_rsa），然后它会让你重复一个密码两次，如果不想在使用公钥的时候输入密码，可以留空。<br/>
+现在，所有做过这一步的用户都得把它们的公钥给你或者 Git 服务器的管理者（假设 SSH 服务被设定为使用公钥机制）。他们只需要复制 .pub 文件的内容然后 e-</p>
+
+<pre lang="c">$ cat ~/.ssh/id_rsa.pub 
+ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSU
+GPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3
+Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XA
+t3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/En
+mZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbx
+NrRFi9wrf+M7Q== schacon@agadorlaptop.local
+</pre>
+
+
+<ol>
+<li>架设服务器<br/>
+首先，创建一个 ‘git’ 用户并为其创建一个 .ssh 目录，在用户主目录下:</li>
+</ol>
+
+
+<pre lang="c">$ sudo adduser git
+$ su git
+$ cd
+$ mkdir .ssh
+</pre>
+
+
+<p>接下来，把开发者的 SSH 公钥添加到这个用户的 authorized_keys 文件中。假设你通过 e-mail 收到了几个公钥并存到了临时文件里。只要把它们加入 authorized_keys 文件</p>
+
+<pre lang="c">$ cat /tmp/id_rsa.john.pub >> ~/.ssh/authorized_keys
+$ cat /tmp/id_rsa.josie.pub >> ~/.ssh/authorized_keys
+$ cat /tmp/id_rsa.jessica.pub >> ~/.ssh/authorized_keys
+</pre>
+
+
+<p>现在可以使用 –bare 选项运行 git init 来设定一个空仓库，这会初始化一个不包含工作目录的仓库。</p>
+
+<pre lang="c">$ cd /opt/git
+$ mkdir project.git
+$ cd project.git
+$ git --bare init
+</pre>
+
+
+<p>这时，开发人员就可以把它加为远程仓库，推送一个分支，从而把第一个版本的工程上传到仓库里了。值得注意的是，每次添加一个新项目都需要通过 shell 登入主机并创建一个纯仓库。我们不妨以 gitserver 作为 git 用户和仓库所在的主机名。如果你在网络内部运行该主机，并且在 DNS 中设定 gitserver 指向该主机，那么以下这些命令都是可用的：</p>
+
+<p># 在一个工程师的电脑上</p>
+
+<pre lang="c">$ cd myproject
+$ git init
+$ git add .
+$ git commit -m 'initial commit'
+$ git remote add origin git@gitserver:/opt/git/project.git
+$ git push origin master
+</pre>
+
+
+<p>这样，其他人的克隆和推送也一样变得很简单：</p>
+
+<pre lang="c">$ git clone git@gitserver:/opt/git/project.git
+$ vim README
+$ git commit -am 'fix for the README file'
+$ git push origin master
+</pre>
+
+
+<p>用这个方法可以很快捷的为少数几个开发者架设一个可读写的 Git 服务。<br/>
+作为一个额外的防范措施，你可以用 Git 自带的 git-shell 简单工具来把 git 用户的活动限制在仅与 Git 相关。把它设为 git 用户登入的 shell，那么该用户就不能拥有主机正常的 shell 访问权。为了实现这一点，需要指明用户的登入shell 是 git-shell ，而不是 bash 或者 csh。你可能得编辑 /etc/passwd 文件</p>
+
+<pre lang="c">$ sudo vim /etc/passwd
+</pre>
+
+
+<p>在文件末尾，你应该能找到类似这样的行：</p>
+
+<pre lang="c">git:x:1000:1000::/home/git:/bin/sh
+</pre>
+
+
+<p>把 bin/sh 改为 /usr/bin/git-shell （或者用 which git-shell 查看它的位置）。该行修改后的样子如下：</p>
+
+<p>git:x:1000:1000::/home/git:/usr/bin/git-shell<br/>
+现在 git 用户只能用 SSH 连接来推送和获取 Git 仓库，而不能直接使用主机 shell。尝试登录的话，你会看到下面这样的拒绝信息：</p>
+
+<pre lang="c">$ ssh git@gitserver
+</pre>
+
+
+<p>fatal: What do you think I am? A shell? （你以为我是个啥？shell吗？)<br/>
+Connection to gitserver closed. （gitserver 连接已断开。）</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/541">小组级git服务器搭建（转)</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/533">RuntimeError (!!! Missing the Mysql2 Gem. Add It to Your Gemfile: Gem &#8216;mysql2&#8242;):</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2011-07-07T00:00:00+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2011</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/533#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/533">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在Rails3 出现这个错误，做以下工作:</p>
+
+<ol>
+<li>在Gemfile</li>
+</ol>
+
+
+<pre lang="ruby">gem 'mysql2', '~> 0.2.6'
+</pre>
+
+
+<ol>
+<li></li>
+</ol>
+
+
+<pre lang="ruby">bundle update
+</pre>
+
+
+<ol>
+<li>在datababse.yml</li>
+</ol>
+
+
+<pre lang="ruby">development:
+  adapter: mysql2
+  encoding: utf8
+  database: devise
+  # pool: 5
+  username: root
+  password:
+  reconnect: true
+  socket: /tmp/mysql.sock
+  
+</pre>
+
+
+<p>参考: <a href="http://stackoverflow.com/questions/4297253/install-mysql2-gem-on-snow-leopard-for-rails-3-with-rvm">http://stackoverflow.com/questions/4297253/install-mysql2-gem-on-snow-leopard-for-rails-3-with-rvm</a></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/533">RuntimeError (!!! Missing the mysql2 gem. Add it to your Gemfile: gem &#8216;mysql2&#8242;):</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/531">导入Three20</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2011-07-07T00:00:00+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2011</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/531#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/531">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><pre lang="c">sudo python three20/src/scripts/ttmodule.py -p /Users/weston/LearnIphone/Three20_hello/Three20_hello.xcodeproj:Three20_hello  Three20  -c Debug -c Release
+</pre>
+
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/531">导入Three20</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/529">Objective-c Enum 与 Typedef</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2011-07-06T00:00:00+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2011</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/529#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/529">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天看到enum 和 typedef， 在两个小节中书中分别出现了2个例子，如下<br/>
+enum direction {north, south, east, west};<br/>
+typedef enum {north, south, east, west} direction;<br/>
+不禁产生疑问，这两个有什么区别，仔细对照了一下，发现是这样的：<br/>
+大同小异，<br/>
+同： 都是申明了一个枚举类型。<br/>
+异：在使用该枚举类型定义变量的时候，语法不一样，举例如下：</p>
+
+<pre lang="c">1  enum direction {north, south, east, west};    
+3  enum direction facing = north;  
+4 
+5  typedef enum {north, south, east, west} direction;     
+7  direction facing = north; 
+</pre>
+
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/529">objective-c enum 与 typedef</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/525">Objective-C 入门知识（转)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2011-07-06T00:00:00+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2011</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/525#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/525">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>罗朝辉（<a href="http://www.cppblog.com/kesalin%EF%BC%89">http://www.cppblog.com/kesalin%EF%BC%89</a></p>
+
+<p>转载请注明出处</p>
+
+<p>编程工作做久了，最初的新鲜感难免会消磨殆尽。幸好总是会有新的技术闪耀登场，重燃编辑人员的兴趣，Mac OS X 就饱含这样神奇的技术。</p>
+
+<p>&#8212;Mark Dalrymple &amp; Scott Knaster</p>
+
+<p>1，从 HelloWorld 开始，</p>
+
+<pre lang="c">#import &lt;Foundation/Foundation.h>
+
+int main (int argc, const char * argv[]) {
+
+    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+
+    // insert code here...
+
+    NSLog(@"Hello, World!");
+
+    [pool drain];
+
+    return 0;
+
+}
+</pre>
+
+
+<h1>import 就相当于 #include，用来通知编译起应该在头文件中查询定义，当 import 功能更强大，它可以保证头文件只可以被包含一次。而在C／C＋＋中我们是通过</h1>
+
+<pre lang="c">#ifndef __HELLO_WORLD_H__
+
+#define __HELLO_WORLD_H__
+
+// …. do something
+
+#endif // __HELLO_WORLD_H__
+</pre>
+
+
+<p>来实现的（在VC中可以使用 #program once 来实现这一目的）。</p>
+
+<p>2，Objective C中的布尔数据类型与C语言中的不同，在C语言中是有专门的布尔数据类型 bool，且它具有 true 和 false 值；在 Objective C 中有相似的对应类型 BOOL，它具有 YES 和 NO 值。这两者是有区别的，Objective C 中的 BOOL 是实际上是 signed char 的一个 typedef，即：</p>
+
+<pre lang="c">typedef  signed char BOOL;
+
+ #define YES 1
+
+ #define NO 0
+</pre>
+
+
+<p>所以 BOOL 实际上是一个有符号的 char 类型，YES 被定义为 1，而 NO 被定义为 0，但 BOOL 还可以是其他值，但均不是约定的 YES 或 NO 值。也就是非零的 BOOL 类型的数据不一定等于 YES，使用时要注意这一点。</p>
+
+<p>3, NSObject 声明了一个名为 isa 的实例变量，该变量保存一个指针，指向对象的类。每个成员方法调用都获得2一个名为 self 的隐藏函数，它是一个指向接收消息的对象的指针。方法使用 self 参数查找它们要使用的实例变量。</p>
+
+<p>脆弱的基类问题：self 指向 isa，isa 是占四个字节的，之后便是类自身的成员变量区域，所以 selft ＋ 4 ＋ 成员变量与对象基地址之间的偏移量就能得到指向存储成员变量的地址。因此，如果想向 NSObjcet 中增加新的变量，就无法做到了，因为在编译器生成的程序中，这些偏移量是通过硬编码实现的。</p>
+
+<p>苹果通过在 Leopard 中引入新的 64 位 Objective-C（它使用间接寻址方式确定变量的位置）解决了这个问题。</p>
+
+<p>4，super 是由 Objective-C 编译器提供的，向 super 发送消息，实际上是在请求 Objective-C 向该类的超类发送消息。如果直接超类中没有定义该消息，将按照通常的方式在继承链中继续查找对应的消息。</p>
+
+<p>5,在新生成的文件中使用公司名称或自己的名称代替默认的占位符 __MyCompanyName__，在 Finder 中打开 Utilities 文件夹，打开其中的 Terminal 应用程序，在命令行中按照如下格式输入，回车就可以了。</p>
+
+<p>defaults write com.apple.Xcode.PBXCustomTemplateMacroDefinites &#8216;{&#8220;ORGANIZATIONNAME&#8221;=&#8221;kesalin@gmail.com&#8221;;}&#8217;</p>
+
+<p>6，XCode 3.2 快捷键</p>
+
+<p>shift + command + E 显示或者隐藏 Editor 窗口。</p>
+
+<p>command + [ 左移代码</p>
+
+<p>command + ] 右移代码</p>
+
+<p>tab 代码自动完成</p>
+
+<p>Esc 打开自动完成列表(E表示枚举类型，f表示函数，＃表示＃define宏，m表示方法，C表示类)</p>
+
+<p>control ＋ . 不显示自动完成列表而自动进行推荐值正向循环</p>
+
+<p>shift + control + . 不显示自动完成列表而自动进行推荐值反向循环</p>
+
+<p>control + / 移至下一个占位符</p>
+
+<p>command + control + s 创建快照</p>
+
+<p>Edit->Edit all in scope 修改局部变量或参数</p>
+
+<p>Edit->Refactor 全局修改类名（但无法修改注释中出现的类名）</p>
+
+<p>command + shift + D 打开文件快速查找对话框</p>
+
+<p>command + option + 向上箭头 查看文件的配套文件（如果当前查看的为 m 文件，则打开 h 文件，反之亦然）</p>
+
+<p>command + D 创建书签</p>
+
+<p>command + Y 调试</p>
+
+<p>command + option + P 执行到下一个断点（相当于 VS 下的 F5）</p>
+
+<p>command + shift + O 执行到下一步（相当于 VS 下的 F10）</p>
+
+<p>command + shift + I 跳入函数执行（相当于 VS 下的 F11）</p>
+
+<p>command + shift + T 跳出函数执行</p>
+
+<p>control + F Forward right 右移光标</p>
+
+<p>control + B Backward left 左移光标</p>
+
+<p>control + P Previous lien 上移光标</p>
+
+<p>control + N Next line 下移光标</p>
+
+<p>control + A Line head 光标移动到行首</p>
+
+<p>control + E Line end 光标移动到行尾</p>
+
+<p>control + T Transpose 交换光标两边的符合</p>
+
+<p>control + D Delete 删除光标右边的字符</p>
+
+<p>control + K Kill 删除光标所在行中光标后的代码，</p>
+
+<p>control + L 将插入点置于窗口正中。</p>
+
+<p>查看文档 按住 option 键并双击选择的内容，可以查找选中字符的文档</p>
+
+<p>格式化代码 右键菜单，选择 re-indent selection</p>
+
+<p>折叠代码， 点击代码左边的焦点列，就可以进行代码的折叠。</p>
+
+<p>添加可读的标记 在代码中加入 ＃pragma mark STUFF，#pragma mark &#8211; 则是在菜单中插入分割线</p>
+
+<p>或在代码中加入如下 TODO:, FIDME,!!! 或 ???</p>
+
+<p>7，NSString 的比较方法：</p>
+
+<p>isEqualToString 比较两个字符串的内容，如果相等返回 YES，如果不相等返回 NO。</p>
+
+<p>要比较两个字符串可以使用 compare 函数，其接口声明如下：</p>
+
+<p>-(NSComparisonResult) compare:(NSString *) string</p>
+
+<p>options:(unsigned) mask;</p>
+
+<p>mask 可以是如下位相或的值：</p>
+
+<p>NSCaseInsensitiveSearch : 不区分大小写</p>
+
+<p>NSLiteralSearch : 进行完全的比较，区分大小写</p>
+
+<p>NSNumericSearch : 比较字符串的字符个数，而不是字符值。</p>
+
+<pre lang="c">typedef enum _NSComparisonResult {
+
+NSOrderedAscending = -1;
+
+NSOrderedSame,
+
+NSOrderedDescending
+
+} NSComparisonResult;
+
+</pre>
+
+
+<p>8, NSArray 只能存储 Objective-C对象，而不能存储 C 语言中的基本数据类型，如 int，float，enum，struct，或者 NSArray中的随机指针，也不能将存储 nil。</p>
+
+<p>对于可变数组进行枚举操作时，有一点需要注意：你不能通过添加或着删除对象这类方式来改变数组的容器。</p>
+
+<p>不要试图去创建 NSString，NSArray，NSDictionary的子类，而应该用聚合方式来使用它们。因为它们实际上是以类族的方式实现的，即它们是一群隐藏在通用接口之下的与实现相关的类。比如，创建 NSString 对象时，实际上获得的可能时 NSLiteralString，NSCFString，NSSimpleCString，NSBallOfString或者其他没有写入文档的与实现相关的对象。</p>
+
+<p>9，NSValue 可以包装任意值，可以用 NSValue 将结构体放入 NSArray 或 NSDictionary 中。可用如下的类方法创建新的 NSValue。</p>
+
+<pre lang="c">+(NSValue *) valueWidthBytes:(const void *) value
+
+                    objCType:(const char *) type;
+</pre>
+
+
+<p>传递的参数 value 时想要包装的数值的地址，type 时一个用来描述这个数据类型的字符串，通常用来说明 struct 中实体的类型和大小。我们不必自己写代码来生存这个字符串，通过 @encode 编译器指令（接收数据类型的名称作为输入参数）来生成合适的字符串。例如：</p>
+
+<pre lang="c">NSRect rect = NSMakeRect(10, 10, 200, 200);
+
+NSValue *value;
+
+value = [NSValue valueWidthBytes: &#038;rect,
+
+                        objCType: @encode(NSRect)];
+
+[array addObject: value];
+</pre>
+
+
+<p>10，内存管理</p>
+
+<p>Objective-C 使用引用计数技术来进行内存管理。当使用 alloc，new，copy 创建一个对象时，对象的引用计数被设置为 1。每给对象发送一条 retain 消息都将增加对象的引用计数；每给对象发送一条 release 消息都将简述对象的引用计数，当引用计数归 0 时，对象被销毁，这时 Objective-C 自动向对象发送一条 dealloc 消息。我们可以在对象中重写 dealloc 方法，在其中释放为对象分配的全部资源。注意：不要直接调用 dealloc 方法。给对象发送 retainCount 可以获得当前的引用计数值。</p>
+
+<p>Cocoa 中有一个自动释放池(autorelease pool)，可以给 NSObject 的任何子类发送一条 autorelease 消息，该消息实际上时将该对象添加到 NSAutoreleasePool 中，表示将对象的所有权转交给它所在的 autorelease pool 来管理，即预先设定在将来某个时间（一般就是 autorelease pool 释放的时候）会将对象自动释放。当 autorelease pool 被销毁时，会向该池中的所有对象发送 release 消息。</p>
+
+<p>Objective-C 内存管理定律：</p>
+
+<p>如果使用了 new，alloc 或 copy 方法获得了一个对象，那么必须 release 或 autorelease 该对象。</p>
+
+<p>如果保留了一个对象，那么必须保持 retain 和 release 相匹配。</p>
+
+<p>Objective-C 2.0 支持垃圾回收机制（iOS 不支持），XCode 默认时没有开启该功能的，可以在项目信息的 Build 选项卡中，查找 Required 项，将其设置为 ［-fobjc-gc-only] 即可。该选项让代码既支持垃圾回收又支持对象的 retain 和 release 机制。</p>
+
+<p>11，对象的初始化：</p>
+
+<p>有两种等价的创建新对象的方法：[类名 new] 和 [[类名 alloc] init]，按照 Cocoa 的惯例，要尽量使用后者。[[类名 alloc] init] 实际上是将两个步骤：[类名 alloc] 和 [对象 init] 合并到一起了。Cocoa 要求给对象 alloc 内存之后必须调用 init 进行初始化。</p>
+
+<p>12，类别 category</p>
+
+<p>类别让我们能够不创建类的子类就能对类扩展，但类别有两方面的局限性：第一是无法向类中添加新的成员变量；第二是名称冲突，即类别中的方法与现有的方法重名。当发生名称冲突时，类别具有更高的优先级，可以给类别方法添加前缀以确保不发生名称冲突。</p>
+
+<p>类别主要有三大用途：</p>
+
+<p>第一：将类的实现分散到多个不同文件或多个不同框架中；</p>
+
+<p>第二：创建对私有方法的前向引用；</p>
+
+<p>第三：向对象添加非正式协议；</p>
+
+<p>13，Cocoa 没有任何真正的私有方法，只要知道对象支持的某个方法的名称，即使该对象所在的类的接口中没有该方法的声明，你也可以调用该方法，但编译器会提示一个警告。</p>
+
+<p>14，委托</p>
+
+<p>不需要在 @interface 中声明委托的方法，要成为一个委托对象，只需要实现打算调用的方法。</p>
+
+<p>非正式协议时 NSObject 的一个类别，它列出对象能够响应的方法，表示有一些你可能希望实现的方法，它们能让你在需要的时候更好地完成工作。非正式协议常用于实现委托，委托时一种允许你轻松定制对象行为的技术。</p>
+
+<p>15，选择子 selector</p>
+
+<p>可以使用 @selector() 预编译指令指定选择子，其中方法名放置在圆括号中。如： setObject:atIndex: 的选择子为： @selector(setObject:atIndex:)。选择子可以作为参数传递，也可以作为实例变量。</p>
+
+<p>我们可以通过 NSObject 的 respondsToSelector: 方法来询问一个对象是否能够响应特定的消息。例如：</p>
+
+<pre lang="c">if ([objectArray respondsToSelector: @selector(setObject:atIndex:)) {
+
+objectArray->setObject(object, index);
+
+}
+</pre>
+
+
+<p>16,正式的协议 protocol</p>
+
+<p>正式的协议采用 protocol 关键字。声明协议的语法类似于声明类，但是要注意协议不能有成员变量，它相当于 Java 中的 interface。</p>
+
+<p>例如：Cocoa 声明了一个协议-&ndash;NSCopying：</p>
+
+<pre lang="c">@protocol NSCopying
+
+- (id) copyWidthZone:(NSZone *) zone;
+
+@end
+</pre>
+
+
+<p>要采纳某个协议，可以在类的声明中列出该协议的名称，并用尖括号将协议名称括起来，然后必须在 @implement 中实现协议中声明为 required（默认就是 required）的所有方法，而声明为 optional 的方法可以。</p>
+
+<p>下面让类 MyObject 采纳 NSCopying 协议：</p>
+
+<pre lang="c">@interface MyObject : NSObject &lt;NSCopying>
+
+{
+
+}
+
+@end
+
+@implementation MyObject
+
+- (id) copyWithZone: (NSZone *) zone
+
+{
+
+MyObject *objectCopy;
+
+objectCopy = [[[self class] allocWidthZone: zone] init];
+
+
+return (objectCopy);
+
+}
+
+@end
+</pre>
+
+
+<p>说明：[self class] 返回的是对象所属的类。allocWidthZone 是一个类方法，因此在这里使用是合适的。</p>
+
+<p>我们可以在实例变量和函数参数的数据类型中指定协议的名称，这样就可以约束该变量或参数必须满足的条件（即遵循声明的协议），编译器会对此约束条件进行检查。如：</p>
+
+<p>-(void) setObjectValue:(id<NSCopying>) obj;</p>
+
+<p>在这里 setObjectValue 要求传入的参数必须遵循 NSCopying 协议，即实现了 NSCopying 协议中声明的所有方法。</p>
+
+<p>注意：Objective-C 只在2.0中才添加 required 和 optional 关键字，在这之前，所有的协议中所有的方法都是 required 的。</p>
+
+<p>17，控件编程：</p>
+
+<p>IBOutlet 和 IBAction 它们是 ApplicationKit 提供的宏。</p>
+
+<p>IBOutlet 的定义没有任何作用，只是用来醒目的（我是一个Outlet啦），IBAction 定义为 void。</p>
+
+<p>可以说IBOutlet 和 IBAction 都没有什么实际作用，之所以用它们是为 Interface Builder 以及阅读代码的人</p>
+
+<p>提供特殊标记。</p>
+
+<p>链接操作：在 Interface Builder 中进行拖动链接，拖动的方向是不那么容易分得清的，但其实是有规律可循的。这个规律就是：链接草率是将需要了解某些内容的对象拖动到该对象需要了解的对象。比如：</p>
+
+<p>AppController 需要知道将哪个 NSTextField 用于用户输入，因此拖到方向是从 AppController 到文本域。</p>
+
+<p>而 Button 需要告诉某个对象“嘿，有人按下我了！”，所以是从Buuton 的响应事件拖动到 AppController。</p>
+
+<p>控件执行流程：</p>
+
+<p>加载主 nib 文件 &#8211;> awakeFromNib &#8211;> 处理事务</p>
+
+<p>18，谓词 NSPredicate</p>
+
+<p>创建谓词：</p>
+
+<pre lang="c">NSPredicate *predicat;
+
+predicate = [NSPredicate predicateWidthFormat: @"name == 'kesalin'"];
+
+使用谓词：
+
+Bool match = [predicate evaluateWidthObject: myObject];
+</pre>
+
+
+<p>使用谓词过滤数组：</p>
+
+<p>-filteredArrayUsingPredicate: 是 NSArray 数组的类方法，它将对数组进行过滤，将满足谓词判断的值放置到返回数组中。例：</p>
+
+<p>NSArray *resultObjects;</p>
+
+<p>resultObjects = [objects filteredArrayUsingPredicate: predicate];</p>
+
+<p>与 NSArray 相对应， NSMutableArray 也有相应的方法：</p>
+
+<p>-filterUsingPredicate 可以使用它来剔除不属于该数组的所有项目。</p>
+
+<p>使用谓词是很方便，但是它对效率有损失，就如我们使用键值对访问变量一样。</p>
+
+<p>格式说明符：</p>
+
+<p>我们可以将格式说明符和变量名放入谓词格式字符串中。我们可以将 printf 中常用的 ％d，％f等放入谓词中。如：</p>
+
+<p>predicate = [NSPredicate predicateWithFormat: @&ldquo;age > %d&rdquo;, 18];</p>
+
+<p>支持的其他格式字符串：</p>
+
+<p>%@ 字符串</p>
+
+<p>%K 指定键路径</p>
+
+<p>例如：</p>
+
+<p>predicate = [NSPredicate predicateWithFormat: @&ldquo;%K > %d&rdquo;, @&ldquo;age&rdquo;, 18];</p>
+
+<p>将变量放入谓词字符串中，使用方法类似于环境变量：</p>
+
+<p>predicate = [NSPredicate predicateWithFormat: @&ldquo;name == $NAME&rdquo;];</p>
+
+<p>19,Objective-C 中不存在类变量，可以使用文件范围内的全局变量来模拟类变量并为它们提供访问器。例如：</p>
+
+<pre lang="c">@interface MyObject : NSObject
+
+{
+
+}
+
++ (int) age;
+
++ (void) setAge: (int) age;
+
+@end
+
+@implement MyObject
+
++ (int) age
+
+{
+
+return g_age;
+
+}
+
++ (void) setAge: (int) age
+
+{
+
+g_age = age;
+
+}
+
+@end
+</pre>
+
+
+<p>20, C++ 具有很多 Objective-C 所没有的特性：</p>
+
+<p>多重继承，命名空间，运算符重载，模板，类变量，抽象类，STL等。</p>
+
+<p>但我们可以通过类别和协议结合消息重定向技术（forwardInvocation）来模拟多重继承，利用协议来实现抽象基类。</p>
+
+<p>注意：使用重定向技术的运行速度要慢于 C++。</p>
+
+<p>Objective-C 运行时进入类结构中查找相应的代码以供使用，其速度比使用虚表技术的 C++ 要慢，但是带来了灵活性和便捷性。</p>
+
+<p>Objective-C 很少使用子类化行为，因为通过类别和动态运行时机制，可以向任何对象发送任何消息，可以将某些功能放到含有较少功能的类中，可以将功能放到最有意义的类中。一般来说只有当创建某个全新的对象，或者需要从跟不上改变某个对象的行为，或者由于类不能实现某个功能而需要使用子类时，才需要载 Cocoa 中设置子类。而对于其他大多数情况，使用委托和数据远源的方式足以应付了。由于 Objective-C 可以向任何对象发送任何消息，对象不必含有特定的子类或遵循特定的接口，这样，单个类就可以成为任意个不同对象的委托或者数据源。</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/525">Objective-C 入门知识（转)</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/3">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/index.html">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
+</section><section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/angularjs/'>angularjs (2)</a></li>
+<li class='category'><a href='/blog/categories/directive/'>directive (1)</a></li>
+<li class='category'><a href='/blog/categories/ide/'>ide (1)</a></li>
+<li class='category'><a href='/blog/categories/ios/'>ios (6)</a></li>
+<li class='category'><a href='/blog/categories/javascript/'>javascript (8)</a></li>
+<li class='category'><a href='/blog/categories/linux-unix/'>linux/unix (24)</a></li>
+<li class='category'><a href='/blog/categories/php/'>php (28)</a></li>
+<li class='category'><a href='/blog/categories/regular-expressions/'>regular expressions (2)</a></li>
+<li class='category'><a href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails (36)</a></li>
+<li class='category'><a href='/blog/categories/rubymine/'>rubymine (1)</a></li>
+<li class='category'><a href='/blog/categories/xhtml-css/'>xhtml/css (9)</a></li>
+<li class='category'><a href='/blog/categories/工作计划/'>工作计划 (3)</a></li>
+<li class='category'><a href='/blog/categories/心情随写/'>心情随写 (67)</a></li>
+<li class='category'><a href='/blog/categories/技术感想/'>技术感想 (47)</a></li>
+<li class='category'><a href='/blog/categories/未分类/'>未分类 (1)</a></li>
+<li class='category'><a href='/blog/categories/杂谈/'>杂谈 (5)</a></li>
+<li class='category'><a href='/blog/categories/生活点滴/'>生活点滴 (4)</a></li>
+<li class='category'><a href='/blog/categories/软件试用/'>软件试用 (4)</a></li>
+
+  </ul>
+</section><section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/595">Rubymine 不能输入中文？</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'gxbsst',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Weston Wei(韦旭红) -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'Weixuhong';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

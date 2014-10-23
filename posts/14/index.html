@@ -1,0 +1,923 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>韦旭红的幸福时光</title>
+  <meta name="author" content="Weston Wei(韦旭红)">
+
+  
+  <meta name="description" content="有个办法可以强制每次打开新标签页，而不是新开窗口，在terminal里面输下列指令：
+　　
+　　defaults write com.apple.Safari TargetedClicksCreateTabs -bool true
+　　
+　　输入后重新启动safari就可以，如果要停止这种模式， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.weixuhong.com/posts/14">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="韦旭红的幸福时光" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script> 
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">韦旭红的幸福时光</a></h1>
+  
+    <h2>20，30，40&#8230;</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.weixuhong.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/photos">Photos</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/138">Safari开新标签不用按command的方法</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-06-21T00:00:00+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/138#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/138">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>有个办法可以强制每次打开新标签页，而不是新开窗口，在terminal里面输下列指令：<br/>
+　　<br/>
+　　defaults write com.apple.Safari TargetedClicksCreateTabs -bool true<br/>
+　　<br/>
+　　输入后重新启动safari就可以，如果要停止这种模式，就把最后的true改成false即可。<br/>
+　　<br/>
+　　原文地址：<br/>
+　　<a href="http://www.naquah.net/blog/dennis/2008/03/21/how-to-enable-single-window-mode-in-safari">http://www.naquah.net/blog/dennis/2008/03/21/how-to-enable-single-window-mode-in-safari</a></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/138">safari开新标签不用按command的方法</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/139">MySQL数据库运用技巧和优化（不断更新）</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-06-21T00:00:00+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/139#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/139">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>来源：<a href="http://www.toplee.com/blog/569.html">http://www.toplee.com/blog/569.html</a></p>
+
+<p>一个LAMP架构的网站，经常说这慢那慢的，其实从架构到代码到数据库，优化的空间是非常非常多的（架构设计参照我另外一篇文章），就看你是否愿意花心思去一点一点儿的做起，比如mysql，在lamp网站的架构优化中，往往是很多人最容易忽略的环节，却往往成为优化空间最大的环节，一句不经意的sql语句，可能就会导致数据库执行时间过长，进而导致锁表时间过长，最后导致整站垮掉，让另外99%的努力工作和优化都失去意义，所以，Mysql的优化，需要细致而有耐心的进行，一点一点儿的挖，从slow_query日志开始，从my.cnf参数配置开始，从sql语句写法开始，从表中的索引index开始。。。</p>
+
+<p>即日起，不断整理和MySQL的运用技巧与优化的内容，下面先想到一些是一些。</p>
+
+<p>【索引】</p>
+
+<p>一般来说，如果选择性超过 20% 那么全表扫描比使用索引性能更优,Oracle在选择性超过25%时会选择全表扫描。<br/>
+组合索引比单一索引更有效，但是需要合理使用，清楚你在干什么，组合索引采用B树类型，左前缀的特性，创建组合索引的时候，要考虑到具体的使用场景和逻辑。<br/>
+不是索引越多越好，过多索引容易导致更新和插入数据效率大大降低。<br/>
+…<br/>
+【SQL】</p>
+
+<p>经常用EXPLAIN来检查你的SQL查询语句，找出那些想当然却事与愿违的隐藏问题。<br/>
+常常检查slow query的日志，针对性的深挖慢嚼，改善你的系统性能<br/>
+…<br/>
+【架构和配置】</p>
+
+<p>主辅库同步<br/>
+memory 类型表<br/>
+…<br/>
+【新特性】</p>
+
+<p>触发器、存储过程<br/>
+外键<br/>
+…<br/>
+【附录】</p>
+
+<p>有关EXPLAIN参数的说明<br/>
+EXPLAIN列的解释：</p>
+
+<p>table：显示这一行的数据是关于哪张表的<br/>
+type：这是重要的列，显示连接使用了何种类型。从最好到最差的连接类型为const、eq_reg、ref、range、indexhe和ALL<br/>
+possible_keys：显示可能应用在这张表中的索引。如果为空，没有可能的索引。可以为相关的域从WHERE语句中选择一个合适的语句<br/>
+key：实际使用的索引。如果为NULL，则没有使用索引。很少的情况下，MYSQL会选择优化不足的索引。这种情况下，可以在SELECT语句中使用USE INDEX（indexname）来强制使用一个索引或者用<br/>
+IGNORE INDEX（indexname）来强制MYSQL忽略索引<br/>
+key_len：使用的索引的长度。在不损失精确性的情况下，长度越短越好<br/>
+ref：显示索引的哪一列被使用了，如果可能的话，是一个常数<br/>
+rows：MYSQL认为必须检查的用来返回请求数据的行数<br/>
+Extra：关于MYSQL如何解析查询的额外信息。将在表4.3中讨论，但这里可以看到的坏的例子是Using temporary和Using filesort，意思MYSQL根本不能使用索引，结果是检索会很慢<br/>
+extra列返回的描述的意义</p>
+
+<p>Distinct:一旦MYSQL找到了与行相联合匹配的行，就不再搜索了<br/>
+Not exists: MYSQL优化了LEFT JOIN，一旦它找到了匹配LEFT JOIN标准的行，就不再搜索了<br/>
+Range checked for each Record（index map:#）:没有找到理想的索引，因此对于从前面表中来的每一个行组合，MYSQL检查使用哪个索引，并用它来从表中返回行。这是使用索引的最慢的连接之一<br/>
+Using filesort: 看到这个的时候，查询就需要优化了。MYSQL需要进行额外的步骤来发现如何对返回的行排序。它根据连接类型以及存储排序键值和匹配条件的全部行的行指针来排序全部行<br/>
+Using index: 列数据是从仅仅使用了索引中的信息而没有读取实际的行动的表返回的，这发生在对表的全部的请求列都是同一个索引的部分的时候<br/>
+Using temporary 看到这个的时候，查询需要优化了。这里，MYSQL需要创建一个临时表来存储结果，这通常发生在对不同的列集进行ORDER BY上，而不是GROUP BY上<br/>
+Where used 使用了WHERE从句来限制哪些行将与下一张表匹配或者是返回给用户。如果不想返回表中的全部行，并且连接类型ALL或index，这就会发生，或者是查询有问题不同连接类型的解释（按照效率高低的顺序排序）<br/>
+system 表只有一行：system表。这是const连接类型的特殊情况<br/>
+const:表中的一个记录的最大值能够匹配这个查询（索引可以是主键或惟一索引）。因为只有一行，这个值实际就是常数，因为MYSQL先读这个值然后把它当做常数来对待<br/>
+eq_ref:在连接中，MYSQL在查询时，从前面的表中，对每一个记录的联合都从表中读取一个记录，它在查询使用了索引为主键或惟一键的全部时使用<br/>
+ref:这个连接类型只有在查询使用了不是惟一或主键的键或者是这些类型的部分（比如，利用最左边前缀）时发生。对于之前的表的每一个行联合，全部记录都将从表中读出。这个类型严重依赖于根据索引匹配的记录多少—越少越好<br/>
+range:这个连接类型使用索引返回一个范围中的行，比如使用>或&lt;查找东西时发生的情况<br/>
+index: 这个连接类型对前面的表中的每一个记录联合进行完全扫描（比ALL更好，因为索引一般小于表数据）<br/>
+ALL:这个连接类型对于前面的每一个记录联合进行完全扫描，这一般比较糟糕，应该尽量避免</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/139">MySQL数据库运用技巧和优化（不断更新）</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/136">生活琐事</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-06-09T00:00:00+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>9</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/136#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/136">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ol>
+<li>生活杂乱无章，没有任何思想</li>
+<li>压力一件接一件， 有点窒息</li>
+<li>莫名烦躁，心跳无缘无故的加快<br/>
+&#8230;<br/>
+可怜我的肩膀&#8230;</li>
+</ol>
+
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/136">生活琐事</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/189">HowTo: Install Ngnix on Ubuntu</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-05-30T00:00:00+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/189#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/189">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><pre lang="shell">1.  apt-get install libpcre3-dev
+2.  sudo apt-get install zlib1g-dev
+3. ./configure &#038;&#038; make &#038;&#038; make install
+</pre>
+
+
+<p>prealpha的ngnix的配置文件:</p>
+
+<pre lang="c">user deploy;
+worker_processes  1;
+error_log  logs/error.log debug;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+pid        logs/nginx.pid;
+events {
+    worker_connections  1024;
+}
+http {
+  include       conf/mime.types;
+  default_type  application/octet-stream;
+  sendfile        on;
+  #tcp_nopush     on;
+  keepalive_timeout  65;
+  tcp_nodelay        on;
+  gzip  on;
+  gzip_min_length  1100;
+  gzip_buffers     4 8k;
+  gzip_types       text/plain;
+  upstream mongrel {
+    server 127.0.0.1:8000;
+    server 127.0.0.1:8001;
+    server 127.0.0.1:8002;
+  }
+  upstream apache {
+    server 127.0.0.1:88;
+  }
+  server {
+    listen       80;
+    server_name  prealpha.red.com;
+    root /var/www/prealpha/store/public;
+    index  index.html index.htm;
+    location /faq {
+        proxy_redirect http://$http_host/faq/ http://$http_host/faq/;
+    }
+    location /faq/ {
+        proxy_pass http://apache;
+    }
+    location / {
+      proxy_set_header  X-Real-IP  $remote_addr;
+      proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header Host $http_host;
+#      auth_basic           "/";
+#      auth_basic_user_file  conf/htpasswd;
+      if (-f $request_filename/index.html) {
+        rewrite (.*) $1/index.html break;
+      }
+      if (-f $request_filename.html) {
+        rewrite (.*) $1.html break;
+      }
+      if (!-f $request_filename) {
+        proxy_pass http://mongrel;
+        break;
+      }
+    }
+  
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   html;
+    }
+  }
+}
+
+</pre>
+
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/189">HowTo: install ngnix on ubuntu</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/129">接近崩溃</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-05-08T00:00:00+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/129#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/129">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>昨晚下班8点多回到家，我进屋就倒到床上了，望着天花板，不想动了，不想思考问题&#8230;感觉满身的疲惫&#8230;那种是莫名的疲惫&#8230;.</p>
+
+<p>思考着为什么这么累？我也不知道&#8230;我想得别人多？</p>
+
+<p>也许是这样的吧， 公司的事情已经让我疲惫不堪，白天还要想自己的事情，想自己网站的事情，朋友来了，不能让他失望着&#8230;</p>
+
+<p>希望我这么的辛苦，会有些许的回报&#8230;</p>
+
+<p>因为那是我自己的想法，我的策划， 我希望第一仗是成功&#8230;</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/129">接近崩溃</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/63">Using Textile Editor Helper and Acts_as_textiled</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/63#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/63">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>这两天一直在做这个cms其中，要用到Textile Editor Helper，和acts_as_textiled,其实安装很简单，只是我在大意了<br/>
+有需要的朋友可以参考</p>
+
+<p><a href="http://notepad.onghu.com/2007/3/28/using-textile-editor-plugin-and-acts_as_textiled">http://notepad.onghu.com/2007/3/28/using-textile-editor-plugin-and-acts_as_textiled</a></p>
+
+<p>或参考<a href="http://slateinfo.blogs.wvu.edu/plugins/textile_editor_helper  ">http://slateinfo.blogs.wvu.edu/plugins/textile_editor_helper  </a>
+这个则是使用方法</p>
+
+<p><a href="http://www.textism.com/tools/textile/index.php">http://www.textism.com/tools/textile/index.php</a></p>
+
+<p><a href="http://hobix.com/textile/">http://hobix.com/textile/</a></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/63">Using Textile Editor Helper and acts_as_textiled</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/59">Unexpected Inconsistency Ubuntu</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/59#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/59">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>昨天远程启动了我的ubuntu服务器，没想到出现了unexpected inconsistency 这个错误，然后到google 输入unexpected inconsistency ubuntu就找到了解决的方法<br/>
+就是用fsck 就修复了<br/>
+可以参看<a href="http://www.owalog.com/blog.php?myess1=45%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0">http://www.owalog.com/blog.php?myess1=45%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0</a></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/59">unexpected inconsistency ubuntu</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/69">Umask/chmod/adduser</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/69#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/69">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>umask 可以显示权限码<br/>
+chmod G+s 表示新建的文件夹可以继承上个文件的权限<br/>
+sudo adduser weston(可以自动创建目录，应该比useradd)</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/69">umask/chmod/adduser</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/66">Svn 命令</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/66#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/66">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>列 A</p>
+
+<p>　　# addgroup [svn-users]</p>
+
+<p>　　# usermod -u [nnnn] -G [svn-users]</p>
+
+<p>　　# mkdir -m 770 [/home/svn-repos]</p>
+
+<p>　　# chgrp [svn-users] [/home/svn-repos]</p>
+
+<p>　　# svnadmin create &#8211;fs-type fsfs [/home/svn-repos]</p>
+
+<p>　　请注意一定要在fs-type选项中明确“fsfs”。因为默认情况下，Subversion知识库文件系统的数据库的最初名称为“bdb”，已被证实有些不稳定。新版本中默认名称已经更改为fsfs，但是有些老版本及非标准版的Subversion依然使用bdb。出于安全起见，还是要在创建新知识库时明确一下fsfs数据库格式，保证系统能够更稳定。</p>
+
+<p>　　在服务器上建完知识库目录以后，就可以在这个目录下创建实际的项目知识库。也许是出于直觉，你不应该直接在知识库内进行。列B告诉你如何通过单独目录在知识库目录中创建包含有被丢弃的文件的知识库，然后再通过“check in”登记来创建项目知识库。</p>
+
+<p>　　最后以前面命令中指明的用户帐号登录。从所用用户帐号的根目录开始按步骤进行。使用非根用户身份登录，前面显示“$”符号。同样的，[　]括弧中的内容可根据你的需要进行修改。记得在输入时不要输入括弧。</p>
+
+<p>　　列B</p>
+
+<p>　　$ mkdir [project]</p>
+
+<p>　　$ cd [project]</p>
+
+<p>　　$ touch [file.txt]</p>
+
+<p>　　$ svn import -m &#8220;[importing file to create project]&#8221; . file:///[home/username/svn-repos/project]</p>
+
+<p>　　在服务器上创建项目知识库以后，就完成了。　在将项目知识库导入知识库之前需要删除刚才创建的项目目录，因为目录中的数据现在已经安全的保存在了服务器上。既然知识库是通过一个空文件使用touch command创建完成饿，所以删除也不会造成任何损失。</p>
+
+<p>　　在客户端电脑上你可能需要编写项目或者访问文档，所以你还需要查看知识库中的内容并创建一个本地副本。范例如下。同样的也是假设您使用免费的类UNIX操作系统，如BSD，或者OpenSolaris这样的Linux版本。.</p>
+
+<p>　　列 C</p>
+
+<p>　　$ cd [/home/username]</p>
+
+<p>　　$ mkdir [svn-local]</p>
+
+<p>　　$ cd [svn-local]</p>
+
+<p>　　$ svn co svn+ssh://[hostname/home/username/svn-repos/project project]</p>
+
+<p>　　这时，一般都需要三次输入保存知识库的系统的密码。在本例中，除了你选择的操作系统，您还需要在客户端系统上安装功能完全的SSH客户端和SSH服务器。 Svn命令知道如何通过SSH传达网络需求，为客户端和服务器系统之间提供安全的加密连接，保护您的用户名、密码和数据不受可能注意您的网络的恶意安全破坏者侵害。</p>
+
+<p>　　Svn-local目录不是必需的。如果你愿意的话，你可以就把最新校验过的项目或者文档目录直接保存到您的用户帐号主目录下。一般最好将由 Subversion知识库维护的目录与备份方式不同的目录分别保存，以免弄混。在以前的例子中，你都无需为重要数据“项目”的目录命名，所以也不需要为最初的空文件“file.txt”命名。</p>
+
+<p>　　对项目的本地副本核完毕，就可以删除客户设备上的项目目录。然后就需要在目录内添加其他在Subversion中保存的文件，并在服务器上的Subversion知识库中进行核对。列D就为操作范例。</p>
+
+<p>　　列 D</p>
+
+<p>　　$ cd [/home/username/svn-local/project]</p>
+
+<p>　　$ svn rm file.txt</p>
+
+<p>　　$ cp -R [/home/username/project/*] .</p>
+
+<p>　　$ svn add `ls -R`</p>
+
+<p>　　$ svn ci -m &#8220;[added all base files to the project directory]&#8221;</p>
+
+<p>　　cp –R命令能将目录中重要数据目录中的全部内容(在这里为/home/username/project) 复制到当前目录中 (由单独的句子指定)。svn add `ls -R` 命令将这个目录下全部内容以及所有的子目录添加到本地项目目录副本中的版本控制中。svn ci 命令将当前副本提交到服务器上的主目录中。在添加命令以后，svn客户端工具会显示添加文件列表。Ci命令会要求密码以确保你有权限进行提交。</p>
+
+<p>　　Subversion的使用</p>
+
+<p>　　不同的图形化用户界面的使用方法也不同，各个用户的使用方式也不同。对于使用命令行的客户，最重要也是最基本的升级、管理和提交项目文件的命令是以下这些：</p>
+
+<p>　　svn up – 通过主知识库更新本地副本。在开始对任何文件的工作前都要进行更新。如果别人访问过知识库，也要在提交之前进行再次更新，是个好习惯。</p>
+
+<p>　　svn status – 告诉你哪些文件被修改过，哪些经过增改但还未被提交，哪些创建以后还未添加到版本控制，哪些文件神秘消失而没有从版本控制中删除(最大的可能是因为你忘记使用svn rm 替代 simply rm)，以及哪些文件已经从版本控制中完全删除。</p>
+
+<p>　　svn add – 我们刚才演示过，用来在版本控制中添加文件。</p>
+
+<p>　　svn rm – 从版本控制中删除文件。这样也会从本地文件系统中将相关文件删除。</p>
+
+<p>　　svn mv – 将知识库中本地副本中的某个文件移动到另一个地方，而不会造成Subversion数据库的混乱。它的工作原理有些类似标准的mv 命令，但是它只用于版本控制下的本地项目副本。</p>
+
+<p>　　svn mkdir – 创建目录，与普通的mkdir 命令很类似，但是它同时能够将目录自动加入版本控制。</p>
+
+<p>　　svn ci – 能将知识库中本地副本当前目录下以及其内部所有子目录内发生的全部变化提交给主知识库。在这一命令生效之前，必须首先解决svn状态命令报告的标有问号的部分(未知的文件状态)。在没有疑问以后，svn ci　会打开默认文本编辑器输入提交信息。如果你需要查找项目中较早版本中的文件就会用到这些文本。-m 选项能够被用来明确命令行中的提交信息，如上面创建和使用Subversion知识库中所演示的那样。这样做的目的在于给已提交的变化做出标记，以防以后什么时候可能会对之前做的修改进行分类。</p>
+
+<p>　　svn help – 为你提供大量关于Subversion命令行客户端的使用信息，例如对每个svn命令深入的解释和举例，以及除这些以外更多命令的使用方法。您可以通过输入svn help add(这里假设你需要获得关于“add”命令的信息)获得更多关于特定svn命令的信息。</p>
+
+<p>　　本文并非神化Subversion，只是对Subversion版本控制软件进行了有益的介绍，版本控制软件的使用是任何敬业的程序员都要使用的技巧。本文中的这些例子能够为您提供真切的帮助，即使您不是程序员也会感觉有益。</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/66">svn 命令</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/67">Svn 创建全过程</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/67#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/67">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>由于项目的需要，准备安装subversion进行版本控制。本文简单介绍一个subversion服务端的的安装，以及如何使用。<br/>
+1。subversion服务器端安装<br/>
+1）下载Apache和SVN源码包：<br/>
+httpd-2.2.2.tar.bz2下载地址： <a href="http://apache.justdn.org/httpd/httpd-2.2.2.tar.bz2  ">http://apache.justdn.org/httpd/httpd-2.2.2.tar.bz2  </a>
+subversion-1.3.1.tar.bz2下载地址：<a href="http://subversion.tigris.org/downloads/subversion-1.3.1.tar.bz2  ">http://subversion.tigris.org/downloads/subversion-1.3.1.tar.bz2  </a>
+2）新建用户svnadmin,以便svn的维护管理。实现方法可以在gnome下的用户和组中直接添加，也可使用adduser添加。<br/>
+3）安装apache(root用户操作）<br/>
+//解压apache2安装包<br/>
+# tar xvzf httpd-2.2.2.tar.gz<br/>
+//进入解压后的目录<br/>
+# cd httpd-2.2.2<br/>
+//配置apache安装，前两个参数是必须要加的，你还可以根据您的需要添加其他的 参数。<br/>
+//后面的参数制定你要把apache安装哪里<br/>
+# ./configure &#8211;enable-dav &#8211;enable-so &#8211;prefix=/usr/local/apache2/<br/>
+# make<br/>
+//安装<br/>
+# make install<br/>
+# cd /usr/local/apache2/bin<br/>
+//启动apache服务<br/>
+# ./apachectl start<br/>
+//打开浏览器<a href="http://localhost/%E5%A6%82%E6%9E%9C%E6%9C%89%E6%B5%8B%E8%AF%95%E9%A1%B5&amp;#8221;It">http://localhost/%E5%A6%82%E6%9E%9C%E6%9C%89%E6%B5%8B%E8%AF%95%E9%A1%B5&amp;#8221;It</a> works!&#8221;出现则证明已经安装成功。<br/>
+4）安装subversion<br/>
+//解压SubVersion安装包 (root用户进行下面的操作)<br/>
+# tar xvzf Subversion-1.3.1.tar.gz<br/>
+//进入解压后的目录<br/>
+# cd Subversion-1.3.1<br/>
+//配置subversion安装</p>
+
+<h1>./configure &#8211;with-apxs=/usr/local/apache2/bin/apxs &#8211;prefix=/usr/local/subversion</h1>
+
+<p>&#8211;with-apr=/usr/local/apache2 &#8211;with-apr-util=/usr/local/apache2 &#8211;with-ssl &#8211;with-zlib<br/>
+&#8211;enable-maintainer-mode<br/>
+# make<br/>
+//安装<br/>
+# make install<br/>
+//切换用户，从root用户中退出，使用svnadmin用户<br/>
+# mkdir /home/svnadminrepository<br/>
+//进入subversion的bin目录<br/>
+# cd /usr/local/subversion/bin</p>
+
+<p>//创建仓库&#8221;news&#8221;<br/>
+# ./svnadmin create /home/svnadmin/project/news</p>
+
+<p>//将一个已知文件例如：/home/weston/news到导入到版本库中<br/>
+# ./svn import /home/weston/news file:///home/svnadmin/project/news<br/>
+//创建自己的版本<br/>
+svn co file:///home/svnadmin/project/news/ ~/news<br/>
+//如果创建的服务器版本是远程服务器<br/>
+svn co &#8211;username red &#8211;password red <a href="https://hong.red.com/svn/red">https://hong.red.com/svn/red</a> ~weston/beta</p>
+
+<p>5)修改Apache配置文件<br/>
+# cd /usr/local/apadche2/bin<br/>
+//启动Apache<br/>
+# ./apachect1 start<br/>
+# vi /usr/local/apache2/conf/httpd.conf<br/>
+//如果没有的话自己在最下面添加 ，存在则不必重复<br/>
+LoadModule dav_svn_module modules/mod_dav_svn.so<br/>
+LoadModule authz_svn_module modules/mod_authz_svn.so<br/>
+//设置svn访问路径,以/svn代替/home/svnadmin/repository/</p>
+
+<p>DAV svn<br/>
+SVNParentPath /home/svnroot/repository/ //svn父目录</p>
+
+<p># ./usr/local/apache2/bin/apachectl restart<br/>
+//打开浏览器访问<a href="http://localhost/svn/test/%EF%BC%8C%E5%A6%82%E6%9E%9C%E6%9C%89%E4%B8%9C">http://localhost/svn/test/%EF%BC%8C%E5%A6%82%E6%9E%9C%E6%9C%89%E4%B8%9C</a> 西显示就说明成功。<br/>
+2.subversion客户端访问<br/>
+1）服务器端的两种服务方式：http 和 svnserve<br/>
+开启apache即打开http服务:<br/>
+# ./usr/local/apache2/bin/apachectl start<br/>
+而使用到<br/>
+# cd /usr/local/subversion/bin/<br/>
+# ./svnserve -d也可以同时打开svnserve服务<br/>
+2)客户端访问<br/>
+安装svn客户端, 在ubuntu下可以直接使用apt-get install svn来安装，其他版本的linux可以使用yum等安装工具自动安装或手动下载安装<br/>
+安装完毕之后使用svn list <a href="http://your">http://your</a> subversion server ip/svn/test/<br/>
+或者svn list svn://your subversion server ip /home/svnadmin/repository/test<br/>
+3.eclipse subversion插件安装<br/>
+安装Subclipse的最好方法是使用Eclipse Update Manager。在Eclipse 3.1中，它位于Help -> Software Updates -> Find and Install&#8230;菜单下。请选择Search，查找要安装的新特性，并以<a href="http://subclipse.tigris.org/update%E4%BD%9C%E4%B8%BAURL%E6%B7%BB%E5%8A%A0New">http://subclipse.tigris.org/update%E4%BD%9C%E4%B8%BAURL%E6%B7%BB%E5%8A%A0New</a> Remote Site。一路next之后，你就安装成功，重启后就可以看到svn在Preference中找到。<br/>
+将<a href="http://your">http://your</a> subversion server ip/svn/test/或svn://your subversion server ip /home/svnadmin/repository/test作为版本库的位置即可。<br/>
+参考文献：</p>
+
+<p><a href="http://blog.csdn.net/wooin/archive/2006/07/11/903974.aspx">http://blog.csdn.net/wooin/archive/2006/07/11/903974.aspx</a></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/67">svn 创建全过程</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/15">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/13">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
+</section><section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/angularjs/'>angularjs (2)</a></li>
+<li class='category'><a href='/blog/categories/directive/'>directive (1)</a></li>
+<li class='category'><a href='/blog/categories/ide/'>ide (1)</a></li>
+<li class='category'><a href='/blog/categories/ios/'>ios (6)</a></li>
+<li class='category'><a href='/blog/categories/javascript/'>javascript (8)</a></li>
+<li class='category'><a href='/blog/categories/linux-unix/'>linux/unix (24)</a></li>
+<li class='category'><a href='/blog/categories/php/'>php (28)</a></li>
+<li class='category'><a href='/blog/categories/regular-expressions/'>regular expressions (2)</a></li>
+<li class='category'><a href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails (36)</a></li>
+<li class='category'><a href='/blog/categories/rubymine/'>rubymine (1)</a></li>
+<li class='category'><a href='/blog/categories/xhtml-css/'>xhtml/css (9)</a></li>
+<li class='category'><a href='/blog/categories/工作计划/'>工作计划 (3)</a></li>
+<li class='category'><a href='/blog/categories/心情随写/'>心情随写 (67)</a></li>
+<li class='category'><a href='/blog/categories/技术感想/'>技术感想 (47)</a></li>
+<li class='category'><a href='/blog/categories/未分类/'>未分类 (1)</a></li>
+<li class='category'><a href='/blog/categories/杂谈/'>杂谈 (5)</a></li>
+<li class='category'><a href='/blog/categories/生活点滴/'>生活点滴 (4)</a></li>
+<li class='category'><a href='/blog/categories/软件试用/'>软件试用 (4)</a></li>
+
+  </ul>
+</section><section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/595">Rubymine 不能输入中文？</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'gxbsst',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Weston Wei(韦旭红) -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'Weixuhong';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

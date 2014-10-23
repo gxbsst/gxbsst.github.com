@@ -253,7 +253,7 @@ $(document).ready(
       
   <header>
     
-      <h1 class="entry-title"><a href="/archives/166">__call 通过一个类(Class)的实例（instance)调用另外一个class的实例的方法</a></h1>
+      <h1 class="entry-title"><a href="/archives/602">为什么说AngularJs的Service是单例？</a></h1>
     
     
       <p class="meta">
@@ -262,37 +262,424 @@ $(document).ready(
 
 
 
-<time class='entry-date' datetime='2006-08-17T00:00:00+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2006</span></span> <span class='time'>12:00 am</span></time>
+<time class='entry-date' datetime='2014-10-21T00:00:00+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
         
-           | <a href="/archives/166#disqus_thread"
-             data-disqus-identifier="http://www.weixuhong.com/archives/166">Comments</a>
+           | <a href="/archives/602#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/602">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><img src="http://www.weixuhong.com/content/uploads/2008/08/picture-7.png" height="678" width="533" border="1" align="left" hspace="4" vspace="4" alt="Picture 7" /></p>
+  <div class="entry-content"><p>看这张图够清楚了吧!</p>
 
-<div style="clear:both;">
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/602">为什么说AngularJs的Service是单例？</a></p>
 </div>
+  
+  
 
 
-<p>通过一下几行代码，类HelloWorldDelegator就可以调用HelloWorld的所有实例方法<br/>
-function <strong>construct()<br/>
-{<br/>
-20 $this->obj = new HelloWorld();<br/>
-21 }<br/>
-22<br/>
-23 function </strong>call($method, $args)<br/>
-24 {<br/>
-25 return call_user_func_array(array($this->obj, $method), $args);<br/>
-26 }<br/>
-27<br/>
-28 private $obj;<br/>
-}</p>
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/595">Rubymine 不能输入中文？</a></h1>
+    
+    
+      <p class="meta">
+        
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/166">__call 通过一个类(Class)的实例（instance)调用另外一个class的实例的方法</a></p>
+
+
+
+<time class='entry-date' datetime='2014-05-07T00:00:00+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/595#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/595">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>如果你的rubymine 不能输入中文，请做这样的修改:</p>
+
+<p> </p>
+
+<p>vim /Applications/RubyMine.app/bin/idea.vmoptions</p>
+
+<p> </p>
+
+<p>加入下面一行：</p>
+
+<p> </p>
+
+<p>-J-Djava.awt.im.style=on-the-spot</p>
+
+<p>所以长得这样子:</p>
+
+<p>-Xms128m<br/>
+-Xmx512m<br/>
+-XX:MaxPermSize=250m<br/>
+-XX:+UseCompressedOops<br/>
+-J-Djava.awt.im.style=on-the-spot</p>
+
+<p> </p>
+
+<p>&#8211;EOF&#8211;</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/595">rubymine 不能输入中文？</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/593">推荐一个高质量的技术博客</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-04-25T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/593#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/593">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.integralist.co.uk">http://www.integralist.co.uk</a></p>
+
+<p> </p>
+
+<p>这个博客的内容主要涉及VIM, OOD, Refactor, 特别是Refactor的部分，值得好好研读.</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/593">推荐一个高质量的技术博客</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/591">马尔代夫－卡尼岛(Kani)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2013-05-05T00:00:00+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/591#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/591">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>值得再去一次的地方, 吃的喝的都免费</p>
+
+<p>离4月19日度假归来已经4天， 但是一回到家，就伴随着耳鸣、咳嗽，流鼻涕、全身乏力， 一直到今天还是如此;-(， 相当难受！</p>
+
+<p>虽然归来已经几天，但是想到在那宛如天堂的地方， 都会不由自主的发自内心的笑&#8230;</p>
+
+<p>我们这次的目的地是马尔代夫卡尼岛（参考:</p>
+
+<p><a href="http://baike.baidu.com/view/481080.htm">http://baike.baidu.com/view/481080.htm</a></p>
+
+<p>）， 行程为6日4晚， 意思就是两天在飞机， 4天在岛上。</p>
+
+<p><img src="/content/uploads/psu-2.jpeg" alt="" /></p>
+
+<p><img src="/content/uploads/psu.jpeg" alt="" /></p>
+
+<p><img src="/content/uploads/psu-3.jpeg" alt="" /></p>
+
+<p><img src="/content/uploads/psu-4.jpeg" alt="" /></p>
+
+<p><img src="/content/uploads/psu-5.jpeg" alt="" /></p>
+
+<p><img src="/content/uploads/psu-6.jpeg" alt="" /></p>
+
+<p><img src="/content/uploads/psu-7.jpeg" alt="" /></p>
+
+<p><img src="/content/uploads/psu-8.jpeg" alt="" /></p>
+
+<p>我们4月14日启程， 刚开始不顺利， 早上我闹钟不醒， 我没有洗漱就出门， 接着是我的Parter 忘记带了护照， 还好有磁悬浮， 最终我们顺利赶到机场， 乘坐新加坡航空飞6个小时到新加坡，然后等7个小时， 再从新加坡飞4个小时到达马尔代夫马累机场，然后坐30分钟的船， 晚上10点（北京时间4月15日凌晨1点）到达卡尼岛。</p>
+
+<p>因为到达岛上已经晚上10点多， 我们放好行李，就直奔岛上的酒吧喝酒了， 在海边，享受海风， 端着酒，抽着烟， 就这样开始我们的卡尼岛度假了&#8230;</p>
+
+<p>一早起来， 去吃完丰盛的早餐，然后去参加台湾姑娘G.O关于岛上 活动的说明会， 岛上的很多活动都是免费的， 当然包括吃的。我们今天的计划是去浮潜， 参加测试后， 工作人员发给我们工具， 然后坐船离岛10分钟的路程， 带好潜水用具，就到海里看鱼了。</p>
+
+<p>由于是第一次潜水，还不是很熟悉， 而且海浪比较大， 一不小心，我的相机掉到海里了;(, 有些郁闷， 不过遨游在海里， 谁会介意这些小事？看着海中哪些以前只有电视看到的漂亮的鱼， 你会觉得爽呆了&#8230;</p>
+
+<p>图片</p>
+
+<p>浮潜45分钟后，我们就返回岛上了， 我们到游泳池占了两个位置， 点了饮料（当然都是免费的）， 就开始边游泳，边看晒太阳，看着远处的美景。岛上以欧美人比较多，特别是法国人，其次有来自中国大陆，台湾、香港，泰国，韩国、日本等国家，也许欧美人享受习惯了， 他们或许都是以生活为主， 感觉这就是他们的生活。他们是不介意阳光爆晒的。晚上7:30开饭， 有意大利菜，法国菜，泰国菜，中国菜，很多点心。</p>
+
+<p>接着晚上9:30，是岛上每天都举行的主题晚会，一直到11点多，一天的行程结束了。</p>
+
+<p>16日</p>
+
+<p>因为前一天已经玩的太累， 这天主要是环岛游，划船，帆船，游泳池晒太阳为主。晚上还是酒吧&#8230;</p>
+
+<p>17日</p>
+
+<p>今天就要搬去水上屋，所以一大早起来，就直接在游泳池等了，下午2点钟才搬过去。水上屋有专门的保安，一进去才知道那才是整个岛的精华所在，我震撼了。吃的、住的都比外面高一个级别啊。 水上屋才有免费的WIFI，吧台精致的点心，各种饮料等等。屋下面，可以直接游泳，看鱼，或者看远方的美景。一切是那么的和谐。需要注意的是14岁以下的小孩是不可以住水上屋的。 晚上还可以看到魔鬼鱼。屋内也准备了香槟、咖啡，放着CD，早餐有服务员送来，终于感受到了什么叫做被服务了，原来这才是生活啊。 至少我再一次被震撼了，即使住怎么样的5星级酒店都感觉不如卡尼岛的水上屋啊， 因为那种风景是一般的酒店没有的。</p>
+
+<p>18日</p>
+
+<p>因为今天离岛时间，但是要等到晚上8:25分， 所以今天我们的计划还是浮潜， 因为今天涨潮，又看到了之前没有看到的鱼，收获颇丰啊。</p>
+
+<p>图片</p>
+
+<p>晚上8:25分，在卡尼岛G.O的热情欢送下，我们去了马尔代夫机场。 晚上11:25的航班， 飞了4个小时，到达新加坡机场，候机2个小时， 再飞6个小时，北京时间4月19日15点钟， 到达上海浦东国际机场，旅程结束。</p>
+
+<p>推荐</p>
+
+<p>水上屋</p>
+
+<p>tips：</p>
+
+<p>那里是岛上的精华，记得保安说过，之前有一个法国人，包了岛上的全部水上屋，住了两个星期。</p>
+
+<p>西餐</p>
+
+<p>岛上的西餐厅，需要提前一天预定， 但是那是免费的</p>
+
+<p>浮潜</p>
+
+<p>浮潜可以看到很多漂亮的鱼，还有珊瑚，那时其他地方没有的。且也是免费的。</p>
+
+<p>其他</p>
+
+<p>如果到那个地方， 就不要带伞去了，那里就是去晒太阳的。如果不会讲英文，岛上有讲中文的G.O, 他们大部分来自台湾。好像大陆有一个。</p>
+
+<p>不要在岛上买东西了，一个打火机就两美金，其他东西贵到什么程度呢？</p>
+
+<p>其实文中叙述的，都不能道出在那边的感受的十分之一， 而且很重要的一点，那里中国人很少， 你不会看到不和谐的事情发生。</p>
+
+<p>&#8211;EOF&#8211;</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/591">马尔代夫－卡尼岛(Kani)</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/563">关于backbone _.bindAll</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2011-10-13T00:00:00+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2011</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/563#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/563">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><pre lang="javasript">_.bindAll(this, 'render');
+            this.model.bind('change', this.render);
+
+</pre>
+
+
+<p>以上这两行代码主要为了当model改变时， view执行render， 那_.bindAll有什么用呢？</p>
+
+<p>看这里：<a href="http://stackoverflow.com/questions/6079055/why-do-bindall-in-backbone-js-views">http://stackoverflow.com/questions/6079055/why-do-bindall-in-backbone-js-views</a></p>
+
+<p>其中有一段是这样的：</p>
+
+<pre>Without _.bindAll( this, 'render' ) when model changes this in render will be pointing to the model, not to the view, so we won't have neither this.el nor this.$ or any other view's properties available.
+</pre>
+
+
+<p>当model被change时， this指向model, 但是我们要执行render, 那么就需要_.bindAll(this, &#8216;render&#8217;)， 使model也有这个render的方法？</p>
+
+<p>请达人解答?</p>
+
+<ul>
+<li><p>新版本这样就可以</p></li>
+</ul>
+
+
+<p>this.model.bind(&#8216;change&#8217;, this.render, this);</p>
+
+<p><img style="display:block; margin-left:auto; margin-right:auto;" src="http://www.weixuhong.com/content/uploads/2011/10/Screen-Shot-2011-10-14-at-1.55.50-PM.png" alt="Screen Shot 2011-10-14 at 1.55.50 PM.png" border="0" width="406" height="567" /></p>
+
+<p><img style="display:block; margin-left:auto; margin-right:auto;" src="http://www.weixuhong.com/content/uploads/2011/10/Screen-Shot-2011-10-14-at-2.06.54-PM.png" alt="Screen Shot 2011-10-14 at 2.06.54 PM.png" border="0" width="600" height="352" /></p>
+
+<p><img style="display:block; margin-left:auto; margin-right:auto;" src="http://www.weixuhong.com/content/uploads/2011/10/Screen-Shot-2011-10-14-at-2.18.03-PM.png" alt="Screen Shot 2011-10-14 at 2.18.03 PM.png" border="0" width="417" height="590" /></p>
+
+<p><img style="display:block; margin-left:auto; margin-right:auto;" src="http://www.weixuhong.com/content/uploads/2011/10/Screen-Shot-2011-10-14-at-3.31.51-PM.png" alt="Screen Shot 2011-10-14 at 3.31.51 PM.png" border="0" width="600" height="432" /></p>
+
+<p><img style="display:block; margin-left:auto; margin-right:auto;" src="http://www.weixuhong.com/content/uploads/2011/10/Screen-Shot-2011-10-14-at-3.33.11-PM.png" alt="Screen Shot 2011-10-14 at 3.33.11 PM.png" border="0" width="600" height="380" /></p>
+
+<p><img style="display:block; margin-left:auto; margin-right:auto;" src="http://www.weixuhong.com/content/uploads/2011/10/Screen-Shot-2011-10-17-at-5.20.27-PM.png" alt="Screen Shot 2011-10-17 at 5.20.27 PM.png" border="0" width="600" height="332" /></p>
+
+<p><img style="display:block; margin-left:auto; margin-right:auto;" src="http://www.weixuhong.com/content/uploads/2011/10/Screen-Shot-2011-10-18-at-3.37.23-PM.png" alt="Screen Shot 2011-10-18 at 3.37.23 PM.png" border="0" width="600" height="378" /></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/563">关于backbone _.bindAll</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/561">APIdock in Textmate</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2011-10-08T00:00:00+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2011</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/561#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/561">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><pre lang="c">% mkdir -p ~/Library/Application Support/Textmate/Bundles
+% cd ~/Library/Application Support/Textmate/Bundles
+% git clone git://github.com/lautis/ruby-on-rails-tmbundle.git "Ruby on Rails.tmbundle"
+% git clone git://github.com/lautis/ruby-tmbundle.git "Ruby.tmbundle"
+% osascript -e 'tell app "TextMate" to reload bundles'
+</pre>
+
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/561">APIdock in Textmate</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/557">安装passenger for Rails3</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2011-09-07T00:00:00+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2011</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/557#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/557">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><pre lang="c">gem install passenger
+
+</pre>
+
+
+
+
+<pre lang="c">yum install apr-devel
+yum install apr-util-devel
+yum install httpd-devel
+</pre>
+
+
+
+
+<pre lang="c">passenger-install-apache2-module
+</pre>
+
+
+<p>复杂以下文件到httpd.conf</p>
+
+<pre lang="c">LoadModule passenger_module /usr/local/rvm/gems/ruby-1.9.2-p290-module/gems/passenger-3.0.9/ext/apache2/mod_passenger.so
+   PassengerRoot /usr/local/rvm/gems/ruby-1.9.2-p290-module/gems/passenger-3.0.9
+   PassengerRuby /usr/local/rvm/wrappers/ruby-1.9.2-p290-module/ruby
+</pre>
+
+
+
+
+<pre lang="c">#For PAIFAN 后台
+&lt;VirtualHost *:80>
+ ServerName padmin.qdigit.cn
+ RailsEnv production
+ #RailsEnv development 
+ DocumentRoot /var/www/html/admin.insta/public
+ ErrorLog /var/www/html/admin.insta/log/redmine.error.log
+  &lt;Directory /var/www/html/admin.insta/public>
+  AllowOverride all
+  #Options -MultiViews           
+  Options Indexes -MultiViews
+ &lt;/Directory>
+&lt;/VirtualHost>
+
+</pre>
+
+
+<p>参考: <a href="http://www.modrails.com/install.html">http://www.modrails.com/install.html</a></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/557">安装passenger for rails3</a></p>
 </div>
   
   
@@ -301,6 +688,8 @@ function <strong>construct()<br/>
     </article>
   
   <div class="pagination">
+    
+      <a class="prev" href="/posts/2">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -317,8 +706,21 @@ function <strong>construct()<br/>
     <li class='category'><a href='/blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href='/blog/categories/directive/'>directive (1)</a></li>
 <li class='category'><a href='/blog/categories/ide/'>ide (1)</a></li>
-<li class='category'><a href='/blog/categories/php/'>php (1)</a></li>
+<li class='category'><a href='/blog/categories/ios/'>ios (6)</a></li>
+<li class='category'><a href='/blog/categories/javascript/'>javascript (8)</a></li>
+<li class='category'><a href='/blog/categories/linux-unix/'>linux/unix (24)</a></li>
+<li class='category'><a href='/blog/categories/php/'>php (28)</a></li>
+<li class='category'><a href='/blog/categories/regular-expressions/'>regular expressions (2)</a></li>
+<li class='category'><a href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails (36)</a></li>
 <li class='category'><a href='/blog/categories/rubymine/'>rubymine (1)</a></li>
+<li class='category'><a href='/blog/categories/xhtml-css/'>xhtml/css (9)</a></li>
+<li class='category'><a href='/blog/categories/工作计划/'>工作计划 (3)</a></li>
+<li class='category'><a href='/blog/categories/心情随写/'>心情随写 (67)</a></li>
+<li class='category'><a href='/blog/categories/技术感想/'>技术感想 (47)</a></li>
+<li class='category'><a href='/blog/categories/未分类/'>未分类 (1)</a></li>
+<li class='category'><a href='/blog/categories/杂谈/'>杂谈 (5)</a></li>
+<li class='category'><a href='/blog/categories/生活点滴/'>生活点滴 (4)</a></li>
+<li class='category'><a href='/blog/categories/软件试用/'>软件试用 (4)</a></li>
 
   </ul>
 </section><section>
@@ -338,7 +740,11 @@ function <strong>construct()<br/>
       </li>
     
       <li class="post">
-        <a href="/archives/166">__call 通过一个类(Class)的实例（instance)调用另外一个class的实例的方法</a>
+        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/595">Rubymine 不能输入中文？</a>
       </li>
     
   </ul>

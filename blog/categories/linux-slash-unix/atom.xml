@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Linux/unix | 韦旭红的幸福时光]]></title>
+  <link href="http://www.weixuhong.com/blog/categories/linux-slash-unix/atom.xml" rel="self"/>
+  <link href="http://www.weixuhong.com/"/>
+  <updated>2014-10-23T17:52:25+08:00</updated>
+  <id>http://www.weixuhong.com/</id>
+  <author>
+    <name><![CDATA[Weston Wei(韦旭红)]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[小组级git服务器搭建（转)]]></title>
+    <link href="http://www.weixuhong.com/archives/541"/>
+    <updated>2011-07-18T00:00:00+08:00</updated>
+    <id>http://www.weixuhong.com/archives/%e5%b0%8f%e7%bb%84%e7%ba%a7git%e6%9c%8d%e5%8a%a1%e5%99%a8%e6%90%ad%e5%bb%ba%ef%bc%88%e8%bd%ac</id>
+    <content type="html"><![CDATA[<p>来自：<a href="http://blog.prosight.me/index.php/2009/11/485">http://blog.prosight.me/index.php/2009/11/485</a></p>
+
+<p>如果使用git的人数较少，可以使用下面的步骤快速部署一个git服务器环境。<br/>
+1. 生成 SSH 公钥<br/>
+每个需要使用git服务器的工程师，自己需要生成一个ssh公钥<br/>
+进入自己的~/.ssh目录，看有没有用 文件名 和 文件名.pub 来命名的一对文件，这个 文件名 通常是 id_dsa 或者 id_rsa。 .pub 文件是公钥，另一个文件是密钥。假如没有这些文件（或者干脆连 .ssh 目录都没有），你可以用 ssh-keygen 的程序来建立它们，该程序在 Linux/Mac 系统由 SSH 包提供， 在 Windows 上则包含在 MSysGit 包里:</p>
+
+<pre lang="c">$ ssh-keygen 
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/schacon/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /Users/schacon/.ssh/id_rsa.
+Your public key has been saved in /Users/schacon/.ssh/id_rsa.pub.
+The key fingerprint is:
+43:c5:5b:5f:b1:f1:50:43:ad:20:a6:92:6a:1f:9a:3a schacon@agadorlaptop.local
+</pre>
+
+
+<p>它先要求你确认保存公钥的位置（.ssh/id_rsa），然后它会让你重复一个密码两次，如果不想在使用公钥的时候输入密码，可以留空。<br/>
+现在，所有做过这一步的用户都得把它们的公钥给你或者 Git 服务器的管理者（假设 SSH 服务被设定为使用公钥机制）。他们只需要复制 .pub 文件的内容然后 e-</p>
+
+<pre lang="c">$ cat ~/.ssh/id_rsa.pub 
+ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSU
+GPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3
+Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XA
+t3FaoJoAsncM1Q9x5+3V0Ww68/eIFmb1zuUFljQJKprrX88XypNDvjYNby6vw/Pb0rwert/En
+mZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbx
+NrRFi9wrf+M7Q== schacon@agadorlaptop.local
+</pre>
+
+
+<ol>
+<li>架设服务器<br/>
+首先，创建一个 ‘git’ 用户并为其创建一个 .ssh 目录，在用户主目录下:</li>
+</ol>
+
+
+<pre lang="c">$ sudo adduser git
+$ su git
+$ cd
+$ mkdir .ssh
+</pre>
+
+
+<p>接下来，把开发者的 SSH 公钥添加到这个用户的 authorized_keys 文件中。假设你通过 e-mail 收到了几个公钥并存到了临时文件里。只要把它们加入 authorized_keys 文件</p>
+
+<pre lang="c">$ cat /tmp/id_rsa.john.pub >> ~/.ssh/authorized_keys
+$ cat /tmp/id_rsa.josie.pub >> ~/.ssh/authorized_keys
+$ cat /tmp/id_rsa.jessica.pub >> ~/.ssh/authorized_keys
+</pre>
+
+
+<p>现在可以使用 –bare 选项运行 git init 来设定一个空仓库，这会初始化一个不包含工作目录的仓库。</p>
+
+<pre lang="c">$ cd /opt/git
+$ mkdir project.git
+$ cd project.git
+$ git --bare init
+</pre>
+
+
+<p>这时，开发人员就可以把它加为远程仓库，推送一个分支，从而把第一个版本的工程上传到仓库里了。值得注意的是，每次添加一个新项目都需要通过 shell 登入主机并创建一个纯仓库。我们不妨以 gitserver 作为 git 用户和仓库所在的主机名。如果你在网络内部运行该主机，并且在 DNS 中设定 gitserver 指向该主机，那么以下这些命令都是可用的：</p>
+
+<p># 在一个工程师的电脑上</p>
+
+<pre lang="c">$ cd myproject
+$ git init
+$ git add .
+$ git commit -m 'initial commit'
+$ git remote add origin git@gitserver:/opt/git/project.git
+$ git push origin master
+</pre>
+
+
+<p>这样，其他人的克隆和推送也一样变得很简单：</p>
+
+<pre lang="c">$ git clone git@gitserver:/opt/git/project.git
+$ vim README
+$ git commit -am 'fix for the README file'
+$ git push origin master
+</pre>
+
+
+<p>用这个方法可以很快捷的为少数几个开发者架设一个可读写的 Git 服务。<br/>
+作为一个额外的防范措施，你可以用 Git 自带的 git-shell 简单工具来把 git 用户的活动限制在仅与 Git 相关。把它设为 git 用户登入的 shell，那么该用户就不能拥有主机正常的 shell 访问权。为了实现这一点，需要指明用户的登入shell 是 git-shell ，而不是 bash 或者 csh。你可能得编辑 /etc/passwd 文件</p>
+
+<pre lang="c">$ sudo vim /etc/passwd
+</pre>
+
+
+<p>在文件末尾，你应该能找到类似这样的行：</p>
+
+<pre lang="c">git:x:1000:1000::/home/git:/bin/sh
+</pre>
+
+
+<p>把 bin/sh 改为 /usr/bin/git-shell （或者用 which git-shell 查看它的位置）。该行修改后的样子如下：</p>
+
+<p>git:x:1000:1000::/home/git:/usr/bin/git-shell<br/>
+现在 git 用户只能用 SSH 连接来推送和获取 Git 仓库，而不能直接使用主机 shell。尝试登录的话，你会看到下面这样的拒绝信息：</p>
+
+<pre lang="c">$ ssh git@gitserver
+</pre>
+
+
+<p>fatal: What do you think I am? A shell? （你以为我是个啥？shell吗？)<br/>
+Connection to gitserver closed. （gitserver 连接已断开。）</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/541">小组级git服务器搭建（转)</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[使用VIM/VI批量替换]]></title>
+    <link href="http://www.weixuhong.com/archives/519"/>
+    <updated>2011-06-28T00:00:00+08:00</updated>
+    <id>http://www.weixuhong.com/archives/%e4%bd%bf%e7%94%a8vimvi%e6%89%b9%e9%87%8f%e6%9b%bf%e6%8d%a2</id>
+    <content type="html"><![CDATA[<ol>
+<li>首先打开多个文件</li>
+</ol>
+
+
+<p>如: <pre lang="c">vim ./*.html</pre></p>
+
+<p>2.使用如下命令,</p>
+
+<pre lang="c">:argdo %s/2007/2008/g | wq</pre>
+
+
+<p>*如果要单个文件修改， 则使用:</p>
+
+<pre lang="c">:next </pre>
+
+
+<p>或者使用脚本:</p>
+
+<pre lang="c">#!/bin/sh
+
+for file in $(grep -l -R  'Copyright © 2011' ./)
+do
+sed -e "s/Copyright © 2011/Copyright © 2011/ig" $file > /tmp/tempfile.tmp
+mv /tmp/tempfile.tmp $file
+done
+
+</pre>
+
+
+<p>参考:</p>
+
+<p><a href="http://www.legend.ws/blog/tips-tricks/replace-text-in-multiple-files/">http://www.legend.ws/blog/tips-tricks/replace-text-in-multiple-files/</a></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/519">使用VIM/VI批量替换</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[TCP/IP状态变迁图]]></title>
+    <link href="http://www.weixuhong.com/archives/470"/>
+    <updated>2010-02-06T00:00:00+08:00</updated>
+    <id>http://www.weixuhong.com/archives/tcp-ip-status</id>
+    <content type="html"><![CDATA[<p><img src="http://www.weixuhong.com/content/uploads/2010/02/ddvshrpj_18c4drttfv.png" alt="ddvshrpj_18c4drttfv.png" border="0" width="694" height="1026" /></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/470">TCP/IP状态变迁图</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[在Dreamhost上使用svnmailer]]></title>
+    <link href="http://www.weixuhong.com/archives/366"/>
+    <updated>2010-01-05T00:00:00+08:00</updated>
+    <id>http://www.weixuhong.com/archives/%e5%9c%a8dreamhost%e4%b8%8a%e4%bd%bf%e7%94%a8svnmailer</id>
+    <content type="html"><![CDATA[<p>首先你要装好SVN,可以参考我以前的文章: <a href="http://weixuhong.com/%E6%8A%80%E6%9C%AF%E6%84%9F%E6%83%B3/2008/09/27/%E5%9C%A8dreamhost%E4%B8%8A%E9%85%8D%E7%BD%AEtrac-and-svn/">http://weixuhong.com/%E6%8A%80%E6%9C%AF%E6%84%9F%E6%83%B3/2008/09/27/%E5%9C%A8dreamhost%E4%B8%8A%E9%85%8D%E7%BD%AEtrac-and-svn/</a></p>
+
+<p>svnmailer官方网站: <a href="http://opensource.perlig.de">http://opensource.perlig.de</a></p>
+
+<p><cite>svnmailer的作用就是当开发者，提交代码的时候，会给团队人员发送一份email，内容包括修改的文件及内容.</cite></p>
+
+<h4>1. 先下载一个svnmailer的版本</h4>
+
+<blockquote><p><pre lang="c">wget <a href="http://storage.perlig.de/svnmailer/svnmailer-1.0.8.tar.gz">http://storage.perlig.de/svnmailer/svnmailer-1.0.8.tar.gz</a>
+</pre></p></blockquote>
+
+<h4>2. 安装svnmailer</h4>
+
+<blockquote><p><pre lang="c">python setup.py install</pre></p></blockquote>
+
+<h4>3. 生成svnmailer的配置文件</h4>
+
+<blockquote><p>可在任何位置生成这个配置文件，这里我们在/home/weston/svn/svnmailer.conf,内容如下:<br/>
+<cite></p> <pre lang="c">
+[general]
+smtp_host = localhost:25
+config_charset = utf-8</p></blockquote>
+
+<p>[author table]
+weston = <a href="&#109;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#x79;&#x6f;&#117;&#114;&#x65;&#x6d;&#x61;&#x69;&#108;&#x40;&#103;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#99;&#x6f;&#x6d;">&#121;&#x6f;&#x75;&#114;&#x65;&#x6d;&#97;&#105;&#108;&#64;&#x67;&#x6d;&#x61;&#105;&#x6c;&#46;&#x63;&#x6f;&#x6d;</a></p>
+
+<p>[maps]
+from_addr = [author table]
+to_addr = [author table]</p>
+
+<p>[defaults]
+commit_subject_prefix = [svn] commit:
+apply_charset_property = yes
+show_applied_charset = yes
+from_addr = %(author)s
+to_addr   = weston
+browser_base_url = Trac <a href="http://trac.weixuhong.com/red-cn.cgi/browser">http://trac.weixuhong.com/red-cn.cgi/browser</a>
+mail_transfer_encoding = 8bit
+</pre></p>
+
+<blockquote><p><p>
+  </cite>
+</p></p>
+
+<p><p>
+  * 其中smtp_host = localhost:25是你发送email的smtp服务器<br /> * weston = <a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#x6f;&#x3a;&#x79;&#x6f;&#x75;&#x72;&#101;&#x6d;&#97;&#105;&#x6c;&#x40;&#x67;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#121;&#x6f;&#x75;&#x72;&#101;&#109;&#97;&#105;&#x6c;&#64;&#103;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#x6d;</a> 是谁接收email
+</p></blockquote></p>
+
+<p><h4>
+  4. 配置项目，让svnmailer工作
+</h4></p>
+
+<p><blockquote>
+  <p>
+    A. 首先到你的项目的hook文件夹下面，然后复制post-commit.tmpl 为post-commit，<br /><cite></p> <pre lang="c">cp post-commit.tmpl post-commit</pre></p>
+
+<pre><code>&lt;p&gt;
+  &lt;/cite&gt;
+&lt;/p&gt;&lt;/blockquote&gt; 
+
+&lt;blockquote&gt;
+  &lt;p&gt;
+    B. 编辑post-commit文件,如下(具体可以看视频):&lt;br /&gt;&lt;cite&gt;&lt;/p&gt; &lt;pre lang="c"&gt;/home/weston/packages/bin/svn-mailer -c  -f /home/weston/svn/svnmailer.conf -e "UTF-8" -r "$2" -d "$1"&lt;/pre&gt;
+
+    &lt;p&gt;
+      &lt;/cite&gt;
+    &lt;/p&gt;&lt;/blockquote&gt; 
+
+    &lt;p&gt;
+      转载请注明：&lt;a href="http://www.weixuhong.com"&gt;韦旭红的点点滴滴&lt;/a&gt; &amp;raquo; &lt;a href="http://www.weixuhong.com/archives/366"&gt;在Dreamhost上使用svnmailer&lt;/a&gt;
+    &lt;/p&gt;
+</code></pre></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[密钥协商的形象化比喻]]></title>
+    <link href="http://www.weixuhong.com/archives/301"/>
+    <updated>2009-10-09T00:00:00+08:00</updated>
+    <id>http://www.weixuhong.com/archives/%e5%af%86%e9%92%a5%e5%8d%8f%e5%95%86%e7%9a%84%e5%bd%a2%e8%b1%a1%e5%8c%96%e6%af%94%e5%96%bb</id>
+    <content type="html"><![CDATA[<p><span style="font-family:STHeiti;">详细</span>: <a href="http://www.nsfocus.net/index.php?act=magazine&amp;do=view&amp;mid=841">http://www.nsfocus.net/index.php?act=magazine&amp;do=view&amp;mid=841</a></p>
+
+<p>我<span style="font-family:STHeiti;">们假设</span>A与B通信，A是SSL客<span style="font-family:STHeiti;">户端，</span>B是SSL服<span style="font-family:STHeiti;">务器端，加密后的消息放在方括号</span>[]里，以突出明文消息的区别。双方的<span style="font-family:STHeiti;">处理动作的说明用圆括号（）括起。</span></p>
+
+<p>A：我想和你安全的通<span style="font-family:STHeiti;">话，我这里的对称加密算法有</span>DES,RC5,密<span style="font-family:STHeiti;">钥交换算法有</span>RSA和DH，摘要算法有MD5和SHA。</p>
+
+<p>B：我<span style="font-family:STHeiti;">们用</span>DES－RSA－SHA<span style="font-family:STHeiti;">这对组合好了。</span><br/>
+<span style="font-family:STHeiti;">这是我的证书，里面有我的名字和公钥，你拿去验证一下我的身份（把证书发给</span>A）。<br/>
+目前没有别的可<span style="font-family:STHeiti;">说的了。</span></p>
+
+<p>A：（<span style="font-family:STHeiti;">查看证书上</span>B的名字是否无<span style="font-family:STHeiti;">误，并通过手头早已有的</span>CA的<span style="font-family:STHeiti;">证书验证了</span>B的<span style="font-family:STHeiti;">证书的真实性，如果其中一项有误，发出警告并断开连接，这一步保证了</span>B的公<span style="font-family:STHeiti;">钥的真实性）</span><br/>
+（<span style="font-family:STHeiti;">产生一份秘密消息，这份秘密消息处理后将用作加密密钥，加密初始化向量和</span>hmac的密<span style="font-family:STHeiti;">钥。将这份秘密消息</span>-<span style="font-family:STHeiti;">协议中称为</span>per_master_secret-用B的公<span style="font-family:STHeiti;">钥加密，封装成称作</span>ClientKeyExchange的消息。由于用了B的公<span style="font-family:STHeiti;">钥，保证了第三方无法窃听）</span><br/>
+我生成了一份秘密消息，并用你的公<span style="font-family:STHeiti;">钥加密了，给你（把</span>ClientKeyExchange<span style="font-family:STHeiti;">发给</span>B）<br/>
+注意，下面我就要用加密的<span style="font-family:STHeiti;">办法给你发消息了！</span><br/>
+（将秘密消息<span style="font-family:STHeiti;">进行处理，生成加密密钥，加密初始化向量和</span>hmac的密<span style="font-family:STHeiti;">钥）</span><br/>
+[我<span style="font-family:STHeiti;">说完了</span>]</p>
+
+<p>B：（用自己的私<span style="font-family:STHeiti;">钥将</span>ClientKeyExchange中的秘密消息解密出来，然后将秘密消息<span style="font-family:STHeiti;">进行处理，生成加密密钥，加密初始化向量和</span>hmac的密<span style="font-family:STHeiti;">钥，这时双方已经安全的协商出一套加密办法了）</span><br/>
+注意，我也要开始用加密的<span style="font-family:STHeiti;">办法给你发消息了！</span><br/>
+[我<span style="font-family:STHeiti;">说完了</span>]</p>
+
+<p>A: [我的秘密是&hellip;]</p>
+
+<p>B: [其它人不会听到的&hellip;]</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/301">密钥协商的形象化比喻</a></p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,1150 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>韦旭红的幸福时光</title>
+  <meta name="author" content="Weston Wei(韦旭红)">
+
+  
+  <meta name="description" content="1.在本机 运行ssh-keygen
+2.拷贝.ssh/id_rsa.pub到服务器的/home/weston/.ssh/authorized_keys2
+3.查看目标服务器上的authorized_keys2的权限，确保其为0655或更高；同时确保本机上的id_rsa/ &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.weixuhong.com/posts/15">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="韦旭红的幸福时光" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script> 
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">韦旭红的幸福时光</a></h1>
+  
+    <h2>20，30，40&#8230;</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.weixuhong.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/photos">Photos</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/109">Ssh 不用密码</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/109#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/109">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>1.在本机 <span style="font-family:STHeiti;">运行</span>ssh-keygen<br/>
+2.拷<span style="font-family:STHeiti;">贝</span>.ssh/id_rsa.pub到服<span style="font-family:STHeiti;">务器的</span>/home/weston/.ssh/authorized_keys2<br/>
+3.<span style="font-family:STHeiti;">查看目标服务器上的</span>authorized_keys2的权限，确保其<span style="font-family:STHeiti;">为</span>0655或更高；同<span style="font-family:STHeiti;">时确保本机上的</span>id_rsa/id_dsa的权限<span style="font-family:STHeiti;">为</span>0600；</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/109">ssh 不用密码</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/97">Script/generate 还有这样的用法</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/97#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/97">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://viewvc.rubyforge.mmmultiworks.com/cgi/viewvc.cgi/flex_scaffold/trunk/generators">http://viewvc.rubyforge.mmmultiworks.com/cgi/viewvc.cgi/flex_scaffold/trunk/generators</a></p>
+
+<p>/flex_scaffold_resource/USAGE?root=flexible-rails&amp;r1=7&amp;r2=8&amp;pathrev=14<br/>
+./script/generate scaffold_resource post title:string created_on:date body:text published:boolean<br/>
+看了上面的文章和Peepcode &#8211;004&#8211;testing.mov 的15：53，了解到这条命令的作用就是产生一个modle<br/>
+post,一个post_controller.rb,还有相应的模板，模板应该带有的字段</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/97">script/generate 还有这样的用法</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/73">Ruby on Rails 环境的安装步骤</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/73#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/73">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Then run, apt-get update &amp;&amp; apt-get upgrade</p>
+
+<p># Configure SSH &#8212; You can just SSH in to do the Install from here&#8230;<br/>
+apt-get install openssh-server</p>
+
+<p># Configure the Base System along with Trac/SVN<br/>
+apt-get install lynx autossh screen curl postfix tree<br/>
+xtightvncviewer module-assistant build-essential fakeroot<br/>
+dh-make debconf libstdc++5 gcc-3.3-base trac svnmailer debfoster</p>
+
+<p>aptitude install -y ruby ruby-dev ri rdoc irb ruby-examples<br/>
+libdbm-ruby libgdbm-ruby libopenssl-ruby libreadline-ruby<br/>
+rubygems</p>
+
+<p>sudo gem update &#8211;system<br/>
+sudo gem install deprec &#8211;include-dependencies<br/>
+sudo gem install rails &#8211;include-dependencies<br/>
+sudo gem install termios</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/73">ruby on rails 环境的安装步骤</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/106">Ruby on Rails：控制器纵览</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/106#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/106">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>　在一个基于MVC的Web应用程序中，应用程序逻辑以及数据的存取是由MVC中的C,也就是控制器来完成的。因此，深刻地理解MVC框架所提供控制器对于开发一个高效、可升级、稳定的应用程序是十分必要的。RoR也不例外。</p>
+
+<p>　　RoR中所提供的控制器叫动作控制器(ActionController)。本文将主要讨论动作控制器所提供的几种服务，以及如何使用动作控制器。</p>
+
+<p>　　什么是动作控制器</p>
+
+<p>　　在RoR中，动作包(Action Pack)是这个框架的核心。它包括两部分，动作视图和动作控制器。动作包的一个特点是除了Web程序，不能使用在其它类型的程序中。下面让我们看看在我们通过浏览器键入一个URL后，如<a href="http://localhost:3000/demo/say/hello%EF%BC%8C%E9%83%BD%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88%E3%80%82%E4%B8%8B%E9%9D%A2%E6%98%AF%E5%9C%A8RoR%E4%B8%AD%E5%A4%84%E7%90%86%E5%8A%A8%E4%BD%9C%E7%9A%84%E6%AD%A5%E9%AA%A4%EF%BC%9A">http://localhost:3000/demo/say/hello%EF%BC%8C%E9%83%BD%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88%E3%80%82%E4%B8%8B%E9%9D%A2%E6%98%AF%E5%9C%A8RoR%E4%B8%AD%E5%A4%84%E7%90%86%E5%8A%A8%E4%BD%9C%E7%9A%84%E6%AD%A5%E9%AA%A4%EF%BC%9A</a></p>
+
+<p>　　1. RoR首先装载了位于app/controllers目录中的say_controller.rb文件。这个文件只被装载一次。</p>
+
+<p>　　2. 然后 RoR建立了类SayController的实例。</p>
+
+<p>　　3. 一旦SayController类被实例化，RoR就会在app/helpers中查找say_helper.rb文件。如果这个文件存在，它就会被装载，并且这个文件将会和SayController对象混合。这就意味着在SayController对象中可以直接访问SayHelper中的方法。</p>
+
+<p>　　4. 最后在app/models中查找say.rb文件，如果存在，装载它。</p>
+
+<p>　　到现在为止，我们已经对应用程序的初始化过程非常清楚了，接下来让我们继续看看动作控制器所提供的服务。下面是RoR所提供的服务列表：</p>
+
+<p>　　1. URL映射</p>
+
+<p>　　2. 会话跟踪</p>
+
+<p>　　3. 过滤和验证</p>
+
+<p>　　4. 缓冲</p>
+
+<p>　　现在又带来一个问题。这些服务为什么由控制器来提供。当然，答案也很简单，这是因为控制器介于数据和应用程序之间，因此，它可以监视数据的存取，并且可以根据需要对URL进行映射。因此，这些服务理所当然由控制器来提供。下面我们将详细讨论控制器提供的这些服务。</p>
+
+<p>　　1. URL映射</p>
+
+<p>　　当我们在浏览器中输入<a href="http://localhost:3000/admin/show%E6%97%B6%EF%BC%8C%E4%BC%9A%E6%98%BE%E7%A4%BA%E7%9B%B8%E5%BA%94%E7%9A%84%E5%86%85%E5%AE%B9%E3%80%82%E4%BD%86%E4%BD%A0%E4%B9%9F%E8%AE%B8%E4%BC%9A%E6%9C%89%E7%96%91%E9%97%AE%EF%BC%8CRoR%E6%98%AF%E5%A6%82%E4%BD%95%E5%B0%86URL%E9%93%BE%E6%8E%A5%E6%98%A0%E5%B0%84%E6%88%90%E7%9B%B8%E5%BA%94%E7%9A%84%E7%B1%BB%E6%88%96%E6%96%B9%E6%B3%95%E5%91%A2%EF%BC%9F%E4%BA%8B%E5%AE%9E%E4%B8%8A%EF%BC%8C%E8%BF%99%E4%BA%9B%E6%98%A0%E5%B0%84%E7%9A%84%E4%BB%A3%E7%A0%81%E9%83%BD%E8%A2%AB%E5%86%99%E5%9C%A8%E4%BA%86config%E7%9B%AE%E5%BD%95%E4%B8%AD%E7%9A%84routers.rb%E4%B8%AD%E3%80%82%E4%B8%8B%E9%9D%A2%E6%98%AF%E8%BF%99%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E9%83%A8%E5%88%86%E4%BB%A3%E7%A0%81%E3%80%82">http://localhost:3000/admin/show%E6%97%B6%EF%BC%8C%E4%BC%9A%E6%98%BE%E7%A4%BA%E7%9B%B8%E5%BA%94%E7%9A%84%E5%86%85%E5%AE%B9%E3%80%82%E4%BD%86%E4%BD%A0%E4%B9%9F%E8%AE%B8%E4%BC%9A%E6%9C%89%E7%96%91%E9%97%AE%EF%BC%8CRoR%E6%98%AF%E5%A6%82%E4%BD%95%E5%B0%86URL%E9%93%BE%E6%8E%A5%E6%98%A0%E5%B0%84%E6%88%90%E7%9B%B8%E5%BA%94%E7%9A%84%E7%B1%BB%E6%88%96%E6%96%B9%E6%B3%95%E5%91%A2%EF%BC%9F%E4%BA%8B%E5%AE%9E%E4%B8%8A%EF%BC%8C%E8%BF%99%E4%BA%9B%E6%98%A0%E5%B0%84%E7%9A%84%E4%BB%A3%E7%A0%81%E9%83%BD%E8%A2%AB%E5%86%99%E5%9C%A8%E4%BA%86config%E7%9B%AE%E5%BD%95%E4%B8%AD%E7%9A%84routers.rb%E4%B8%AD%E3%80%82%E4%B8%8B%E9%9D%A2%E6%98%AF%E8%BF%99%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E9%83%A8%E5%88%86%E4%BB%A3%E7%A0%81%E3%80%82</a></p>
+
+<p>ActionController::Routing::Routes.drawdo|map|<br/>
+map.connect &#8216;:controller/service.wsdl&#8217;, :action => &#8216;wsdl&#8217;<br/>
+map.connect &#8216;:controller/:action/:id&#8217;<br/>
+end</p>
+
+<p>　　动作控制器通过它的映射组件将来自外部请求的URL和内部的应用程序连接了起来。上述代码的第3行就是完成这个功能的。在这行语句中，map.connect的连接字符串是&#8221;:controller/:action/:id&#8221;。请求的URL只有匹配这个字符串才能被接受。对于一个URL请求来说，它可以被RoR分成三部分：</p>
+
+<p>　　a. 第一部分是模式字符串中的:controller部分。</p>
+
+<p>　　b. 第二部分是模式字符串中的:action部分。</p>
+
+<p>　　c. 第三部分是模式字符串中的:id部分。</p>
+
+<p>　　根据上面所描述的三部分，URL：<a href="http://localhost:3000/demo/admin/show/1/%E5%B0%86%E8%A2%AB%E6%98%A0%E5%B0%84%E6%88%90%E4%BB%A5%E4%B8%8B%E4%B8%89%E9%83%A8%E5%88%86%EF%BC%9A">http://localhost:3000/demo/admin/show/1/%E5%B0%86%E8%A2%AB%E6%98%A0%E5%B0%84%E6%88%90%E4%BB%A5%E4%B8%8B%E4%B8%89%E9%83%A8%E5%88%86%EF%BC%9A</a></p>
+
+<p>:controller ： &#8216;admin&#8217;,<br/>
+:action ：&#8217;show&#8217;,<br/>
+:id ：1</p>
+
+<p>　　根据以上的三部分，RoR将调用admin控制器的show方法，并将参数1传到show方法中。因此，我们可以看出，RoR在其中做了很多本应该由我们做的事件。因此，RoR是一项十分强大技术。<br/>
+2. 会话跟踪</p>
+
+<p>　　跨应用跟踪用户是大多数Web应用程序都需要的功能。在RoR中，我们可使用由RoR框架提供cookies或session管理来跟踪用户。但在RoR中的cookies和session管理和其它框架所提供的类似的管理不同的，RoR的cookies和session管理无需显式地调用相应的cookies和session对象就可以做到这一切。下面让我们来看看它的实现代码：</p>
+
+<p>class CookiesController &lt; ApplicationController<br/>
+def create_cookie<br/>
+cookies[:the_time] = Time.now.to_s<br/>
+redirect_to :action =>&#8220;action_two&#8221;<br/>
+end</p>
+
+<p>def get_cookie<br/>
+cookie_value = cookies[:the_time]<br/>
+render(:text =>&#8221; #{cookie_value}&#8221;)<br/>
+end<br/>
+end</p>
+
+<p>　　在以上代码中，在控制器中有两个动作方法，一个是设置cookie的，另一个是读取和显示cookie值的。在这里cookies[]是一个cookies对象数组，我们不需要声明它，只需要将它看成一个普通数组即可。</p>
+
+<p>　　接下来使用redirect_to方法通过参数:action将请新进行重定向。在get_cookie动作中，cookies的值被取出来，然后使用render()方法显示这些值。</p>
+
+<p>　　上面讨论cookie的使用方法。但如果有一种方法可以透明使用cookie，那不是更好吗？这个技术就是session。就象cookie一样，session数组也无需声明。它的用法类似于cookie对象。下面的代码描述了session的使用。</p>
+
+<p>class SessionController &lt; ApplicationController<br/>
+def login<br/>
+user = User.find_by_name_and_password(params[:user], params[:password])<br/>
+if user<br/>
+session[:user_id] = user.id<br/>
+redirect_to :action =>&#8220;index&#8221;<br/>
+else<br/>
+reset_session<br/>
+flash[:note] =&#8221;有户名或密码不正确!&#8221;<br/>
+end<br/>
+end</p>
+
+<p>　　上面代码对user_id和password进行核对。如果用户存在，将这个用户的user-id保存在session中。其中session[:user_id] = user.id的形式和保存cookie的形式完全一样。接下来重定向到index页上。如果用户不存在，使用reset_session将session设为无效，并通过RoR返回简单的提示信息。</p>
+
+<p>　　3. 过滤和验证</p>
+
+<p>　　在一此情况下，在请求被处理之前，要进行一系列处理。这个过程就叫做过滤。过滤器所包含代码需要在许多动作执行前或执行后被调用。因此，过滤器分为两种，before过滤器和after过滤器。Before过滤器的代码在请求被处理前被执行，而after过滤器恰恰相反，是在请求被处理之后执行过滤代码。例如，验证用户身份代码必须要在调用一个动作之前被调用，代码如下示：</p>
+
+<p>def authorize<br/>
+unless session[:user_id]<br/>
+flash[:notice] =&#8221;请登录&#8221;<br/>
+redirect_to(:controller =>&#8221;login&#8221;, :action =>&#8221;login&#8221;)<br/>
+end<br/>
+end</p>
+
+<p>class AdminController &lt; ApplicationController<br/>
+before_filter :authorize<br/>
+… …</p>
+
+<p>　　以上代码在AdminController中的任何动作被执行之前调用，而在控制器中要想调用authorize函数，必须在其中加上before_filter。after_filter的使用方法和before_filter类似。</p>
+
+<p>　　过滤器虽然可以执行验证代码，但有时对请求需要更进一步的验证，如此一来，过滤器就显得捉襟见肘了。为了完成这些功能，我们就需要使用更为强大的验证机制。在控制器中，可以通过verify实现更强大的验证功能。如下面的代码验证了用户提交方式。即用户只能用post进行提交。</p>
+
+<p>class BlogController &lt; ApplicationController<br/>
+verify :only => :post_comment,<br/>
+:session => :user_id,<br/>
+:add_flash => { :note =>&#8221;You must log in to comment&#8221;},<br/>
+:redirect_to => :index</p>
+
+<p>… …</p>
+
+<p>　　4. 缓冲</p>
+
+<p>　　从以上代码可看出，服务器总是一遍一遍调用同样的动作，如果调用这些动作很费时间的话，将会严重影响服务器的性能。因此，RoR为了解决这一问题，为我们提供了缓冲的功能。如果某一个动作经常被调用，将这个动作进行缓冲将是一个好主意。</p>
+
+<p>　　在RoR中，可以通过caches_page来实现缓冲功能。缓冲可分为不同的层次，如对整个网页进行缓冲，对动作缓冲，或是同时对网页和动作进行缓冲。如在一个blog管理应用程序，将大家经常访问的内容进行缓冲的代码如下：</p>
+
+<p>class ContentController &lt; ApplicationController<br/>
+before_filter :verify_premium_user, :except => :public_content<br/>
+caches_page :public_content</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/106">Ruby on Rails：控制器纵览</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/107">Ruby on Rails项目文件目录结构和环境设置</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/107#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/107">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Ruby on Rails<span style="font-family:STHeiti;">项目文件目录结构</span><br/>
+README <span style="font-family:STHeiti;">说明文档</span><br/>
+Rakefile 生成脚本<br/>
+app/ 存放<span style="font-family:STHeiti;">项目的</span>Model, View和Controller等文件<br/>
+components/ 存放可重复使用的<span style="font-family:STHeiti;">组件</span>, <span style="font-family:STHeiti;">现在已经不大使用</span><br/>
+config/ 配置文档及数据<span style="font-family:STHeiti;">库连接配置文档</span><br/>
+db/ 存放数据<span style="font-family:STHeiti;">库</span>schema和migration信息<br/>
+doc/ 存放自<span style="font-family:STHeiti;">动生成的文档</span><br/>
+lib/ 存放在Model, View和Controller<span style="font-family:STHeiti;">间共享的代码</span><br/>
+<span style="font-family:STHeiti;">为方便整理</span>,不同功能的代<span style="font-family:STHeiti;">码可放到其不同的子目录下</span>.</p>
+
+<p><span style="font-family:STHeiti;">调用</span>sub_dir下的my_lib_code.rb代<span style="font-family:STHeiti;">码的方法为</span>: require &#8220;sub_dir/my_lib_code&#8221;<br/>
+log/ 存放程序生成的日志文件<br/>
+里面有三个最主要的log<span style="font-family:STHeiti;">为</span>:development.log, test.log和production.log,分别<span style="font-family:STHeiti;">对应不同的运行环境</span>.<br/>
+public/ 存放<span style="font-family:STHeiti;">对网络公开的文件</span><br/>
+script/ 存放脚本工具<br/>
+不<span style="font-family:STHeiti;">带参数直接运行大多数的脚本工具可以显示出相应的使用帮助信息</span>.<br/>
+常<span style="font-family:STHeiti;">见的</span>script:<br/>
+about<br/>
+breakpointer<br/>
+destroy&lt;=>generate<br/>
+server<br/>
+script/performance/benchmarker<br/>
+test/ <span style="font-family:STHeiti;">测试工具</span><br/>
+tmp/ 存放<span style="font-family:STHeiti;">临时文件</span>, 如<span style="font-family:STHeiti;">缓存</span>, session, socket&#8230;<br/>
+vendor/ 存放外来代<span style="font-family:STHeiti;">码</span>, 如外来插件, 也可用来放rails<span style="font-family:STHeiti;">构架本身</span>, 以使rails兼容不同版本需求的程序.</p>
+
+<p><span style="font-family:STHeiti;">运行环境</span><br/>
+使用-e XXXX切<span style="font-family:STHeiti;">换运行环境</span>:<br/>
+ruby script/server -e production #默<span style="font-family:STHeiti;">认为</span>development</p>
+
+<p>配置数据<span style="font-family:STHeiti;">库参数</span><br/>
+修改config/database.yml文件</p>
+
+<p>配置<span style="font-family:STHeiti;">环境</span><br/>
+修改config/environment.rb文件.</p>
+
+<p>命名<span style="font-family:STHeiti;">规范</span><br/>
+所有<span style="font-family:STHeiti;">变量以小写字母单词命名</span>,<span style="font-family:STHeiti;">单词间用下划线</span>&#8220;_&#8221;分隔. 如order_status<br/>
+所有class和module以大写开<span style="font-family:STHeiti;">头的单词命名</span>,<span style="font-family:STHeiti;">单词间直接连接</span>,如: LineItem</p>
+
+<p>数据<span style="font-family:STHeiti;">库中所有表格命名形式同变量名</span>,且全<span style="font-family:STHeiti;">为复数形式</span>,如:orders<br/>
+所有文件名命名形式也同<span style="font-family:STHeiti;">变量名</span></p>
+
+<p>Rails可推<span style="font-family:STHeiti;">论相关文件名</span>, 所以在框架内可以<span style="font-family:STHeiti;">节省很多</span>require &#8220;xxx&#8221;. Rails会自<span style="font-family:STHeiti;">动加入相关的调用</span>.<br/>
+Rails关于文件名的思<span style="font-family:STHeiti;">维逻辑实例</span>:<br/>
+如果一个class名<span style="font-family:STHeiti;">为</span>:LineItem<br/>
+ralis将推出:<br/>
+1.此class<span style="font-family:STHeiti;">对应的数据库表格名为</span>line_items.<br/>
+2.此class<span style="font-family:STHeiti;">对应的文件名为</span>line_item.rb<br/>
+&#8230;.</p>
+
+<p><span style="font-family:STHeiti;">创建</span>model下的controller<br/>
+ruby script/generate controller Admin::Book action1 action2 &#8230;</p>
+
+<p>使用debug() helper method</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/107">Ruby on Rails项目文件目录结构和环境设置</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/68">Ruby 中的self</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/68#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/68">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>在方法声明里面，表示当前类</p>
+
+<p>在实例方法体里面，表示当前实例</p>
+
+<p>在类方法体里面，表示当前类</p>
+
+<p>在用 method.call method.send 之类的调用方式的话，情况还要复杂一点</p>
+
+<p>Java 和 JavaScript 里面的 this 指针更加富啊</p>
+
+<p>更加复杂</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/68">ruby 中的self</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/55">ROR一些技巧 ROR一些技巧</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/55#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/55">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>1．更改默认首页</p>
+
+<p>Rails要求URL需要以 <a href="http://localhost:3000/controller_name/action_name">http://localhost:3000/controller_name/action_name</a> 的形式，由此我们似乎无法存放我们的主页，其实我们要做的只是修改 routes.rb(config/routes.rb)</p>
+
+<p>1.route：</p>
+
+<p>routes.rb文件中，写入类似语句 map.connect &#8216;:controller/:action/:id&#8217; ，进行routing，习惯上称其为 route</p>
+
+<p>2.优先级：先创建的 route 有高的优先级</p>
+
+<p>3.修改<a href="http://localhost:3000/">http://localhost:3000/</a> 指向的controller</p>
+
+<p>1）先删除public下面的index.rhtml</p>
+
+<p>2）添加一个route：</p>
+
+<p>map.connect &#8221;, :controller => &#8220;controller_name&#8221;</p>
+
+<p>2．简单的块和迭代器</p>
+
+<p>Easier collections with to_proc &#8211; Sick of writing things like post.collect { |p| p.title } or post.select { |p| p.activated? }.collect{ |p| p.title} ? A little Ruby hackery that allows you to convert symbols into proc references makes it easy. You can write post.collect(&amp;:title) or post.select(&amp;:activated?).collect(&amp;:title) instead! Learn a lot more about this.</p>
+
+<p>糟糕的写法就象post.collect { |p| p.title } 或 post.select { |p| p.activated? }.collect{ |p| p.title}</p>
+
+<p>Ruby允许使用符号来简化操作。你能用post.collect(&amp;:title) 或post.select(&amp;:activated?).collect(&amp;:title)来代替。</p>
+
+<p>当想把字符串从小写转变成大写的时候一般会这么做：</p>
+
+<p>result = names.map {|name| name.upcase}使用符号可以改写成：</p>
+
+<p>result = names.map(&amp;:upcase)</p>
+
+<p>3．使用to_sentence方法转变数组</p>
+
+<p>Convert arrays to sentences in views &#8211; If you were collecting a bunch of names to be shown in a view, you might end up with an array like [&lsquo;Peter&rsquo;, &lsquo;Fred&rsquo;, &lsquo;Chris&rsquo;], and joining these with commas and inserting &#8216;and&#8217; before the final one is a common pain. Not so, if you use the array method to_sentence as provided in Rails. names.to_sentence would return Peter, Fred, and Chris.</p>
+
+<p>当你正在处理一个串名字的时候，你可能会用数组来解决问题，你或许会用逗号间隔它们，并在最后一个元素前加上’和’，如果你使用to_sentence方法就能大大简化这一操作。</p>
+
+<p>Temp = %w{张三 李四 和 王五}</p>
+
+<p>一般用用这样的方式来输出张三，李四和王五，可以使用to_sentence方法来简化这一操作</p>
+
+<p>Temp = %w{张三 李四 王五}</p>
+
+<p>Puts temp. to_sentence</p>
+
+<p>使用to_param可以输出张三/李四/王五</p>
+
+<p>4．判断数据是否存在</p>
+
+<p>Check for existence &#8211; When doing a Model.find(id), an exception can be returned if the item with an id of &#8216;id&#8217; doesn&#8217;t exist. If you want to avoid this, use Model.exists?(id) first to get a true or false for whether that item exists or not.</p>
+
+<p>用模型.find(id)来查询数据库中的数据，怎样避免查询出它不存在呢？可以使用Model.exists?(id) 如：Person.exists?(5)</p>
+
+<p>5．使用Number helper来格式化数据</p>
+
+<p>Number helpers for common number tasks &#8211; All of these number helpers aren&#8217;t commonly used but provide great shortcuts: number_to_currency(1234567.948) # => $1,234,567.95 or human_size(1234567890) # => 1.1GB or number_with_delimiter(999999999) # => 999,999,999.</p>
+
+<p>There are others.</p>
+
+<p>方法列表如下：</p>
+
+<p>human_size<br/>
+number_to_currency<br/>
+number_to_human_size<br/>
+number_to_percentage<br/>
+number_to_phone<br/>
+number_with_delimiter<br/>
+number_with_precision<br/>
+效果分别如下：</p>
+
+<p>human_size(1234567890) => 1.1 GB<br/>
+number_to_currency(1234567890) => $1,234,567,890.00<br/>
+number_to_human_size(1234567890) => 1.1 GB<br/>
+number_to_percentage(1234567890) => 1234567890.000%<br/>
+number_to_phone(1234567890) => 123-456-7890<br/>
+number_with_delimiter(1234567890) => 1,234,567,890<br/>
+number_with_precision(1234567890) => 1234567890.000</p>
+
+<p>使用时需用到ruby安装目录下的该helpers</p>
+
+<p>%ruby%librubygems1.8gemsactionpack-1.12.5</p>
+
+<p>libaction_viewhelpersnumber_helper.rb</p>
+
+<p>6．取得request的一些有用信息</p>
+
+<p>Get lots of info about requests &#8211; Checking request.post? and request.xhr? are popular ways to look for POST and AJAX requests, but some of the other request methods are lesser used. For example: request.subdomains can return an array of subdomains that you could use as part of your authentication scheme, request.request_uri returns the full local request URL, request.host returns the full hostname, request.method returns the HTTP method as a lowercase symbol, and request.ssl? returns true if it&#8217;s an HTTPS / SSL request.</p>
+
+<p>Request的一些方法展示：</p>
+
+<p>accepts<br/>
+content_type<br/>
+delete?<br/>
+domain<br/>
+formatted_post?<br/>
+get?<br/>
+head?<br/>
+host<br/>
+host_with_port<br/>
+method<br/>
+parameters<br/>
+path<br/>
+path_parameters<br/>
+port<br/>
+port_string<br/>
+post?<br/>
+post_format<br/>
+protocol<br/>
+put?<br/>
+raw_post<br/>
+relative_url_root<br/>
+remote_ip<br/>
+request_uri<br/>
+server_software<br/>
+ssl?<br/>
+standard_port<br/>
+subdomains<br/>
+symbolized_path_parameters<br/>
+xhr?<br/>
+xml_http_request?<br/>
+xml_post?<br/>
+yaml_post?<br/>
+参考Class<br/>
+ActionController::AbstractRequest</p>
+
+<p>7．计算平均，最大，最小的方法。</p>
+
+<p>average<br/>
+calculate<br/>
+count<br/>
+maximum<br/>
+minimum<br/>
+sum<br/>
+参考ActiveRecord::Calculations::ClassMethods</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/55">ROR一些技巧 ROR一些技巧</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/56">Rails Date Kit</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/56#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/56">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>文章引用：<a href="http://www.methods.co.nz/rails_date_kit/rails_date_kit.html#toc1">http://www.methods.co.nz/rails_date_kit/rails_date_kit.html#toc1</a></p>
+
+<p>Download</p>
+
+<p><a href="http://www.methods.co.nz/rails_date_kit/rails_date_kit_1.1.0.tar.gz">http://www.methods.co.nz/rails_date_kit/rails_date_kit_1.1.0.tar.gz</a></p>
+
+<p>step by step:<br/>
+1.Setting application wide date display format</p>
+
+<p>ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS.merge!(<br/>
+:default => &#8216;%d %b %Y&#8217;<br/>
+)</p>
+
+<p>2.Inputting dates with the date_field helper and calendar control</p>
+
+<p>#</p>
+
+<p>Put calendar.js in ./public/javascripts.<br/>
+#</p>
+
+<p>Put calendar.css in ./public/stylesheets.<br/>
+#</p>
+
+<p>Put calendar_prev.png and calendar_next.png in ./public/images.<br/>
+#</p>
+
+<p>Put date_helper.rb in ./app/helpers.<br/>
+#</p>
+
+<p>In controllers that input dates (or in the application base controller ./app/controllers/application.rb) put:</p>
+
+<p>helper :date</p>
+
+<p>#</p>
+
+<p>Put the following lines in your page headers:</p>
+
+<p>&lt;%= stylesheet_link_tag &lsquo;calendar&rsquo; %></p>
+
+<p>&lt;%= javascript_include_tag &lsquo;calendar&rsquo; %><br/>
+#</p>
+
+<p>In templates with forms that input dates use the date_field helper. For example:</p>
+
+<p>&lt;%= date_field(&lsquo;person&rsquo;, &lsquo;birthday&rsquo;, :value => @person.birthday) %></p>
+
+<p>Note<br/>
+The date value is passed explicitly to ensure it&#8217;s formatted with the :default date format (see explanation in previous section).</p>
+
+<p>3.Date Validation</p>
+
+<p>Drop date_validator.rb into ./lib.</p>
+
+<p>Require the validator in your models and add date validations. For example:</p>
+
+<p>require_dependency &#8216;date_validator&#8217;</p>
+
+<p>validates_dates :birthday,<br/>
+:from => &#8217;1 Jan 1930&#8242;,<br/>
+:to => Date.today,<br/>
+:allow_nil => true</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/56">Rails Date Kit</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/118">Rails 结构</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/118#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/118">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.weixuhong.com/content/uploads/2008/04/rails2.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/04/rails2.png','popup','width=698,height=527,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/04/rails2-tm.jpg" height="100" width="132" border="1" hspace="4" vspace="4" alt="rails2" title="rails2" /></a></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/118">Rails 结构</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/108">Rails 常用命令大全</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/108#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/108">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>1.1 <span style="font-family:STHeiti;">创建一个</span>Rails<span style="font-family:STHeiti;">应用程序</span><br/>
+$ rails app_name<br/>
+可<span style="font-family:STHeiti;">选项</span>:<br/>
+-d, database=xxx 指定安装一个数据<span style="font-family:STHeiti;">库</span>(mysql oracle postgresql sqlite2 sqlite3 ), 默<span style="font-family:STHeiti;">认情况下是数据库</span><br/>
+-r, ruby-path= 指定Ruby的安装路径,如果没有指定，scripts使用env去找Ruby<br/>
+-f, freeze (<span style="font-family:STHeiti;">冻结</span>)freezes Rails在vendor/rails目<span style="font-family:STHeiti;">录</span></p>
+
+<p>1.2 API Documentation<br/>
+$ gem_server<br/>
+<span style="font-family:STHeiti;">启动一个</span>WEBrick服<span style="font-family:STHeiti;">务器。这时候你可以通过</span><a href="Http://localhost:8808/">Http://localhost:8808/</a> 打开<span style="font-family:STHeiti;">浏览器去查看</span>rails API文档</p>
+
+<p>1.3 Rake<br/>
+rake db:fixtures:load<br/>
+# <span style="font-family:STHeiti;">载入</span>fixtures到当前<span style="font-family:STHeiti;">环境的数据库</span><br/>
+# <span style="font-family:STHeiti;">载入指定的</span>fixtures使用FIXTURES=x,y<br/>
+rake db:migrate<br/>
+# 迁移数据<span style="font-family:STHeiti;">库通过在</span>db/migrate目<span style="font-family:STHeiti;">录下的脚本</span>.可以指定版本号通<span style="font-family:STHeiti;">过</span>VERSION=x<br/>
+rake db:schema:dump<br/>
+# <span style="font-family:STHeiti;">创建一个</span>db/schema.rb文件，通<span style="font-family:STHeiti;">过</span>AR能<span style="font-family:STHeiti;">过够支持任何数据库去使用</span><br/>
+rake db:schema:load<br/>
+# 再入一个schema.rb文件<span style="font-family:STHeiti;">进数据库</span><br/>
+rake db:sessions:clear<br/>
+# 清空sessions表<br/>
+rake db:sessions:create<br/>
+# 用CGI::Session::ActiveRecordStore<span style="font-family:STHeiti;">创建一个</span>sessions表<span style="font-family:STHeiti;">为用户</span><br/>
+rake db:structure:dump<br/>
+# <span style="font-family:STHeiti;">导出数据库结构为一个</span>SQL文件<br/>
+rake db:test:clone<br/>
+# 重新<span style="font-family:STHeiti;">创建一个测试数据库从当前环境数据库中</span><br/>
+rake db:test:clone_structure<br/>
+# 重新<span style="font-family:STHeiti;">创建测试数据库从开发模式数据库</span><br/>
+rake db:test:prepare<br/>
+# 准<span style="font-family:STHeiti;">备测试数据库并在入</span>schema<br/>
+rake db:test:purge<br/>
+# 清空<span style="font-family:STHeiti;">测试数据库</span><br/>
+rake doc:app<br/>
+# <span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br/>
+rake doc:clobber_app<br/>
+# <span style="font-family:STHeiti;">删除</span>Documentation<br/>
+rake doc:clobber_plugins<br/>
+# <span style="font-family:STHeiti;">删除</span> plugin Documentation<br/>
+rake doc:clobber_rails<br/>
+# <span style="font-family:STHeiti;">删除</span>Documentation<br/>
+rake doc:plugins<br/>
+# <span style="font-family:STHeiti;">产生</span>Documation<span style="font-family:STHeiti;">为所有安装的</span>plugins<br/>
+rake doc:rails<br/>
+# <span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br/>
+rake doc:reapp<br/>
+# 强制重新<span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br/>
+rake doc:rerails<br/>
+# 强制重新<span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br/>
+rake log:clear<br/>
+# 清空目<span style="font-family:STHeiti;">录</span>log/下的所有日志文件<br/>
+rake rails:freeze:edge<br/>
+# Lock this application to latest Edge Rails. Lock a specific revision with REVISION=X<br/>
+rake rails:freeze:gems<br/>
+# Lock this application to the current gems (by unpacking them into vendor/rails)<br/>
+rake rails:unfreeze<br/>
+# Unlock this application from freeze of gems or edge and return to a fluid use of system gems<br/>
+rake rails:update<br/>
+# Update both scripts and public/javascripts from Rails<br/>
+rake rails:update:javascripts<br/>
+# Update your javascripts from your current rails install<br/>
+rake rails:update:scripts<br/>
+# Add new scripts to the application script/ directory<br/>
+rake stats<br/>
+# Report code statistics (KLOCs, etc) from the application<br/>
+rake test<br/>
+# Test all units and functionals<br/>
+rake test:functionals<br/>
+# Run tests for functionalsdb:test:prepare<br/>
+rake test:integration<br/>
+# Run tests for integrationdb:test:prepare<br/>
+rake test:plugins<br/>
+# Run tests for pluginsenvironment<br/>
+rake test:recent<br/>
+# Run tests for recentdb:test:prepare<br/>
+rake test:uncommitted<br/>
+# Run tests for uncommitteddb:test:prepare<br/>
+rake test:units<br/>
+# Run tests for unitsdb:test:prepare<br/>
+rake tmp:cache:clear<br/>
+# 清空tmp/cache目<span style="font-family:STHeiti;">录下的所有文件</span><br/>
+rake tmp:clear<br/>
+# 清空session, cache, 和socket文件从tmp/目<span style="font-family:STHeiti;">录</span><br/>
+rake tmp:create<br/>
+# <span style="font-family:STHeiti;">为</span>sessions, cache, and sockets<span style="font-family:STHeiti;">创建</span>tmp/目<span style="font-family:STHeiti;">录</span><br/>
+rake tmp:sessions:clear<br/>
+# 清空所有在tmp/sessions目<span style="font-family:STHeiti;">录下的文件</span><br/>
+rake tmp:sockets:clear<br/>
+# 清空所有在tmp/sessions 目<span style="font-family:STHeiti;">录下的</span>ruby_sess.* 文件</p>
+
+<p>1.4 Scripts<br/>
+script/about<br/>
+# <span style="font-family:STHeiti;">输出当前环境信息</span><br/>
+script/breakpointer<br/>
+# <span style="font-family:STHeiti;">启动断点</span>server<br/>
+script/console<br/>
+# <span style="font-family:STHeiti;">启动交换式的</span>Rails控制台<br/>
+script/destroy<br/>
+# <span style="font-family:STHeiti;">删除通过</span>generators<span style="font-family:STHeiti;">创建的文件</span><br/>
+script/generate<br/>
+# -> generators<br/>
+script/plugin<br/>
+# -> Plugins<br/>
+script/runner<br/>
+# <span style="font-family:STHeiti;">执行一个任务在</span>rails上下文中<br/>
+script/server<br/>
+# <span style="font-family:STHeiti;">启动开发模式服务器</span><a href="http://localhost:3000  ">http://localhost:3000  </a>
+//以下几个不知道怎么去使用<br/>
+script/performance/profiler<br/>
+script/performance/benchmarker<br/>
+script/process/reaper<br/>
+script/process/spawner</p>
+
+<p>1.5 Generators<br/>
+ruby script/generate model ModelName<br/>
+ruby script/generate controller ListController show edit<br/>
+ruby script/generate scaffold ModelName ControllerName<br/>
+ruby script/generate migration AddNewTable<br/>
+ruby script/generate plugin PluginName<br/>
+ruby script/generate mailer Notification lost_password signup<br/>
+ruby script/generate web_service ServiceName api_one api_two<br/>
+ruby script/generate integration_test TestName<br/>
+ruby script/generate session_migration<br/>
+可<span style="font-family:STHeiti;">选项</span>:<br/>
+-p, &#8211;pretend Run but do not make any changes.<br/>
+-f, &#8211;force Overwrite files that already exist.<br/>
+-s, &#8211;skip Skip files that already exist.<br/>
+-q, &#8211;quiet Suppress normal output.<br/>
+-t, &#8211;backtrace Debugging: show backtrace on errors.<br/>
+-h, &#8211;help Show this help message.<br/>
+-c, &#8211;svn Modify files with subversion. (Note: svn must be in path)</p>
+
+<p>1.6 Plugins<br/>
+script/plugin discover<br/>
+# discover plugin repositories<br/>
+script/plugin list<br/>
+# list all available plugins<br/>
+script/plugin install where<br/>
+# install the a€wherea€? plugin<br/>
+script/plugin install -x where<br/>
+# install where plugin as SVN external<br/>
+script/plugin install <a href="http://invisible.ch/projects/plugins/where  ">http://invisible.ch/projects/plugins/where  </a>
+script/plugin update<br/>
+# update installed plugins<br/>
+script/plugin source<br/>
+# add a source repository<br/>
+script/plugin unsource<br/>
+# removes a source repository<br/>
+script/plugin sources<br/>
+# lists source repositories</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/108">rails 常用命令大全</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/16">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/14">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
+</section><section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/angularjs/'>angularjs (2)</a></li>
+<li class='category'><a href='/blog/categories/directive/'>directive (1)</a></li>
+<li class='category'><a href='/blog/categories/ide/'>ide (1)</a></li>
+<li class='category'><a href='/blog/categories/ios/'>ios (6)</a></li>
+<li class='category'><a href='/blog/categories/javascript/'>javascript (8)</a></li>
+<li class='category'><a href='/blog/categories/linux-unix/'>linux/unix (24)</a></li>
+<li class='category'><a href='/blog/categories/php/'>php (28)</a></li>
+<li class='category'><a href='/blog/categories/regular-expressions/'>regular expressions (2)</a></li>
+<li class='category'><a href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails (36)</a></li>
+<li class='category'><a href='/blog/categories/rubymine/'>rubymine (1)</a></li>
+<li class='category'><a href='/blog/categories/xhtml-css/'>xhtml/css (9)</a></li>
+<li class='category'><a href='/blog/categories/工作计划/'>工作计划 (3)</a></li>
+<li class='category'><a href='/blog/categories/心情随写/'>心情随写 (67)</a></li>
+<li class='category'><a href='/blog/categories/技术感想/'>技术感想 (47)</a></li>
+<li class='category'><a href='/blog/categories/未分类/'>未分类 (1)</a></li>
+<li class='category'><a href='/blog/categories/杂谈/'>杂谈 (5)</a></li>
+<li class='category'><a href='/blog/categories/生活点滴/'>生活点滴 (4)</a></li>
+<li class='category'><a href='/blog/categories/软件试用/'>软件试用 (4)</a></li>
+
+  </ul>
+</section><section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/595">Rubymine 不能输入中文？</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'gxbsst',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Weston Wei(韦旭红) -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'Weixuhong';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

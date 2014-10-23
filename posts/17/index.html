@@ -1,0 +1,831 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>韦旭红的幸福时光</title>
+  <meta name="author" content="Weston Wei(韦旭红)">
+
+  
+  <meta name="description" content="我知道在ruby可以通过Object.methods 知道对象都有什么方法（methods）但是在javascript怎么知道DOM元素所带的方法呢？
+今天我看了PeepCode 教程008 Phototype的有这个介绍
+如果我想知道元素h1有什么方法可以有以下步骤：
+1.var h1 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.weixuhong.com/posts/17">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="韦旭红的幸福时光" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script> 
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">韦旭红的幸福时光</a></h1>
+  
+    <h2>20，30，40&#8230;</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.weixuhong.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/photos">Photos</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/72">查看DOM元素的方法</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/72#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/72">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>我知道在ruby可以通过Object.methods 知道对象都有什么方法（methods）但是在javascript怎么知道DOM元素所带的方法呢？<br/>
+今天我看了PeepCode 教程008 Phototype的有这个介绍<br/>
+如果我想知道元素h1有什么方法可以有以下步骤：<br/>
+1.var h1 = $$(&#8216;h1&#8242;).first();<br/>
+2.Object.keys(h1)或者Object.keys(window)在或者Object.keys(Event).sort()<br/>
+3.Object.keys(h1).sort() //则可以按字母的顺序查看方法<br/>
+就可以在firebug的console显示出来<br/>
+或者Element.addMethods({</p>
+
+<p>methods: function(element) {<br/>
+return Object.keys(element).select(function(methodName) {<br/>
+return typeof element[methodName] == &#8216;function&#8217;;<br/>
+}).sort();<br/>
+}</p>
+
+<p>});</p>
+
+<p>然后调用 $(document.body).methods()就可以了<br/>
+$(document.body).methods().length()知道方法的个数<br/>
+注意：这是在prototype中调试的</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/72">查看DOM元素的方法</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/58">杭州之行</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/58#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/58">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>前一段时间去了一趟杭州.记得那天下雨,感觉很好,真的很好,先把图片附上,有空时会把这文章更新&#8230;</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/58">杭州之行</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/70">收拾心情</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/70#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/70">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>星期日, 六月 24. 2007<br/>
+从2005年12月11日到上海，已经有1年半的时间了，时间过得真是快&#8230;</p>
+
+<p>在这里这么久，不可能不想家，也不可能不想家里到朋友们，但是想到即使回去了，朋友也未必空，可能最大到收获就是陪父母一段时间了，还有就是能让自己放松心情吧，也许家是最好到归宿。</p>
+
+<p>这段时间工作量不是很大，欧文也给时间学习新的技术，真的感谢他：），但是我总是有点茫然的感觉，为什么会这样呢？<br/>
+其实做一个优秀的程序不一定没有前途，但是我就是有点不安分，也许营销现在是我感兴趣的事情，也可能是经营一家小公司，这样我可能更有成就感，也许是这种不安分的心理，才会让我现在过多很累，这可能就是别人说的人总是会变的，经营自己的公司，这就是我现在的生活动力，所以我一直在等机会，虽然我我知道这很难等&#8230;.</p>
+
+<p>愿望是好的，生活是现实的，所以我必须把现在的工作做好，才可以让我活得更有意义，更充实！明天我可能会做个项目，所以我必须其中精神去完成工作，开开心心的生活。</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/70">收拾心情</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/71">在 Ubuntu 中启用 Mod_rewrite 模块</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/71#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/71">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>需要用到 Apache 的 Mod_rewrite 模块。在 Ubuntu 中可以使用下面的方法来开启它。</p>
+
+<p>启用 Mod_rewrite 模块</p>
+
+<p>在终端中执行 sudo a2enmod rewrite 指令后，即启用了 Mod_rewrite 模块。</p>
+
+<p>另外，也可以通过将 /etc/apache2/mods-available/rewrite.load 连接到 /etc/apache2/mods-enabled/rewrite.load 来打开 Mod_rewrite 模块。用指令操作就是：<br/>
+sudo ln -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/rewrite.load</p>
+
+<p>一点小提示</p>
+
+<p>事实上，当我在 Ubuntu 中采用上述做法并重启了 Apache 服务后，仍然无法正常 rewrite 网址。这里，还有一点需要注意的地方：<br/>
+sudo vim /etc/apache2/sites-enabled/000-default</p>
+
+<p>将其中的：<br/>
+AllowOverride None</p>
+
+<p>修改为：<br/>
+AllowOverride All</p>
+
+<p>上面的 /etc/apache2/sites-enabled/000-default 实则为 /etc/apache2/sites-available/default 的连接。而 AllowwOverride None 则会完全忽略 .htaccess 文件，自然其中所定义的 rewrite 规则也就不能生效了。</p>
+
+<p>最后，别忘了使用下列指令来重启 Apache:<br/>
+sudo /etc/init.d/apache2 restart</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/71">在 Ubuntu 中启用 Mod_rewrite 模块</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/121">区别Ruby的require,load,和include</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/121#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/121">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>相同之处：三者均在kernel中定义的，均含有包含进某物之意。</p>
+
+<p>不同之处：</p>
+
+<p>1、requre,load用于文件，如.rb等等结尾的文件。</p>
+
+<p>2、include则用于包含一个文件(.rb等结尾的文件)中的模块。</p>
+
+<p>3、requre一般情况下用于加载库文件，而load则用于加载配置文件。</p>
+
+<p>4、requre加载一次，load可加载多次。</p>
+
+<p>怎么样，简单吧！再看个例子。</p>
+
+<p>如果说abc.rb中包含一个模块Ma，和几个类Ca,Cb等等。那么你若想在ef.rb文件中使用abc.rb中的资源，你得这样:</p>
+
+<p>require &#8216;abc.rb&#8217;</p>
+
+<p>若还想在ef.rb的某个类中使用abc.rb中的模块，则应在这个类中加入</p>
+
+<p>include Ma</p>
+
+<p>如果你只想在ef.rb文件的某个类中使用abc.rb的模块，你得这样：</p>
+
+<p>require &#8216;abc.rb&#8217;</p>
+
+<p>include Ma</p>
+
+<p>这两句就告诉了你它们区别。</p>
+
+<p>下面部分摘自于：<a href="http://anw.stikipad.com/ocean/show/require+load+and+include  ">http://anw.stikipad.com/ocean/show/require+load+and+include  </a>
+Ruby 中 “require”, “load” 和 “include” 有甚麼不同呢? “require” 和 “load” 用途是一致的, 用來載入新的程式庫, “include” 是用來 mix-in 模組.</p>
+
+<p>“require” 可載入某個 a.rb 檔案, 且可以省略 ”.rb”. 而且它只會在第一次的時候載入, 若再次 “require” 時就會忽略</p>
+
+<p>require &#8216;a&#8217;</p>
+
+<p>a = A.new</p>
+
+<p>“load” 和 “require” 一樣但要用 a.rb 全名, 且每次一定會重新載入</p>
+
+<p>load &#8216;a.rb&#8217;</p>
+
+<p>a = A.new</p>
+
+<p>載入程式庫的順序呢(類似 java class path)? Ruby 把這個資訊存在 ”$:” 系統全域變數上, 你可以藉著 RUBYLIB 或 ruby -I 來加入新的載入目錄.</p>
+
+<p>puts $:</p>
+
+<p>“include” 用來 mix-in 某個模組, 可以減少書寫的長度</p>
+
+<p>require &#8216;webrick&#8217;<br/>
+include WEBrick</p>
+
+<p>//可以不用 server = WEBrick::HTTPServer.new(&#8230;)<br/>
+server = HTTPServer.new(&#8230;)</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/121">区别Ruby的require,load,和include</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/114">加强版irb</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/114#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/114">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>来源：<a href="http://cookoo.javaeye.com/blog/28781  ">http://cookoo.javaeye.com/blog/28781  </a>
+Ruby的irb和Unix shell一样，通过定制可以提供更多特性与方便。</p>
+
+<p>配置：<br/>
+1. 安装以下gem: wirble, map_by_method, what_methods<br/>
+2. 建立一个名叫_irbrc文件，内容如下：</p>
+
+<p>代码<br/>
+# Compiled by Cookoo<br/>
+# Reference:<br/>
+# <a href="http://drnicwilliams.com/2006/10/12/my-irbrc-for-consoleirb  ">http://drnicwilliams.com/2006/10/12/my-irbrc-for-consoleirb  </a>
+# <a href="http://pablotron.org/software/wirble/">http://pablotron.org/software/wirble/</a></p>
+
+<p>require &#8216;rubygems&#8217;<br/>
+require &#8216;map_by_method&#8217;<br/>
+require &#8216;what_methods&#8217;<br/>
+require &#8216;wirble&#8217;<br/>
+require &#8216;irb/completion&#8217;</p>
+
+<p>IRB.conf[:AUTO_INDENT]=true</p>
+
+<p>class Regexp<br/>
+def show(a)<br/>
+a =~ self ? &#8220;#{$`}&lt;&lt;#{$&amp;}>>#{$&#8217;}&#8221; : &#8220;no match&#8221;<br/>
+end<br/>
+end</p>
+
+<p>Wirble.init<br/>
+Wirble.colorize unless Config::CONFIG[&lsquo;host_os&rsquo;] == &#8216;mswin32&#8242;</p>
+
+<ol>
+<li>该文件放置位置随意，建议在linux下放到home下。然后在linux和win32下设置环境变量IRBRC，指向该文件的路径（包括文件名本身）。同时win32下还需设置一个HOME环境变量，建议指向c:Documents and Settingsyour_account<br/>
+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-</li>
+</ol>
+
+
+<p>搞好了吧？SHOW TIME!<br/>
+来体验一下多了哪些功能：</p>
+
+<p>（<em>代表只限linux平台提供）<br/>
+</em>1. 输出结果语法着色<br/>
+2. 自动换行缩进</p>
+
+<p>代码</p>
+
+<blockquote><blockquote><p>if i = 1<br/>
+puts i</p></blockquote></blockquote>
+
+<ol>
+<li>按两次tab, 自动补全(这个其实win32下本来就有）<br/>
+代码
+
+<blockquote><blockquote><p>[].e #tab tab<br/>
+[].each [].empty? [].equal?<br/>
+[].each_index [].entries [].extend<br/>
+[].each_with_index [].eql?</p></blockquote></blockquote></li>
+</ol>
+
+
+<p>*4. 直接使用ri &#8216;something&#8217;<br/>
+5. 直接使用pp<br/>
+6. 命令行提示符改成>>和输出=>对齐<br/>
+7. what? 猜api专用：<br/>
+代码</p>
+
+<blockquote><blockquote><p>3.14.what? 3 #什么方法返回3？<br/>
+3.14.to_int == 3<br/>
+3.14.floor == 3<br/>
+3.14.round == 3<br/>
+3.14.to_i == 3<br/>
+3.14.prec_i == 3<br/>
+3.14.truncate == 3<br/>
+=> [&ldquo;to_int&rdquo;, &ldquo;floor&rdquo;, &ldquo;round&rdquo;, &ldquo;to_i&rdquo;, &ldquo;prec_i&rdquo;, &ldquo;truncate&rdquo;]</p></blockquote></blockquote>
+
+<ol>
+<li>动态map:<br/>
+代码
+
+<blockquote><blockquote><p>[1,2,3].map{|x| x.succ} #常规方式<br/>
+=> [2, 3, 4]<br/>
+[1,2,3].map_succ #快捷方式<br/>
+=> [2, 3, 4]</p></blockquote></blockquote></li>
+</ol>
+
+
+<p>在Rails console里看查询结果很好用<br/>
+9. irb命令行历史记录：下次重开irb依然保留<br/>
+10. 对象研究快捷方式<br/>
+代码</p>
+
+<blockquote><blockquote><p>poc Math #展示常量<br/>
+=> [&ldquo;E&rdquo;, &ldquo;PI&rdquo;]<br/>
+po Math #展示非继承自Object的方法<br/>
+=> [&ldquo;acos&rdquo;, &ldquo;acosh&rdquo;, &ldquo;asin&rdquo;, &ldquo;asinh&rdquo;, &ldquo;atan&rdquo;, &ldquo;atan2&rdquo;, &ldquo;atanh&rdquo;, &ldquo;cos&rdquo;, &ldquo;cosh&rdquo;, &ldquo;<br/>
+erf&rdquo;, &ldquo;erfc&rdquo;, &ldquo;exp&rdquo;, &ldquo;frexp&rdquo;, &ldquo;hypot&rdquo;, &ldquo;ldexp&rdquo;, &ldquo;log&rdquo;, &ldquo;log10&rdquo;, &ldquo;sin&rdquo;, &ldquo;sinh&rdquo;, &ldquo;<br/>
+sqrt&rdquo;, &ldquo;tan&rdquo;, &ldquo;tanh&rdquo;]</p></blockquote></blockquote>
+
+<ol>
+<li>regexp研究快捷方式<br/>
+代码
+
+<blockquote><blockquote><p>/[a-z]+/.show &#8220;pi is 3.14&#8243;<br/>
+=> &#8220;&lt;> is 3.14&#8243;</p></blockquote></blockquote></li>
+</ol>
+
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/114">加强版irb</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/112">利用Munin监控服务器</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/112#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/112">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>官方网站：<a href="http://munin.projects.linpro.no/  ">http://munin.projects.linpro.no/  </a>
+演示：<a href="http://munin.ping.uio.no/  ">http://munin.ping.uio.no/  </a>
+<span style="font-family:STHeiti;">软件下载：</span><a href="http://sourceforge.net/project/showfiles.php?group_id=98117  ">http://sourceforge.net/project/showfiles.php?group_id=98117  </a>
+安装文档:<a href="http://munin.projects.linpro.no/wiki/LinuxInstallation">http://munin.projects.linpro.no/wiki/LinuxInstallation</a></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/112">利用Munin监控服务器</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/75">函数分析之merge</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/75#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/75">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>def create(option={}) Account.create({:name =>&#8221;test&#8221;,:budget => 44<br/>
+}.merge(options))<br/>
+end</p>
+
+<p>以下是merge的源代码</p>
+
+<p># File lib/set.rb, line 253<br/>
+def merge(enum)<br/>
+if enum.is_a?(Set)<br/>
+@hash.update(enum.instance_eval { @hash })<br/>
+else<br/>
+enum.is_a?(Enumerable) or raise ArgumentError, &#8220;value must be enumerable&#8221;<br/>
+enum.each { |o| add(o) }<br/>
+end</p>
+
+<p>self<br/>
+end</p>
+
+<p>我对这的理解：merge是用来更新一数组的，但是create({})相当创建了新的数组，merge正好更新新的数组</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/75">函数分析之merge</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/57">关于rails表单设计的心得——options_for_select</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/57#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/57">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><span style="font-family:STHeiti;">这段时间做了公司的</span>cms,需要用到很多的表<span style="font-family:STHeiti;">单，其中需要用到</span>options_for_select，但是上网<span style="font-family:STHeiti;">查了很多资料，给我提供的</span>example都不能解决我的<span style="font-family:STHeiti;">问题，一下是我常用的</span>options_for_select的例子，希望<span style="font-family:STHeiti;">对朋友有帮助：</span></p>
+
+<p>注意下面的@news.headline_position.to_s，<span style="font-family:STHeiti;">这是要显示</span>options的selected.</p>
+
+<p>&lt;%= select_tag &#8216;news[headline_position]&#8216;, options_for_select(%w{1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 },@news.headline_position.to_s) % ></p>
+
+<p>&lt;%= select_tag &#8216;news[beta_visible]&#8216;, options_for_select({ &#8216;hiden&#8217; => &#8217;1&#8242;,&#8217;display&#8217; =>&#8217;0&#8242; },@news.beta_visible) %></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/57">关于rails表单设计的心得——options_for_select</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/54">关于用js制作分页</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/54#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/54">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Ext JS <a href="http://extjs.com/  ">http://extjs.com/  </a>
+Ext plugin <a href="http://wota.jp/svn/rails/plugins/branches/stable/ext/">http://wota.jp/svn/rails/plugins/branches/stable/ext/</a></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/54">关于用js制作分页</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/18">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/16">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
+</section><section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/angularjs/'>angularjs (2)</a></li>
+<li class='category'><a href='/blog/categories/directive/'>directive (1)</a></li>
+<li class='category'><a href='/blog/categories/ide/'>ide (1)</a></li>
+<li class='category'><a href='/blog/categories/ios/'>ios (6)</a></li>
+<li class='category'><a href='/blog/categories/javascript/'>javascript (8)</a></li>
+<li class='category'><a href='/blog/categories/linux-unix/'>linux/unix (24)</a></li>
+<li class='category'><a href='/blog/categories/php/'>php (28)</a></li>
+<li class='category'><a href='/blog/categories/regular-expressions/'>regular expressions (2)</a></li>
+<li class='category'><a href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails (36)</a></li>
+<li class='category'><a href='/blog/categories/rubymine/'>rubymine (1)</a></li>
+<li class='category'><a href='/blog/categories/xhtml-css/'>xhtml/css (9)</a></li>
+<li class='category'><a href='/blog/categories/工作计划/'>工作计划 (3)</a></li>
+<li class='category'><a href='/blog/categories/心情随写/'>心情随写 (67)</a></li>
+<li class='category'><a href='/blog/categories/技术感想/'>技术感想 (47)</a></li>
+<li class='category'><a href='/blog/categories/未分类/'>未分类 (1)</a></li>
+<li class='category'><a href='/blog/categories/杂谈/'>杂谈 (5)</a></li>
+<li class='category'><a href='/blog/categories/生活点滴/'>生活点滴 (4)</a></li>
+<li class='category'><a href='/blog/categories/软件试用/'>软件试用 (4)</a></li>
+
+  </ul>
+</section><section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/595">Rubymine 不能输入中文？</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'gxbsst',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Weston Wei(韦旭红) -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'Weixuhong';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

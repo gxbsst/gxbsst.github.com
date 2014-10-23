@@ -1,0 +1,966 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>韦旭红的幸福时光</title>
+  <meta name="author" content="Weston Wei(韦旭红)">
+
+  
+  <meta name="description" content="虽然这个几个比较常见，但是未必每个人都会用，我就简单整理一下&#8230;. $_SERVER var_dump出的效果，说一个Array，你应该知道怎么用吧，其中的PHP_SELF,USER_AGENT等相信对你会有用 array 'HTTP_USER_AGENT' => string &#8217; &hellip;&#8221;>
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.weixuhong.com/posts/11">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="韦旭红的幸福时光" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script> 
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">韦旭红的幸福时光</a></h1>
+  
+    <h2>20，30，40&#8230;</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.weixuhong.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/photos">Photos</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/192">PHP 几个有用的变量</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-10-01T00:00:00+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/192#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/192">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>虽然这个几个比较常见，但是未必每个人都会用，我就简单整理一下&#8230;.</p>
+
+<h2>$_SERVER</h2>
+
+<p>var_dump出的效果，说一个Array，你应该知道怎么用吧，其中的PHP_SELF,USER_AGENT等相信对你会有用</p>
+
+<pre lang="php">array
+  'HTTP_USER_AGENT' => string 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_5; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1' (length=125)
+  'HTTP_CACHE_CONTROL' => string 'max-age=0' (length=9)
+  'HTTP_ACCEPT' => string 'text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5' (length=99)
+  'HTTP_ACCEPT_LANGUAGE' => string 'en-us' (length=5)
+  'HTTP_ACCEPT_ENCODING' => string 'gzip, deflate' (length=13)
+  'HTTP_COOKIE' => string 'ECS[user_id]=1; ECS[username]=admin; ECS[email]=webmastor%40yourdomain.com; ECS[visit_times]=2; uchome_auth=17720Ag3apHxh%2BuqAnNG8K5qnVoihVoPyRr%2FFlsyF2tXb2eNCHfN47eFyCvT0qgBtm6q1cWCMQL5FvsmoVgA; uchome_loginuser=gxbsst; mpH_cookietime=2592000; mpH_loginuser=gxbsst; mpH_activationauth=5085X8lEKxwsND0uhjEwcl1HBxdSgnky%2B8HAS%2BXMVSMCbac' (length=339)
+  'HTTP_CONNECTION' => string 'keep-alive' (length=10)
+  'HTTP_HOST' => string 'localhost' (length=9)
+  'PATH' => string '/usr/bin:/bin:/usr/sbin:/sbin' (length=29)
+  'SERVER_SIGNATURE' => string '' (length=0)
+  'SERVER_SOFTWARE' => string 'Apache/2.2.8 (Unix) mod_ssl/2.2.8 OpenSSL/0.9.7l DAV/2 PHP/5.2.6 mod_fastcgi/2.4.2' (length=82)
+  'SERVER_NAME' => string 'localhost' (length=9)
+  'SERVER_ADDR' => string '::1' (length=3)
+  'SERVER_PORT' => string '80' (length=2)
+  'REMOTE_ADDR' => string '::1' (length=3)
+  'DOCUMENT_ROOT' => string '/Users/weston/projects/linyufang.net' (length=36)
+  'SERVER_ADMIN' => string 'you@example.com' (length=15)
+  'SCRIPT_FILENAME' => string '/Users/weston/projects/linyufang.net/form_data.php' (length=50)
+  'REMOTE_PORT' => string '59715' (length=5)
+  'GATEWAY_INTERFACE' => string 'CGI/1.1' (length=7)
+  'SERVER_PROTOCOL' => string 'HTTP/1.1' (length=8)
+  'REQUEST_METHOD' => string 'GET' (length=3)
+  'QUERY_STRING' => string '' (length=0)
+  'REQUEST_URI' => string '/form_data.php' (length=14)
+  'SCRIPT_NAME' => string '/form_data.php' (length=14)
+  'PHP_SELF' => string '/form_data.php' (length=14)
+  'REQUEST_TIME' => int 1223026388
+  'argv' => 
+    array
+      empty
+  'argc' => int 0
+</pre>
+
+
+<h2>$_REQUEST</h2>
+
+<pre lang="php">array
+  'ECS' => 
+    array
+      'user_id' => string '1' (length=1)
+      'username' => string 'admin' (length=5)
+      'email' => string 'webmastor@yourdomain.com' (length=24)
+      'visit_times' => string '2' (length=1)
+  'uchome_auth' => string '17720Ag3apHxh+uqAnNG8K5qnVoihVoPyRr/FlsyF2tXb2eNCHfN47eFyCvT0qgBtm6q1cWCMQL5FvsmoVgA' (length=84)
+  'uchome_loginuser' => string 'gxbsst' (length=6)
+  'mpH_cookietime' => string '2592000' (length=7)
+  'mpH_loginuser' => string 'gxbsst' (length=6)
+  'mpH_activationauth' => string '5085X8lEKxwsND0uhjEwcl1HBxdSgnky+8HAS+XMVSMCbac' (length=47)
+</pre>
+
+
+<h2>$_COOKIE</h2>
+
+<pre lang="php">array
+  'ECS' => 
+    array
+      'user_id' => string '1' (length=1)
+      'username' => string 'admin' (length=5)
+      'email' => string 'webmastor@yourdomain.com' (length=24)
+      'visit_times' => string '2' (length=1)
+  'uchome_auth' => string '17720Ag3apHxh+uqAnNG8K5qnVoihVoPyRr/FlsyF2tXb2eNCHfN47eFyCvT0qgBtm6q1cWCMQL5FvsmoVgA' (length=84)
+  'uchome_loginuser' => string 'gxbsst' (length=6)
+  'mpH_cookietime' => string '2592000' (length=7)
+  'mpH_loginuser' => string 'gxbsst' (length=6)
+  'mpH_activationauth' => string '5085X8lEKxwsND0uhjEwcl1HBxdSgnky+8HAS+XMVSMCbac' (length=47)
+</pre>
+
+
+<h2>$_ENV</h2>
+
+<pre lang="php">array
+  'PATH' => string '/usr/bin:/bin:/usr/sbin:/sbin' (length=29)
+</pre>
+
+
+<p>当然还要$_GET,$_SESSION,$_COOKIE其实这些都可以在phpinfo看到的&#8230;.<br/>
+btw:要深入了解，相信PERL的CGI编程那本书对你会有用处&#8230;</p>
+
+<p>*当然其他Web开发语言都有类似变量&#8230;.</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/192">PHP 几个有用的变量</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/193">HTTP Request With cURL</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-10-01T00:00:00+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/193#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/193">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>这个只是一个小片段，相信作SOAP Service的同学会经常用到的<br/>
+当然，最好能到<a href="http://php.net/curl%E7%9C%8B%E8%AF%A6%E7%BB%86%E7%9A%84%E6%96%87%E6%A1%A3!">http://php.net/curl%E7%9C%8B%E8%AF%A6%E7%BB%86%E7%9A%84%E6%96%87%E6%A1%A3!</a></p>
+
+<p>*我没有对代码作过多的解释，但是应该可以从字面作些了解，如：curl_setopt($c, CURLOPT_URL, $url) 你可以這樣理解: curl 设置选项&#8230;属性：CURLOPT_URL ，值 $URL</p>
+
+<p><a href="http://www.weixuhong.com/content/uploads/2008/10/picture-3.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/10/picture-3.png','popup','width=558,height=581,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/10/picture-3-tm.jpg" height="100" width="96" border="1" hspace="4" vspace="4" alt="Picture 3" title="Picture 3" /></a></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/193">HTTP Request with cURL</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/191">Mac Apache VirtualHost Configuration&#8230;.</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-09-30T00:00:00+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/191#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/191">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>比如要添加1个local域名：<br/>
+linyufang.local</p>
+
+<ol>
+<li>首先要编辑/etc/hosts文件</li>
+</ol>
+
+
+<pre lang="c">sudo vim /etc/hosts
+
+</pre>
+
+
+<p>添加这个一行</p>
+
+<pre lang="c">127.0.0.1 linyufang.local
+</pre>
+
+
+<ol>
+<li>配置httpd.conf</li>
+</ol>
+
+
+<pre lang="c">sudo vim /etc/apache2/httpd.conf
+</pre>
+
+
+<p>输入以下内容</p>
+
+<pre lang="c">NameVirtualHost *:80
+&lt;VirtualHost *:80>
+  #ServerAdmin dns@red.com
+  ServerName linyufang.local
+  DocumentRoot /Users/weston/projects/beautyonly.net
+  Options +Indexes
+  ErrorLog /tmp/error.log
+  CustomLog /tmp/access.log combined
+  &lt;Directory /Users/weston/projects/linyufang.net>
+    Options Indexes FollowSymLinks MultiViews Includes
+    AllowOverride All
+    Order allow,deny
+    allow from all
+  &lt;/Directory>
+&lt;/VirtualHost>
+</pre>
+
+
+<ol>
+<li>重启apache<br/>
+sudo apachectl restart</li>
+</ol>
+
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/191">Mac Apache VirtualHost Configuration&#8230;.</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/190">在Dreamhost上配置trac and Svn</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-09-27T00:00:00+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/190#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/190">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天用几个小时在在dreamhost虚拟主机上配置了trac、svn真是辛苦得很，不过总算是配置好了，明天会把相关的配置细节写出来，鼓励一下自己</p>
+
+<p><a href="http://trac.weixuhong.com/">http://trac.weixuhong.com </a>&nbsp;</p>
+
+<p>参考以下链接:</p>
+
+<p><a href="http://wiki.dreamhost.com/index.php/Trac">http://wiki.dreamhost.com/index.php/Trac</a></p>
+
+<p><a href="http://li.mn/work/2006/07/11/484/installing-trac-on-dreamhost#p">http://li.mn/work/2006/07/11/484/installing-trac-on-dreamhost#p</a></p>
+
+<ul>
+<li>如果安装不成功， 有版本方面的原因&#8230;所有要尽量变通&#8230;</li>
+</ul>
+
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/190">在Dreamhost上配置trac and svn</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/188">在 Leopard 安装Growl, Autotest，Rspec 做BDD</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-09-26T00:00:00+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/188#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/188">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ol>
+<li>设置.autotest ( 需要安装以下gem)</li>
+</ol>
+
+
+<pre lang="shell">sudo gem install rspec  
+   sudo gem install ZenTest  
+   sudo gem install redgreen  
+
+</pre>
+
+
+<p>vim ~/.autotest就可以编辑文件</p>
+
+<pre lang="ruby">require 'autotest/redgreen'  
+  
+module Autotest::Growl  
+  def self.growl title, msg, img, pri=0, stick=“”  
+    system “growlnotify -n autotest --image #{img} -p #{pri} -m #{ msg.inspect} #{title} #{stick}”  
+  end  
+  
+  Autotest.add_hook :ran_command do |autotest|  
+    filtered = autotest.results.grep(/d+s.*examples?/)  
+    output = filtered.empty? ? “” : filtered.last.slice(/(d+)s.*examples?,s(d+)s.*failures?(?:,s(d+)s.*pending)?/)  
+    if output =~ /[1-9]sfailures?/  
+      growl “Test Results”, “#{output}”, “~/Library/autotest/rails_fail.png”  
+    elsif output =~ /pending/  
+      growl “Test Results”, “#{output}”, “~/Library/autotest/rails_pending.png”  
+    else  
+      growl “Test Results”, “#{output}”, “~/Library/autotest/rails_ok.png”  
+    end  
+  end  
+      
+end  
+  
+Autotest.add_hook :initialize do |at|  
+    %w{.svn .hg .git vendor}.each {|exception| at.add_exception(exception)}  
+end  
+
+</pre>
+
+
+<ol>
+<li>配置Growl(<a href="http://growl.info/">http://growl.info/</a>)</li>
+</ol>
+
+
+<p>*前提是要安装Growl</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/188">在 Leopard 安装Growl, Autotest，Rspec 做BDD</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/186">Xdebug on Mac</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-09-19T00:00:00+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>19</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/186#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/186">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>昨晚在自己mac装Xdebug，分享一下.</p>
+
+<ol>
+<li><p>原来我用pecl安装，但是不起作用，后面通<span style="font-family:STHeiti;">过编译安装</span>&#8230; 可以参考<span style="font-family:STHeiti;">这篇文章：</span> <a href="http://www.designified.com/blog/article/60/compiling-installing-xdebug-for-php-525-entropych-build-on-os-x-105?commented=0#txpCommentInputForm">http://www.designified.com/blog/article/60/compiling-installing-xdebug-for-php-525-entropych-build-on-os-x-105?commented=0#txpCommentInputForm</a></p></li>
+<li><p>注意你的php.ini里面的extension_dir,可以在phpinfo<span style="font-family:STHeiti;">查看，然后把</span>xdebug.so 复制到你<span style="font-family:STHeiti;">这个目录，我的目录是：</span> /usr/lib/php/extensions/</p></li>
+<li><p>在php.ini添加以下<span style="font-family:STHeiti;">语句，即载入模块</span><br/>
+[xdebug]<br/>
+zend_extension=“/usr/lib/php/extensions/xdebug.so”</p></li>
+<li><p>安装完<span style="font-family:STHeiti;">毕要重启服务器</span>: sudo apachectl restart</p></li>
+</ol>
+
+
+<p>如果安装成功的<span style="font-family:STHeiti;">话，在</span>phpinfo<span style="font-family:STHeiti;">页面可以看到相关的信息</span>&#8230;.</p>
+
+<p><a href="http://www.weixuhong.com/content/uploads/2008/09/picture-1.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/09/picture-1.png','popup','width=657,height=87,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/09/picture-1-tm.jpg" height="100" width="755" border="1" hspace="4" vspace="4" alt="Picture 1" title="Picture 1" /></a></p>
+
+<p><a href="http://www.weixuhong.com/content/uploads/2008/09/picture-2.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/09/picture-2.png','popup','width=859,height=513,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/09/picture-2-tm.jpg" height="100" width="167" border="1" hspace="4" vspace="4" alt="Picture 2" title="Picture 2" /></a></p>
+
+<ol>
+<li>配置</li>
+<li>在php.ini添加以下</li>
+</ol>
+
+
+<pre lang="php">xdebug.default_enable = On
+xdebug.show_exception_trace = On
+xdebug.show_local_vars = 1
+xdebug.max_nesting_level = 50
+xdebug.var_display_max_depth = 6
+xdebug.dump_once = On
+xdebug.dump_globals = On
+xdebug.dump_undefined = On
+xdebug.dump.REQUEST = *
+xdebug.dump.SERVER = REQUEST_METHOD,REQUEST_URI,HTTP_USER_AGENT
+
+#跟踪自定<span style="font-family:STHeiti;">义</span>
+xdebug.trace_format = 0
+xdebug.auto_trace = On
+xdebug.trace_output_dir = /tmp/traces
+xdebug.trace_output_name = trace.%c.%p
+xdebug.collect_params = 4
+xdebug.collect_includes = On
+xdebug.collect_return = On
+xdebug.show_mem_delta = On
+</pre>
+
+
+<p><span style="font-family:STHeiti;">说明：</span><br/>
+xdebug.dump_once、xdebug.dump_globals、xdebug.dump_undefined 和 xdebug.dump_SUPERGLOBAL <span style="font-family:STHeiti;">设置（其中</span> SUPERGLOBAL 可以是 COOKIE、FILES、GET、POST、REQUEST、SERVER 或 SESSION）用于控制哪些 PHP 超全局<span style="font-family:STHeiti;">变量将被包含在所有诊断结果中。</span></p>
+
+<p>　　将 xdebug.dump_globals <span style="font-family:STHeiti;">设为</span> On 以<span style="font-family:STHeiti;">转储名为</span> xdebug.dump_SUPERGLOBAL <span style="font-family:STHeiti;">设置中的超全局变量。例如，</span>xdebug.dump_SERVER = REQUEST_METHOD,REQUEST_URI,HTTP_USER_AGENT 将打印 PHP 超全局<span style="font-family:STHeiti;">变量</span> $_SERVER[&lsquo;REQUEST_METHOD&rsquo;]、$_SERVER[&lsquo;REQUEST_URI&rsquo;] 和 $_SERVER[&lsquo;HTTP_USER_AGENT&rsquo;]。如果需要打印超全局<span style="font-family:STHeiti;">变量数组中的所有值，请使用星号</span> (*)，例如 xdebug.dump_REQUEST=*。如果<span style="font-family:STHeiti;">进一步将</span> xdebug.dump_undefined <span style="font-family:STHeiti;">设为</span> On 并且不<span style="font-family:STHeiti;">设定指定的超全局变量，则仍用值</span> undefined 打印<span style="font-family:STHeiti;">变量。</span></p>
+
+<p>　　即使捕捉到异常，代<span style="font-family:STHeiti;">码行</span> xdebug.show_exception_trace = On 仍将强制<span style="font-family:STHeiti;">执行异常跟踪。代码行</span> xdebug.show_local_vars = 1 将打印每个函数<span style="font-family:STHeiti;">调用的最外围中的所有局部变量，包括尚未初始化的变量。而</span> xdebug.var_display_max_depth = 6 表示<span style="font-family:STHeiti;">转储复杂变量的深度。</span></p>
+
+<p><span style="font-family:STHeiti;">设定</span> xdebug.auto_trace = 1 将在<span style="font-family:STHeiti;">执行所有</span> PHP 脚本之前先<span style="font-family:STHeiti;">启用自动跟踪。另外，您可以通过代码设定</span> xdebug.auto_trace = 0，并分别使用 xdebug_start_trace() 和 xdebug_stop_trace() 函数<span style="font-family:STHeiti;">启用和禁用跟踪。但是，如果</span> xdebug.auto_trace <span style="font-family:STHeiti;">为</span> 1，<span style="font-family:STHeiti;">则可以在包括配置好的</span> auto_prepend_file 之前先<span style="font-family:STHeiti;">启动跟踪。</span></p>
+
+<p><span style="font-family:STHeiti;">选项</span> xdebug.trace_ouput_dir 和 xdebug.trace_output_name 用于控制保存跟踪<span style="font-family:STHeiti;">输出的位置。在这里，所有文件都被保存到</span> /tmp/traces 中，并且每个跟踪文件都以 trace <span style="font-family:STHeiti;">为开头，后接</span> PHP 脚本的名称（%s）以及<span style="font-family:STHeiti;">进程</span> ID（%p）。所有 Xdebug 跟踪文件都以 .xt 后<span style="font-family:STHeiti;">缀结尾。</span></p>
+
+<p>　　默<span style="font-family:STHeiti;">认情况下，</span>Xdebug 将<span style="font-family:STHeiti;">显示时间、内存使用量、函数名和函数调用深度字段。如果将</span> xdebug.trace_format <span style="font-family:STHeiti;">设为</span> 0，<span style="font-family:STHeiti;">则输出将符合人类阅读习惯（将参数设为</span> 1 <span style="font-family:STHeiti;">则为机器可读格式）。此外，如果指定</span> xdebug.show_mem_delta = 1，<span style="font-family:STHeiti;">则可以查看内存使用量是在增加还是在减少，而如果指定</span> xdebug.collect_params = 4，<span style="font-family:STHeiti;">则可以查看传入参数的类型和值。要监视每个函数返回的值，请设定</span> xdebug.collect_return = 1。</p>
+
+<ol>
+<li>开始做个<span style="font-family:STHeiti;">测试</span></li>
+</ol>
+
+
+<p><span style="font-family:STHeiti;">测试代码：</span></p>
+
+<p><a href="http://www.weixuhong.com/content/uploads/2008/09/picture-4-1.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/09/picture-4-1.png','popup','width=592,height=391,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/09/picture-4-1-tm.jpg" height="100" width="151" border="1" hspace="4" vspace="4" alt="Picture 4-1" /></a></p>
+
+<p><span style="font-family:STHeiti;">结果：</span></p>
+
+<p><a href="http://www.weixuhong.com/content/uploads/2008/09/picture-5.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/09/picture-5.png','popup','width=1250,height=858,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/09/picture-5-tm.jpg" height="100" width="145" border="1" hspace="4" vspace="4" alt="Picture 5" /></a></p>
+
+<p>我<span style="font-family:STHeiti;">们可以看追踪文件：</span>/tmp/traces下的文件（可以看配置目<span style="font-family:STHeiti;">录</span>)<br/>
+用vim打开，但是有点不舒服，就是不是hightline的，但是你可以把xt.vim放到你.vim的配置文件下面，但是我的mac<span style="font-family:STHeiti;">还是不起作用，我需要在</span>vim 做set filetype=xt就可以了</p>
+
+<p><a href="http://www.weixuhong.com/content/uploads/2008/09/picture-7-1.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/09/picture-7-1.png','popup','width=1280,height=800,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/09/picture-7-1-tm.jpg" height="100" width="160" border="1" hspace="4" vspace="4" alt="Picture 7-1" /></a></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/186">Xdebug on Mac</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/212">西湖游</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-09-14T00:00:00+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/212#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/212">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>9月13-9月14日</p>
+
+<p>杭州西湖游<br/>
+天气： 下雨<br/>
+住： A Hotel （标间180，但是很小，下次不去了住了）<br/>
+游： 西湖（徒步走了一圈， 清坊街）<br/>
+图片在Picasaweb&#8230;</p>
+
+<ul>
+<li>本来要去钱塘江观潮的，但是下雨，没有成行&#8230;</li>
+<li>灵隐寺，中山公园等景点没有去，下去一定要去</li>
+<li>下次去的时候，应该租自行车&#8230;</li>
+</ul>
+
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/212">西湖游</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/187">所有的console都用VI模式</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-09-04T00:00:00+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>4</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/187#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/187">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>使用VI的同学有福了&#8230;<br/>
+不管在Mysql， Shell或者IRB都可以用Vi的编辑模式</p>
+
+<p>HOWTO</p>
+
+<p>把以下脚本放到Home目录的.inputrc就可以了&#8230;.</p>
+
+<pre lang="php"># Enable vi mode for many apps that use libreadline including:
+# ncftp, lftp, ftp, mysql, bc, python, etc...
+set editing-mode vi
+set keymap vi  
+
+# Chinese support requires 8 bits...
+# Enable 8bit input
+set meta-flag on
+set input-meta on
+
+# Turns off 8th bit stripping
+set convert-meta off 
+
+# Keep the 8th bit for display
+set output-meta on
+
+# Show filelist after one tab, Make file previews work like ls -F
+set visible-stats on
+set show-all-if-ambiguous on
+
+# The readline 'edit-and-execute-command' function will:
+# Invoke an editor on the current command line, and execute the result as shell
+# commands. Bash attempts to invoke $FCEDIT, $EDITOR, and emacs as the editor, in that order.
+
+Control-o: edit-and-execute-command
+# Use “bind -l” to see all readline options and “bind -P” to see options plus bindings
+# For more information on proper syntax, see:
+# http://checkmyip.com/man/sh.html
+</pre>
+
+
+<p>*按esc就就进入VI模式&#8230;.</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/187">所有的console都用VI模式</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/170">一个很有意思的PHP函数 Highlight_file()</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-09-02T00:00:00+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/170#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/170">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>string highlight_file(string $file[,bool is_heighlight])</p>
+
+<p>有这个函数会帮你把代码heighlight输出网页，是相当的漂亮的&#8230;</p>
+
+<p>它的姐妹函数是highlight_string(string $string[,bool is_heighlight])), 顾名思义，一个是string， 一个是file&#8230;</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/170">一个很有意思的PHP函数 highlight_file()</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/172">PHP 跨站点脚本攻击</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-09-01T00:00:00+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/172#disqus_thread"
+             data-disqus-identifier="http://www.weixuhong.com/archives/172">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li><a href="http://www.w3pop.com/learn/view/p/5/o//doc/php_xss/  ">http://www.w3pop.com/learn/view/p/5/o//doc/php_xss/  </a>
+PHP：用javascript来防止吧<br/>
+或者考虑检查 $_SERVER[&lsquo;HTTP_REFERER&rsquo;] * 但是别人是可以修改这个值的，所以不是完全的完全的<br/>
+或者用和rails一样的解决方法<br/>
+根据一个惟一的字符串或时间戳生成一个令牌，并将这个令牌放在会话变量和表单中<br/>
+要创建随机的令牌，可以使用 PHP 内置的 md5()、uniqid() 和 rand() 函数，如下所示：</li>
+</ul>
+
+
+<pre lang="php"><?php  
+session_start();  
+  
+if ($_POST['submit'] == "go"){  
+    //check token  
+    if ($_POST['token'] == $_SESSION['token']){  
+        //strip_tags  
+        $name = strip_tags($_POST['name']);  
+        $name = substr($name,0,40);  
+        //clean out any potential hexadecimal characters  
+        $name = cleanHex($name);  
+        //continue processing....  
+    }else{  
+        //stop all processing! remote form posting attempt!  
+    }  
+}  
+  
+$token = md5(uniqid(rand(), true));  
+$_SESSION['token']= $token;  
+  
+  
+function cleanHex($input){  
+    $clean = preg_replace("![][xX]([A-Fa-f0-9]{1,3})!", "",$input);  
+    return $clean;  
+}  
+?>  
+  
+  
+  
+</pre>
+
+
+<p>Rails: rails2.1在这方面做了些工作，在post数据的时候，会post过去一个安全码，Rails认出来表示正常，否则非法&#8230;</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/172">PHP 跨站点脚本攻击</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/12">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/10">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
+</section><section>
+  <h1>Categories</h1>
+  <ul id="categories">
+    <li class='category'><a href='/blog/categories/angularjs/'>angularjs (2)</a></li>
+<li class='category'><a href='/blog/categories/directive/'>directive (1)</a></li>
+<li class='category'><a href='/blog/categories/ide/'>ide (1)</a></li>
+<li class='category'><a href='/blog/categories/ios/'>ios (6)</a></li>
+<li class='category'><a href='/blog/categories/javascript/'>javascript (8)</a></li>
+<li class='category'><a href='/blog/categories/linux-unix/'>linux/unix (24)</a></li>
+<li class='category'><a href='/blog/categories/php/'>php (28)</a></li>
+<li class='category'><a href='/blog/categories/regular-expressions/'>regular expressions (2)</a></li>
+<li class='category'><a href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails (36)</a></li>
+<li class='category'><a href='/blog/categories/rubymine/'>rubymine (1)</a></li>
+<li class='category'><a href='/blog/categories/xhtml-css/'>xhtml/css (9)</a></li>
+<li class='category'><a href='/blog/categories/工作计划/'>工作计划 (3)</a></li>
+<li class='category'><a href='/blog/categories/心情随写/'>心情随写 (67)</a></li>
+<li class='category'><a href='/blog/categories/技术感想/'>技术感想 (47)</a></li>
+<li class='category'><a href='/blog/categories/未分类/'>未分类 (1)</a></li>
+<li class='category'><a href='/blog/categories/杂谈/'>杂谈 (5)</a></li>
+<li class='category'><a href='/blog/categories/生活点滴/'>生活点滴 (4)</a></li>
+<li class='category'><a href='/blog/categories/软件试用/'>软件试用 (4)</a></li>
+
+  </ul>
+</section><section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
+      </li>
+    
+      <li class="post">
+        <a href="/archives/595">Rubymine 不能输入中文？</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'gxbsst',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Weston Wei(韦旭红) -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'Weixuhong';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

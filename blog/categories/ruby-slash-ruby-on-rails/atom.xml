@@ -1,0 +1,864 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Ruby/ruby on Rails | 韦旭红的幸福时光]]></title>
+  <link href="http://www.weixuhong.com/blog/categories/ruby-slash-ruby-on-rails/atom.xml" rel="self"/>
+  <link href="http://www.weixuhong.com/"/>
+  <updated>2014-10-23T17:52:25+08:00</updated>
+  <id>http://www.weixuhong.com/</id>
+  <author>
+    <name><![CDATA[Weston Wei(韦旭红)]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[安装passenger for Rails3]]></title>
+    <link href="http://www.weixuhong.com/archives/557"/>
+    <updated>2011-09-07T00:00:00+08:00</updated>
+    <id>http://www.weixuhong.com/archives/%e5%ae%89%e8%a3%85passenger-for-rails3</id>
+    <content type="html"><![CDATA[<pre lang="c">gem install passenger
+
+</pre>
+
+
+
+
+<pre lang="c">yum install apr-devel
+yum install apr-util-devel
+yum install httpd-devel
+</pre>
+
+
+
+
+<pre lang="c">passenger-install-apache2-module
+</pre>
+
+
+<p>复杂以下文件到httpd.conf</p>
+
+<pre lang="c">LoadModule passenger_module /usr/local/rvm/gems/ruby-1.9.2-p290-module/gems/passenger-3.0.9/ext/apache2/mod_passenger.so
+   PassengerRoot /usr/local/rvm/gems/ruby-1.9.2-p290-module/gems/passenger-3.0.9
+   PassengerRuby /usr/local/rvm/wrappers/ruby-1.9.2-p290-module/ruby
+</pre>
+
+
+
+
+<pre lang="c">#For PAIFAN 后台
+&lt;VirtualHost *:80>
+ ServerName padmin.qdigit.cn
+ RailsEnv production
+ #RailsEnv development 
+ DocumentRoot /var/www/html/admin.insta/public
+ ErrorLog /var/www/html/admin.insta/log/redmine.error.log
+  &lt;Directory /var/www/html/admin.insta/public>
+  AllowOverride all
+  #Options -MultiViews           
+  Options Indexes -MultiViews
+ &lt;/Directory>
+&lt;/VirtualHost>
+
+</pre>
+
+
+<p>参考: <a href="http://www.modrails.com/install.html">http://www.modrails.com/install.html</a></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/557">安装passenger for rails3</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[如果使用ruby Gem Redis查看redis的keys]]></title>
+    <link href="http://www.weixuhong.com/archives/553"/>
+    <updated>2011-08-04T00:00:00+08:00</updated>
+    <id>http://www.weixuhong.com/archives/%e5%a6%82%e6%9e%9c%e4%bd%bf%e7%94%a8ruby-gem-redis%e6%9f%a5%e7%9c%8bredis%e7%9a%84keys</id>
+    <content type="html"><![CDATA[<pre lang="ruby">irb(main):002:0> require 'rubygems'
+=> true
+irb(main):003:0> require 'redis'
+=> true
+irb(main):004:0> r = Redis.new
+=> #&lt;Redis:0x8605b64 @sock=#&lt;TCPSocket:0x8605ab0>, @timeout=5, @port=6379, @db=0, @host="127.0.0.1">
+irb(main):005:0> r.keys('*')
+
+列出某个的key的值：
+
+r.sort("Listen:1")
+
+
+
+</pre>
+
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/553">如果使用ruby gem redis查看redis的keys</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rails 3.1 Mountable Engines 使用方法]]></title>
+    <link href="http://www.weixuhong.com/archives/551"/>
+    <updated>2011-08-01T00:00:00+08:00</updated>
+    <id>http://www.weixuhong.com/archives/rails-3-1-mountable-engines-%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95</id>
+    <content type="html"><![CDATA[<p>在了解 Moutable之前， 先看这个视频：</p>
+
+<p><a href="http://railscasts.com/episodes/277-mountable-engines">http://railscasts.com/episodes/277-mountable-engines</a></p>
+
+<p>了解Mountable Engines与Full Engines的区别， 看这篇文章:</p>
+
+<p><a href="http://stackoverflow.com/questions/6118905/rails-3-1-engine-vs-mountable-app">http://stackoverflow.com/questions/6118905/rails-3-1-engine-vs-mountable-app</a></p>
+
+<p>当我们使用：</p>
+
+<pre lang="ruby">rails plugin new uhoh --mountable
+</pre>
+
+
+<p>我们可以把这个创建好的plugin变成一个gem来使用。</p>
+
+<p>比如我们可以先创建一个rails app</p>
+
+<pre lang="ruby">rails new with_engine -T -O -J
+</pre>
+
+
+<p>编辑Gemfile, 添加以下一行:</p>
+
+<pre lang="ruby">gem 'uhoh', :path => '/Users/weston/Downloads/277-mountable-engines/uhoh-after/' #刚才创建的mountable 路径
+
+</pre>
+
+
+<p>执行</p>
+
+<pre lang="ruby">bundle install 
+
+vim config/routs.rb
+</pre>
+
+
+<p>添加以下一行:</p>
+
+<pre lang="ruby">mount Uhoh::Engine => "/uhoh", :as => "uhoh_engine"
+</pre>
+
+
+<p>这样我们就可以使用这个engines了&#8230;</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/551">rails 3.1 Mountable Engines 使用方法</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[关于Rails使用Callback和Observer的区别]]></title>
+    <link href="http://www.weixuhong.com/archives/547"/>
+    <updated>2011-07-27T00:00:00+08:00</updated>
+    <id>http://www.weixuhong.com/archives/%e5%85%b3%e4%ba%8erails%e4%bd%bf%e7%94%a8callback%e5%92%8cobserver%e7%9a%84%e5%8c%ba%e5%88%ab</id>
+    <content type="html"><![CDATA[<p>可以参考：</p>
+
+<p><a href="http://stackoverflow.com/questions/1531514/observers-vs-callbacks">http://stackoverflow.com/questions/1531514/observers-vs-callbacks</a></p>
+
+<p>其中有一段是这样的：</p>
+
+<pre lang="ruby">class Model &lt; ActiveRecord::Base
+  before_update :disallow_bob
+
+  def disallow_bob
+  return false if model.name == "bob"
+  end
+end
+
+class ModelObserver &lt; ActiveRecord::Observer
+  def before_update(model)
+    return false if model.name == "mary"
+  end
+end
+
+m = Model.create(:name => "whatever")
+
+m.update_attributes(:name => "bob")
+=> false -- name will still be "whatever" in database
+
+m.update_attributes(:name => "mary")
+=> true -- name will be "mary" in database
+</pre>
+
+
+<p>Observers may only observe, they may not intervene.</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/547">关于Rails使用Callback和Observer的区别</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rails 3, RSpec, Cucumber, jQuery, Devise, Mongoid, and Compass(转)]]></title>
+    <link href="http://www.weixuhong.com/archives/545"/>
+    <updated>2011-07-19T00:00:00+08:00</updated>
+    <id>http://www.weixuhong.com/archives/rails-3-rspec-cucumber-jquery-devise-mongoid-and-compass%e8%bd%ac</id>
+    <content type="html"><![CDATA[<p>来源:<a href="http://jimdrannbauer.com/2011/01/29/rails-3-rspec-cucumber-jquery-devise-mongoid-and-compass/">http://jimdrannbauer.com/2011/01/29/rails-3-rspec-cucumber-jquery-devise-mongoid-and-compass/</a></p>
+
+<p>Want to build a Rails 3 app with this stuff?</p>
+
+<p>Git<br/>
+RSpec<br/>
+Cucumber w/ Capybara<br/>
+Mongoid<br/>
+Devise<br/>
+CanCan<br/>
+jQuery<br/>
+Compass<br/>
+Blueprintcss<br/>
+Haml<br/>
+Sass<br/>
+Capistrano<br/>
+Passenger<br/>
+Factory Girl<br/>
+Shoulda<br/>
+metric_fu<br/>
+Here’s how.</p>
+
+<p>Just A Checklist</p>
+
+<p>This article is mostly written for myself so I don’t have to remember where I found all of the information. There’s nothing particularly difficult about anything here. I just like the idea of having it all in one place. I figured it might be helpful to others, so… uh… here it is.</p>
+
+<p>Having said that, this is not a tutorial. I don’t explain how to do Behavior Driven Development, how to use CanCan, or why to use any of this stuff. It’s just a checklist… a detailed checklist. It would probably make a good Rails Template.</p>
+
+<p>Prerequisites</p>
+
+<p>The installation of MongoDB and Git are beyond the scope…</p>
+
+<p>Initialize the app</p>
+
+<p>In your shell:</p>
+
+<pre lang="c">mkdir awesome-app
+cd awesome-app
+git init
+rails new . -T -J -O
+</pre>
+
+
+<p>Create the empty directory first so that you can init an empty git repo. The -T option excludes the Test/Unit files so that we can use RSpec instead. The -J option excludes the prototype.js files so that we can use jQuery instead. The -O option excludes ActiveRecord (O is for ORM) so that we can use Mongoid instead.</p>
+
+<p>Commit it:</p>
+
+<pre lang="c">git add .
+git commit -m "initial commit"
+Bundle the Gems
+</pre>
+
+
+<p>Here’s the first place you need to modify files. In Gemfile:</p>
+
+<pre lang="ruby">source 'http://rubygems.org'
+gem 'rails',    '3.0.3'
+gem 'mongoid',  '2.0.0.rc.6'
+gem 'bson_ext', '~> 1.2'
+gem 'devise'
+gem 'cancan'
+gem 'jquery-rails'
+gem 'passenger'
+gem 'capistrano'
+gem "compass", ">= 0.10.6"
+gem 'haml'
+group :development, :test do
+  gem 'capybara'
+  gem 'cucumber'
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'shoulda'
+  gem 'factory_girl_rails'
+  gem 'autotest'
+  gem 'launchy'
+  gem 'faker'
+  gem 'ruby-debug19'
+  gem 'haml-rails'
+  gem 'metric_fu'
+end
+
+</pre>
+
+
+<p>Then, back in your shell:</p>
+
+<pre lang="c">bundle install
+</pre>
+
+
+<p>Commit it:</p>
+
+<pre lang="c">git add .
+git commit -m "Added Gems"
+Mongoid
+</pre>
+
+
+<p>Mongoid is an ORM for MongoDB. I’ll assume you have it installed already. Dig it:</p>
+
+<pre lang="c"># Ignore this message if you see it since you're
+# running the command it's asking for right now:
+
+# Mongoid config not found. Create a config file at: config/mongoid.yml
+# to generate one run: rails generate mongoid:config
+rails g mongoid:config
+
+</pre>
+
+
+<p>After running the mongoid generator, your app is configured to use Mongoid instead of ActiveRecord. When you generate a model, Rails will generate a Mongoid Document.</p>
+
+<p>Let’s edit some files and get it set up.</p>
+
+<p>In config/mongoid.yml:</p>
+
+<pre lang="c">defaults: &#038;defaults
+  host: localhost
+  # mongoid defaults for configurable settings
+  autocreate_indexes: false
+  allow_dynamic_fields: true
+  include_root_in_json: false
+  parameterize_keys: true
+  persist_in_safe_mode: false
+  raise_not_found_error: true
+  reconnect_time: 3
+development:
+  &lt;&lt;: *defaults
+  database: awesome_app_development
+test: &#038;TEST
+  &lt;&lt;: *defaults
+  database: awesome_app_test
+cucumber:
+  &lt;&lt;: *TEST
+# set these environment variables on your prod server
+production:
+  host: &lt;%= ENV['MONGOID_HOST'] %>
+  port: &lt;%= ENV['MONGOID_PORT'] %>
+  username: &lt;%= ENV['MONGOID_USERNAME'] %>
+  password: &lt;%= ENV['MONGOID_PASSWORD'] %>
+  database: &lt;%= ENV['MONGOID_DATABASE'] %>
+</pre>
+
+
+<p>There are 2 things to notice here. First, the configurable settings can be excluded. Even though Mongoid will default to the above options, leave them so that you don’t have to look at the documentation. Second, we added an environment for Cucumber which just points back to the test environment.</p>
+
+<p>Commit it:</p>
+
+<pre lang="c">git add .
+git commit -m "Added Mongoid"
+RSpec
+</pre>
+
+
+<p>Now, we use the rails generator to install RSpec. Shell:</p>
+
+<pre lang="c">rails g rspec:install
+Next, in spec/spec_helper.rb:
+
+RSpec.configure do |config|
+  config.mock_with :rspec
+
+  require 'database_cleaner'
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.orm = "mongoid"
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.clean
+  end
+end
+</pre>
+
+
+<p>This is all you need in your RSpec configuration to use it with Mongoid. MongoDB doesn’t do transactions so we need to truncate the database between tests instead of rolling back. DatabaseCleaner helps with that.</p>
+
+<p>Commit it:</p>
+
+<pre lang="c">git add .
+git commit -m "Added RSpec"
+</pre>
+
+
+<p>Cucumber</p>
+
+<p>Next, we use the rails generator again to install Cucumber. Shell:</p>
+
+<pre lang="c">rails g cucumber:install --capybara --rspec --skip-database
+</pre>
+
+
+<p>The –capybara option sets up Capybara instead of Webrat. The –rspec option enables RSpec matchers for your step definitions.</p>
+
+<p>The Cucumber generator will bark at you about a missing database.yml file without the –skip-database option because we skipped the ORM when we created the app.</p>
+
+<p>Like RSpec, some configuration is necessary to make Cucumber play nice with Mongoid. Add this file, features/support/database_cleaner.rb:</p>
+
+<pre lang="c">require 'database_cleaner'
+DatabaseCleaner.strategy = :truncation
+DatabaseCleaner.orm = "mongoid"
+Before { DatabaseCleaner.clean }
+</pre>
+
+
+<p>This does the same thing for Cucumber that it does for RSpec: truncates your data between scenarios.</p>
+
+<p>Commit it:</p>
+
+<pre lang="c">git add .
+git commit -m "Added Cucumber"
+</pre>
+
+
+<p>Devise</p>
+
+<p>Devise is used for authentication.</p>
+
+<p>Shell it:</p>
+
+<p>rails g devise:install<br/>
+Devise needs a few things in place so that it can provide it’s functionality and it’ll let you know it when the installation is done:</p>
+
+<pre lang="c">===============================================================================
+
+Some setup you must do manually if you haven't yet:
+
+  1. Setup default url options for your specific environment. Here is an
+     example of development environment:
+
+       config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+     This is a required Rails configuration. In production it must be the
+     actual host of your application
+
+  2. Ensure you have defined root_url to *something* in your config/routes.rb.
+     For example:
+
+       root :to => "home#index"
+
+  3. Ensure you have flash messages in app/views/layouts/application.html.erb.
+     For example:
+
+       <p class="notice">
+  &lt;%= notice %>
+</p>
+       
+
+<p class="alert">
+  &lt;%= alert %>
+</p>
+
+===============================================================================
+</pre>
+
+
+<p>For now, all you need to do are steps 1 and 2 above. We’ll handle step 3 when we get into the Haml/Sass/Compass stuff later.</p>
+
+<p>In config/environments/development.rb, add this:</p>
+
+<pre lang="c">config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+</pre>
+
+
+<p>In config/routes.rb, add this:</p>
+
+<p><pre lang="c">root :to => &ldquo;home#index&rdquo;
+<pre></p>
+
+<p>Finally, Devise needs a model to hold login credentials. Let’s call it User. In the shell:
+<pre lang="c"></p>
+
+<p>rails g mongoid:devise User
+</pre></p>
+
+<p><p>
+  Take a look in app/models/user.rb. Notice that it generated a Mongoid Document.
+</p></p>
+
+<p><p>
+  Finish up by adding this to routes.rb:
+</p></p>
+
+<p><pre lang="c"></p>
+
+<p>devise_for :users
+Commit it:</p>
+
+<p>git add .
+git commit -m &ldquo;Added Devise&rdquo;
+</pre></p>
+
+<p><p>
+  CanCan
+</p></p>
+
+<p><p>
+  CanCan does role-based user authorization.
+</p></p>
+
+<p><pre lang="c"></p>
+
+<p>rails g cancan:ability
+That’s it.
+</pre></p>
+
+<p><p>
+  Commit it:
+</p></p>
+
+<p><pre lang="c"></p>
+
+<p>git add .
+git commit -m &ldquo;Added CanCan&rdquo;
+</pre></p>
+
+<p><p>
+  jQuery
+</p></p>
+
+<p><p>
+  We used the -J option when we created the app so that we could use jQuery instead of Prototype. In your shell, run the jQuery generator:
+</p></p>
+
+<p><pre lang="c"></p>
+
+<p>rails g jquery:install &ndash;ui
+</pre></p>
+
+<p><p>
+  This’ll do 3 main things: remove the existing protoypejs-based javascript files (which, in our case, aren’t there anyway), drop in the latest jQuery, and drop in the jQuery version of the Rails Unobtrusive Javascript (UJS) Adapter. Since jQueryUI is pretty cool too, we drop that in too with the –ui option.
+</p></p>
+
+<p><p>
+  In order to make the :defaults argument to javascript_include_tag load the .js files in the right order, we need to modify config/application.rb. Look for:
+</p></p>
+
+<p><pre lang="c"></p>
+
+<p>config.action_view.javascript_expansions[:defaults] = %w()
+and change it to:</p>
+
+<p>config.action_view.javascript_expansions[:defaults] =
+  %w(jquery.min jquery-ui.min rails)
+</pre></p>
+
+<p><p>
+  Notice that we load the minified versions which were downloaded by the generator.
+</p></p>
+
+<p><p>
+  Commit it:
+</p></p>
+
+<p><pre lang="c"></p>
+
+<p>git add .
+git commit -m &ldquo;Added jQuery&rdquo;
+Compass/Haml/Sass/Blueprintcss
+</pre></p>
+
+<p><p>
+  Haml is a template langauge like erb. When we added “gem ‘haml’” to the Gemfile, we made Rails recognize that files with the .haml extension contain Haml markup. Sass is a superset of css3 that helps keep your stylesheets clean. Blueprintcss is a css framework that provides easy to use reset, grid, and typographical styles. Compass ties all this together and provides a way to integrate it into your app.
+</p></p>
+
+<p><p>
+  Run this to install Compass into your app using Blueprintcss:
+</p></p>
+
+<p><pre lang="c"></p>
+
+<p>compass init rails . &ndash;using blueprint/semantic
+</pre></p>
+
+<p><p>
+  Compass will ask you a few questions. Just say yes to both of them.
+</p></p>
+
+<p><pre lang="c"></p>
+
+<p>Compass recommends that you keep your stylesheets in app/stylesheets
+  instead of the Sass default location of public/stylesheets/sass.
+  Is this OK? (Y/n) Y</p>
+
+<p>Compass recommends that you keep your compiled css in public/stylesheets/compiled/
+  instead the Sass default of public/stylesheets/.
+  However, if you&rsquo;re exclusively using Sass, then public/stylesheets/ is recommended.
+  Emit compiled stylesheets to public/stylesheets/compiled/? (Y/n) Y</p>
+
+<p></pre></p>
+
+<p><p>
+  After that, it’ll drop a bunch of files into the app and finish up with some instructions. We’ve already done the first suggestion, added Compass to the Gemfile. The second suggestion gives us the opportunity to put together our layout.
+</p></p>
+
+<p><p>
+  Create app/views/layout/application.html.haml and place this inside:
+</p></p>
+
+<p><pre lang="c"></p>
+
+<p>!!! XML
+!!!
+%html
+  %head
+    %title Awesome App
+    = javascript_include_tag :defaults
+    = csrf_meta_tag
+    = stylesheet_link_tag :all
+    = stylesheet_link_tag &lsquo;compiled/screen.css&rsquo;, :media => &lsquo;screen, projection&rsquo;
+    = stylesheet_link_tag &lsquo;compiled/print.css&rsquo;,  :media => &lsquo;print&rsquo;
+    /[if lt IE 8]
+      = stylesheet_link_tag &lsquo;compiled/ie.css&rsquo;, :media => &lsquo;screen, projection&rsquo;</p>
+
+<p>  %body.bp.two-col</p>
+
+<pre><code>#container
+
+  #header
+    %h1 Awesome App Header
+
+  #sidebar
+    %div item 1
+    %div item 2
+    %div item 3
+    %div item 4
+
+  #content
+
+    %p.notice= notice
+    %p.error= alert
+    %p.success= notice
+
+    = yield
+
+  #footer
+    %h3 Awesome App Footer
+</code></pre>
+
+<p></pre></p>
+
+<p><p>
+  There are a few things to notice in there. First, it’s Haml. Second, we’ve included the stylesheet info from the compass command output in the head. Third, we’re using the built-in Blueprintcss 2-column layout. Finally, we’ve added the notice and alert elements that Devise asked for earlier. There’s also a success element in there to show off some of the coloring that Blueprintcss gives you.
+</p></p>
+
+<p><p>
+  If you try to look at it now, it won’t work. Sit tight, we’re close.
+</p></p>
+
+<p><p>
+  Making Compass Just Work
+</p></p>
+
+<p><p>
+  The Compass documentation seems to lack a simple explanation of how to see if things just work. Here it is:
+</p></p>
+
+<p><p>
+  Create app/stylesheets/partials/_application.scss, and place this inside:
+</p></p>
+
+<p><pre lang="c"></p>
+
+<h1>container {</h1>
+
+<p>  @include showgrid;
+}
+</pre></p>
+
+<p><p>
+  Use this file to get started adding your own styles. The showgrid mixin is useful for debugging your Blueprintcss grid. Delete it or comment it out when you’re done.
+</p></p>
+
+<p><p>
+  Then, add this to app/stylesheets/screen.scss:
+</p></p>
+
+<p><p>
+  // Add the application styles.<br />
+  @import &ldquo;partials/application&rdquo;;<br />
+  This makes sure that your own styles are available when you get around to adding them.
+</p></p>
+
+<p><p>
+  Commit it:
+</p></p>
+
+<p><p>
+  git add .<br />
+  git commit -m &ldquo;Added Compass&rdquo;<br />
+  Last Steps Before Starting the App
+</p></p>
+
+<p><p>
+  Delete public/index.html:
+</p></p>
+
+<p><p>
+  rm public/index.html<br />
+  Earlier, Devise instructed us to setup the root route in routes.rb. The problem is the route we added won’t actually work until we have a home controller with an index action.
+</p></p>
+
+<p><p>
+  Shell it:
+</p></p>
+
+<p><p>
+  rails g controller home index<br />
+  Notice that the views generated use Haml. That works because we added the ‘haml-rails’ gem to the Gemfile.
+</p></p>
+
+<p><p>
+  Then, so that we can see Devise in action:
+</p></p>
+
+<p><p>
+  rails g controller vip index<br />
+  In app/controllers/vip_controller.rb, add:
+</p></p>
+
+<p><p>
+  before_filter :authenticate_user!<br />
+  Commit it:
+</p></p>
+
+<p><p>
+  git add .<br />
+  git commit -m &ldquo;Added Home and Vip controllers and views&rdquo;<br />
+  Start It Up
+</p></p>
+
+<p><p>
+  passenger start<br />
+  Now go to: <a href="http://localhost:3000">http://localhost:3000</a>
+</p></p>
+
+<p><p>
+  Nice! See the grid? Clean.
+</p></p>
+
+<p><p>
+  How about this one? <a href="http://localhost:3000/vip/index">http://localhost:3000/vip/index</a>
+</p></p>
+
+<p><p>
+  Go ahead. Mess with the login stuff. It’ll just kinda work.
+</p></p>
+
+<p><p>
+  One More Thing, metric_fu
+</p></p>
+
+<p><p>
+  Add this to your Rakefile:
+</p></p>
+
+<p><p>
+  require &lsquo;metric_fu&rsquo;<br />
+  MetricFu::Configuration.run do |config|<br />
+    config.rcov[:test_files] = [&lsquo;spec/<em>*/</em>_spec.rb&rsquo;]<br />
+    config.rcov[:rcov_opts] &lt;&lt; &ldquo;-Ispec&rdquo; # Needed to find spec_helper<br />
+  end<br />
+  Get your metrics by running this:
+</p></p>
+
+<p><p>
+  rake metrics:all<br />
+  Commit it:
+</p></p>
+
+<p><p>
+  git add .<br />
+  git commit -m &ldquo;Added metric_fu&rdquo;<br />
+  Conclusion
+</p></p>
+
+<p><p>
+  Okay, so it doesn’t really do anything… yet. That’s okay. You’re smart. Make.
+</p></p>
+
+<p><p>
+  There were a few things in the list at the top that I didn’t go into more detail about (Capistrano, Passenger, Factory Girl, and Shoulda). That’s because they’re ready to go; inclusion in the Gemfile was enough. Just start using ‘em.
+</p></p>
+
+<p><p>
+  Links
+</p></p>
+
+<p><p>
+  Here’s a list of links to the documentation and articles I used to pull this together:
+</p></p>
+
+<p><p>
+  <a href="http://relishapp.com/rspec/rspec-rails">http://relishapp.com/rspec/rspec-rails</a>
+</p></p>
+
+<p><p>
+  <a href="http://github.com/aslakhellesoy/cucumber-rails/blob/master/README.rdoc">http://github.com/aslakhellesoy/cucumber-rails/blob/master/README.rdoc</a>
+</p></p>
+
+<p><p>
+  <a href="http://github.com/thoughtbot/shoulda">http://github.com/thoughtbot/shoulda</a>
+</p></p>
+
+<p><p>
+  <a href="http://github.com/thoughtbot/factory_girl_rails">http://github.com/thoughtbot/factory_girl_rails</a>
+</p></p>
+
+<p><p>
+  <a href="http://mongoid.org/docs/installation">http://mongoid.org/docs/installation</a>
+</p></p>
+
+<p><p>
+  <a href="http://mongoid.org/docs/integration">http://mongoid.org/docs/integration</a>
+</p></p>
+
+<p><p>
+  <a href="http://mongoid.org/docs/extensions">http://mongoid.org/docs/extensions</a>
+</p></p>
+
+<p><p>
+  <a href="http://github.com/plataformatec/devise">http://github.com/plataformatec/devise</a>
+</p></p>
+
+<p><p>
+  <a href="https://github.com/ryanb/cancan">https://github.com/ryanb/cancan</a>
+</p></p>
+
+<p><p>
+  <a href="http://www.tonyamoyal.com/2010/07/28/rails-authentication-with-devise-and-cancan-customizing-devise-controllers/">http://www.tonyamoyal.com/2010/07/28/rails-authentication-with-devise-and-cancan-customizing-devise-controllers/</a>
+</p></p>
+
+<p><p>
+  <a href="https://github.com/indirect/jquery-rails">https://github.com/indirect/jquery-rails</a>
+</p></p>
+
+<p><p>
+  <a href="http://haml-lang.com/">http://haml-lang.com/</a>
+</p></p>
+
+<p><p>
+  <a href="http://sass-lang.com/">http://sass-lang.com/</a>
+</p></p>
+
+<p><p>
+  <a href="http://compass-style.org/">http://compass-style.org/</a>
+</p></p>
+
+<p><p>
+  <a href="http://blueprintcss.org/">http://blueprintcss.org/</a>
+</p></p>
+
+<p><p>
+  <a href="https://github.com/joshuaclayton/blueprint-css/wiki">https://github.com/joshuaclayton/blueprint-css/wiki</a>
+</p></p>
+
+<p><p>
+  转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/545">Rails 3, RSpec, Cucumber, jQuery, Devise, Mongoid, and Compass(转)</a>
+</p></p>
+]]></content>
+  </entry>
+  
+</feed>
