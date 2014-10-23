@@ -4,7 +4,7 @@
   <title><![CDATA[韦旭红的幸福时光]]></title>
   <link href="http://gxbsst.github.io/atom.xml" rel="self"/>
   <link href="http://gxbsst.github.io/"/>
-  <updated>2014-10-23T10:51:56+08:00</updated>
+  <updated>2014-10-23T10:56:08+08:00</updated>
   <id>http://gxbsst.github.io/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Test]]></title>
+    <link href="http://gxbsst.github.io/blog/2014/10/23/test/"/>
+    <updated>2014-10-23T10:55:03+08:00</updated>
+    <id>http://gxbsst.github.io/blog/2014/10/23/test</id>
+    <content type="html"><![CDATA[<p>test</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rubymine 不能输入中文？]]></title>
