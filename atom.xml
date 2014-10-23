@@ -4,7 +4,7 @@
   <title><![CDATA[韦旭红的幸福时光]]></title>
   <link href="http://gxbsst.github.io/atom.xml" rel="self"/>
   <link href="http://gxbsst.github.io/"/>
-  <updated>2014-10-23T15:23:10+08:00</updated>
+  <updated>2014-10-23T15:49:19+08:00</updated>
   <id>http://gxbsst.github.io/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
@@ -85,9 +85,9 @@
   
   <entry>
     <title type="html"><![CDATA[__call 通过一个类(Class)的实例（instance)调用另外一个class的实例的方法]]></title>
-    <link href="http://gxbsst.github.io/2006/08/17/__call-%e9%80%9a%e8%bf%87%e4%b8%80%e4%b8%aa%e7%b1%bbclass%e7%9a%84%e5%ae%9e%e4%be%8b%ef%bc%88instance%e8%b0%83%e7%94%a8%e5%8f%a6%e5%a4%96%e4%b8%80%e4%b8%aaclass%e7%9a%84%e5%ae%9e%e4%be%8b%e7%9a%84/"/>
+    <link href="http://gxbsst.github.io/archives/166"/>
     <updated>2006-08-17T00:00:00+08:00</updated>
-    <id>http://gxbsst.github.io/2006/08/17/__call-%e9%80%9a%e8%bf%87%e4%b8%80%e4%b8%aa%e7%b1%bbclass%e7%9a%84%e5%ae%9e%e4%be%8b%ef%bc%88instance%e8%b0%83%e7%94%a8%e5%8f%a6%e5%a4%96%e4%b8%80%e4%b8%aaclass%e7%9a%84%e5%ae%9e%e4%be%8b%e7%9a%84</id>
+    <id>http://gxbsst.github.io/archives/__call-%e9%80%9a%e8%bf%87%e4%b8%80%e4%b8%aa%e7%b1%bbclass%e7%9a%84%e5%ae%9e%e4%be%8b%ef%bc%88instance%e8%b0%83%e7%94%a8%e5%8f%a6%e5%a4%96%e4%b8%80%e4%b8%aaclass%e7%9a%84%e5%ae%9e%e4%be%8b%e7%9a%84</id>
     <content type="html"><![CDATA[<p><img src="http://www.weixuhong.com/content/uploads/2008/08/picture-7.png" height="678" width="533" border="1" align="left" hspace="4" vspace="4" alt="Picture 7" /></p>
 
 <div style="clear:both;">
@@ -108,7 +108,7 @@ function <strong>construct()<br/>
 28 private $obj;<br/>
 }</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/2006/08/17/__call-%e9%80%9a%e8%bf%87%e4%b8%80%e4%b8%aa%e7%b1%bbclass%e7%9a%84%e5%ae%9e%e4%be%8b%ef%bc%88instance%e8%b0%83%e7%94%a8%e5%8f%a6%e5%a4%96%e4%b8%80%e4%b8%aaclass%e7%9a%84%e5%ae%9e%e4%be%8b%e7%9a%84/">__call 通过一个类(Class)的实例（instance)调用另外一个class的实例的方法</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/166">__call 通过一个类(Class)的实例（instance)调用另外一个class的实例的方法</a></p>
 ]]></content>
   </entry>
   
