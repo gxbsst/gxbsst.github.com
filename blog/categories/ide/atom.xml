@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Ide | 韦旭红的幸福时光]]></title>
+  <link href="http://gxbsst.github.io/blog/categories/ide/atom.xml" rel="self"/>
+  <link href="http://gxbsst.github.io/"/>
+  <updated>2014-10-23T10:49:40+08:00</updated>
+  <id>http://gxbsst.github.io/</id>
+  <author>
+    <name><![CDATA[Weston Wei(韦旭红)]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Rubymine 不能输入中文？]]></title>
+    <link href="http://gxbsst.github.io/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/"/>
+    <updated>2014-10-23T10:14:26+08:00</updated>
+    <id>http://gxbsst.github.io/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-?</id>
+    <content type="html"><![CDATA[<p>如果你的rubymine 不能输入中文，请做这样的修改:</p>
+
+<pre><code class="bash"> vim /Applications/RubyMine.app/bin/idea.vmoptions
+</code></pre>
+
+<p>加入下面一行：
+<code>java
+-J-Djava.awt.im.style=on-the-spot
+</code>
+所以长得这样子:</p>
+
+<pre><code class="java">-Xms128m
+-Xmx512m
+-XX:MaxPermSize=250m
+-XX:+UseCompressedOops
+-J-Djava.awt.im.style=on-the-spot
+</code></pre>
+
+<p>–EOF–</p>
+]]></content>
+  </entry>
+  
+</feed>

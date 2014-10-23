@@ -4,7 +4,7 @@
   <title><![CDATA[韦旭红的幸福时光]]></title>
   <link href="http://gxbsst.github.io/atom.xml" rel="self"/>
   <link href="http://gxbsst.github.io/"/>
-  <updated>2014-10-22T18:21:58+08:00</updated>
+  <updated>2014-10-23T10:49:40+08:00</updated>
   <id>http://gxbsst.github.io/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
@@ -12,6 +12,44 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rubymine 不能输入中文？]]></title>
+    <link href="http://gxbsst.github.io/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/"/>
+    <updated>2014-10-23T10:14:26+08:00</updated>
+    <id>http://gxbsst.github.io/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-?</id>
+    <content type="html"><![CDATA[<p>如果你的rubymine 不能输入中文，请做这样的修改:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'> vim /Applications/RubyMine.app/bin/idea.vmoptions
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>加入下面一行：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="o">-</span><span class="n">J</span><span class="o">-</span><span class="n">Djava</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">im</span><span class="o">.</span><span class="na">style</span><span class="o">=</span><span class="n">on</span><span class="o">-</span><span class="n">the</span><span class="o">-</span><span class="n">spot</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>所以长得这样子:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="o">-</span><span class="n">Xms128m</span>
+</span><span class='line'><span class="o">-</span><span class="n">Xmx512m</span>
+</span><span class='line'><span class="o">-</span><span class="nl">XX:</span><span class="n">MaxPermSize</span><span class="o">=</span><span class="mi">250</span><span class="n">m</span>
+</span><span class='line'><span class="o">-</span><span class="nl">XX:</span><span class="o">+</span><span class="n">UseCompressedOops</span>
+</span><span class='line'><span class="o">-</span><span class="n">J</span><span class="o">-</span><span class="n">Djava</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">im</span><span class="o">.</span><span class="na">style</span><span class="o">=</span><span class="n">on</span><span class="o">-</span><span class="n">the</span><span class="o">-</span><span class="n">spot</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>–EOF–</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[看了解AngularJs的指令中的@,=]]></title>
