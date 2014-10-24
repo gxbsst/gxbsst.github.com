@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[分类：rails | 韦旭红的幸福时光]]></title>
+  <title><![CDATA[分类：rails | 小红博客]]></title>
   <link href="http://weixuhong.com/blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://weixuhong.com/"/>
-  <updated>2014-10-24T15:21:07+08:00</updated>
+  <updated>2014-10-24T15:26:34+08:00</updated>
   <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>

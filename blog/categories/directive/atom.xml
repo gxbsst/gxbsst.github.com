@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[分类：directive | 韦旭红的幸福时光]]></title>
+  <title><![CDATA[分类：directive | 小红博客]]></title>
   <link href="http://weixuhong.com/blog/categories/directive/atom.xml" rel="self"/>
   <link href="http://weixuhong.com/"/>
-  <updated>2014-10-24T15:21:07+08:00</updated>
+  <updated>2014-10-24T15:26:34+08:00</updated>
   <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
@@ -24,21 +24,21 @@
 Binds a local scope property to the value of a DOM attribute The binding is uni-directional from parent to directive
 The result is always a string because DOM attributes are strings</p>
 
-<p>{% img  /images/directive_1.png  600 ‘image’ ‘images’ %}</p>
+<p><img src="/images/directive_1.png" width="600" title="‘image’ ‘images’" ></p>
 
 <h3 id="binding-isolated-scope">Binding Isolated Scope</h3>
 
 <p>Defined with an = symbol
 Bi-directional binding between parent and directive You can define the binding as optional via =? Optimal for dealing with objects and collections</p>
 
-<p>{% img  /images/directive_2.png  600 ‘image’ ‘images’ %}</p>
+<p><img src="/images/directive_2.png" width="600" title="‘image’ ‘images’" ></p>
 
 <h3 id="expression-isolated-scope">Expression Isolated Scope</h3>
 
 <p>Defined using an &amp; symbol
 Allows you to execute an expression on the parent scope To pass variables from child to parent expressions you must use an object map</p>
 
-<p>{% img  /images/directive_3.png  600 ‘image’ ‘images’ %}</p>
+<p><img src="/images/directive_3.png" width="600" title="‘image’ ‘images’" ></p>
 ]]></content>
   </entry>
   
