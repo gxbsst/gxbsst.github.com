@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux/unix | 韦旭红的幸福时光]]></title>
   <link href="http://weixuhong.com/blog/categories/linux-slash-unix/atom.xml" rel="self"/>
   <link href="http://weixuhong.com/"/>
-  <updated>2014-10-23T19:04:05+08:00</updated>
+  <updated>2014-10-24T11:28:18+08:00</updated>
   <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
@@ -214,7 +214,7 @@ smtp_host = localhost:25
 config_charset = utf-8</p></blockquote>
 
 <p>[author table]
-weston = <a href="&#109;&#x61;&#x69;&#108;&#x74;&#111;&#x3a;&#x79;&#111;&#x75;&#114;&#x65;&#x6d;&#97;&#x69;&#x6c;&#x40;&#103;&#x6d;&#97;&#105;&#x6c;&#46;&#99;&#x6f;&#x6d;">&#x79;&#111;&#117;&#114;&#101;&#109;&#x61;&#x69;&#108;&#x40;&#103;&#x6d;&#97;&#105;&#108;&#46;&#x63;&#111;&#x6d;</a></p>
+weston = <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#121;&#x6f;&#117;&#x72;&#x65;&#x6d;&#x61;&#105;&#x6c;&#x40;&#103;&#109;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#109;">&#121;&#x6f;&#117;&#114;&#101;&#x6d;&#97;&#x69;&#x6c;&#x40;&#103;&#109;&#x61;&#x69;&#108;&#46;&#99;&#111;&#x6d;</a></p>
 
 <p>[maps]
 from_addr = [author table]
@@ -235,7 +235,7 @@ mail_transfer_encoding = 8bit
 </p></p>
 
 <p><p>
-  * 其中smtp_host = localhost:25是你发送email的smtp服务器<br /> * weston = <a href="&#109;&#x61;&#105;&#x6c;&#116;&#x6f;&#x3a;&#x79;&#x6f;&#117;&#x72;&#101;&#x6d;&#x61;&#105;&#108;&#64;&#103;&#x6d;&#x61;&#105;&#108;&#x2e;&#x63;&#x6f;&#x6d;">&#121;&#x6f;&#117;&#114;&#101;&#x6d;&#x61;&#x69;&#108;&#x40;&#103;&#x6d;&#x61;&#x69;&#x6c;&#46;&#99;&#x6f;&#x6d;</a> 是谁接收email
+  * 其中smtp_host = localhost:25是你发送email的smtp服务器<br /> * weston = <a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#58;&#x79;&#x6f;&#x75;&#114;&#x65;&#109;&#x61;&#105;&#108;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#x63;&#111;&#x6d;">&#x79;&#111;&#x75;&#x72;&#101;&#109;&#97;&#x69;&#x6c;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a> 是谁接收email
 </p></blockquote></p>
 
 <p><h4>

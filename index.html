@@ -9,13 +9,18 @@
   <meta name="author" content="Weston Wei(韦旭红)">
 
   
-  <meta name="description" content="如果你的rubymine 不能输入中文，请做这样的修改: 1 vim /Applications/RubyMine.app/bin/idea.vmoptions 加入下面一行： 1
--J-Djava.awt.im.style=on-the-spot 所以长得这样子: 1
+  <meta name="description" content="1
 2
-3
-4
-5
-- &hellip;">
+obj.should ...
+expect(obj).to ... 1
+2
+obj.should_not ...
+expect(obj).not_to ... 1
+2
+obj.should =~ //
+expect(obj).to match(//) 1
+2
+[1, 2, 3]. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -108,6 +113,119 @@ $(document).ready(
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-10-24T10:33:47+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>10:33 am</span></time>
+        
+           | <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/#disqus_thread"
+             data-disqus-identifier="http://weixuhong.com/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">obj</span><span class="o">.</span><span class="n">should</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class='line'><span class="n">expect</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">obj</span><span class="o">.</span><span class="n">should_not</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class='line'><span class="n">expect</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="o">.</span><span class="n">not_to</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">obj</span><span class="o">.</span><span class="n">should</span> <span class="o">=~</span> <span class="sr">//</span>
+</span><span class='line'><span class="n">expect</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">match</span><span class="p">(</span><span class="sr">//</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">should</span> <span class="o">=~</span> <span class="o">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span>
+</span><span class='line'><span class="n">expect</span><span class="p">(</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">match_array</span><span class="p">(</span><span class="o">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">obj</span><span class="o">.</span><span class="n">should</span> <span class="o">&gt;</span> <span class="mi">3</span>
+</span><span class='line'><span class="n">expect</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">be</span> <span class="o">&gt;</span> <span class="mi">3</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">lambda</span> <span class="p">{</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span><span class="o">.</span><span class="n">should</span> <span class="n">raise_error</span>
+</span><span class='line'><span class="n">expect</span> <span class="p">{</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span><span class="o">.</span><span class="n">to</span> <span class="n">raise_error</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>RSpec 2.14.0 or later</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">obj</span><span class="o">.</span><span class="n">stub</span><span class="p">(</span><span class="ss">:foo</span><span class="p">)</span>
+</span><span class='line'><span class="n">allow</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:foo</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">SomeClass</span><span class="o">.</span><span class="n">any_instance</span><span class="o">.</span><span class="n">should_receive</span><span class="p">(</span><span class="ss">:foo</span><span class="p">)</span>
+</span><span class='line'><span class="n">expect_any_instance_of</span><span class="p">(</span><span class="no">SomeClass</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:foo</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">SomeClass</span><span class="o">.</span><span class="n">any_instance</span><span class="o">.</span><span class="n">stub</span><span class="p">(</span><span class="ss">:foo</span><span class="p">)</span>
+</span><span class='line'><span class="n">allow_any_instance_of</span><span class="p">(</span><span class="no">SomeClass</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:foo</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>RSpec 2.99.0.beta1 or later</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">it</span> <span class="p">{</span> <span class="n">should</span> <span class="n">eq</span><span class="p">(</span><span class="n">something</span><span class="p">)</span> <span class="p">}</span>
+</span><span class='line'><span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="o">.</span><span class="n">to</span> <span class="n">eq</span><span class="p">(</span><span class="n">something</span><span class="p">)</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>RSpec 3.0.0.beta1 or later</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">obj</span><span class="o">.</span><span class="n">stub_chain</span><span class="p">(</span><span class="ss">:foo</span><span class="p">,</span> <span class="ss">:bar</span><span class="p">)</span><span class="o">.</span><span class="n">and_return</span><span class="p">(</span><span class="n">something</span><span class="p">)</span>
+</span><span class='line'><span class="n">allow</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">receive_message_chain</span><span class="p">(</span><span class="ss">:foo</span><span class="p">,</span> <span class="ss">:bar</span><span class="p">)</span><span class="o">.</span><span class="n">and_return</span><span class="p">(</span><span class="n">something</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -607,86 +725,6 @@ $(document).ready(
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/archives/557">安装passenger for Rails3</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2011-09-07T00:00:00+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2011</span></span> <span class='time'>12:00 am</span></time>
-        
-           | <a href="/archives/557#disqus_thread"
-             data-disqus-identifier="http://weixuhong.com/archives/557">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><pre lang="c">gem install passenger
-
-</pre>
-
-
-
-
-<pre lang="c">yum install apr-devel
-yum install apr-util-devel
-yum install httpd-devel
-</pre>
-
-
-
-
-<pre lang="c">passenger-install-apache2-module
-</pre>
-
-
-<p>复杂以下文件到httpd.conf</p>
-
-<pre lang="c">LoadModule passenger_module /usr/local/rvm/gems/ruby-1.9.2-p290-module/gems/passenger-3.0.9/ext/apache2/mod_passenger.so
-   PassengerRoot /usr/local/rvm/gems/ruby-1.9.2-p290-module/gems/passenger-3.0.9
-   PassengerRuby /usr/local/rvm/wrappers/ruby-1.9.2-p290-module/ruby
-</pre>
-
-
-
-
-<pre lang="c">#For PAIFAN 后台
-&lt;VirtualHost *:80>
- ServerName padmin.qdigit.cn
- RailsEnv production
- #RailsEnv development 
- DocumentRoot /var/www/html/admin.insta/public
- ErrorLog /var/www/html/admin.insta/log/redmine.error.log
-  &lt;Directory /var/www/html/admin.insta/public>
-  AllowOverride all
-  #Options -MultiViews           
-  Options Indexes -MultiViews
- &lt;/Directory>
-&lt;/VirtualHost>
-
-</pre>
-
-
-<p>参考: <a href="http://www.modrails.com/install.html">http://www.modrails.com/install.html</a></p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/557">安装passenger for rails3</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; Older</a>
@@ -710,7 +748,9 @@ yum install httpd-devel
 <li class='category'><a href='/blog/categories/javascript/'>javascript (8)</a></li>
 <li class='category'><a href='/blog/categories/linux-unix/'>linux/unix (24)</a></li>
 <li class='category'><a href='/blog/categories/php/'>php (28)</a></li>
+<li class='category'><a href='/blog/categories/rails/'>rails (1)</a></li>
 <li class='category'><a href='/blog/categories/regular-expressions/'>regular expressions (2)</a></li>
+<li class='category'><a href='/blog/categories/rspec/'>rspec (1)</a></li>
 <li class='category'><a href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails (36)</a></li>
 <li class='category'><a href='/blog/categories/rubymine/'>rubymine (1)</a></li>
 <li class='category'><a href='/blog/categories/xhtml-css/'>xhtml/css (9)</a></li>
@@ -728,6 +768,10 @@ yum install httpd-devel
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
       </li>
     
@@ -741,10 +785,6 @@ yum install httpd-devel
     
       <li class="post">
         <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
-      <li class="post">
-        <a href="/archives/595">Rubymine 不能输入中文？</a>
       </li>
     
   </ul>

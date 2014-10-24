@@ -9,7 +9,12 @@
   <meta name="author" content="Weston Wei(韦旭红)">
 
   
-  <meta name="description" content="虽然这个几个比较常见，但是未必每个人都会用，我就简单整理一下&#8230;. $_SERVER var_dump出的效果，说一个Array，你应该知道怎么用吧，其中的PHP_SELF,USER_AGENT等相信对你会有用 array 'HTTP_USER_AGENT' => string &#8217; &hellip;&#8221;>
+  <meta name="description" content="今天看了才解决了我这个很久的疑惑&#8230;.
+在一般其他语言里面捕获一般用$1,$2就可以了
+比如用Perl
+$string = “It just a test&#8230;”
+如果要找just可以这样 $string =~ m/(just)/i $1 的结果就是just了
+很多语言都是这样， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -102,6 +107,60 @@ $(document).ready(
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/196">VIM用正则分组捕获的方法</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-10-03T00:00:00+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>3</span><span class='date-suffix'>rd</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/196#disqus_thread"
+             data-disqus-identifier="http://weixuhong.com/archives/196">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天看了<Mastering Regular Expressions 3>才解决了我这个很久的疑惑&#8230;.<br/>
+在一般其他语言里面捕获一般用$1,$2就可以了<br/>
+比如用Perl<br/>
+$string = “It just a test&#8230;”<br/>
+如果要找just可以这样</p>
+
+<p>$string =~ m/(just)/i</p>
+
+<p>$1 的结果就是just了<br/>
+很多语言都是这样，ruby，javascript等</p>
+
+<p>但是我在vim一直没有办法实现，原来说用这样的方法<br/>
+比如要把just 变换成 is just 应该可以这样，当我的例子很不好<br/>
+在vim的用法<br/>
+:%s/(just)/is 1/</p>
+
+<p>如果分组应该说这样<br/>
+:%s/(just|jst)/is 1/</p>
+
+<p><em>在vim需要转义<br/>
+</em>捕获用1而不是$1</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/196">VIM用正则分组捕获的方法</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -742,82 +801,6 @@ Control-o: edit-and-execute-command
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/archives/172">PHP 跨站点脚本攻击</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2008-09-01T00:00:00+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
-        
-           | <a href="/archives/172#disqus_thread"
-             data-disqus-identifier="http://weixuhong.com/archives/172">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><ul>
-<li><a href="http://www.w3pop.com/learn/view/p/5/o//doc/php_xss/  ">http://www.w3pop.com/learn/view/p/5/o//doc/php_xss/  </a>
-PHP：用javascript来防止吧<br/>
-或者考虑检查 $_SERVER[&lsquo;HTTP_REFERER&rsquo;] * 但是别人是可以修改这个值的，所以不是完全的完全的<br/>
-或者用和rails一样的解决方法<br/>
-根据一个惟一的字符串或时间戳生成一个令牌，并将这个令牌放在会话变量和表单中<br/>
-要创建随机的令牌，可以使用 PHP 内置的 md5()、uniqid() 和 rand() 函数，如下所示：</li>
-</ul>
-
-
-<pre lang="php"><?php  
-session_start();  
-  
-if ($_POST['submit'] == "go"){  
-    //check token  
-    if ($_POST['token'] == $_SESSION['token']){  
-        //strip_tags  
-        $name = strip_tags($_POST['name']);  
-        $name = substr($name,0,40);  
-        //clean out any potential hexadecimal characters  
-        $name = cleanHex($name);  
-        //continue processing....  
-    }else{  
-        //stop all processing! remote form posting attempt!  
-    }  
-}  
-  
-$token = md5(uniqid(rand(), true));  
-$_SESSION['token']= $token;  
-  
-  
-function cleanHex($input){  
-    $clean = preg_replace("![][xX]([A-Fa-f0-9]{1,3})!", "",$input);  
-    return $clean;  
-}  
-?>  
-  
-  
-  
-</pre>
-
-
-<p>Rails: rails2.1在这方面做了些工作，在post数据的时候，会post过去一个安全码，Rails认出来表示正常，否则非法&#8230;</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/172">PHP 跨站点脚本攻击</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/12">&larr; Older</a>
@@ -843,7 +826,9 @@ function cleanHex($input){
 <li class='category'><a href='/blog/categories/javascript/'>javascript (8)</a></li>
 <li class='category'><a href='/blog/categories/linux-unix/'>linux/unix (24)</a></li>
 <li class='category'><a href='/blog/categories/php/'>php (28)</a></li>
+<li class='category'><a href='/blog/categories/rails/'>rails (1)</a></li>
 <li class='category'><a href='/blog/categories/regular-expressions/'>regular expressions (2)</a></li>
+<li class='category'><a href='/blog/categories/rspec/'>rspec (1)</a></li>
 <li class='category'><a href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails (36)</a></li>
 <li class='category'><a href='/blog/categories/rubymine/'>rubymine (1)</a></li>
 <li class='category'><a href='/blog/categories/xhtml-css/'>xhtml/css (9)</a></li>
@@ -861,6 +846,10 @@ function cleanHex($input){
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
       </li>
     
@@ -874,10 +863,6 @@ function cleanHex($input){
     
       <li class="post">
         <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
-      <li class="post">
-        <a href="/archives/595">Rubymine 不能输入中文？</a>
       </li>
     
   </ul>

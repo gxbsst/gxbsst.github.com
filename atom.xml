@@ -4,7 +4,7 @@
   <title><![CDATA[韦旭红的幸福时光]]></title>
   <link href="http://weixuhong.com/atom.xml" rel="self"/>
   <link href="http://weixuhong.com/"/>
-  <updated>2014-10-23T19:04:05+08:00</updated>
+  <updated>2014-10-24T11:28:18+08:00</updated>
   <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
@@ -12,6 +12,96 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rspec 新旧方法对照表]]></title>
+    <link href="http://weixuhong.com/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/"/>
+    <updated>2014-10-24T10:33:47+08:00</updated>
+    <id>http://weixuhong.com/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao</id>
+    <content type="html"><![CDATA[<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">obj</span><span class="o">.</span><span class="n">should</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class='line'><span class="n">expect</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">obj</span><span class="o">.</span><span class="n">should_not</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class='line'><span class="n">expect</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="o">.</span><span class="n">not_to</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">obj</span><span class="o">.</span><span class="n">should</span> <span class="o">=~</span> <span class="sr">//</span>
+</span><span class='line'><span class="n">expect</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">match</span><span class="p">(</span><span class="sr">//</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">].</span><span class="n">should</span> <span class="o">=~</span> <span class="o">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span>
+</span><span class='line'><span class="n">expect</span><span class="p">(</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">match_array</span><span class="p">(</span><span class="o">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">obj</span><span class="o">.</span><span class="n">should</span> <span class="o">&gt;</span> <span class="mi">3</span>
+</span><span class='line'><span class="n">expect</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">be</span> <span class="o">&gt;</span> <span class="mi">3</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">lambda</span> <span class="p">{</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span><span class="o">.</span><span class="n">should</span> <span class="n">raise_error</span>
+</span><span class='line'><span class="n">expect</span> <span class="p">{</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span><span class="o">.</span><span class="n">to</span> <span class="n">raise_error</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>RSpec 2.14.0 or later</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">obj</span><span class="o">.</span><span class="n">stub</span><span class="p">(</span><span class="ss">:foo</span><span class="p">)</span>
+</span><span class='line'><span class="n">allow</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:foo</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">SomeClass</span><span class="o">.</span><span class="n">any_instance</span><span class="o">.</span><span class="n">should_receive</span><span class="p">(</span><span class="ss">:foo</span><span class="p">)</span>
+</span><span class='line'><span class="n">expect_any_instance_of</span><span class="p">(</span><span class="no">SomeClass</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:foo</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">SomeClass</span><span class="o">.</span><span class="n">any_instance</span><span class="o">.</span><span class="n">stub</span><span class="p">(</span><span class="ss">:foo</span><span class="p">)</span>
+</span><span class='line'><span class="n">allow_any_instance_of</span><span class="p">(</span><span class="no">SomeClass</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:foo</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>RSpec 2.99.0.beta1 or later</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">it</span> <span class="p">{</span> <span class="n">should</span> <span class="n">eq</span><span class="p">(</span><span class="n">something</span><span class="p">)</span> <span class="p">}</span>
+</span><span class='line'><span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="o">.</span><span class="n">to</span> <span class="n">eq</span><span class="p">(</span><span class="n">something</span><span class="p">)</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>RSpec 3.0.0.beta1 or later</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">obj</span><span class="o">.</span><span class="n">stub_chain</span><span class="p">(</span><span class="ss">:foo</span><span class="p">,</span> <span class="ss">:bar</span><span class="p">)</span><span class="o">.</span><span class="n">and_return</span><span class="p">(</span><span class="n">something</span><span class="p">)</span>
+</span><span class='line'><span class="n">allow</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">receive_message_chain</span><span class="p">(</span><span class="ss">:foo</span><span class="p">,</span> <span class="ss">:bar</span><span class="p">)</span><span class="o">.</span><span class="n">and_return</span><span class="p">(</span><span class="n">something</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rubymine 不能输入中文？]]></title>
@@ -1440,433 +1530,6 @@ typedef enum {north, south, east, west} direction;<br/>
 
 
 <p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/529">objective-c enum 与 typedef</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Objective-C 入门知识（转)]]></title>
-    <link href="http://weixuhong.com/archives/525"/>
-    <updated>2011-07-06T00:00:00+08:00</updated>
-    <id>http://weixuhong.com/archives/objective-c-%e5%85%a5%e9%97%a8%e7%9f%a5%e8%af%86%ef%bc%88%e8%bd%ac</id>
-    <content type="html"><![CDATA[<p>罗朝辉（<a href="http://www.cppblog.com/kesalin%EF%BC%89">http://www.cppblog.com/kesalin%EF%BC%89</a></p>
-
-<p>转载请注明出处</p>
-
-<p>编程工作做久了，最初的新鲜感难免会消磨殆尽。幸好总是会有新的技术闪耀登场，重燃编辑人员的兴趣，Mac OS X 就饱含这样神奇的技术。</p>
-
-<p>&#8212;Mark Dalrymple &amp; Scott Knaster</p>
-
-<p>1，从 HelloWorld 开始，</p>
-
-<pre lang="c">#import &lt;Foundation/Foundation.h>
-
-int main (int argc, const char * argv[]) {
-
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-
-    // insert code here...
-
-    NSLog(@"Hello, World!");
-
-    [pool drain];
-
-    return 0;
-
-}
-</pre>
-
-
-<h1>import 就相当于 #include，用来通知编译起应该在头文件中查询定义，当 import 功能更强大，它可以保证头文件只可以被包含一次。而在C／C＋＋中我们是通过</h1>
-
-<pre lang="c">#ifndef __HELLO_WORLD_H__
-
-#define __HELLO_WORLD_H__
-
-// …. do something
-
-#endif // __HELLO_WORLD_H__
-</pre>
-
-
-<p>来实现的（在VC中可以使用 #program once 来实现这一目的）。</p>
-
-<p>2，Objective C中的布尔数据类型与C语言中的不同，在C语言中是有专门的布尔数据类型 bool，且它具有 true 和 false 值；在 Objective C 中有相似的对应类型 BOOL，它具有 YES 和 NO 值。这两者是有区别的，Objective C 中的 BOOL 是实际上是 signed char 的一个 typedef，即：</p>
-
-<pre lang="c">typedef  signed char BOOL;
-
- #define YES 1
-
- #define NO 0
-</pre>
-
-
-<p>所以 BOOL 实际上是一个有符号的 char 类型，YES 被定义为 1，而 NO 被定义为 0，但 BOOL 还可以是其他值，但均不是约定的 YES 或 NO 值。也就是非零的 BOOL 类型的数据不一定等于 YES，使用时要注意这一点。</p>
-
-<p>3, NSObject 声明了一个名为 isa 的实例变量，该变量保存一个指针，指向对象的类。每个成员方法调用都获得2一个名为 self 的隐藏函数，它是一个指向接收消息的对象的指针。方法使用 self 参数查找它们要使用的实例变量。</p>
-
-<p>脆弱的基类问题：self 指向 isa，isa 是占四个字节的，之后便是类自身的成员变量区域，所以 selft ＋ 4 ＋ 成员变量与对象基地址之间的偏移量就能得到指向存储成员变量的地址。因此，如果想向 NSObjcet 中增加新的变量，就无法做到了，因为在编译器生成的程序中，这些偏移量是通过硬编码实现的。</p>
-
-<p>苹果通过在 Leopard 中引入新的 64 位 Objective-C（它使用间接寻址方式确定变量的位置）解决了这个问题。</p>
-
-<p>4，super 是由 Objective-C 编译器提供的，向 super 发送消息，实际上是在请求 Objective-C 向该类的超类发送消息。如果直接超类中没有定义该消息，将按照通常的方式在继承链中继续查找对应的消息。</p>
-
-<p>5,在新生成的文件中使用公司名称或自己的名称代替默认的占位符 __MyCompanyName__，在 Finder 中打开 Utilities 文件夹，打开其中的 Terminal 应用程序，在命令行中按照如下格式输入，回车就可以了。</p>
-
-<p>defaults write com.apple.Xcode.PBXCustomTemplateMacroDefinites &#8216;{&#8220;ORGANIZATIONNAME&#8221;=&#8221;kesalin@gmail.com&#8221;;}&#8217;</p>
-
-<p>6，XCode 3.2 快捷键</p>
-
-<p>shift + command + E 显示或者隐藏 Editor 窗口。</p>
-
-<p>command + [ 左移代码</p>
-
-<p>command + ] 右移代码</p>
-
-<p>tab 代码自动完成</p>
-
-<p>Esc 打开自动完成列表(E表示枚举类型，f表示函数，＃表示＃define宏，m表示方法，C表示类)</p>
-
-<p>control ＋ . 不显示自动完成列表而自动进行推荐值正向循环</p>
-
-<p>shift + control + . 不显示自动完成列表而自动进行推荐值反向循环</p>
-
-<p>control + / 移至下一个占位符</p>
-
-<p>command + control + s 创建快照</p>
-
-<p>Edit->Edit all in scope 修改局部变量或参数</p>
-
-<p>Edit->Refactor 全局修改类名（但无法修改注释中出现的类名）</p>
-
-<p>command + shift + D 打开文件快速查找对话框</p>
-
-<p>command + option + 向上箭头 查看文件的配套文件（如果当前查看的为 m 文件，则打开 h 文件，反之亦然）</p>
-
-<p>command + D 创建书签</p>
-
-<p>command + Y 调试</p>
-
-<p>command + option + P 执行到下一个断点（相当于 VS 下的 F5）</p>
-
-<p>command + shift + O 执行到下一步（相当于 VS 下的 F10）</p>
-
-<p>command + shift + I 跳入函数执行（相当于 VS 下的 F11）</p>
-
-<p>command + shift + T 跳出函数执行</p>
-
-<p>control + F Forward right 右移光标</p>
-
-<p>control + B Backward left 左移光标</p>
-
-<p>control + P Previous lien 上移光标</p>
-
-<p>control + N Next line 下移光标</p>
-
-<p>control + A Line head 光标移动到行首</p>
-
-<p>control + E Line end 光标移动到行尾</p>
-
-<p>control + T Transpose 交换光标两边的符合</p>
-
-<p>control + D Delete 删除光标右边的字符</p>
-
-<p>control + K Kill 删除光标所在行中光标后的代码，</p>
-
-<p>control + L 将插入点置于窗口正中。</p>
-
-<p>查看文档 按住 option 键并双击选择的内容，可以查找选中字符的文档</p>
-
-<p>格式化代码 右键菜单，选择 re-indent selection</p>
-
-<p>折叠代码， 点击代码左边的焦点列，就可以进行代码的折叠。</p>
-
-<p>添加可读的标记 在代码中加入 ＃pragma mark STUFF，#pragma mark &#8211; 则是在菜单中插入分割线</p>
-
-<p>或在代码中加入如下 TODO:, FIDME,!!! 或 ???</p>
-
-<p>7，NSString 的比较方法：</p>
-
-<p>isEqualToString 比较两个字符串的内容，如果相等返回 YES，如果不相等返回 NO。</p>
-
-<p>要比较两个字符串可以使用 compare 函数，其接口声明如下：</p>
-
-<p>-(NSComparisonResult) compare:(NSString *) string</p>
-
-<p>options:(unsigned) mask;</p>
-
-<p>mask 可以是如下位相或的值：</p>
-
-<p>NSCaseInsensitiveSearch : 不区分大小写</p>
-
-<p>NSLiteralSearch : 进行完全的比较，区分大小写</p>
-
-<p>NSNumericSearch : 比较字符串的字符个数，而不是字符值。</p>
-
-<pre lang="c">typedef enum _NSComparisonResult {
-
-NSOrderedAscending = -1;
-
-NSOrderedSame,
-
-NSOrderedDescending
-
-} NSComparisonResult;
-
-</pre>
-
-
-<p>8, NSArray 只能存储 Objective-C对象，而不能存储 C 语言中的基本数据类型，如 int，float，enum，struct，或者 NSArray中的随机指针，也不能将存储 nil。</p>
-
-<p>对于可变数组进行枚举操作时，有一点需要注意：你不能通过添加或着删除对象这类方式来改变数组的容器。</p>
-
-<p>不要试图去创建 NSString，NSArray，NSDictionary的子类，而应该用聚合方式来使用它们。因为它们实际上是以类族的方式实现的，即它们是一群隐藏在通用接口之下的与实现相关的类。比如，创建 NSString 对象时，实际上获得的可能时 NSLiteralString，NSCFString，NSSimpleCString，NSBallOfString或者其他没有写入文档的与实现相关的对象。</p>
-
-<p>9，NSValue 可以包装任意值，可以用 NSValue 将结构体放入 NSArray 或 NSDictionary 中。可用如下的类方法创建新的 NSValue。</p>
-
-<pre lang="c">+(NSValue *) valueWidthBytes:(const void *) value
-
-                    objCType:(const char *) type;
-</pre>
-
-
-<p>传递的参数 value 时想要包装的数值的地址，type 时一个用来描述这个数据类型的字符串，通常用来说明 struct 中实体的类型和大小。我们不必自己写代码来生存这个字符串，通过 @encode 编译器指令（接收数据类型的名称作为输入参数）来生成合适的字符串。例如：</p>
-
-<pre lang="c">NSRect rect = NSMakeRect(10, 10, 200, 200);
-
-NSValue *value;
-
-value = [NSValue valueWidthBytes: &#038;rect,
-
-                        objCType: @encode(NSRect)];
-
-[array addObject: value];
-</pre>
-
-
-<p>10，内存管理</p>
-
-<p>Objective-C 使用引用计数技术来进行内存管理。当使用 alloc，new，copy 创建一个对象时，对象的引用计数被设置为 1。每给对象发送一条 retain 消息都将增加对象的引用计数；每给对象发送一条 release 消息都将简述对象的引用计数，当引用计数归 0 时，对象被销毁，这时 Objective-C 自动向对象发送一条 dealloc 消息。我们可以在对象中重写 dealloc 方法，在其中释放为对象分配的全部资源。注意：不要直接调用 dealloc 方法。给对象发送 retainCount 可以获得当前的引用计数值。</p>
-
-<p>Cocoa 中有一个自动释放池(autorelease pool)，可以给 NSObject 的任何子类发送一条 autorelease 消息，该消息实际上时将该对象添加到 NSAutoreleasePool 中，表示将对象的所有权转交给它所在的 autorelease pool 来管理，即预先设定在将来某个时间（一般就是 autorelease pool 释放的时候）会将对象自动释放。当 autorelease pool 被销毁时，会向该池中的所有对象发送 release 消息。</p>
-
-<p>Objective-C 内存管理定律：</p>
-
-<p>如果使用了 new，alloc 或 copy 方法获得了一个对象，那么必须 release 或 autorelease 该对象。</p>
-
-<p>如果保留了一个对象，那么必须保持 retain 和 release 相匹配。</p>
-
-<p>Objective-C 2.0 支持垃圾回收机制（iOS 不支持），XCode 默认时没有开启该功能的，可以在项目信息的 Build 选项卡中，查找 Required 项，将其设置为 ［-fobjc-gc-only] 即可。该选项让代码既支持垃圾回收又支持对象的 retain 和 release 机制。</p>
-
-<p>11，对象的初始化：</p>
-
-<p>有两种等价的创建新对象的方法：[类名 new] 和 [[类名 alloc] init]，按照 Cocoa 的惯例，要尽量使用后者。[[类名 alloc] init] 实际上是将两个步骤：[类名 alloc] 和 [对象 init] 合并到一起了。Cocoa 要求给对象 alloc 内存之后必须调用 init 进行初始化。</p>
-
-<p>12，类别 category</p>
-
-<p>类别让我们能够不创建类的子类就能对类扩展，但类别有两方面的局限性：第一是无法向类中添加新的成员变量；第二是名称冲突，即类别中的方法与现有的方法重名。当发生名称冲突时，类别具有更高的优先级，可以给类别方法添加前缀以确保不发生名称冲突。</p>
-
-<p>类别主要有三大用途：</p>
-
-<p>第一：将类的实现分散到多个不同文件或多个不同框架中；</p>
-
-<p>第二：创建对私有方法的前向引用；</p>
-
-<p>第三：向对象添加非正式协议；</p>
-
-<p>13，Cocoa 没有任何真正的私有方法，只要知道对象支持的某个方法的名称，即使该对象所在的类的接口中没有该方法的声明，你也可以调用该方法，但编译器会提示一个警告。</p>
-
-<p>14，委托</p>
-
-<p>不需要在 @interface 中声明委托的方法，要成为一个委托对象，只需要实现打算调用的方法。</p>
-
-<p>非正式协议时 NSObject 的一个类别，它列出对象能够响应的方法，表示有一些你可能希望实现的方法，它们能让你在需要的时候更好地完成工作。非正式协议常用于实现委托，委托时一种允许你轻松定制对象行为的技术。</p>
-
-<p>15，选择子 selector</p>
-
-<p>可以使用 @selector() 预编译指令指定选择子，其中方法名放置在圆括号中。如： setObject:atIndex: 的选择子为： @selector(setObject:atIndex:)。选择子可以作为参数传递，也可以作为实例变量。</p>
-
-<p>我们可以通过 NSObject 的 respondsToSelector: 方法来询问一个对象是否能够响应特定的消息。例如：</p>
-
-<pre lang="c">if ([objectArray respondsToSelector: @selector(setObject:atIndex:)) {
-
-objectArray->setObject(object, index);
-
-}
-</pre>
-
-
-<p>16,正式的协议 protocol</p>
-
-<p>正式的协议采用 protocol 关键字。声明协议的语法类似于声明类，但是要注意协议不能有成员变量，它相当于 Java 中的 interface。</p>
-
-<p>例如：Cocoa 声明了一个协议-&ndash;NSCopying：</p>
-
-<pre lang="c">@protocol NSCopying
-
-- (id) copyWidthZone:(NSZone *) zone;
-
-@end
-</pre>
-
-
-<p>要采纳某个协议，可以在类的声明中列出该协议的名称，并用尖括号将协议名称括起来，然后必须在 @implement 中实现协议中声明为 required（默认就是 required）的所有方法，而声明为 optional 的方法可以。</p>
-
-<p>下面让类 MyObject 采纳 NSCopying 协议：</p>
-
-<pre lang="c">@interface MyObject : NSObject &lt;NSCopying>
-
-{
-
-}
-
-@end
-
-@implementation MyObject
-
-- (id) copyWithZone: (NSZone *) zone
-
-{
-
-MyObject *objectCopy;
-
-objectCopy = [[[self class] allocWidthZone: zone] init];
-
-
-return (objectCopy);
-
-}
-
-@end
-</pre>
-
-
-<p>说明：[self class] 返回的是对象所属的类。allocWidthZone 是一个类方法，因此在这里使用是合适的。</p>
-
-<p>我们可以在实例变量和函数参数的数据类型中指定协议的名称，这样就可以约束该变量或参数必须满足的条件（即遵循声明的协议），编译器会对此约束条件进行检查。如：</p>
-
-<p>-(void) setObjectValue:(id<NSCopying>) obj;</p>
-
-<p>在这里 setObjectValue 要求传入的参数必须遵循 NSCopying 协议，即实现了 NSCopying 协议中声明的所有方法。</p>
-
-<p>注意：Objective-C 只在2.0中才添加 required 和 optional 关键字，在这之前，所有的协议中所有的方法都是 required 的。</p>
-
-<p>17，控件编程：</p>
-
-<p>IBOutlet 和 IBAction 它们是 ApplicationKit 提供的宏。</p>
-
-<p>IBOutlet 的定义没有任何作用，只是用来醒目的（我是一个Outlet啦），IBAction 定义为 void。</p>
-
-<p>可以说IBOutlet 和 IBAction 都没有什么实际作用，之所以用它们是为 Interface Builder 以及阅读代码的人</p>
-
-<p>提供特殊标记。</p>
-
-<p>链接操作：在 Interface Builder 中进行拖动链接，拖动的方向是不那么容易分得清的，但其实是有规律可循的。这个规律就是：链接草率是将需要了解某些内容的对象拖动到该对象需要了解的对象。比如：</p>
-
-<p>AppController 需要知道将哪个 NSTextField 用于用户输入，因此拖到方向是从 AppController 到文本域。</p>
-
-<p>而 Button 需要告诉某个对象“嘿，有人按下我了！”，所以是从Buuton 的响应事件拖动到 AppController。</p>
-
-<p>控件执行流程：</p>
-
-<p>加载主 nib 文件 &#8211;> awakeFromNib &#8211;> 处理事务</p>
-
-<p>18，谓词 NSPredicate</p>
-
-<p>创建谓词：</p>
-
-<pre lang="c">NSPredicate *predicat;
-
-predicate = [NSPredicate predicateWidthFormat: @"name == 'kesalin'"];
-
-使用谓词：
-
-Bool match = [predicate evaluateWidthObject: myObject];
-</pre>
-
-
-<p>使用谓词过滤数组：</p>
-
-<p>-filteredArrayUsingPredicate: 是 NSArray 数组的类方法，它将对数组进行过滤，将满足谓词判断的值放置到返回数组中。例：</p>
-
-<p>NSArray *resultObjects;</p>
-
-<p>resultObjects = [objects filteredArrayUsingPredicate: predicate];</p>
-
-<p>与 NSArray 相对应， NSMutableArray 也有相应的方法：</p>
-
-<p>-filterUsingPredicate 可以使用它来剔除不属于该数组的所有项目。</p>
-
-<p>使用谓词是很方便，但是它对效率有损失，就如我们使用键值对访问变量一样。</p>
-
-<p>格式说明符：</p>
-
-<p>我们可以将格式说明符和变量名放入谓词格式字符串中。我们可以将 printf 中常用的 ％d，％f等放入谓词中。如：</p>
-
-<p>predicate = [NSPredicate predicateWithFormat: @&ldquo;age > %d&rdquo;, 18];</p>
-
-<p>支持的其他格式字符串：</p>
-
-<p>%@ 字符串</p>
-
-<p>%K 指定键路径</p>
-
-<p>例如：</p>
-
-<p>predicate = [NSPredicate predicateWithFormat: @&ldquo;%K > %d&rdquo;, @&ldquo;age&rdquo;, 18];</p>
-
-<p>将变量放入谓词字符串中，使用方法类似于环境变量：</p>
-
-<p>predicate = [NSPredicate predicateWithFormat: @&ldquo;name == $NAME&rdquo;];</p>
-
-<p>19,Objective-C 中不存在类变量，可以使用文件范围内的全局变量来模拟类变量并为它们提供访问器。例如：</p>
-
-<pre lang="c">@interface MyObject : NSObject
-
-{
-
-}
-
-+ (int) age;
-
-+ (void) setAge: (int) age;
-
-@end
-
-@implement MyObject
-
-+ (int) age
-
-{
-
-return g_age;
-
-}
-
-+ (void) setAge: (int) age
-
-{
-
-g_age = age;
-
-}
-
-@end
-</pre>
-
-
-<p>20, C++ 具有很多 Objective-C 所没有的特性：</p>
-
-<p>多重继承，命名空间，运算符重载，模板，类变量，抽象类，STL等。</p>
-
-<p>但我们可以通过类别和协议结合消息重定向技术（forwardInvocation）来模拟多重继承，利用协议来实现抽象基类。</p>
-
-<p>注意：使用重定向技术的运行速度要慢于 C++。</p>
-
-<p>Objective-C 运行时进入类结构中查找相应的代码以供使用，其速度比使用虚表技术的 C++ 要慢，但是带来了灵活性和便捷性。</p>
-
-<p>Objective-C 很少使用子类化行为，因为通过类别和动态运行时机制，可以向任何对象发送任何消息，可以将某些功能放到含有较少功能的类中，可以将功能放到最有意义的类中。一般来说只有当创建某个全新的对象，或者需要从跟不上改变某个对象的行为，或者由于类不能实现某个功能而需要使用子类时，才需要载 Cocoa 中设置子类。而对于其他大多数情况，使用委托和数据远源的方式足以应付了。由于 Objective-C 可以向任何对象发送任何消息，对象不必含有特定的子类或遵循特定的接口，这样，单个类就可以成为任意个不同对象的委托或者数据源。</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/525">Objective-C 入门知识（转)</a></p>
 ]]></content>
   </entry>
   

@@ -9,9 +9,10 @@
   <meta name="author" content="Weston Wei(韦旭红)">
 
   
-  <meta name="description" content="1.在本机 运行ssh-keygen
-2.拷贝.ssh/id_rsa.pub到服务器的/home/weston/.ssh/authorized_keys2
-3.查看目标服务器上的authorized_keys2的权限，确保其为0655或更高；同时确保本机上的id_rsa/ &hellip;">
+  <meta name="description" content="由于项目的需要，准备安装subversion进行版本控制。本文简单介绍一个subversion服务端的的安装，以及如何使用。
+1。subversion服务器端安装
+1）下载Apache和SVN源码包：
+httpd-2.2.2.tar.bz2下载地址： http://apache.justdn. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -104,6 +105,121 @@ $(document).ready(
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/67">Svn 创建全过程</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/67#disqus_thread"
+             data-disqus-identifier="http://weixuhong.com/archives/67">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>由于项目的需要，准备安装subversion进行版本控制。本文简单介绍一个subversion服务端的的安装，以及如何使用。<br/>
+1。subversion服务器端安装<br/>
+1）下载Apache和SVN源码包：<br/>
+httpd-2.2.2.tar.bz2下载地址： <a href="http://apache.justdn.org/httpd/httpd-2.2.2.tar.bz2  ">http://apache.justdn.org/httpd/httpd-2.2.2.tar.bz2  </a>
+subversion-1.3.1.tar.bz2下载地址：<a href="http://subversion.tigris.org/downloads/subversion-1.3.1.tar.bz2  ">http://subversion.tigris.org/downloads/subversion-1.3.1.tar.bz2  </a>
+2）新建用户svnadmin,以便svn的维护管理。实现方法可以在gnome下的用户和组中直接添加，也可使用adduser添加。<br/>
+3）安装apache(root用户操作）<br/>
+//解压apache2安装包<br/>
+# tar xvzf httpd-2.2.2.tar.gz<br/>
+//进入解压后的目录<br/>
+# cd httpd-2.2.2<br/>
+//配置apache安装，前两个参数是必须要加的，你还可以根据您的需要添加其他的 参数。<br/>
+//后面的参数制定你要把apache安装哪里<br/>
+# ./configure &#8211;enable-dav &#8211;enable-so &#8211;prefix=/usr/local/apache2/<br/>
+# make<br/>
+//安装<br/>
+# make install<br/>
+# cd /usr/local/apache2/bin<br/>
+//启动apache服务<br/>
+# ./apachectl start<br/>
+//打开浏览器<a href="http://localhost/%E5%A6%82%E6%9E%9C%E6%9C%89%E6%B5%8B%E8%AF%95%E9%A1%B5&amp;#8221;It">http://localhost/%E5%A6%82%E6%9E%9C%E6%9C%89%E6%B5%8B%E8%AF%95%E9%A1%B5&amp;#8221;It</a> works!&#8221;出现则证明已经安装成功。<br/>
+4）安装subversion<br/>
+//解压SubVersion安装包 (root用户进行下面的操作)<br/>
+# tar xvzf Subversion-1.3.1.tar.gz<br/>
+//进入解压后的目录<br/>
+# cd Subversion-1.3.1<br/>
+//配置subversion安装</p>
+
+<h1>./configure &#8211;with-apxs=/usr/local/apache2/bin/apxs &#8211;prefix=/usr/local/subversion</h1>
+
+<p>&#8211;with-apr=/usr/local/apache2 &#8211;with-apr-util=/usr/local/apache2 &#8211;with-ssl &#8211;with-zlib<br/>
+&#8211;enable-maintainer-mode<br/>
+# make<br/>
+//安装<br/>
+# make install<br/>
+//切换用户，从root用户中退出，使用svnadmin用户<br/>
+# mkdir /home/svnadminrepository<br/>
+//进入subversion的bin目录<br/>
+# cd /usr/local/subversion/bin</p>
+
+<p>//创建仓库&#8221;news&#8221;<br/>
+# ./svnadmin create /home/svnadmin/project/news</p>
+
+<p>//将一个已知文件例如：/home/weston/news到导入到版本库中<br/>
+# ./svn import /home/weston/news file:///home/svnadmin/project/news<br/>
+//创建自己的版本<br/>
+svn co file:///home/svnadmin/project/news/ ~/news<br/>
+//如果创建的服务器版本是远程服务器<br/>
+svn co &#8211;username red &#8211;password red <a href="https://hong.red.com/svn/red">https://hong.red.com/svn/red</a> ~weston/beta</p>
+
+<p>5)修改Apache配置文件<br/>
+# cd /usr/local/apadche2/bin<br/>
+//启动Apache<br/>
+# ./apachect1 start<br/>
+# vi /usr/local/apache2/conf/httpd.conf<br/>
+//如果没有的话自己在最下面添加 ，存在则不必重复<br/>
+LoadModule dav_svn_module modules/mod_dav_svn.so<br/>
+LoadModule authz_svn_module modules/mod_authz_svn.so<br/>
+//设置svn访问路径,以/svn代替/home/svnadmin/repository/</p>
+
+<p>DAV svn<br/>
+SVNParentPath /home/svnroot/repository/ //svn父目录</p>
+
+<p># ./usr/local/apache2/bin/apachectl restart<br/>
+//打开浏览器访问<a href="http://localhost/svn/test/%EF%BC%8C%E5%A6%82%E6%9E%9C%E6%9C%89%E4%B8%9C">http://localhost/svn/test/%EF%BC%8C%E5%A6%82%E6%9E%9C%E6%9C%89%E4%B8%9C</a> 西显示就说明成功。<br/>
+2.subversion客户端访问<br/>
+1）服务器端的两种服务方式：http 和 svnserve<br/>
+开启apache即打开http服务:<br/>
+# ./usr/local/apache2/bin/apachectl start<br/>
+而使用到<br/>
+# cd /usr/local/subversion/bin/<br/>
+# ./svnserve -d也可以同时打开svnserve服务<br/>
+2)客户端访问<br/>
+安装svn客户端, 在ubuntu下可以直接使用apt-get install svn来安装，其他版本的linux可以使用yum等安装工具自动安装或手动下载安装<br/>
+安装完毕之后使用svn list <a href="http://your">http://your</a> subversion server ip/svn/test/<br/>
+或者svn list svn://your subversion server ip /home/svnadmin/repository/test<br/>
+3.eclipse subversion插件安装<br/>
+安装Subclipse的最好方法是使用Eclipse Update Manager。在Eclipse 3.1中，它位于Help -> Software Updates -> Find and Install&#8230;菜单下。请选择Search，查找要安装的新特性，并以<a href="http://subclipse.tigris.org/update%E4%BD%9C%E4%B8%BAURL%E6%B7%BB%E5%8A%A0New">http://subclipse.tigris.org/update%E4%BD%9C%E4%B8%BAURL%E6%B7%BB%E5%8A%A0New</a> Remote Site。一路next之后，你就安装成功，重启后就可以看到svn在Preference中找到。<br/>
+将<a href="http://your">http://your</a> subversion server ip/svn/test/或svn://your subversion server ip /home/svnadmin/repository/test作为版本库的位置即可。<br/>
+参考文献：</p>
+
+<p><a href="http://blog.csdn.net/wooin/archive/2006/07/11/903974.aspx">http://blog.csdn.net/wooin/archive/2006/07/11/903974.aspx</a></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/67">svn 创建全过程</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -817,191 +933,6 @@ The date value is passed explicitly to ensure it&#8217;s formatted with the :def
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/archives/108">Rails 常用命令大全</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
-        
-           | <a href="/archives/108#disqus_thread"
-             data-disqus-identifier="http://weixuhong.com/archives/108">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>1.1 <span style="font-family:STHeiti;">创建一个</span>Rails<span style="font-family:STHeiti;">应用程序</span><br/>
-$ rails app_name<br/>
-可<span style="font-family:STHeiti;">选项</span>:<br/>
--d, database=xxx 指定安装一个数据<span style="font-family:STHeiti;">库</span>(mysql oracle postgresql sqlite2 sqlite3 ), 默<span style="font-family:STHeiti;">认情况下是数据库</span><br/>
--r, ruby-path= 指定Ruby的安装路径,如果没有指定，scripts使用env去找Ruby<br/>
--f, freeze (<span style="font-family:STHeiti;">冻结</span>)freezes Rails在vendor/rails目<span style="font-family:STHeiti;">录</span></p>
-
-<p>1.2 API Documentation<br/>
-$ gem_server<br/>
-<span style="font-family:STHeiti;">启动一个</span>WEBrick服<span style="font-family:STHeiti;">务器。这时候你可以通过</span><a href="Http://localhost:8808/">Http://localhost:8808/</a> 打开<span style="font-family:STHeiti;">浏览器去查看</span>rails API文档</p>
-
-<p>1.3 Rake<br/>
-rake db:fixtures:load<br/>
-# <span style="font-family:STHeiti;">载入</span>fixtures到当前<span style="font-family:STHeiti;">环境的数据库</span><br/>
-# <span style="font-family:STHeiti;">载入指定的</span>fixtures使用FIXTURES=x,y<br/>
-rake db:migrate<br/>
-# 迁移数据<span style="font-family:STHeiti;">库通过在</span>db/migrate目<span style="font-family:STHeiti;">录下的脚本</span>.可以指定版本号通<span style="font-family:STHeiti;">过</span>VERSION=x<br/>
-rake db:schema:dump<br/>
-# <span style="font-family:STHeiti;">创建一个</span>db/schema.rb文件，通<span style="font-family:STHeiti;">过</span>AR能<span style="font-family:STHeiti;">过够支持任何数据库去使用</span><br/>
-rake db:schema:load<br/>
-# 再入一个schema.rb文件<span style="font-family:STHeiti;">进数据库</span><br/>
-rake db:sessions:clear<br/>
-# 清空sessions表<br/>
-rake db:sessions:create<br/>
-# 用CGI::Session::ActiveRecordStore<span style="font-family:STHeiti;">创建一个</span>sessions表<span style="font-family:STHeiti;">为用户</span><br/>
-rake db:structure:dump<br/>
-# <span style="font-family:STHeiti;">导出数据库结构为一个</span>SQL文件<br/>
-rake db:test:clone<br/>
-# 重新<span style="font-family:STHeiti;">创建一个测试数据库从当前环境数据库中</span><br/>
-rake db:test:clone_structure<br/>
-# 重新<span style="font-family:STHeiti;">创建测试数据库从开发模式数据库</span><br/>
-rake db:test:prepare<br/>
-# 准<span style="font-family:STHeiti;">备测试数据库并在入</span>schema<br/>
-rake db:test:purge<br/>
-# 清空<span style="font-family:STHeiti;">测试数据库</span><br/>
-rake doc:app<br/>
-# <span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br/>
-rake doc:clobber_app<br/>
-# <span style="font-family:STHeiti;">删除</span>Documentation<br/>
-rake doc:clobber_plugins<br/>
-# <span style="font-family:STHeiti;">删除</span> plugin Documentation<br/>
-rake doc:clobber_rails<br/>
-# <span style="font-family:STHeiti;">删除</span>Documentation<br/>
-rake doc:plugins<br/>
-# <span style="font-family:STHeiti;">产生</span>Documation<span style="font-family:STHeiti;">为所有安装的</span>plugins<br/>
-rake doc:rails<br/>
-# <span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br/>
-rake doc:reapp<br/>
-# 强制重新<span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br/>
-rake doc:rerails<br/>
-# 强制重新<span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br/>
-rake log:clear<br/>
-# 清空目<span style="font-family:STHeiti;">录</span>log/下的所有日志文件<br/>
-rake rails:freeze:edge<br/>
-# Lock this application to latest Edge Rails. Lock a specific revision with REVISION=X<br/>
-rake rails:freeze:gems<br/>
-# Lock this application to the current gems (by unpacking them into vendor/rails)<br/>
-rake rails:unfreeze<br/>
-# Unlock this application from freeze of gems or edge and return to a fluid use of system gems<br/>
-rake rails:update<br/>
-# Update both scripts and public/javascripts from Rails<br/>
-rake rails:update:javascripts<br/>
-# Update your javascripts from your current rails install<br/>
-rake rails:update:scripts<br/>
-# Add new scripts to the application script/ directory<br/>
-rake stats<br/>
-# Report code statistics (KLOCs, etc) from the application<br/>
-rake test<br/>
-# Test all units and functionals<br/>
-rake test:functionals<br/>
-# Run tests for functionalsdb:test:prepare<br/>
-rake test:integration<br/>
-# Run tests for integrationdb:test:prepare<br/>
-rake test:plugins<br/>
-# Run tests for pluginsenvironment<br/>
-rake test:recent<br/>
-# Run tests for recentdb:test:prepare<br/>
-rake test:uncommitted<br/>
-# Run tests for uncommitteddb:test:prepare<br/>
-rake test:units<br/>
-# Run tests for unitsdb:test:prepare<br/>
-rake tmp:cache:clear<br/>
-# 清空tmp/cache目<span style="font-family:STHeiti;">录下的所有文件</span><br/>
-rake tmp:clear<br/>
-# 清空session, cache, 和socket文件从tmp/目<span style="font-family:STHeiti;">录</span><br/>
-rake tmp:create<br/>
-# <span style="font-family:STHeiti;">为</span>sessions, cache, and sockets<span style="font-family:STHeiti;">创建</span>tmp/目<span style="font-family:STHeiti;">录</span><br/>
-rake tmp:sessions:clear<br/>
-# 清空所有在tmp/sessions目<span style="font-family:STHeiti;">录下的文件</span><br/>
-rake tmp:sockets:clear<br/>
-# 清空所有在tmp/sessions 目<span style="font-family:STHeiti;">录下的</span>ruby_sess.* 文件</p>
-
-<p>1.4 Scripts<br/>
-script/about<br/>
-# <span style="font-family:STHeiti;">输出当前环境信息</span><br/>
-script/breakpointer<br/>
-# <span style="font-family:STHeiti;">启动断点</span>server<br/>
-script/console<br/>
-# <span style="font-family:STHeiti;">启动交换式的</span>Rails控制台<br/>
-script/destroy<br/>
-# <span style="font-family:STHeiti;">删除通过</span>generators<span style="font-family:STHeiti;">创建的文件</span><br/>
-script/generate<br/>
-# -> generators<br/>
-script/plugin<br/>
-# -> Plugins<br/>
-script/runner<br/>
-# <span style="font-family:STHeiti;">执行一个任务在</span>rails上下文中<br/>
-script/server<br/>
-# <span style="font-family:STHeiti;">启动开发模式服务器</span><a href="http://localhost:3000  ">http://localhost:3000  </a>
-//以下几个不知道怎么去使用<br/>
-script/performance/profiler<br/>
-script/performance/benchmarker<br/>
-script/process/reaper<br/>
-script/process/spawner</p>
-
-<p>1.5 Generators<br/>
-ruby script/generate model ModelName<br/>
-ruby script/generate controller ListController show edit<br/>
-ruby script/generate scaffold ModelName ControllerName<br/>
-ruby script/generate migration AddNewTable<br/>
-ruby script/generate plugin PluginName<br/>
-ruby script/generate mailer Notification lost_password signup<br/>
-ruby script/generate web_service ServiceName api_one api_two<br/>
-ruby script/generate integration_test TestName<br/>
-ruby script/generate session_migration<br/>
-可<span style="font-family:STHeiti;">选项</span>:<br/>
--p, &#8211;pretend Run but do not make any changes.<br/>
--f, &#8211;force Overwrite files that already exist.<br/>
--s, &#8211;skip Skip files that already exist.<br/>
--q, &#8211;quiet Suppress normal output.<br/>
--t, &#8211;backtrace Debugging: show backtrace on errors.<br/>
--h, &#8211;help Show this help message.<br/>
--c, &#8211;svn Modify files with subversion. (Note: svn must be in path)</p>
-
-<p>1.6 Plugins<br/>
-script/plugin discover<br/>
-# discover plugin repositories<br/>
-script/plugin list<br/>
-# list all available plugins<br/>
-script/plugin install where<br/>
-# install the a€wherea€? plugin<br/>
-script/plugin install -x where<br/>
-# install where plugin as SVN external<br/>
-script/plugin install <a href="http://invisible.ch/projects/plugins/where  ">http://invisible.ch/projects/plugins/where  </a>
-script/plugin update<br/>
-# update installed plugins<br/>
-script/plugin source<br/>
-# add a source repository<br/>
-script/plugin unsource<br/>
-# removes a source repository<br/>
-script/plugin sources<br/>
-# lists source repositories</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/108">rails 常用命令大全</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/16">&larr; Older</a>
@@ -1027,7 +958,9 @@ script/plugin sources<br/>
 <li class='category'><a href='/blog/categories/javascript/'>javascript (8)</a></li>
 <li class='category'><a href='/blog/categories/linux-unix/'>linux/unix (24)</a></li>
 <li class='category'><a href='/blog/categories/php/'>php (28)</a></li>
+<li class='category'><a href='/blog/categories/rails/'>rails (1)</a></li>
 <li class='category'><a href='/blog/categories/regular-expressions/'>regular expressions (2)</a></li>
+<li class='category'><a href='/blog/categories/rspec/'>rspec (1)</a></li>
 <li class='category'><a href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails (36)</a></li>
 <li class='category'><a href='/blog/categories/rubymine/'>rubymine (1)</a></li>
 <li class='category'><a href='/blog/categories/xhtml-css/'>xhtml/css (9)</a></li>
@@ -1045,6 +978,10 @@ script/plugin sources<br/>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
       </li>
     
@@ -1058,10 +995,6 @@ script/plugin sources<br/>
     
       <li class="post">
         <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
-      <li class="post">
-        <a href="/archives/595">Rubymine 不能输入中文？</a>
       </li>
     
   </ul>

@@ -9,10 +9,7 @@
   <meta name="author" content="Weston Wei(韦旭红)">
 
   
-  <meta name="description" content="建立svn版本 ssh baiselife
-svnadmin create /home/weston/svn/colorunn.com
-mkdir /home/weston/websites/colorunn.com/
-svn import /home/weston/websites/ &hellip;">
+  <meta name="description" content="原文：http://www.deminy.net/blog/archives/4461-y.html 看了这道题很有意思，深入理解PHP的 Array的遍历等有帮助的，特别是Deminy的解答，很详细&#8230; 我们公司招聘PHP开发人员的时候，电话面试之前会有一个笔试。也就是说， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -105,6 +102,105 @@ $(document).ready(
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/214">一道关于PHP的代码题 (转自Deminy的blog)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-11-04T00:00:00+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>4</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/214#disqus_thread"
+             data-disqus-identifier="http://weixuhong.com/archives/214">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>原文：<a href="http://www.deminy.net/blog/archives/4461-y.html">http://www.deminy.net/blog/archives/4461-y.html</a></p>
+
+<ul>
+<li><em>看了这道题很有意思，深入理解PHP的 Array的遍历等有帮助的，特别是Deminy的解答，很详细&#8230;</em></li>
+</ul>
+
+
+<p>我们公司招聘PHP开发人员的时候，电话面试之前会有一个笔试。也就是说，给应聘者几道PHP语言和MySQL数据库开发方面相关的问题，再给他一个晚上的时间来回答这些问题；第二天早上之前应聘者需将答案通过电子邮件发回来，随后公司的核心开发人员会根据其回答问题的情况来决定是否需要进行下一阶段的面试（电话面试或当面面试）。</p>
+
+<p>设计比较好一点的技术方面的问题是比较困难的，因此公司常常也会让新来的开发人员设计几道问题以供参考。</p>
+
+<p>2007年12月4日（周二），我在编写程序生成两份数据报告的时候，根据程序调试过程中出现的问题总结了如下一道问题。这个问题着重考察对PHP中变量引用(variable reference，相当于C里面的指针)、数组遍历这两方面的掌握，需要对相关知识有清晰的理解才能回答准确。这类问题并不一定适合在面试的时候用，不过，用这个问题来温习一下PHP中的一些技术要点还是有些意思的，因此我一直把这个问题收录着。</p>
+
+<pre lang="php"><?php
+$data = array('a', 'b', 'c');
+
+foreach ($data as $key => $val) {
+    $val = &#038;$data[$key];
+}
+?>
+</pre>
+
+
+<p>解答一</p>
+
+<pre lang="c">我的猜测，$val是在$data外面临时开辟的内存空间。
+
+循环0: array(a, b, c) $val 引用 $data[0] = a 的地址;
+
+循环1: array(b, b, c) $val = b， 由于$val 引用了$data[0]的地址，所以，$data[0] = b，同时 $val 引用 $data[1] = b 的地址;
+
+循环2: array(b, c, c) 原理同循环1；
+
+执行程序验证了我的结果，但不知道我的解释是否正确，望不吝赐教。:)
+
+</pre>
+
+
+<p>Deminy的解答</p>
+
+<pre lang="c">blueManta说得很对。
+
+举例说明变量引用(reference)：
+$a = NULL; // 释放变量所占用的内存空间（如果该变量已经存在的话）
+$a = $b; // $a复制了变量$b的值。这个赋值导致变量$a创建并指向一个新的内存空间（$a指向该内存空间所在地址）；$a和$b指向不同的内存空间（指向不同的内存空间地址）。对$a的操作不影响$b（除非$b是个对象）。
+$a = &$b; // $a成为一个引用（引用类型的变量），直接指向变量$b。$a和$b指向相同的内存空间。通常情况下，对$a的操作等同于对$b进行操作。
+
+文中所述数组$data的完整表达形式如下：
+$data = array(
+0 => 'a', // 内存空间A
+1 => 'b', // 内存空间B
+2 => 'c', // 内存空间C
+);
+
+循环过程：
+$key = 0; $val = 'a'; // $val复制了变量$data[0]的值。这个赋值导致变量$val创建并指向一个新的内存空间X；$val和$data[0]指向不同的内存空间。
+$val = &#038;$data[0]; // $val成为一个引用，直接指向变量$data[0]（原始数组第一个单元）。$val和$data[0]指向相同的内存空间A。
+$key = 1; $val = 'b'; // 赋值操作导致$val所指向的内存空间的值被改变了；$data[0]指向相同的内存空间，所以$data[0]的值也改变了。
+$val = &#038;$data[1]; // $val还是一个引用，不过现在指向变量$data[1]（原始数组第二个单元）。$val和$data[1]指向相同的内存空间B。
+$key = 2; $val = 'c'; // 赋值操作导致$val所指向的内存空间的值被改变了；$data[1]指向相同的内存空间，所以$data[1]的值也改变了。
+$val = &#038;$data[2]; // $val还是一个引用，不过现在指向变量$data[2]（原始数组第三个单元）。$val和$data[2]指向相同的内存空间C。
+
+可参考PHP.net网站关于array、foreach和reference三个章节中的相关说明。
+
+</pre>
+
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/214">一道关于PHP的代码题 (转自Deminy的blog)</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -640,7 +736,7 @@ books.txt
 
 <p>關於 gettext (一、簡介)<br/>
 由 Kiang 發佈於 2005/2/3 (3416 次瀏覽)<br/>
-發信人: <a href="&#109;&#97;&#105;&#x6c;&#116;&#111;&#58;&#x50;&#108;&#97;&#116;&#x69;&#110;&#x2e;&#98;&#x62;&#x73;&#x40;&#x63;&#115;&#105;&#x65;&#46;&#x6e;&#99;&#x74;&#117;&#x2e;&#101;&#100;&#117;&#46;&#116;&#119;">&#x50;&#108;&#x61;&#x74;&#x69;&#x6e;&#x2e;&#x62;&#x62;&#115;&#64;&#x63;&#x73;&#105;&#101;&#46;&#110;&#99;&#x74;&#x75;&#x2e;&#x65;&#100;&#x75;&#x2e;&#116;&#x77;</a> (小虫), 看板: Linux<br/>
+發信人: <a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#111;&#x3a;&#80;&#x6c;&#97;&#x74;&#x69;&#110;&#x2e;&#98;&#x62;&#115;&#64;&#x63;&#115;&#x69;&#x65;&#x2e;&#x6e;&#x63;&#116;&#117;&#46;&#101;&#100;&#117;&#x2e;&#x74;&#x77;">&#80;&#x6c;&#x61;&#116;&#x69;&#x6e;&#46;&#98;&#98;&#x73;&#x40;&#99;&#115;&#x69;&#101;&#x2e;&#110;&#x63;&#116;&#x75;&#46;&#x65;&#x64;&#117;&#x2e;&#x74;&#119;</a> (小虫), 看板: Linux<br/>
 標 題: [REF] 關於 gettext (一、簡介)<br/>
 發信站: 交大資工鳳凰城資訊站 (Tue Jul 21 13:40:05 1998) gateway.ccafps.khc.edu.tw<br/>
 轉信站: Maxwell!bbs.ee.ntu!freebsd.ntu!news.cs.nthu!news.cis.nctu!news.csie.nc</p>
@@ -917,60 +1013,6 @@ source code &#8211;> .pot &#8211;> .pox &#8211;> .gmo &#8211;> .mo &#8211;> &amp
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/archives/196">VIM用正则分组捕获的方法</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2008-10-03T00:00:00+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>3</span><span class='date-suffix'>rd</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
-        
-           | <a href="/archives/196#disqus_thread"
-             data-disqus-identifier="http://weixuhong.com/archives/196">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今天看了<Mastering Regular Expressions 3>才解决了我这个很久的疑惑&#8230;.<br/>
-在一般其他语言里面捕获一般用$1,$2就可以了<br/>
-比如用Perl<br/>
-$string = “It just a test&#8230;”<br/>
-如果要找just可以这样</p>
-
-<p>$string =~ m/(just)/i</p>
-
-<p>$1 的结果就是just了<br/>
-很多语言都是这样，ruby，javascript等</p>
-
-<p>但是我在vim一直没有办法实现，原来说用这样的方法<br/>
-比如要把just 变换成 is just 应该可以这样，当我的例子很不好<br/>
-在vim的用法<br/>
-:%s/(just)/is 1/</p>
-
-<p>如果分组应该说这样<br/>
-:%s/(just|jst)/is 1/</p>
-
-<p><em>在vim需要转义<br/>
-</em>捕获用1而不是$1</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/196">VIM用正则分组捕获的方法</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/11">&larr; Older</a>
@@ -996,7 +1038,9 @@ $string = “It just a test&#8230;”<br/>
 <li class='category'><a href='/blog/categories/javascript/'>javascript (8)</a></li>
 <li class='category'><a href='/blog/categories/linux-unix/'>linux/unix (24)</a></li>
 <li class='category'><a href='/blog/categories/php/'>php (28)</a></li>
+<li class='category'><a href='/blog/categories/rails/'>rails (1)</a></li>
 <li class='category'><a href='/blog/categories/regular-expressions/'>regular expressions (2)</a></li>
+<li class='category'><a href='/blog/categories/rspec/'>rspec (1)</a></li>
 <li class='category'><a href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails (36)</a></li>
 <li class='category'><a href='/blog/categories/rubymine/'>rubymine (1)</a></li>
 <li class='category'><a href='/blog/categories/xhtml-css/'>xhtml/css (9)</a></li>
@@ -1014,6 +1058,10 @@ $string = “It just a test&#8230;”<br/>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
       </li>
     
@@ -1027,10 +1075,6 @@ $string = “It just a test&#8230;”<br/>
     
       <li class="post">
         <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
-      <li class="post">
-        <a href="/archives/595">Rubymine 不能输入中文？</a>
       </li>
     
   </ul>

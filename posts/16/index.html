@@ -9,8 +9,11 @@
   <meta name="author" content="Weston Wei(韦旭红)">
 
   
-  <meta name="description" content="http://www.macx.cn/A/A.asp?B=89&amp;ID=84157 1.注意:一定要设XP的IP地址为192.168.0.1;2.苹果的无线网设为自动获取IP,3.应该是mac创建网络,然后PC连接到MAC, 大家好！
-我终于把家里的pc与小白一起共享上网了。我截了图划个路线 &hellip;">
+  <meta name="description" content="1.1 创建一个Rails应用程序
+$ rails app_name
+可选项:
+-d, database=xxx 指定安装一个数据库(mysql oracle postgresql sqlite2 sqlite3 ), 默认情况下是数据库
+-r, ruby-path= 指定Ruby的安装路径, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -103,6 +106,191 @@ $(document).ready(
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/108">Rails 常用命令大全</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/108#disqus_thread"
+             data-disqus-identifier="http://weixuhong.com/archives/108">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>1.1 <span style="font-family:STHeiti;">创建一个</span>Rails<span style="font-family:STHeiti;">应用程序</span><br/>
+$ rails app_name<br/>
+可<span style="font-family:STHeiti;">选项</span>:<br/>
+-d, database=xxx 指定安装一个数据<span style="font-family:STHeiti;">库</span>(mysql oracle postgresql sqlite2 sqlite3 ), 默<span style="font-family:STHeiti;">认情况下是数据库</span><br/>
+-r, ruby-path= 指定Ruby的安装路径,如果没有指定，scripts使用env去找Ruby<br/>
+-f, freeze (<span style="font-family:STHeiti;">冻结</span>)freezes Rails在vendor/rails目<span style="font-family:STHeiti;">录</span></p>
+
+<p>1.2 API Documentation<br/>
+$ gem_server<br/>
+<span style="font-family:STHeiti;">启动一个</span>WEBrick服<span style="font-family:STHeiti;">务器。这时候你可以通过</span><a href="Http://localhost:8808/">Http://localhost:8808/</a> 打开<span style="font-family:STHeiti;">浏览器去查看</span>rails API文档</p>
+
+<p>1.3 Rake<br/>
+rake db:fixtures:load<br/>
+# <span style="font-family:STHeiti;">载入</span>fixtures到当前<span style="font-family:STHeiti;">环境的数据库</span><br/>
+# <span style="font-family:STHeiti;">载入指定的</span>fixtures使用FIXTURES=x,y<br/>
+rake db:migrate<br/>
+# 迁移数据<span style="font-family:STHeiti;">库通过在</span>db/migrate目<span style="font-family:STHeiti;">录下的脚本</span>.可以指定版本号通<span style="font-family:STHeiti;">过</span>VERSION=x<br/>
+rake db:schema:dump<br/>
+# <span style="font-family:STHeiti;">创建一个</span>db/schema.rb文件，通<span style="font-family:STHeiti;">过</span>AR能<span style="font-family:STHeiti;">过够支持任何数据库去使用</span><br/>
+rake db:schema:load<br/>
+# 再入一个schema.rb文件<span style="font-family:STHeiti;">进数据库</span><br/>
+rake db:sessions:clear<br/>
+# 清空sessions表<br/>
+rake db:sessions:create<br/>
+# 用CGI::Session::ActiveRecordStore<span style="font-family:STHeiti;">创建一个</span>sessions表<span style="font-family:STHeiti;">为用户</span><br/>
+rake db:structure:dump<br/>
+# <span style="font-family:STHeiti;">导出数据库结构为一个</span>SQL文件<br/>
+rake db:test:clone<br/>
+# 重新<span style="font-family:STHeiti;">创建一个测试数据库从当前环境数据库中</span><br/>
+rake db:test:clone_structure<br/>
+# 重新<span style="font-family:STHeiti;">创建测试数据库从开发模式数据库</span><br/>
+rake db:test:prepare<br/>
+# 准<span style="font-family:STHeiti;">备测试数据库并在入</span>schema<br/>
+rake db:test:purge<br/>
+# 清空<span style="font-family:STHeiti;">测试数据库</span><br/>
+rake doc:app<br/>
+# <span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br/>
+rake doc:clobber_app<br/>
+# <span style="font-family:STHeiti;">删除</span>Documentation<br/>
+rake doc:clobber_plugins<br/>
+# <span style="font-family:STHeiti;">删除</span> plugin Documentation<br/>
+rake doc:clobber_rails<br/>
+# <span style="font-family:STHeiti;">删除</span>Documentation<br/>
+rake doc:plugins<br/>
+# <span style="font-family:STHeiti;">产生</span>Documation<span style="font-family:STHeiti;">为所有安装的</span>plugins<br/>
+rake doc:rails<br/>
+# <span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br/>
+rake doc:reapp<br/>
+# 强制重新<span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br/>
+rake doc:rerails<br/>
+# 强制重新<span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br/>
+rake log:clear<br/>
+# 清空目<span style="font-family:STHeiti;">录</span>log/下的所有日志文件<br/>
+rake rails:freeze:edge<br/>
+# Lock this application to latest Edge Rails. Lock a specific revision with REVISION=X<br/>
+rake rails:freeze:gems<br/>
+# Lock this application to the current gems (by unpacking them into vendor/rails)<br/>
+rake rails:unfreeze<br/>
+# Unlock this application from freeze of gems or edge and return to a fluid use of system gems<br/>
+rake rails:update<br/>
+# Update both scripts and public/javascripts from Rails<br/>
+rake rails:update:javascripts<br/>
+# Update your javascripts from your current rails install<br/>
+rake rails:update:scripts<br/>
+# Add new scripts to the application script/ directory<br/>
+rake stats<br/>
+# Report code statistics (KLOCs, etc) from the application<br/>
+rake test<br/>
+# Test all units and functionals<br/>
+rake test:functionals<br/>
+# Run tests for functionalsdb:test:prepare<br/>
+rake test:integration<br/>
+# Run tests for integrationdb:test:prepare<br/>
+rake test:plugins<br/>
+# Run tests for pluginsenvironment<br/>
+rake test:recent<br/>
+# Run tests for recentdb:test:prepare<br/>
+rake test:uncommitted<br/>
+# Run tests for uncommitteddb:test:prepare<br/>
+rake test:units<br/>
+# Run tests for unitsdb:test:prepare<br/>
+rake tmp:cache:clear<br/>
+# 清空tmp/cache目<span style="font-family:STHeiti;">录下的所有文件</span><br/>
+rake tmp:clear<br/>
+# 清空session, cache, 和socket文件从tmp/目<span style="font-family:STHeiti;">录</span><br/>
+rake tmp:create<br/>
+# <span style="font-family:STHeiti;">为</span>sessions, cache, and sockets<span style="font-family:STHeiti;">创建</span>tmp/目<span style="font-family:STHeiti;">录</span><br/>
+rake tmp:sessions:clear<br/>
+# 清空所有在tmp/sessions目<span style="font-family:STHeiti;">录下的文件</span><br/>
+rake tmp:sockets:clear<br/>
+# 清空所有在tmp/sessions 目<span style="font-family:STHeiti;">录下的</span>ruby_sess.* 文件</p>
+
+<p>1.4 Scripts<br/>
+script/about<br/>
+# <span style="font-family:STHeiti;">输出当前环境信息</span><br/>
+script/breakpointer<br/>
+# <span style="font-family:STHeiti;">启动断点</span>server<br/>
+script/console<br/>
+# <span style="font-family:STHeiti;">启动交换式的</span>Rails控制台<br/>
+script/destroy<br/>
+# <span style="font-family:STHeiti;">删除通过</span>generators<span style="font-family:STHeiti;">创建的文件</span><br/>
+script/generate<br/>
+# -> generators<br/>
+script/plugin<br/>
+# -> Plugins<br/>
+script/runner<br/>
+# <span style="font-family:STHeiti;">执行一个任务在</span>rails上下文中<br/>
+script/server<br/>
+# <span style="font-family:STHeiti;">启动开发模式服务器</span><a href="http://localhost:3000  ">http://localhost:3000  </a>
+//以下几个不知道怎么去使用<br/>
+script/performance/profiler<br/>
+script/performance/benchmarker<br/>
+script/process/reaper<br/>
+script/process/spawner</p>
+
+<p>1.5 Generators<br/>
+ruby script/generate model ModelName<br/>
+ruby script/generate controller ListController show edit<br/>
+ruby script/generate scaffold ModelName ControllerName<br/>
+ruby script/generate migration AddNewTable<br/>
+ruby script/generate plugin PluginName<br/>
+ruby script/generate mailer Notification lost_password signup<br/>
+ruby script/generate web_service ServiceName api_one api_two<br/>
+ruby script/generate integration_test TestName<br/>
+ruby script/generate session_migration<br/>
+可<span style="font-family:STHeiti;">选项</span>:<br/>
+-p, &#8211;pretend Run but do not make any changes.<br/>
+-f, &#8211;force Overwrite files that already exist.<br/>
+-s, &#8211;skip Skip files that already exist.<br/>
+-q, &#8211;quiet Suppress normal output.<br/>
+-t, &#8211;backtrace Debugging: show backtrace on errors.<br/>
+-h, &#8211;help Show this help message.<br/>
+-c, &#8211;svn Modify files with subversion. (Note: svn must be in path)</p>
+
+<p>1.6 Plugins<br/>
+script/plugin discover<br/>
+# discover plugin repositories<br/>
+script/plugin list<br/>
+# list all available plugins<br/>
+script/plugin install where<br/>
+# install the a€wherea€? plugin<br/>
+script/plugin install -x where<br/>
+# install where plugin as SVN external<br/>
+script/plugin install <a href="http://invisible.ch/projects/plugins/where  ">http://invisible.ch/projects/plugins/where  </a>
+script/plugin update<br/>
+# update installed plugins<br/>
+script/plugin source<br/>
+# add a source repository<br/>
+script/plugin unsource<br/>
+# removes a source repository<br/>
+script/plugin sources<br/>
+# lists source repositories</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/108">rails 常用命令大全</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -657,50 +845,6 @@ sudo update-alternatives &#8211;config editor 进行选择默认编辑器</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/archives/84">百色姑娘&#8212;黄洁</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
-        
-           | <a href="/archives/84#disqus_thread"
-             data-disqus-identifier="http://weixuhong.com/archives/84">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>我们可爱的黄洁小姐身体有点抱恙,大家一定要多多支持她哦:)</p>
-
-<p>版权所有黄洁小姐,不能转载或商业他用,如有违者,我们保留追究其法律的权力</p>
-
-<p><a href="http://www.weixuhong.com/content/uploads/2008/04/hj1.jpg" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/04/hj1.jpg','popup','width=398,height=600,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/04/hj1-tm.jpg" height="100" width="66" border="1" hspace="4" vspace="4" alt="hj1" title="hj1" /></a></p>
-
-<p><a href="http://www.weixuhong.com/content/uploads/2008/04/hj7.jpg" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/04/hj7.jpg','popup','width=320,height=240,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/04/hj7-tm.jpg" height="100" width="133" border="1" hspace="4" vspace="4" alt="hj7" title="hj7" /></a></p>
-
-<p><a href="http://www.weixuhong.com/content/uploads/2008/04/hj008.jpg" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/04/hj008.jpg','popup','width=320,height=240,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/04/hj008-tm.jpg" height="100" width="133" border="1" hspace="4" vspace="4" alt="hj008" title="hj008" /></a></p>
-
-<p><a href="http://www.weixuhong.com/content/uploads/2008/04/hj003.jpg" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/04/hj003.jpg','popup','width=320,height=240,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/04/hj003-tm.jpg" height="100" width="133" border="1" hspace="4" vspace="4" alt="hj003" title="hj003" /></a></p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/84">百色姑娘&#8212;黄洁</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/17">&larr; Older</a>
@@ -726,7 +870,9 @@ sudo update-alternatives &#8211;config editor 进行选择默认编辑器</p>
 <li class='category'><a href='/blog/categories/javascript/'>javascript (8)</a></li>
 <li class='category'><a href='/blog/categories/linux-unix/'>linux/unix (24)</a></li>
 <li class='category'><a href='/blog/categories/php/'>php (28)</a></li>
+<li class='category'><a href='/blog/categories/rails/'>rails (1)</a></li>
 <li class='category'><a href='/blog/categories/regular-expressions/'>regular expressions (2)</a></li>
+<li class='category'><a href='/blog/categories/rspec/'>rspec (1)</a></li>
 <li class='category'><a href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails (36)</a></li>
 <li class='category'><a href='/blog/categories/rubymine/'>rubymine (1)</a></li>
 <li class='category'><a href='/blog/categories/xhtml-css/'>xhtml/css (9)</a></li>
@@ -744,6 +890,10 @@ sudo update-alternatives &#8211;config editor 进行选择默认编辑器</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
       </li>
     
@@ -757,10 +907,6 @@ sudo update-alternatives &#8211;config editor 进行选择默认编辑器</p>
     
       <li class="post">
         <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
-      <li class="post">
-        <a href="/archives/595">Rubymine 不能输入中文？</a>
       </li>
     
   </ul>

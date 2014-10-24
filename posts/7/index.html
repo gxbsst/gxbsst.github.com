@@ -9,8 +9,7 @@
   <meta name="author" content="Weston Wei(韦旭红)">
 
   
-  <meta name="description" content=" 转载请注明：韦旭红的点点滴滴 &raquo; Nginx结构图
-">
+  <meta name="description" content="2.5 A Sea of Schemes In this section, we&#8217;ll take a look at the more common scheme formats on the Web. Appendix A gives a fairly exhaustive list &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -103,6 +102,162 @@ $(document).ready(
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/273">A Sea of Schemes</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2009-09-05T00:00:00+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2009</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/273#disqus_thread"
+             data-disqus-identifier="http://weixuhong.com/archives/273">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>2.5 A Sea of Schemes</p>
+
+<p>In this section, we&#8217;ll take a look at the more common scheme formats on the Web. Appendix A gives a fairly exhaustive list of schemes and references to their individual documentation.</p>
+
+<p>Table 2-4 summarizes some of the most popular schemes. Reviewing Section 2.2 will make the syntax portion of the table a little more familiar.</p>
+
+<p>Table 2-4. Common scheme formats</p>
+
+<p>Scheme</p>
+
+<p>Description</p>
+
+<p>http</p>
+
+<p>The Hypertext Transfer Protocol scheme conforms to the general URL format, except that there is no username or password. The port defaults to 80 if omitted.</p>
+
+<p>Basic form:</p>
+
+<p><a href="http://">http://</a><host>:<port>/<path>?<query>#<frag></p>
+
+<p>Examples:</p>
+
+<p><a href="http://www.joes-hardware.com/index.html">http://www.joes-hardware.com/index.html</a></p>
+
+<p><a href="http://www.joes-hardware.com:80/index.html">http://www.joes-hardware.com:80/index.html</a></p>
+
+<p>https</p>
+
+<p>The https scheme is a twin to the http scheme. The only difference is that the https scheme uses Netscape&#8217;s Secure Sockets Layer (SSL), which provides end-to-end encryption of HTTP connections. Its syntax is identical to that of HTTP, with a default port of 443.</p>
+
+<p>Basic form:</p>
+
+<p><a href="https://">https://</a><host>:<port>/<path>?<query>#<frag></p>
+
+<p>Example:</p>
+
+<p><a href="https://www.joes-hardware.com/secure.html">https://www.joes-hardware.com/secure.html</a></p>
+
+<p>mailto</p>
+
+<p>Mailto URLs refer to email addresses. Because email behaves differently from other schemes (it does not refer to objects that can be accessed directly), the format of a mailto URL differs from that of the standard URL. The syntax for Internet email addresses is documented in Internet RFC 822.</p>
+
+<p>Basic form:</p>
+
+<p>mailto:<RFC-822-addr-spec></p>
+
+<p>Example:</p>
+
+<p><a href="&#109;&#97;&#105;&#108;&#116;&#x6f;&#58;&#106;&#111;&#x65;&#64;&#106;&#111;&#x65;&#115;&#45;&#104;&#x61;&#x72;&#x64;&#119;&#97;&#x72;&#101;&#x2e;&#99;&#111;&#x6d;">&#106;&#111;&#101;&#64;&#106;&#111;&#101;&#x73;&#x2d;&#104;&#x61;&#x72;&#x64;&#x77;&#x61;&#x72;&#x65;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
+
+<p>ftp</p>
+
+<p>File Transfer Protocol URLs can be used to download and upload files on an FTP server and to obtain listings of the contents of a directory structure on an FTP server.</p>
+
+<p>FTP has been around since before the advent of the Web and URLs. Web applications have assimilated FTP as a data-access scheme. The URL syntax follows the general form.</p>
+
+<p>Basic form:</p>
+
+<p><a href="ftp://">ftp://</a><user>:<password>@<host>:<port>/<path>;<params></p>
+
+<p>Example:</p>
+
+<p><a href="ftp://anonymous:joe%40joes-hardware.com@prep.ai.mit.edu:21/pub/gnu/">ftp://anonymous:joe%40joes-hardware.com@prep.ai.mit.edu:21/pub/gnu/</a></p>
+
+<p>rtsp, rtspu</p>
+
+<p>RTSP URLs are identifiers for audio and video media resources that can be retrieved through the Real Time Streaming Protocol.</p>
+
+<p>The &#8220;u&#8221; in the rtspu scheme denotes that the UDP protocol is used to retrieve the resource.</p>
+
+<p>Basic forms:</p>
+
+<p>rtsp://<user>:<password>@<host>:<port>/<path></p>
+
+<p>rtspu://<user>:<password>@<host>:<port>/<path></p>
+
+<p>Example:</p>
+
+<p>rtsp://www.joes-hardware.com:554/interview/cto_video</p>
+
+<p>file</p>
+
+<p>The file scheme denotes files directly accessible on a given host machine (by local disk, a network filesystem, or some other file-sharing system). The fields follow the general form. If the host is omitted, it defaults to the local host from which the URL is being used.</p>
+
+<p>Basic form:</p>
+
+<p>file://<host>/<path></p>
+
+<p>Example:</p>
+
+<p>file://OFFICE-FS/policies/casual-fridays.doc</p>
+
+<p>news</p>
+
+<p>The news scheme is used to access specific articles or newsgroups, as defined by RFC 1036. It has the unusual property that a news URL in itself does not contain sufficient information to locate the resource.</p>
+
+<p>The news URL is missing information about where to acquire the resource—no hostname or machine name is supplied. It is the interpreting application&#8217;s job to acquire this information from the user. For example, in your Netscape browser, under the Options menu, you can specify your NNTP (news) server. This tells your browser what server to use when it has a news URL.</p>
+
+<p>News resources can be accessed from multiple servers. They are said to be location-independent, as they are not dependent on any one source for access.</p>
+
+<p>The &#8220;@&#8221; character is reserved within a news URL and is used to distinguish between news URLs that refer to newsgroups and news URLs that refer to specific news articles.</p>
+
+<p>Basic forms:</p>
+
+<p><a href="news:">news:</a><newsgroup></p>
+
+<p><a href="news:">news:</a><news-article-id></p>
+
+<p>Example:</p>
+
+<p><a href="news:rec.arts.startrek">news:rec.arts.startrek</a></p>
+
+<p>telnet</p>
+
+<p>The telnet scheme is used to access interactive services. It does not represent an object per se, but an interactive application (resource) accessible via the telnet protocol.</p>
+
+<p>Basic form:</p>
+
+<p>telnet://<user>:<password>@<host>:<port>/</p>
+
+<p>Example:</p>
+
+<p>telnet://slurp:webhound@joes-hardware.com:23/</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/273">A Sea of Schemes</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -597,52 +752,6 @@ Yii::app()->fileCache->test()调用。</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/archives/254">抚媚张国荣</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2009-05-06T00:00:00+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2009</span></span> <span class='time'>12:00 am</span></time>
-        
-           | <a href="/archives/254#disqus_thread"
-             data-disqus-identifier="http://weixuhong.com/archives/254">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>很小的时候就听说过这个人－－张国荣，记得当时香港的另一个巨星就是谭咏麟，但是觉得谭的歌曲更朗朗上口，所以当时更喜欢谭永麟。</p>
-
-<p>开始关注张国荣是在前段时间在天涯的一个帖子，<a href="http://www.tianya.cn/publicforum/Content/funinfo/1/1368911.shtml">『娱乐八卦』 [资深粉丝]哥哥……张国荣街拍、偷拍、私下照片大起底！ </a>, 这个帖子有很多关于张国荣的很多照片，除去他的负面新闻，他整个人真的可以说是很迷人的巨星，他的眼神，他的穿着，对待同行的小弟弟妹妹的照顾，对粉丝的态度，对比现在娱乐圈这个现状：吸毒，和所谓的成龙的“管制论”，“男人可以风流，不可以下流”等谬论，使我不得不重新审视张国荣这个人。</p>
-
-<p>我不是一个追星的人，也过了追星的年代， 但是为了更了解张，我最近听了很多关于他的歌曲和MV，包括演唱会。细细品味，没有想到“哥哥”的声音是的有磁性，充满了男人的味道，其中有两首是一直反复听《共同度过》，《想你》，这两首都是演唱会版本，《想你》这首的演唱会版本，让我见证的所谓的抚媚张国荣，现场是这样的：张穿着一件白衬衫，站在话筒慢慢歌唱，慢慢的撩起袖子，再慢慢的解开衬衫的扣子，然后再舞着性感的舞蹈&#8230;让我轻叹其舞台的表现功力真非同一般&#8230;歌曲的尾部是一段萨克斯，真的不错，如果绝唱般凄凉&#8230;</p>
-
-<p>前段时间看到一段“哥哥”讲英文的视频，那性感的英式发音，相信会迷倒千万少女，据说“哥哥”在韩国，日本的歌迷也非常庞大，有一个日本女歌迷，为了自己的偶像，把粤语练习得非常到纯正&#8230;</p>
-
-<p>我一直在想“哥哥”为什么会自杀？ 或许他内心也是和一般人样的脆弱？ 大家知道好人才会觉得苦，因为想犯什么错误, 总是非常的矛盾，有矛盾才会觉得累，才想到要解脱吧！</p>
-
-<p>祝“哥哥”在天堂安好！</p>
-
-<p>&#8211;EOF&#8211;</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/254">抚媚张国荣</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/8">&larr; Older</a>
@@ -668,7 +777,9 @@ Yii::app()->fileCache->test()调用。</p>
 <li class='category'><a href='/blog/categories/javascript/'>javascript (8)</a></li>
 <li class='category'><a href='/blog/categories/linux-unix/'>linux/unix (24)</a></li>
 <li class='category'><a href='/blog/categories/php/'>php (28)</a></li>
+<li class='category'><a href='/blog/categories/rails/'>rails (1)</a></li>
 <li class='category'><a href='/blog/categories/regular-expressions/'>regular expressions (2)</a></li>
+<li class='category'><a href='/blog/categories/rspec/'>rspec (1)</a></li>
 <li class='category'><a href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails (36)</a></li>
 <li class='category'><a href='/blog/categories/rubymine/'>rubymine (1)</a></li>
 <li class='category'><a href='/blog/categories/xhtml-css/'>xhtml/css (9)</a></li>
@@ -686,6 +797,10 @@ Yii::app()->fileCache->test()调用。</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
       </li>
     
@@ -699,10 +814,6 @@ Yii::app()->fileCache->test()调用。</p>
     
       <li class="post">
         <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
-      <li class="post">
-        <a href="/archives/595">Rubymine 不能输入中文？</a>
       </li>
     
   </ul>

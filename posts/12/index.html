@@ -9,7 +9,8 @@
   <meta name="author" content="Weston Wei(韦旭红)">
 
   
-  <meta name="description" content="$sql = “select count(*) as ctr from users where username='foo' and password='' or '1'='1' limit 1”; 以上语句总是返回1。。。怎麽辦？對or &#8217;1&#8242;=&#8217;1&# &hellip;">
+  <meta name="description" content="http://www.w3pop.com/learn/view/p/5/o//doc/php_xss/ PHP：用javascript来防止吧
+或者考虑检查 $_SERVER[&lsquo;HTTP_REFERER&rsquo;] * 但是别人是可以修改这个值的，所以不是完全的完全的 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -102,6 +103,82 @@ $(document).ready(
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/172">PHP 跨站点脚本攻击</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-09-01T00:00:00+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/172#disqus_thread"
+             data-disqus-identifier="http://weixuhong.com/archives/172">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li><a href="http://www.w3pop.com/learn/view/p/5/o//doc/php_xss/  ">http://www.w3pop.com/learn/view/p/5/o//doc/php_xss/  </a>
+PHP：用javascript来防止吧<br/>
+或者考虑检查 $_SERVER[&lsquo;HTTP_REFERER&rsquo;] * 但是别人是可以修改这个值的，所以不是完全的完全的<br/>
+或者用和rails一样的解决方法<br/>
+根据一个惟一的字符串或时间戳生成一个令牌，并将这个令牌放在会话变量和表单中<br/>
+要创建随机的令牌，可以使用 PHP 内置的 md5()、uniqid() 和 rand() 函数，如下所示：</li>
+</ul>
+
+
+<pre lang="php"><?php  
+session_start();  
+  
+if ($_POST['submit'] == "go"){  
+    //check token  
+    if ($_POST['token'] == $_SESSION['token']){  
+        //strip_tags  
+        $name = strip_tags($_POST['name']);  
+        $name = substr($name,0,40);  
+        //clean out any potential hexadecimal characters  
+        $name = cleanHex($name);  
+        //continue processing....  
+    }else{  
+        //stop all processing! remote form posting attempt!  
+    }  
+}  
+  
+$token = md5(uniqid(rand(), true));  
+$_SESSION['token']= $token;  
+  
+  
+function cleanHex($input){  
+    $clean = preg_replace("![][xX]([A-Fa-f0-9]{1,3})!", "",$input);  
+    return $clean;  
+}  
+?>  
+  
+  
+  
+</pre>
+
+
+<p>Rails: rails2.1在这方面做了些工作，在post数据的时候，会post过去一个安全码，Rails认出来表示正常，否则非法&#8230;</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/172">PHP 跨站点脚本攻击</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -783,75 +860,6 @@ ERB.new(”&lt;%= @name %>“).result( binding )</li>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/archives/158">英语表达拒绝的27个经典句</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2008-07-27T00:00:00+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
-        
-           | <a href="/archives/158#disqus_thread"
-             data-disqus-identifier="http://weixuhong.com/archives/158">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><ol>
-<li>Stop complaining! 别发牢骚！</li>
-<li><p>You make me sick! 你真让我恶心！</p></li>
-<li><p>What&#8217;s wrong with you? 你怎么回事？</p></li>
-<li><p>You shouldn&#8217;t have done that! 你真不应该那样做!</p></li>
-<li><p>You&#8217;re a jerk! 你是个废物/混球！</p></li>
-<li><p>Don&#8217;t talk to me like that! 别那样和我说话!</p></li>
-<li><p>Who do you think you are? 你以为你是谁？</p></li>
-<li><p>What&#8217;s your problem? 你怎么回事啊？</p></li>
-<li><p>I hate you! 我讨厌你！</p></li>
-<li><p>I don&#8217;t want to see your face!我不愿再见到你！</p></li>
-<li><p>You&#8217;re crazy! 你疯了!</p></li>
-<li><p>Are you insane/crazy/out of your mind?</p></li>
-</ol>
-
-
-<p>你疯了吗？（美国人绝对常用！）</p>
-
-<ol>
-<li><p>Don&#8217;t bother me. 别烦我。</p></li>
-<li><p>Knock it off. 少来这一套。</p></li>
-<li><p>Get out of my face. 从我面前消失！</p></li>
-<li><p>Leave me alone. 走开。</p></li>
-<li><p>Get lost.滚开！</p></li>
-<li><p>Take a hike! 哪儿凉快哪儿歇着去吧。</p></li>
-<li><p>You piss me off. 你气死我了。</p></li>
-<li><p>It&#8217;s none of your business. 关你屁事！</p></li>
-<li><p>What&#8217;s the meaning of this? 这是什么意思？</p></li>
-<li><p>How dare you! 你敢！</p></li>
-<li><p>Cut it out. 省省吧。</p></li>
-<li><p>You stupid jerk! 你这蠢猪！</p></li>
-<li><p>You have a lot of nerve. 脸皮真厚。</p></li>
-<li><p>I&#8217;m fed up. 我厌倦了。</p></li>
-<li><p>I can&#8217;t take it anymore. 我受不了了！</p></li>
-</ol>
-
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/158">英语表达拒绝的27个经典句</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/13">&larr; Older</a>
@@ -877,7 +885,9 @@ ERB.new(”&lt;%= @name %>“).result( binding )</li>
 <li class='category'><a href='/blog/categories/javascript/'>javascript (8)</a></li>
 <li class='category'><a href='/blog/categories/linux-unix/'>linux/unix (24)</a></li>
 <li class='category'><a href='/blog/categories/php/'>php (28)</a></li>
+<li class='category'><a href='/blog/categories/rails/'>rails (1)</a></li>
 <li class='category'><a href='/blog/categories/regular-expressions/'>regular expressions (2)</a></li>
+<li class='category'><a href='/blog/categories/rspec/'>rspec (1)</a></li>
 <li class='category'><a href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails (36)</a></li>
 <li class='category'><a href='/blog/categories/rubymine/'>rubymine (1)</a></li>
 <li class='category'><a href='/blog/categories/xhtml-css/'>xhtml/css (9)</a></li>
@@ -895,6 +905,10 @@ ERB.new(”&lt;%= @name %>“).result( binding )</li>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
       </li>
     
@@ -908,10 +922,6 @@ ERB.new(”&lt;%= @name %>“).result( binding )</li>
     
       <li class="post">
         <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
-      <li class="post">
-        <a href="/archives/595">Rubymine 不能输入中文？</a>
       </li>
     
   </ul>
