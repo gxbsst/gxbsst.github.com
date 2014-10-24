@@ -1,17 +1,11 @@
-
 <!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<html class="no-js" lang="en">
 <head>
   <meta charset="utf-8">
   <title>小红博客</title>
   <meta name="author" content="Weston Wei(韦旭红)">
 
   
-  <meta name="description" content="来源：http://www.toplee.com/blog/39.html#pp0
-注意：由于openssh是开源软件，各版间的配置方法和设置参数可能会不同，所以设置时要以最新版的手册为准，不要硬套本文的设置。 第一章 SSH简介
-ssh(secure shell)是一种通用， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,14 +15,21 @@ ssh(secure shell)是一种通用， &hellip;">
 
   
   <link rel="canonical" href="http://weixuhong.com/posts/14">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/favicon.png" type="image/png" rel="icon">
   <link href="/atom.xml" rel="alternate" title="小红博客" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+
+  <!-- http://opengraphprotocol.org/ -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://weixuhong.com/posts/14">
+  <meta property="og:title" content="小红博客">
+  <meta property="og:description" content="这个是一个个人博客，记录生活（厨艺），技术(Javascript/AngularJs/Ruby/Ruby On Rails/CSS/HTML5)等，还有我可以的大儿子韦晰(Simon) ^_^">
+
+  <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
+
+<link href="/assets/bootstrap/dist/css/flat.css" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
 <script type="text/javascript" src="/fancybox/jquery.fancybox.pack.js"></script>
 
 <script language="Javascript" type="text/javascript">
@@ -64,72 +65,108 @@ $(document).ready(
   }
 );
 </script> 
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 
   
 
 </head>
 
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">小红博客</a></h1>
-  
-    <h2>20，30，40&#8230;</h2>
-  
-</hgroup>
+  <body   >
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <div id="wrap">
+      <header role="banner">
+        <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">小红博客</a>
+        </div>
 
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="https://www.google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:weixuhong.com" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">博客</a></li>
-  <li><a href="/photos">相册</a></li>
-  <li><a href="/blog/archives">聚合</a></li>
-</ul>
-
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a rel="index" href="/">博客</a>
+                </li>
+                 <li >
+                    <a rel="index" href="/photos">相册</a>
+                </li>
+                <li >
+                    <a href="/blog/archives">聚合</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="subscribe-rss" href="/atom.xml" title="subscribe via RSS">
+                        <span class="visible-xs">RSS</span>
+                        <img class="hidden-xs" src="/images/rss.png" alt="RSS">
+                    </a>
+                </li>
+                
+            </ul>
+            
+                <form class="search navbar-form navbar-right" action="https://www.google.com/search" method="GET">
+                    <input type="hidden" name="q" value="site:weixuhong.com">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="q" placeholder="搜索">
+                    </div>
+                </form>
+            
+        </div>
+    </div>
 </nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
+
+
+      </header>
+      <div id="main" role="main" class="container">
+        <div id="content">
+          <div class="row">
+  <div class="page-content col-md-9">
+    <div class="blog-index" itemscope itemtype="http://schema.org/Blog">
+    <meta itemprop="name" content="小红博客" />
+    <meta itemprop="description" content="这个是一个个人博客，记录生活（厨艺），技术(Javascript/AngularJs/Ruby/Ruby On Rails/CSS/HTML5)等，还有我可以的大儿子韦晰(Simon) ^_^" />
+    <meta itemprop="url" content="http://weixuhong.com" />
       
-  <header>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
     
-      <h1 class="entry-title"><a href="/archives/140">SSH权威指南</a></h1>
-    
-    
-      <p class="meta">
+      <p class="meta text-muted text-uppercase">
         
 
 
 
 
-<time class='entry-date' datetime='2008-06-21T00:00:00+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-06-21T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年6 月21 日</time>
         
-           | <a href="/archives/140#disqus_thread"
+           | <a href="/archives/140#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/140">Comments</a>
         
       </p>
     
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/140" itemprop="url">SSH权威指南</a></h2>
+    
   </header>
 
 
-  <div class="entry-content"><p>来源：http://www.toplee.com/blog/39.html#pp0<br />
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>来源：http://www.toplee.com/blog/39.html#pp0<br />
 注意：由于openssh是开源软件，各版间的配置方法和设置参数可能会不同，所以设置时要以最新版的手册为准，不要硬套本文的设置。</p>
 
 <p>第一章 SSH简介<br />
@@ -773,33 +810,41 @@ AllowUsers　admin　</p>
   
 
 
-    </article>
-  
-  
-    <article>
+        </article>
       
-  <header>
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
     
-      <h1 class="entry-title"><a href="/archives/138">Safari开新标签不用按command的方法</a></h1>
-    
-    
-      <p class="meta">
+      <p class="meta text-muted text-uppercase">
         
 
 
 
 
-<time class='entry-date' datetime='2008-06-21T00:00:00+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-06-21T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年6 月21 日</time>
         
-           | <a href="/archives/138#disqus_thread"
+           | <a href="/archives/138#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/138">Comments</a>
         
       </p>
     
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/138" itemprop="url">Safari开新标签不用按command的方法</a></h2>
+    
   </header>
 
 
-  <div class="entry-content"><p>有个办法可以强制每次打开新标签页，而不是新开窗口，在terminal里面输下列指令：<br />
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>有个办法可以强制每次打开新标签页，而不是新开窗口，在terminal里面输下列指令：<br />
 　　<br />
 　　defaults write com.apple.Safari TargetedClicksCreateTabs -bool true<br />
 　　<br />
@@ -815,33 +860,41 @@ AllowUsers　admin　</p>
   
 
 
-    </article>
-  
-  
-    <article>
+        </article>
       
-  <header>
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
     
-      <h1 class="entry-title"><a href="/archives/139">MySQL数据库运用技巧和优化（不断更新）</a></h1>
-    
-    
-      <p class="meta">
+      <p class="meta text-muted text-uppercase">
         
 
 
 
 
-<time class='entry-date' datetime='2008-06-21T00:00:00+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-06-21T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年6 月21 日</time>
         
-           | <a href="/archives/139#disqus_thread"
+           | <a href="/archives/139#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/139">Comments</a>
         
       </p>
     
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/139" itemprop="url">MySQL数据库运用技巧和优化（不断更新）</a></h2>
+    
   </header>
 
 
-  <div class="entry-content"><p>来源：http://www.toplee.com/blog/569.html</p>
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>来源：http://www.toplee.com/blog/569.html</p>
 
 <p>一个LAMP架构的网站，经常说这慢那慢的，其实从架构到代码到数据库，优化的空间是非常非常多的（架构设计参照我另外一篇文章），就看你是否愿意花心思去一点一点儿的做起，比如mysql，在lamp网站的架构优化中，往往是很多人最容易忽略的环节，却往往成为优化空间最大的环节，一句不经意的sql语句，可能就会导致数据库执行时间过长，进而导致锁表时间过长，最后导致整站垮掉，让另外99%的努力工作和优化都失去意义，所以，Mysql的优化，需要细致而有耐心的进行，一点一点儿的挖，从slow_query日志开始，从my.cnf参数配置开始，从sql语句写法开始，从表中的索引index开始。。。</p>
 
@@ -906,33 +959,41 @@ ALL:这个连接类型对于前面的每一个记录联合进行完全扫描，�
   
 
 
-    </article>
-  
-  
-    <article>
+        </article>
       
-  <header>
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
     
-      <h1 class="entry-title"><a href="/archives/136">生活琐事</a></h1>
-    
-    
-      <p class="meta">
+      <p class="meta text-muted text-uppercase">
         
 
 
 
 
-<time class='entry-date' datetime='2008-06-09T00:00:00+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>9</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-06-09T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年6 月9 日</time>
         
-           | <a href="/archives/136#disqus_thread"
+           | <a href="/archives/136#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/136">Comments</a>
         
       </p>
     
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/136" itemprop="url">生活琐事</a></h2>
+    
   </header>
 
 
-  <div class="entry-content"><ol>
+  <div class="entry-content clearfix" itemprop="articleBody description"><ol>
   <li>生活杂乱无章，没有任何思想  </li>
   <li>压力一件接一件， 有点窒息  </li>
   <li>莫名烦躁，心跳无缘无故的加快<br />
@@ -947,33 +1008,41 @@ ALL:这个连接类型对于前面的每一个记录联合进行完全扫描，�
   
 
 
-    </article>
-  
-  
-    <article>
+        </article>
       
-  <header>
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
     
-      <h1 class="entry-title"><a href="/archives/189">HowTo: Install Ngnix on Ubuntu</a></h1>
-    
-    
-      <p class="meta">
+      <p class="meta text-muted text-uppercase">
         
 
 
 
 
-<time class='entry-date' datetime='2008-05-30T00:00:00+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-05-30T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年5 月30 日</time>
         
-           | <a href="/archives/189#disqus_thread"
+           | <a href="/archives/189#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/189">Comments</a>
         
       </p>
     
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/189" itemprop="url">HowTo: Install Ngnix on Ubuntu</a></h2>
+    
   </header>
 
 
-  <div class="entry-content"><pre lang="shell">1.  apt-get install libpcre3-dev
+  <div class="entry-content clearfix" itemprop="articleBody description"><pre lang="shell">1.  apt-get install libpcre3-dev
 2.  sudo apt-get install zlib1g-dev
 3. ./configure &#038;&#038; make &#038;&#038; make install
 </pre>
@@ -1053,33 +1122,41 @@ http {
   
 
 
-    </article>
-  
-  
-    <article>
+        </article>
       
-  <header>
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
     
-      <h1 class="entry-title"><a href="/archives/129">接近崩溃</a></h1>
-    
-    
-      <p class="meta">
+      <p class="meta text-muted text-uppercase">
         
 
 
 
 
-<time class='entry-date' datetime='2008-05-08T00:00:00+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-05-08T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年5 月8 日</time>
         
-           | <a href="/archives/129#disqus_thread"
+           | <a href="/archives/129#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/129">Comments</a>
         
       </p>
     
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/129" itemprop="url">接近崩溃</a></h2>
+    
   </header>
 
 
-  <div class="entry-content"><p>昨晚下班8点多回到家，我进屋就倒到床上了，望着天花板，不想动了，不想思考问题…感觉满身的疲惫…那种是莫名的疲惫….</p>
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>昨晚下班8点多回到家，我进屋就倒到床上了，望着天花板，不想动了，不想思考问题…感觉满身的疲惫…那种是莫名的疲惫….</p>
 
 <p>思考着为什么这么累？我也不知道…我想得别人多？</p>
 
@@ -1096,33 +1173,41 @@ http {
   
 
 
-    </article>
-  
-  
-    <article>
+        </article>
       
-  <header>
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
     
-      <h1 class="entry-title"><a href="/archives/63">Using Textile Editor Helper and Acts_as_textiled</a></h1>
-    
-    
-      <p class="meta">
+      <p class="meta text-muted text-uppercase">
         
 
 
 
 
-<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-04-26T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年4 月26 日</time>
         
-           | <a href="/archives/63#disqus_thread"
+           | <a href="/archives/63#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/63">Comments</a>
         
       </p>
     
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/63" itemprop="url">Using Textile Editor Helper and Acts_as_textiled</a></h2>
+    
   </header>
 
 
-  <div class="entry-content"><p>这两天一直在做这个cms其中，要用到Textile Editor Helper，和acts_as_textiled,其实安装很简单，只是我在大意了<br />
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>这两天一直在做这个cms其中，要用到Textile Editor Helper，和acts_as_textiled,其实安装很简单，只是我在大意了<br />
 有需要的朋友可以参考</p>
 
 <p>http://notepad.onghu.com/2007/3/28/using-textile-editor-plugin-and-acts_as_textiled</p>
@@ -1141,33 +1226,41 @@ http {
   
 
 
-    </article>
-  
-  
-    <article>
+        </article>
       
-  <header>
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
     
-      <h1 class="entry-title"><a href="/archives/59">Unexpected Inconsistency Ubuntu</a></h1>
-    
-    
-      <p class="meta">
+      <p class="meta text-muted text-uppercase">
         
 
 
 
 
-<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-04-26T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年4 月26 日</time>
         
-           | <a href="/archives/59#disqus_thread"
+           | <a href="/archives/59#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/59">Comments</a>
         
       </p>
     
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/59" itemprop="url">Unexpected Inconsistency Ubuntu</a></h2>
+    
   </header>
 
 
-  <div class="entry-content"><p>昨天远程启动了我的ubuntu服务器，没想到出现了unexpected inconsistency 这个错误，然后到google 输入unexpected inconsistency ubuntu就找到了解决的方法<br />
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>昨天远程启动了我的ubuntu服务器，没想到出现了unexpected inconsistency 这个错误，然后到google 输入unexpected inconsistency ubuntu就找到了解决的方法<br />
 就是用fsck 就修复了<br />
 可以参看http://www.owalog.com/blog.php?myess1=45这篇文章</p>
 
@@ -1178,33 +1271,41 @@ http {
   
 
 
-    </article>
-  
-  
-    <article>
+        </article>
       
-  <header>
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
     
-      <h1 class="entry-title"><a href="/archives/69">Umask/chmod/adduser</a></h1>
-    
-    
-      <p class="meta">
+      <p class="meta text-muted text-uppercase">
         
 
 
 
 
-<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-04-26T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年4 月26 日</time>
         
-           | <a href="/archives/69#disqus_thread"
+           | <a href="/archives/69#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/69">Comments</a>
         
       </p>
     
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/69" itemprop="url">Umask/chmod/adduser</a></h2>
+    
   </header>
 
 
-  <div class="entry-content"><p>umask 可以显示权限码<br />
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>umask 可以显示权限码<br />
 chmod G+s 表示新建的文件夹可以继承上个文件的权限<br />
 sudo adduser weston(可以自动创建目录，应该比useradd)</p>
 
@@ -1215,33 +1316,41 @@ sudo adduser weston(可以自动创建目录，应该比useradd)</p>
   
 
 
-    </article>
-  
-  
-    <article>
+        </article>
       
-  <header>
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
     
-      <h1 class="entry-title"><a href="/archives/66">Svn 命令</a></h1>
-    
-    
-      <p class="meta">
+      <p class="meta text-muted text-uppercase">
         
 
 
 
 
-<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-04-26T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年4 月26 日</time>
         
-           | <a href="/archives/66#disqus_thread"
+           | <a href="/archives/66#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/66">Comments</a>
         
       </p>
     
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/66" itemprop="url">Svn 命令</a></h2>
+    
   </header>
 
 
-  <div class="entry-content"><p>列 A</p>
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>列 A</p>
 
 <p>　　# addgroup [svn-users]</p>
 
@@ -1332,27 +1441,34 @@ sudo adduser weston(可以自动创建目录，应该比useradd)</p>
   
 
 
-    </article>
-  
-  <div class="pagination">
-    
-      <a class="prev" href="/posts/15">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-    <a class="next" href="/posts/13">Newer &rarr;</a>
-    
+        </article>
+      
+    </div>
+
+    <ul class="pager">
+      
+        <li class="previous"><a href="/posts/15">&larr;&nbsp;Older</a></li>
+      
+      <li><a href="/blog/archives">文章聚合</a></li>
+      
+        <li class="next"><a href="/posts/13">下一页&nbsp;&rarr;</a></li>
+      
+    </ul>
   </div>
-</div>
-<aside class="sidebar">
+
   
-    <section>
+    <aside class="sidebar col-md-3">
+      
+        <section>
   <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
-</section><section>
-  <h1>分类</h1>
-  <ul id="categories">
-    <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
+</section><section class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">分类</h3>
+	</div>
+	
+	<ul id="categories">
+		<li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
 <li class='category'><a href=' /blog/categories/ide/'>ide (1)</a></li>
 <li class='category'><a href=' /blog/categories/ios/'>ios (6)</a></li>
@@ -1373,50 +1489,52 @@ sudo adduser weston(可以自动创建目录，应该比useradd)</p>
 <li class='category'><a href=' /blog/categories/生活点滴/'>生活点滴 (4)</a></li>
 <li class='category'><a href=' /blog/categories/软件试用/'>软件试用 (4)</a></li>
 
-  </ul>
-</section><section>
-  <h1>最新发布</h1>
-  <ul id="recent_posts">
+	</ul>
+</section><section class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">最新文章</h3>
+  </div>
+  
+  <div id="recent_posts" class="list-group">
     
-      <li class="post">
-        <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
-      </li>
+    <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
     
-      <li class="post">
-        <a href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
-      </li>
+    <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
     
-      <li class="post">
-        <a href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
-      </li>
+    <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
     
-      <li class="post">
-        <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
-      </li>
+    <a class="list-group-item " href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
+    <a class="list-group-item " href="/archives/602">为什么说AngularJs的Service是单例？</a>
     
-  </ul>
+  </div>
 </section>
 
 
 
 
 
-  
-</aside>
 
+      
+    </aside>
+  
+</div>
+
+        </div>
+      </div>
     </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Weston Wei(韦旭红) -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+    <footer role="contentinfo"><div class="container">
+    <p class="text-muted credits">
+  Copyright &copy; 2014 - Weston Wei(韦旭红)<br>
+  <small>
+      <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
+      <span class="credit">customized with <a href="https://github.com/kAworu/octostrap3">octostrap3</a></span>.
+  </small>
 </p>
 
+</div>
 </footer>
-  
+    
 
 <script type="text/javascript">
       var disqus_shortname = 'Weixuhong';
@@ -1448,8 +1566,9 @@ sudo adduser weston(可以自动创建目录，应该比useradd)</p>
   </script>
 
 
+<script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/javascripts/modernizr-2.0.js"></script>
 
 
-
-</body>
+  </body>
 </html>

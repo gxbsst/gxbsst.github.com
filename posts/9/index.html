@@ -1,16 +1,11 @@
-
 <!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<html class="no-js" lang="en">
 <head>
   <meta charset="utf-8">
   <title>小红博客</title>
   <meta name="author" content="Weston Wei(韦旭红)">
 
   
-  <meta name="description" content="前几天有个朋有需要一个简单的购物车，今天帮他写了点，这个是非常不好的版本，请不要使用!!!
-发现用Rails写起来方便很多， 代码也比较少 items)){ $item = array($product_id => array(“price” => 34, “quantity” => 1 &hellip;&#8221;>
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,14 +15,21 @@
 
   
   <link rel="canonical" href="http://weixuhong.com/posts/9">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/favicon.png" type="image/png" rel="icon">
   <link href="/atom.xml" rel="alternate" title="小红博客" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+
+  <!-- http://opengraphprotocol.org/ -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://weixuhong.com/posts/9">
+  <meta property="og:title" content="小红博客">
+  <meta property="og:description" content="这个是一个个人博客，记录生活（厨艺），技术(Javascript/AngularJs/Ruby/Ruby On Rails/CSS/HTML5)等，还有我可以的大儿子韦晰(Simon) ^_^">
+
+  <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
+
+<link href="/assets/bootstrap/dist/css/flat.css" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
 <script type="text/javascript" src="/fancybox/jquery.fancybox.pack.js"></script>
 
 <script language="Javascript" type="text/javascript">
@@ -63,72 +65,108 @@ $(document).ready(
   }
 );
 </script> 
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 
   
 
 </head>
 
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">小红博客</a></h1>
-  
-    <h2>20，30，40&#8230;</h2>
-  
-</hgroup>
+  <body   >
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <div id="wrap">
+      <header role="banner">
+        <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">小红博客</a>
+        </div>
 
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="https://www.google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:weixuhong.com" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">博客</a></li>
-  <li><a href="/photos">相册</a></li>
-  <li><a href="/blog/archives">聚合</a></li>
-</ul>
-
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a rel="index" href="/">博客</a>
+                </li>
+                 <li >
+                    <a rel="index" href="/photos">相册</a>
+                </li>
+                <li >
+                    <a href="/blog/archives">聚合</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="subscribe-rss" href="/atom.xml" title="subscribe via RSS">
+                        <span class="visible-xs">RSS</span>
+                        <img class="hidden-xs" src="/images/rss.png" alt="RSS">
+                    </a>
+                </li>
+                
+            </ul>
+            
+                <form class="search navbar-form navbar-right" action="https://www.google.com/search" method="GET">
+                    <input type="hidden" name="q" value="site:weixuhong.com">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="q" placeholder="搜索">
+                    </div>
+                </form>
+            
+        </div>
+    </div>
 </nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
+
+
+      </header>
+      <div id="main" role="main" class="container">
+        <div id="content">
+          <div class="row">
+  <div class="page-content col-md-9">
+    <div class="blog-index" itemscope itemtype="http://schema.org/Blog">
+    <meta itemprop="name" content="小红博客" />
+    <meta itemprop="description" content="这个是一个个人博客，记录生活（厨艺），技术(Javascript/AngularJs/Ruby/Ruby On Rails/CSS/HTML5)等，还有我可以的大儿子韦晰(Simon) ^_^" />
+    <meta itemprop="url" content="http://weixuhong.com" />
       
-  <header>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
     
-      <h1 class="entry-title"><a href="/archives/234">简陋的购物车类（未完成)</a></h1>
-    
-    
-      <p class="meta">
+      <p class="meta text-muted text-uppercase">
         
 
 
 
 
-<time class='entry-date' datetime='2008-12-28T00:00:00+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>28</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-12-28T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年12 月28 日</time>
         
-           | <a href="/archives/234#disqus_thread"
+           | <a href="/archives/234#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/234">Comments</a>
         
       </p>
     
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/234" itemprop="url">简陋的购物车类（未完成)</a></h2>
+    
   </header>
 
 
-  <div class="entry-content"><p>前几天有个朋有需要一个简单的购物车，今天帮他写了点，这个是非常不好的版本，请不要使用!!!<br />
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>前几天有个朋有需要一个简单的购物车，今天帮他写了点，这个是非常不好的版本，请不要使用!!!<br />
 发现用Rails写起来方便很多， 代码也比较少</p>
 
 <pre lang="php"><?php
@@ -233,33 +271,41 @@ $cart->add_product(“10001”);
   
 
 
-    </article>
-  
-  
-    <article>
+        </article>
       
-  <header>
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
     
-      <h1 class="entry-title"><a href="/archives/233">关于传值和引用的一点理解</a></h1>
-    
-    
-      <p class="meta">
+      <p class="meta text-muted text-uppercase">
         
 
 
 
 
-<time class='entry-date' datetime='2008-12-21T00:00:00+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-12-21T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年12 月21 日</time>
         
-           | <a href="/archives/233#disqus_thread"
+           | <a href="/archives/233#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/233">Comments</a>
         
       </p>
     
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/233" itemprop="url">关于传值和引用的一点理解</a></h2>
+    
   </header>
 
 
-  <div class="entry-content"><p>有些同学可能也跟我一样，为什么要传值，为什么要传引用，什么时候用？ 它们之间有什么优劣…现在看《编程卓越之道》第16章的内容，我总结了以下几点</p>
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>有些同学可能也跟我一样，为什么要传值，为什么要传引用，什么时候用？ 它们之间有什么优劣…现在看《编程卓越之道》第16章的内容，我总结了以下几点</p>
 
 <p>什么时候传值？<br />
 如果值的数据量小， 那优先考虑用传值的方式，且不需要修改原来值的内容</p>
@@ -280,33 +326,41 @@ $cart->add_product(“10001”);
   
 
 
-    </article>
-  
-  
-    <article>
+        </article>
       
-  <header>
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
     
-      <h1 class="entry-title"><a href="/archives/223">PHP小技巧－－获取文件的信息(exif_read_date ()</a></h1>
-    
-    
-      <p class="meta">
+      <p class="meta text-muted text-uppercase">
         
 
 
 
 
-<time class='entry-date' datetime='2008-12-12T00:00:00+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-12-12T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年12 月12 日</time>
         
-           | <a href="/archives/223#disqus_thread"
+           | <a href="/archives/223#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/223">Comments</a>
         
       </p>
     
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/223" itemprop="url">PHP小技巧－－获取文件的信息(exif_read_date ()</a></h2>
+    
   </header>
 
 
-  <div class="entry-content"><pre lang="php">$sourceImage = 'images/baby.jpg'; 
+  <div class="entry-content clearfix" itemprop="articleBody description"><pre lang="php">$sourceImage = 'images/baby.jpg'; 
 $exif_data = exif_read_data( $sourceImage );
 echo '<pre>';
 print_r($exif_data); 
@@ -357,33 +411,41 @@ Array
   
 
 
-    </article>
-  
-  
-    <article>
+        </article>
       
-  <header>
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
     
-      <h1 class="entry-title"><a href="/archives/222">用PHP输出简单缩略图</a></h1>
-    
-    
-      <p class="meta">
+      <p class="meta text-muted text-uppercase">
         
 
 
 
 
-<time class='entry-date' datetime='2008-12-12T00:00:00+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-12-12T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年12 月12 日</time>
         
-           | <a href="/archives/222#disqus_thread"
+           | <a href="/archives/222#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/222">Comments</a>
         
       </p>
     
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/222" itemprop="url">用PHP输出简单缩略图</a></h2>
+    
   </header>
 
 
-  <div class="entry-content"><p>Note: JPEG support is only available if PHP was compiled against GD-1.8 or later.</p>
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>Note: JPEG support is only available if PHP was compiled against GD-1.8 or later.</p>
 
 <p>*参考 http://cn.php.net/imagecreatefromjpeg</p>
 
@@ -411,33 +473,41 @@ imagejpeg( $thumb );
   
 
 
-    </article>
-  
-  
-    <article>
+        </article>
       
-  <header>
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
     
-      <h1 class="entry-title"><a href="/archives/232">关于文件描述符（原创)</a></h1>
-    
-    
-      <p class="meta">
+      <p class="meta text-muted text-uppercase">
         
 
 
 
 
-<time class='entry-date' datetime='2008-12-12T00:00:00+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-12-12T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年12 月12 日</time>
         
-           | <a href="/archives/232#disqus_thread"
+           | <a href="/archives/232#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/232">Comments</a>
         
       </p>
     
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/232" itemprop="url">关于文件描述符（原创)</a></h2>
+    
   </header>
 
 
-  <div class="entry-content"><p>最近在看“UNIX环境高级编程（第二版)”, 其中文件描述符，进程，线程等经常出现在书本中，关于这几个几本的概念，也经常和同事Jerry讨论，他们是做什么的？ 在和WEB开发中有什么联系等等问题….其中文件描述符这个概念始终有点困扰着我，下面我把网上整理和自己的体会，写出来，就当学习笔记吧，如有不当，请指正</p>
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>最近在看“UNIX环境高级编程（第二版)”, 其中文件描述符，进程，线程等经常出现在书本中，关于这几个几本的概念，也经常和同事Jerry讨论，他们是做什么的？ 在和WEB开发中有什么联系等等问题….其中文件描述符这个概念始终有点困扰着我，下面我把网上整理和自己的体会，写出来，就当学习笔记吧，如有不当，请指正</p>
 
 <p>我们去wiki看看怎么解释文件描述符的</p>
 
@@ -501,33 +571,41 @@ ruby    1557 weston    4r   REG   14,2        6 12966193 test.php</pre>
   
 
 
-    </article>
-  
-  
-    <article>
+        </article>
       
-  <header>
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
     
-      <h1 class="entry-title"><a href="/archives/224">一个有用的Unix/Linux命令(lsof)</a></h1>
-    
-    
-      <p class="meta">
+      <p class="meta text-muted text-uppercase">
         
 
 
 
 
-<time class='entry-date' datetime='2008-12-12T00:00:00+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-12-12T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年12 月12 日</time>
         
-           | <a href="/archives/224#disqus_thread"
+           | <a href="/archives/224#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/224">Comments</a>
         
       </p>
     
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/224" itemprop="url">一个有用的Unix/Linux命令(lsof)</a></h2>
+    
   </header>
 
 
-  <div class="entry-content"><p>lsof（list open files）是一个列出当前系统打开文件的工具。在linux环境下，任何事物都以文件的形式存在，通过文件不仅仅可以访问常规数据，还可以访问网络连接和硬件。所以如传输控制协议 (TCP) 和用户数据报协议 (UDP) 套接字等，系统在后台都为该应用程序分配了一个文件描述符，无论这个文件的本质如何，该文件描述符为应用程序与基础操作系统之间的交互提供了通用接口。因为应用程序打开文件的描述符列表提供了大量关于这个应用程序本身的信息，因此通过lsof工具能够查看这个列表对系统监测以及排错将是很有帮助的。</p>
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>lsof（list open files）是一个列出当前系统打开文件的工具。在linux环境下，任何事物都以文件的形式存在，通过文件不仅仅可以访问常规数据，还可以访问网络连接和硬件。所以如传输控制协议 (TCP) 和用户数据报协议 (UDP) 套接字等，系统在后台都为该应用程序分配了一个文件描述符，无论这个文件的本质如何，该文件描述符为应用程序与基础操作系统之间的交互提供了通用接口。因为应用程序打开文件的描述符列表提供了大量关于这个应用程序本身的信息，因此通过lsof工具能够查看这个列表对系统监测以及排错将是很有帮助的。</p>
 
 <p>lsof使用实例</p>
 
@@ -588,33 +666,41 @@ cat /proc/1283/fd/2 &gt; /var/log/messages<br />
   
 
 
-    </article>
-  
-  
-    <article>
+        </article>
       
-  <header>
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
     
-      <h1 class="entry-title"><a href="/archives/221">在Dreamhost编译VIM</a></h1>
-    
-    
-      <p class="meta">
+      <p class="meta text-muted text-uppercase">
         
 
 
 
 
-<time class='entry-date' datetime='2008-11-29T00:00:00+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-11-29T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年11 月29 日</time>
         
-           | <a href="/archives/221#disqus_thread"
+           | <a href="/archives/221#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/221">Comments</a>
         
       </p>
     
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/221" itemprop="url">在Dreamhost编译VIM</a></h2>
+    
   </header>
 
 
-  <div class="entry-content"><ol>
+  <div class="entry-content clearfix" itemprop="articleBody description"><ol>
   <li>下载源文件（www.vim.org)  </li>
   <li>编译</li>
 </ol>
@@ -645,33 +731,41 @@ export VIMRUNTIME=“$HOME/share/vim”
   
 
 
-    </article>
-  
-  
-    <article>
+        </article>
       
-  <header>
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
     
-      <h1 class="entry-title"><a href="/archives/220">Html的一些特殊符合列表</a></h1>
-    
-    
-      <p class="meta">
+      <p class="meta text-muted text-uppercase">
         
 
 
 
 
-<time class='entry-date' datetime='2008-11-20T00:00:00+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>20</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-11-20T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年11 月20 日</time>
         
-           | <a href="/archives/220#disqus_thread"
+           | <a href="/archives/220#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/220">Comments</a>
         
       </p>
     
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/220" itemprop="url">Html的一些特殊符合列表</a></h2>
+    
   </header>
 
 
-  <div class="entry-content"><p>做网<span style="font-family:STHeiti;">页有时需要用上一些特殊的字符，</span> 如果copyright， &amp; …等等, 在网上找了一下，<span style="font-family:STHeiti;">记录以备后用</span></p>
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>做网<span style="font-family:STHeiti;">页有时需要用上一些特殊的字符，</span> 如果copyright， &amp; …等等, 在网上找了一下，<span style="font-family:STHeiti;">记录以备后用</span></p>
 
 <p>来源：http://htmlhelp.com/reference/html40/entities/latin1.html</p>
 
@@ -688,33 +782,41 @@ export VIMRUNTIME=“$HOME/share/vim”
   
 
 
-    </article>
-  
-  
-    <article>
+        </article>
       
-  <header>
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
     
-      <h1 class="entry-title"><a href="/archives/216">Live的FAQ的更新</a></h1>
-    
-    
-      <p class="meta">
+      <p class="meta text-muted text-uppercase">
         
 
 
 
 
-<time class='entry-date' datetime='2008-11-18T00:00:00+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>18</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-11-18T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年11 月18 日</time>
         
-           | <a href="/archives/216#disqus_thread"
+           | <a href="/archives/216#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/216">Comments</a>
         
       </p>
     
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/216" itemprop="url">Live的FAQ的更新</a></h2>
+    
   </header>
 
 
-  <div class="entry-content"><ul>
+  <div class="entry-content clearfix" itemprop="articleBody description"><ul>
   <li>FAQ用的是wordpress  </li>
   <li>为了解决FAQ的的菜单排序的问题， 我安装了Mycategoryorder的plugin, 但是不起效果</li>
 </ul>
@@ -752,33 +854,41 @@ export VIMRUNTIME=“$HOME/share/vim”
   
 
 
-    </article>
-  
-  
-    <article>
+        </article>
       
-  <header>
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
     
-      <h1 class="entry-title"><a href="/archives/215">生活琐事（感情，经济，家庭）</a></h1>
-    
-    
-      <p class="meta">
+      <p class="meta text-muted text-uppercase">
         
 
 
 
 
-<time class='entry-date' datetime='2008-11-16T00:00:00+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-11-16T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年11 月16 日</time>
         
-           | <a href="/archives/215#disqus_thread"
+           | <a href="/archives/215#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/215">Comments</a>
         
       </p>
     
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/215" itemprop="url">生活琐事（感情，经济，家庭）</a></h2>
+    
   </header>
 
 
-  <div class="entry-content"><p>活着，不可避免的在矛盾中生活着…因为矛盾，所以才会幸福，才会痛苦，才哭，才会笑，才会累…</p>
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>活着，不可避免的在矛盾中生活着…因为矛盾，所以才会幸福，才会痛苦，才哭，才会笑，才会累…</p>
 
 <p>前天晚上， 一个好朋友跟我讲, 他非常想哭，我问他为什么？ 他大概的意思就是：因為他是農民的兒子，所以看不了他的同事（農民工）兄弟被欺負。 具體原因我也沒有聽出個所以了， 他現在應該是工地上的監工…我这个朋友估计太多愁善感了，因为长这么大，很多事情一碰到就知道怎么处理了， 但是感觉他很矛盾，想把农民工兄弟解救，但是自己又没有能力，所以他哭了…不要觉得自己有多伟大， 其实我们只是一个小小的老百姓，你也许可以把自己说得很伟大，但是我觉得人太脆弱，一场车祸， 一场病，或者不幸喝了毒奶粉，就有可能丧命。。。我们可以主宰我们的命运么？ 不能啊， 我们只能做好自己，尽量的不要伤害别人， 或者遇到了师傅， 那就好好跟着吧…你一定会很幸福的:-)</p>
 
@@ -799,27 +909,34 @@ export VIMRUNTIME=“$HOME/share/vim”
   
 
 
-    </article>
-  
-  <div class="pagination">
-    
-      <a class="prev" href="/posts/10">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-    <a class="next" href="/posts/8">Newer &rarr;</a>
-    
+        </article>
+      
+    </div>
+
+    <ul class="pager">
+      
+        <li class="previous"><a href="/posts/10">&larr;&nbsp;Older</a></li>
+      
+      <li><a href="/blog/archives">文章聚合</a></li>
+      
+        <li class="next"><a href="/posts/8">下一页&nbsp;&rarr;</a></li>
+      
+    </ul>
   </div>
-</div>
-<aside class="sidebar">
+
   
-    <section>
+    <aside class="sidebar col-md-3">
+      
+        <section>
   <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
-</section><section>
-  <h1>分类</h1>
-  <ul id="categories">
-    <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
+</section><section class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">分类</h3>
+	</div>
+	
+	<ul id="categories">
+		<li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
 <li class='category'><a href=' /blog/categories/ide/'>ide (1)</a></li>
 <li class='category'><a href=' /blog/categories/ios/'>ios (6)</a></li>
@@ -840,50 +957,52 @@ export VIMRUNTIME=“$HOME/share/vim”
 <li class='category'><a href=' /blog/categories/生活点滴/'>生活点滴 (4)</a></li>
 <li class='category'><a href=' /blog/categories/软件试用/'>软件试用 (4)</a></li>
 
-  </ul>
-</section><section>
-  <h1>最新发布</h1>
-  <ul id="recent_posts">
+	</ul>
+</section><section class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">最新文章</h3>
+  </div>
+  
+  <div id="recent_posts" class="list-group">
     
-      <li class="post">
-        <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
-      </li>
+    <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
     
-      <li class="post">
-        <a href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
-      </li>
+    <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
     
-      <li class="post">
-        <a href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
-      </li>
+    <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
     
-      <li class="post">
-        <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
-      </li>
+    <a class="list-group-item " href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
+    <a class="list-group-item " href="/archives/602">为什么说AngularJs的Service是单例？</a>
     
-  </ul>
+  </div>
 </section>
 
 
 
 
 
-  
-</aside>
 
+      
+    </aside>
+  
+</div>
+
+        </div>
+      </div>
     </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Weston Wei(韦旭红) -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+    <footer role="contentinfo"><div class="container">
+    <p class="text-muted credits">
+  Copyright &copy; 2014 - Weston Wei(韦旭红)<br>
+  <small>
+      <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
+      <span class="credit">customized with <a href="https://github.com/kAworu/octostrap3">octostrap3</a></span>.
+  </small>
 </p>
 
+</div>
 </footer>
-  
+    
 
 <script type="text/javascript">
       var disqus_shortname = 'Weixuhong';
@@ -915,8 +1034,9 @@ export VIMRUNTIME=“$HOME/share/vim”
   </script>
 
 
+<script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/javascripts/modernizr-2.0.js"></script>
 
 
-
-</body>
+  </body>
 </html>
