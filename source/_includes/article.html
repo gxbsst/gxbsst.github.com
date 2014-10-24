@@ -25,5 +25,5 @@
     </footer>
   {% endif %}
 {% else %}
-<div class="entry-content">{{ content }}</div>
+<div class="entry-content">{{ content | toc_generate}}</div>
 {% endif %}

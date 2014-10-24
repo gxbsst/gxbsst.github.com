@@ -1,4 +1,4 @@
-source "https://rubygems.org"
+source "http://ruby.taobao.org"
 
 group :development do
   gem 'rake', '~> 10.0'
@@ -17,6 +17,9 @@ group :development do
   gem 'flickraw'
   gem 'builder', '> 2.0.0'
   gem 'persistent_memoize'
+  gem 'kramdown'
+  gem 'nokogiri'
 end
 
 gem 'sinatra', '~> 1.4.2'
+
