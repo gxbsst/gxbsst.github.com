@@ -9,7 +9,10 @@
   <meta name="author" content="Weston Wei(韦旭红)">
 
   
-  <meta name="description" content="虽然这个几个比较常见，但是未必每个人都会用，我就简单整理一下&#8230;. $_SERVER var_dump出的效果，说一个Array，你应该知道怎么用吧，其中的PHP_SELF,USER_AGENT等相信对你会有用 array 'HTTP_USER_AGENT' => string &#8217; &hellip;&#8221;>
+  <meta name="description" content="Contents 1 $_SERVER
+2 $_REQUEST
+3 $_COOKIE
+4 $_ENV 虽然这个几个比较常见，但是未必每个人都会用，我就简单整理一下…. $_SERVER var_dump出的效果，说一个Array，你应该知道怎么用吧，其中的PHP_SELF, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -92,9 +95,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -124,94 +127,100 @@ $(document).ready(
   </header>
 
 
-<div class="entry-content"><p>虽然这个几个比较常见，但是未必每个人都会用，我就简单整理一下&#8230;.</p>
+<div class="entry-content"><div id="toc-container"><table class="toc" id="toc"><tbody><tr><td>
+<div id="toctitle"><h3>Contents</h3></div>
+<ul>
+<li class="toc_level-1 toc_section-1"><a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">$_SERVER</span></a></li>
+<li class="toc_level-1 toc_section-2"><a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">$_REQUEST</span></a></li>
+<li class="toc_level-1 toc_section-3"><a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">$_COOKIE</span></a></li>
+<li class="toc_level-1 toc_section-4"><a href="#tocAnchor-1-4"><span class="tocnumber">4</span> <span class="toctext">$_ENV</span></a></li>
+</ul>
+</td></tr></tbody></table></div>
+<p>虽然这个几个比较常见，但是未必每个人都会用，我就简单整理一下….</p>
 
-<h2>$_SERVER</h2>
+<h2 id="tocAnchor-1-1">$_SERVER</h2>
 
 <p>var_dump出的效果，说一个Array，你应该知道怎么用吧，其中的PHP_SELF,USER_AGENT等相信对你会有用</p>
 
 <pre lang="php">array
-  'HTTP_USER_AGENT' => string 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_5; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1' (length=125)
-  'HTTP_CACHE_CONTROL' => string 'max-age=0' (length=9)
-  'HTTP_ACCEPT' => string 'text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5' (length=99)
-  'HTTP_ACCEPT_LANGUAGE' => string 'en-us' (length=5)
-  'HTTP_ACCEPT_ENCODING' => string 'gzip, deflate' (length=13)
-  'HTTP_COOKIE' => string 'ECS[user_id]=1; ECS[username]=admin; ECS[email]=webmastor%40yourdomain.com; ECS[visit_times]=2; uchome_auth=17720Ag3apHxh%2BuqAnNG8K5qnVoihVoPyRr%2FFlsyF2tXb2eNCHfN47eFyCvT0qgBtm6q1cWCMQL5FvsmoVgA; uchome_loginuser=gxbsst; mpH_cookietime=2592000; mpH_loginuser=gxbsst; mpH_activationauth=5085X8lEKxwsND0uhjEwcl1HBxdSgnky%2B8HAS%2BXMVSMCbac' (length=339)
-  'HTTP_CONNECTION' => string 'keep-alive' (length=10)
-  'HTTP_HOST' => string 'localhost' (length=9)
-  'PATH' => string '/usr/bin:/bin:/usr/sbin:/sbin' (length=29)
-  'SERVER_SIGNATURE' => string '' (length=0)
-  'SERVER_SOFTWARE' => string 'Apache/2.2.8 (Unix) mod_ssl/2.2.8 OpenSSL/0.9.7l DAV/2 PHP/5.2.6 mod_fastcgi/2.4.2' (length=82)
-  'SERVER_NAME' => string 'localhost' (length=9)
-  'SERVER_ADDR' => string '::1' (length=3)
-  'SERVER_PORT' => string '80' (length=2)
-  'REMOTE_ADDR' => string '::1' (length=3)
-  'DOCUMENT_ROOT' => string '/Users/weston/projects/linyufang.net' (length=36)
-  'SERVER_ADMIN' => string 'you@example.com' (length=15)
-  'SCRIPT_FILENAME' => string '/Users/weston/projects/linyufang.net/form_data.php' (length=50)
-  'REMOTE_PORT' => string '59715' (length=5)
-  'GATEWAY_INTERFACE' => string 'CGI/1.1' (length=7)
-  'SERVER_PROTOCOL' => string 'HTTP/1.1' (length=8)
-  'REQUEST_METHOD' => string 'GET' (length=3)
-  'QUERY_STRING' => string '' (length=0)
-  'REQUEST_URI' => string '/form_data.php' (length=14)
-  'SCRIPT_NAME' => string '/form_data.php' (length=14)
-  'PHP_SELF' => string '/form_data.php' (length=14)
-  'REQUEST_TIME' => int 1223026388
-  'argv' => 
+  'HTTP_USER_AGENT' =&gt; string 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_5; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1' (length=125)
+  'HTTP_CACHE_CONTROL' =&gt; string 'max-age=0' (length=9)
+  'HTTP_ACCEPT' =&gt; string 'text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5' (length=99)
+  'HTTP_ACCEPT_LANGUAGE' =&gt; string 'en-us' (length=5)
+  'HTTP_ACCEPT_ENCODING' =&gt; string 'gzip, deflate' (length=13)
+  'HTTP_COOKIE' =&gt; string 'ECS[user_id]=1; ECS[username]=admin; ECS[email]=webmastor%40yourdomain.com; ECS[visit_times]=2; uchome_auth=17720Ag3apHxh%2BuqAnNG8K5qnVoihVoPyRr%2FFlsyF2tXb2eNCHfN47eFyCvT0qgBtm6q1cWCMQL5FvsmoVgA; uchome_loginuser=gxbsst; mpH_cookietime=2592000; mpH_loginuser=gxbsst; mpH_activationauth=5085X8lEKxwsND0uhjEwcl1HBxdSgnky%2B8HAS%2BXMVSMCbac' (length=339)
+  'HTTP_CONNECTION' =&gt; string 'keep-alive' (length=10)
+  'HTTP_HOST' =&gt; string 'localhost' (length=9)
+  'PATH' =&gt; string '/usr/bin:/bin:/usr/sbin:/sbin' (length=29)
+  'SERVER_SIGNATURE' =&gt; string '' (length=0)
+  'SERVER_SOFTWARE' =&gt; string 'Apache/2.2.8 (Unix) mod_ssl/2.2.8 OpenSSL/0.9.7l DAV/2 PHP/5.2.6 mod_fastcgi/2.4.2' (length=82)
+  'SERVER_NAME' =&gt; string 'localhost' (length=9)
+  'SERVER_ADDR' =&gt; string '::1' (length=3)
+  'SERVER_PORT' =&gt; string '80' (length=2)
+  'REMOTE_ADDR' =&gt; string '::1' (length=3)
+  'DOCUMENT_ROOT' =&gt; string '/Users/weston/projects/linyufang.net' (length=36)
+  'SERVER_ADMIN' =&gt; string 'you@example.com' (length=15)
+  'SCRIPT_FILENAME' =&gt; string '/Users/weston/projects/linyufang.net/form_data.php' (length=50)
+  'REMOTE_PORT' =&gt; string '59715' (length=5)
+  'GATEWAY_INTERFACE' =&gt; string 'CGI/1.1' (length=7)
+  'SERVER_PROTOCOL' =&gt; string 'HTTP/1.1' (length=8)
+  'REQUEST_METHOD' =&gt; string 'GET' (length=3)
+  'QUERY_STRING' =&gt; string '' (length=0)
+  'REQUEST_URI' =&gt; string '/form_data.php' (length=14)
+  'SCRIPT_NAME' =&gt; string '/form_data.php' (length=14)
+  'PHP_SELF' =&gt; string '/form_data.php' (length=14)
+  'REQUEST_TIME' =&gt; int 1223026388
+  'argv' =&gt; 
     array
       empty
-  'argc' => int 0
+  'argc' =&gt; int 0
 </pre>
 
-
-<h2>$_REQUEST</h2>
+<h2 id="tocAnchor-1-2">$_REQUEST</h2>
 
 <pre lang="php">array
-  'ECS' => 
+  'ECS' =&gt; 
     array
-      'user_id' => string '1' (length=1)
-      'username' => string 'admin' (length=5)
-      'email' => string 'webmastor@yourdomain.com' (length=24)
-      'visit_times' => string '2' (length=1)
-  'uchome_auth' => string '17720Ag3apHxh+uqAnNG8K5qnVoihVoPyRr/FlsyF2tXb2eNCHfN47eFyCvT0qgBtm6q1cWCMQL5FvsmoVgA' (length=84)
-  'uchome_loginuser' => string 'gxbsst' (length=6)
-  'mpH_cookietime' => string '2592000' (length=7)
-  'mpH_loginuser' => string 'gxbsst' (length=6)
-  'mpH_activationauth' => string '5085X8lEKxwsND0uhjEwcl1HBxdSgnky+8HAS+XMVSMCbac' (length=47)
+      'user_id' =&gt; string '1' (length=1)
+      'username' =&gt; string 'admin' (length=5)
+      'email' =&gt; string 'webmastor@yourdomain.com' (length=24)
+      'visit_times' =&gt; string '2' (length=1)
+  'uchome_auth' =&gt; string '17720Ag3apHxh+uqAnNG8K5qnVoihVoPyRr/FlsyF2tXb2eNCHfN47eFyCvT0qgBtm6q1cWCMQL5FvsmoVgA' (length=84)
+  'uchome_loginuser' =&gt; string 'gxbsst' (length=6)
+  'mpH_cookietime' =&gt; string '2592000' (length=7)
+  'mpH_loginuser' =&gt; string 'gxbsst' (length=6)
+  'mpH_activationauth' =&gt; string '5085X8lEKxwsND0uhjEwcl1HBxdSgnky+8HAS+XMVSMCbac' (length=47)
 </pre>
 
-
-<h2>$_COOKIE</h2>
+<h2 id="tocAnchor-1-3">$_COOKIE</h2>
 
 <pre lang="php">array
-  'ECS' => 
+  'ECS' =&gt; 
     array
-      'user_id' => string '1' (length=1)
-      'username' => string 'admin' (length=5)
-      'email' => string 'webmastor@yourdomain.com' (length=24)
-      'visit_times' => string '2' (length=1)
-  'uchome_auth' => string '17720Ag3apHxh+uqAnNG8K5qnVoihVoPyRr/FlsyF2tXb2eNCHfN47eFyCvT0qgBtm6q1cWCMQL5FvsmoVgA' (length=84)
-  'uchome_loginuser' => string 'gxbsst' (length=6)
-  'mpH_cookietime' => string '2592000' (length=7)
-  'mpH_loginuser' => string 'gxbsst' (length=6)
-  'mpH_activationauth' => string '5085X8lEKxwsND0uhjEwcl1HBxdSgnky+8HAS+XMVSMCbac' (length=47)
+      'user_id' =&gt; string '1' (length=1)
+      'username' =&gt; string 'admin' (length=5)
+      'email' =&gt; string 'webmastor@yourdomain.com' (length=24)
+      'visit_times' =&gt; string '2' (length=1)
+  'uchome_auth' =&gt; string '17720Ag3apHxh+uqAnNG8K5qnVoihVoPyRr/FlsyF2tXb2eNCHfN47eFyCvT0qgBtm6q1cWCMQL5FvsmoVgA' (length=84)
+  'uchome_loginuser' =&gt; string 'gxbsst' (length=6)
+  'mpH_cookietime' =&gt; string '2592000' (length=7)
+  'mpH_loginuser' =&gt; string 'gxbsst' (length=6)
+  'mpH_activationauth' =&gt; string '5085X8lEKxwsND0uhjEwcl1HBxdSgnky+8HAS+XMVSMCbac' (length=47)
 </pre>
 
-
-<h2>$_ENV</h2>
+<h2 id="tocAnchor-1-4">$_ENV</h2>
 
 <pre lang="php">array
-  'PATH' => string '/usr/bin:/bin:/usr/sbin:/sbin' (length=29)
+  'PATH' =&gt; string '/usr/bin:/bin:/usr/sbin:/sbin' (length=29)
 </pre>
 
+<p>当然还要$_GET,$_SESSION,$_COOKIE其实这些都可以在phpinfo看到的….<br>
+btw:要深入了解，相信PERL的CGI编程那本书对你会有用处…</p>
 
-<p>当然还要$_GET,$_SESSION,$_COOKIE其实这些都可以在phpinfo看到的&#8230;.<br/>
-btw:要深入了解，相信PERL的CGI编程那本书对你会有用处&#8230;</p>
+<p>*当然其他Web开发语言都有类似变量….</p>
 
-<p>*当然其他Web开发语言都有类似变量&#8230;.</p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/192">PHP 几个有用的变量</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/192">PHP 几个有用的变量</a></p>
 </div>
 
 
@@ -264,10 +273,10 @@ btw:要深入了解，相信PERL的CGI编程那本书对你会有用处&#8230;</
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -292,8 +301,12 @@ btw:要深入了解，相信PERL的CGI编程那本书对你会有用处&#8230;</
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -311,40 +324,7 @@ btw:要深入了解，相信PERL的CGI编程那本书对你会有用处&#8230;</
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

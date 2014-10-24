@@ -9,12 +9,7 @@
   <meta name="author" content="Weston Wei(韦旭红)">
 
   
-  <meta name="description" content="今天看了才解决了我这个很久的疑惑&#8230;.
-在一般其他语言里面捕获一般用$1,$2就可以了
-比如用Perl
-$string = “It just a test&#8230;”
-如果要找just可以这样 $string =~ m/(just)/i $1 的结果就是just了
-很多语言都是这样， &hellip;">
+  <meta name="description" content="模拟GET方法 % telnet www.weixuhong.com 80 Connected to www.wexiuhong.com. GET / HTTP/1.0 [RETURN] Host linyufang.net 模拟HEAD方法 % telnet www.weixuhong.com &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -97,9 +92,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -107,6 +102,57 @@ $(document).ready(
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/197">Telnet 模拟HTTP</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-10-04T00:00:00+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>4</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/197#disqus_thread"
+             data-disqus-identifier="http://weixuhong.com/archives/197">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3 id="get">模拟GET方法</h3>
+
+<pre lang="c">% telnet www.weixuhong.com 80
+  Connected to www.wexiuhong.com.
+  GET / HTTP/1.0                         [RETURN]
+ Host linyufang.net
+</pre>
+
+<h3 id="head">模拟HEAD方法</h3>
+
+<pre lang="c">% telnet www.weixuhong.com 80
+  Connected to www.wexiuhong.com.
+  HEAD / HTTP/1.0                         [RETURN]
+</pre>
+
+<p>*记住要用大写<br />
+*你可以模拟其他http方法，POST ， PUT， DELETE….</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/197">Telnet 模拟HTTP</a></p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -132,29 +178,30 @@ $(document).ready(
   </header>
 
 
-  <div class="entry-content"><p>今天看了<Mastering Regular Expressions 3>才解决了我这个很久的疑惑&#8230;.<br/>
-在一般其他语言里面捕获一般用$1,$2就可以了<br/>
-比如用Perl<br/>
-$string = “It just a test&#8230;”<br/>
+  <div class="entry-content"><p>今天看了&lt;Mastering Regular Expressions 3&gt;才解决了我这个很久的疑惑….<br />
+在一般其他语言里面捕获一般用$1,$2就可以了<br />
+比如用Perl<br />
+$string = “It just a test…”<br />
 如果要找just可以这样</p>
 
 <p>$string =~ m/(just)/i</p>
 
-<p>$1 的结果就是just了<br/>
+<p>$1 的结果就是just了<br />
 很多语言都是这样，ruby，javascript等</p>
 
-<p>但是我在vim一直没有办法实现，原来说用这样的方法<br/>
-比如要把just 变换成 is just 应该可以这样，当我的例子很不好<br/>
-在vim的用法<br/>
+<p>但是我在vim一直没有办法实现，原来说用这样的方法<br />
+比如要把just 变换成 is just 应该可以这样，当我的例子很不好<br />
+在vim的用法<br />
 :%s/(just)/is 1/</p>
 
-<p>如果分组应该说这样<br/>
+<p>如果分组应该说这样<br />
 :%s/(just|jst)/is 1/</p>
 
-<p><em>在vim需要转义<br/>
-</em>捕获用1而不是$1</p>
+<p>*在vim需要转义<br />
+*捕获用1而不是$1</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/196">VIM用正则分组捕获的方法</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/196">VIM用正则分组捕获的方法</a></p>
+
 </div>
   
   
@@ -186,94 +233,91 @@ $string = “It just a test&#8230;”<br/>
   </header>
 
 
-  <div class="entry-content"><p>虽然这个几个比较常见，但是未必每个人都会用，我就简单整理一下&#8230;.</p>
+  <div class="entry-content"><p>虽然这个几个比较常见，但是未必每个人都会用，我就简单整理一下….</p>
 
-<h2>$_SERVER</h2>
+<h2 id="server">$_SERVER</h2>
 
 <p>var_dump出的效果，说一个Array，你应该知道怎么用吧，其中的PHP_SELF,USER_AGENT等相信对你会有用</p>
 
 <pre lang="php">array
-  'HTTP_USER_AGENT' => string 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_5; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1' (length=125)
-  'HTTP_CACHE_CONTROL' => string 'max-age=0' (length=9)
-  'HTTP_ACCEPT' => string 'text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5' (length=99)
-  'HTTP_ACCEPT_LANGUAGE' => string 'en-us' (length=5)
-  'HTTP_ACCEPT_ENCODING' => string 'gzip, deflate' (length=13)
-  'HTTP_COOKIE' => string 'ECS[user_id]=1; ECS[username]=admin; ECS[email]=webmastor%40yourdomain.com; ECS[visit_times]=2; uchome_auth=17720Ag3apHxh%2BuqAnNG8K5qnVoihVoPyRr%2FFlsyF2tXb2eNCHfN47eFyCvT0qgBtm6q1cWCMQL5FvsmoVgA; uchome_loginuser=gxbsst; mpH_cookietime=2592000; mpH_loginuser=gxbsst; mpH_activationauth=5085X8lEKxwsND0uhjEwcl1HBxdSgnky%2B8HAS%2BXMVSMCbac' (length=339)
-  'HTTP_CONNECTION' => string 'keep-alive' (length=10)
-  'HTTP_HOST' => string 'localhost' (length=9)
-  'PATH' => string '/usr/bin:/bin:/usr/sbin:/sbin' (length=29)
-  'SERVER_SIGNATURE' => string '' (length=0)
-  'SERVER_SOFTWARE' => string 'Apache/2.2.8 (Unix) mod_ssl/2.2.8 OpenSSL/0.9.7l DAV/2 PHP/5.2.6 mod_fastcgi/2.4.2' (length=82)
-  'SERVER_NAME' => string 'localhost' (length=9)
-  'SERVER_ADDR' => string '::1' (length=3)
-  'SERVER_PORT' => string '80' (length=2)
-  'REMOTE_ADDR' => string '::1' (length=3)
-  'DOCUMENT_ROOT' => string '/Users/weston/projects/linyufang.net' (length=36)
-  'SERVER_ADMIN' => string 'you@example.com' (length=15)
-  'SCRIPT_FILENAME' => string '/Users/weston/projects/linyufang.net/form_data.php' (length=50)
-  'REMOTE_PORT' => string '59715' (length=5)
-  'GATEWAY_INTERFACE' => string 'CGI/1.1' (length=7)
-  'SERVER_PROTOCOL' => string 'HTTP/1.1' (length=8)
-  'REQUEST_METHOD' => string 'GET' (length=3)
-  'QUERY_STRING' => string '' (length=0)
-  'REQUEST_URI' => string '/form_data.php' (length=14)
-  'SCRIPT_NAME' => string '/form_data.php' (length=14)
-  'PHP_SELF' => string '/form_data.php' (length=14)
-  'REQUEST_TIME' => int 1223026388
-  'argv' => 
+  'HTTP_USER_AGENT' =&gt; string 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_5; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1' (length=125)
+  'HTTP_CACHE_CONTROL' =&gt; string 'max-age=0' (length=9)
+  'HTTP_ACCEPT' =&gt; string 'text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5' (length=99)
+  'HTTP_ACCEPT_LANGUAGE' =&gt; string 'en-us' (length=5)
+  'HTTP_ACCEPT_ENCODING' =&gt; string 'gzip, deflate' (length=13)
+  'HTTP_COOKIE' =&gt; string 'ECS[user_id]=1; ECS[username]=admin; ECS[email]=webmastor%40yourdomain.com; ECS[visit_times]=2; uchome_auth=17720Ag3apHxh%2BuqAnNG8K5qnVoihVoPyRr%2FFlsyF2tXb2eNCHfN47eFyCvT0qgBtm6q1cWCMQL5FvsmoVgA; uchome_loginuser=gxbsst; mpH_cookietime=2592000; mpH_loginuser=gxbsst; mpH_activationauth=5085X8lEKxwsND0uhjEwcl1HBxdSgnky%2B8HAS%2BXMVSMCbac' (length=339)
+  'HTTP_CONNECTION' =&gt; string 'keep-alive' (length=10)
+  'HTTP_HOST' =&gt; string 'localhost' (length=9)
+  'PATH' =&gt; string '/usr/bin:/bin:/usr/sbin:/sbin' (length=29)
+  'SERVER_SIGNATURE' =&gt; string '' (length=0)
+  'SERVER_SOFTWARE' =&gt; string 'Apache/2.2.8 (Unix) mod_ssl/2.2.8 OpenSSL/0.9.7l DAV/2 PHP/5.2.6 mod_fastcgi/2.4.2' (length=82)
+  'SERVER_NAME' =&gt; string 'localhost' (length=9)
+  'SERVER_ADDR' =&gt; string '::1' (length=3)
+  'SERVER_PORT' =&gt; string '80' (length=2)
+  'REMOTE_ADDR' =&gt; string '::1' (length=3)
+  'DOCUMENT_ROOT' =&gt; string '/Users/weston/projects/linyufang.net' (length=36)
+  'SERVER_ADMIN' =&gt; string 'you@example.com' (length=15)
+  'SCRIPT_FILENAME' =&gt; string '/Users/weston/projects/linyufang.net/form_data.php' (length=50)
+  'REMOTE_PORT' =&gt; string '59715' (length=5)
+  'GATEWAY_INTERFACE' =&gt; string 'CGI/1.1' (length=7)
+  'SERVER_PROTOCOL' =&gt; string 'HTTP/1.1' (length=8)
+  'REQUEST_METHOD' =&gt; string 'GET' (length=3)
+  'QUERY_STRING' =&gt; string '' (length=0)
+  'REQUEST_URI' =&gt; string '/form_data.php' (length=14)
+  'SCRIPT_NAME' =&gt; string '/form_data.php' (length=14)
+  'PHP_SELF' =&gt; string '/form_data.php' (length=14)
+  'REQUEST_TIME' =&gt; int 1223026388
+  'argv' =&gt; 
     array
       empty
-  'argc' => int 0
+  'argc' =&gt; int 0
 </pre>
 
-
-<h2>$_REQUEST</h2>
+<h2 id="request">$_REQUEST</h2>
 
 <pre lang="php">array
-  'ECS' => 
+  'ECS' =&gt; 
     array
-      'user_id' => string '1' (length=1)
-      'username' => string 'admin' (length=5)
-      'email' => string 'webmastor@yourdomain.com' (length=24)
-      'visit_times' => string '2' (length=1)
-  'uchome_auth' => string '17720Ag3apHxh+uqAnNG8K5qnVoihVoPyRr/FlsyF2tXb2eNCHfN47eFyCvT0qgBtm6q1cWCMQL5FvsmoVgA' (length=84)
-  'uchome_loginuser' => string 'gxbsst' (length=6)
-  'mpH_cookietime' => string '2592000' (length=7)
-  'mpH_loginuser' => string 'gxbsst' (length=6)
-  'mpH_activationauth' => string '5085X8lEKxwsND0uhjEwcl1HBxdSgnky+8HAS+XMVSMCbac' (length=47)
+      'user_id' =&gt; string '1' (length=1)
+      'username' =&gt; string 'admin' (length=5)
+      'email' =&gt; string 'webmastor@yourdomain.com' (length=24)
+      'visit_times' =&gt; string '2' (length=1)
+  'uchome_auth' =&gt; string '17720Ag3apHxh+uqAnNG8K5qnVoihVoPyRr/FlsyF2tXb2eNCHfN47eFyCvT0qgBtm6q1cWCMQL5FvsmoVgA' (length=84)
+  'uchome_loginuser' =&gt; string 'gxbsst' (length=6)
+  'mpH_cookietime' =&gt; string '2592000' (length=7)
+  'mpH_loginuser' =&gt; string 'gxbsst' (length=6)
+  'mpH_activationauth' =&gt; string '5085X8lEKxwsND0uhjEwcl1HBxdSgnky+8HAS+XMVSMCbac' (length=47)
 </pre>
 
-
-<h2>$_COOKIE</h2>
+<h2 id="cookie">$_COOKIE</h2>
 
 <pre lang="php">array
-  'ECS' => 
+  'ECS' =&gt; 
     array
-      'user_id' => string '1' (length=1)
-      'username' => string 'admin' (length=5)
-      'email' => string 'webmastor@yourdomain.com' (length=24)
-      'visit_times' => string '2' (length=1)
-  'uchome_auth' => string '17720Ag3apHxh+uqAnNG8K5qnVoihVoPyRr/FlsyF2tXb2eNCHfN47eFyCvT0qgBtm6q1cWCMQL5FvsmoVgA' (length=84)
-  'uchome_loginuser' => string 'gxbsst' (length=6)
-  'mpH_cookietime' => string '2592000' (length=7)
-  'mpH_loginuser' => string 'gxbsst' (length=6)
-  'mpH_activationauth' => string '5085X8lEKxwsND0uhjEwcl1HBxdSgnky+8HAS+XMVSMCbac' (length=47)
+      'user_id' =&gt; string '1' (length=1)
+      'username' =&gt; string 'admin' (length=5)
+      'email' =&gt; string 'webmastor@yourdomain.com' (length=24)
+      'visit_times' =&gt; string '2' (length=1)
+  'uchome_auth' =&gt; string '17720Ag3apHxh+uqAnNG8K5qnVoihVoPyRr/FlsyF2tXb2eNCHfN47eFyCvT0qgBtm6q1cWCMQL5FvsmoVgA' (length=84)
+  'uchome_loginuser' =&gt; string 'gxbsst' (length=6)
+  'mpH_cookietime' =&gt; string '2592000' (length=7)
+  'mpH_loginuser' =&gt; string 'gxbsst' (length=6)
+  'mpH_activationauth' =&gt; string '5085X8lEKxwsND0uhjEwcl1HBxdSgnky+8HAS+XMVSMCbac' (length=47)
 </pre>
 
-
-<h2>$_ENV</h2>
+<h2 id="env">$_ENV</h2>
 
 <pre lang="php">array
-  'PATH' => string '/usr/bin:/bin:/usr/sbin:/sbin' (length=29)
+  'PATH' =&gt; string '/usr/bin:/bin:/usr/sbin:/sbin' (length=29)
 </pre>
 
+<p>当然还要$_GET,$_SESSION,$_COOKIE其实这些都可以在phpinfo看到的….<br />
+btw:要深入了解，相信PERL的CGI编程那本书对你会有用处…</p>
 
-<p>当然还要$_GET,$_SESSION,$_COOKIE其实这些都可以在phpinfo看到的&#8230;.<br/>
-btw:要深入了解，相信PERL的CGI编程那本书对你会有用处&#8230;</p>
+<p>*当然其他Web开发语言都有类似变量….</p>
 
-<p>*当然其他Web开发语言都有类似变量&#8230;.</p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/192">PHP 几个有用的变量</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/192">PHP 几个有用的变量</a></p>
 </div>
   
   
@@ -305,14 +349,15 @@ btw:要深入了解，相信PERL的CGI编程那本书对你会有用处&#8230;</
   </header>
 
 
-  <div class="entry-content"><p>这个只是一个小片段，相信作SOAP Service的同学会经常用到的<br/>
-当然，最好能到<a href="http://php.net/curl%E7%9C%8B%E8%AF%A6%E7%BB%86%E7%9A%84%E6%96%87%E6%A1%A3!">http://php.net/curl%E7%9C%8B%E8%AF%A6%E7%BB%86%E7%9A%84%E6%96%87%E6%A1%A3!</a></p>
+  <div class="entry-content"><p>这个只是一个小片段，相信作SOAP Service的同学会经常用到的<br />
+当然，最好能到http://php.net/curl看详细的文档!</p>
 
-<p>*我没有对代码作过多的解释，但是应该可以从字面作些了解，如：curl_setopt($c, CURLOPT_URL, $url) 你可以這樣理解: curl 设置选项&#8230;属性：CURLOPT_URL ，值 $URL</p>
+<p>*我没有对代码作过多的解释，但是应该可以从字面作些了解，如：curl_setopt($c, CURLOPT_URL, $url) 你可以這樣理解: curl 设置选项…属性：CURLOPT_URL ，值 $URL</p>
 
 <p><a href="http://www.weixuhong.com/content/uploads/2008/10/picture-3.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/10/picture-3.png','popup','width=558,height=581,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/10/picture-3-tm.jpg" height="100" width="96" border="1" hspace="4" vspace="4" alt="Picture 3" title="Picture 3" /></a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/193">HTTP Request with cURL</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/193">HTTP Request with cURL</a></p>
+
 </div>
   
   
@@ -344,61 +389,55 @@ btw:要深入了解，相信PERL的CGI编程那本书对你会有用处&#8230;</
   </header>
 
 
-  <div class="entry-content"><p>比如要添加1个local域名：<br/>
+  <div class="entry-content"><p>比如要添加1个local域名：<br />
 linyufang.local</p>
 
 <ol>
-<li>首先要编辑/etc/hosts文件</li>
+  <li>首先要编辑/etc/hosts文件</li>
 </ol>
-
 
 <pre lang="c">sudo vim /etc/hosts
 
 </pre>
-
 
 <p>添加这个一行</p>
 
 <pre lang="c">127.0.0.1 linyufang.local
 </pre>
 
-
 <ol>
-<li>配置httpd.conf</li>
+  <li>配置httpd.conf</li>
 </ol>
-
 
 <pre lang="c">sudo vim /etc/apache2/httpd.conf
 </pre>
 
-
 <p>输入以下内容</p>
 
 <pre lang="c">NameVirtualHost *:80
-&lt;VirtualHost *:80>
+&lt;VirtualHost *:80&gt;
   #ServerAdmin dns@red.com
   ServerName linyufang.local
   DocumentRoot /Users/weston/projects/beautyonly.net
   Options +Indexes
   ErrorLog /tmp/error.log
   CustomLog /tmp/access.log combined
-  &lt;Directory /Users/weston/projects/linyufang.net>
+  &lt;Directory /Users/weston/projects/linyufang.net&gt;
     Options Indexes FollowSymLinks MultiViews Includes
     AllowOverride All
     Order allow,deny
     allow from all
-  &lt;/Directory>
-&lt;/VirtualHost>
+  &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
 </pre>
 
-
 <ol>
-<li>重启apache<br/>
+  <li>重启apache<br />
 sudo apachectl restart</li>
 </ol>
 
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/191">Mac Apache VirtualHost Configuration….</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/191">Mac Apache VirtualHost Configuration&#8230;.</a></p>
 </div>
   
   
@@ -432,20 +471,20 @@ sudo apachectl restart</li>
 
   <div class="entry-content"><p>今天用几个小时在在dreamhost虚拟主机上配置了trac、svn真是辛苦得很，不过总算是配置好了，明天会把相关的配置细节写出来，鼓励一下自己</p>
 
-<p><a href="http://trac.weixuhong.com/">http://trac.weixuhong.com </a>&nbsp;</p>
+<p><a href="http://trac.weixuhong.com/">http://trac.weixuhong.com </a> </p>
 
 <p>参考以下链接:</p>
 
-<p><a href="http://wiki.dreamhost.com/index.php/Trac">http://wiki.dreamhost.com/index.php/Trac</a></p>
+<p>http://wiki.dreamhost.com/index.php/Trac</p>
 
-<p><a href="http://li.mn/work/2006/07/11/484/installing-trac-on-dreamhost#p">http://li.mn/work/2006/07/11/484/installing-trac-on-dreamhost#p</a></p>
+<p>http://li.mn/work/2006/07/11/484/installing-trac-on-dreamhost#p</p>
 
 <ul>
-<li>如果安装不成功， 有版本方面的原因&#8230;所有要尽量变通&#8230;</li>
+  <li>如果安装不成功， 有版本方面的原因…所有要尽量变通…</li>
 </ul>
 
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/190">在Dreamhost上配置trac and svn</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/190">在Dreamhost上配置trac and svn</a></p>
 </div>
   
   
@@ -478,16 +517,14 @@ sudo apachectl restart</li>
 
 
   <div class="entry-content"><ol>
-<li>设置.autotest ( 需要安装以下gem)</li>
+  <li>设置.autotest ( 需要安装以下gem)</li>
 </ol>
-
 
 <pre lang="shell">sudo gem install rspec  
    sudo gem install ZenTest  
    sudo gem install redgreen  
 
 </pre>
-
 
 <p>vim ~/.autotest就可以编辑文件</p>
 
@@ -518,15 +555,14 @@ end
 
 </pre>
 
-
 <ol>
-<li>配置Growl(<a href="http://growl.info/">http://growl.info/</a>)</li>
+  <li>配置Growl(http://growl.info/)</li>
 </ol>
-
 
 <p>*前提是要安装Growl</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/188">在 Leopard 安装Growl, Autotest，Rspec 做BDD</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/188">在 Leopard 安装Growl, Autotest，Rspec 做BDD</a></p>
+
 </div>
   
   
@@ -561,26 +597,32 @@ end
   <div class="entry-content"><p>昨晚在自己mac装Xdebug，分享一下.</p>
 
 <ol>
-<li><p>原来我用pecl安装，但是不起作用，后面通<span style="font-family:STHeiti;">过编译安装</span>&#8230; 可以参考<span style="font-family:STHeiti;">这篇文章：</span> <a href="http://www.designified.com/blog/article/60/compiling-installing-xdebug-for-php-525-entropych-build-on-os-x-105?commented=0#txpCommentInputForm">http://www.designified.com/blog/article/60/compiling-installing-xdebug-for-php-525-entropych-build-on-os-x-105?commented=0#txpCommentInputForm</a></p></li>
-<li><p>注意你的php.ini里面的extension_dir,可以在phpinfo<span style="font-family:STHeiti;">查看，然后把</span>xdebug.so 复制到你<span style="font-family:STHeiti;">这个目录，我的目录是：</span> /usr/lib/php/extensions/</p></li>
-<li><p>在php.ini添加以下<span style="font-family:STHeiti;">语句，即载入模块</span><br/>
-[xdebug]<br/>
-zend_extension=“/usr/lib/php/extensions/xdebug.so”</p></li>
-<li><p>安装完<span style="font-family:STHeiti;">毕要重启服务器</span>: sudo apachectl restart</p></li>
+  <li>原来我用pecl安装，但是不起作用，后面通<span style="font-family:STHeiti;">过编译安装</span>… 可以参考<span style="font-family:STHeiti;">这篇文章：</span> http://www.designified.com/blog/article/60/compiling-installing-xdebug-for-php-525-entropych-build-on-os-x-105?commented=0#txpCommentInputForm</li>
 </ol>
 
+<ul>
+  <li>注意你的php.ini里面的extension_dir,可以在phpinfo<span style="font-family:STHeiti;">查看，然后把</span>xdebug.so 复制到你<span style="font-family:STHeiti;">这个目录，我的目录是：</span> /usr/lib/php/extensions/  </li>
+  <li>
+    <p>在php.ini添加以下<span style="font-family:STHeiti;">语句，即载入模块</span><br />
+[xdebug]<br />
+zend_extension=“/usr/lib/php/extensions/xdebug.so”</p>
+  </li>
+  <li>安装完<span style="font-family:STHeiti;">毕要重启服务器</span>: sudo apachectl restart</li>
+</ul>
 
-<p>如果安装成功的<span style="font-family:STHeiti;">话，在</span>phpinfo<span style="font-family:STHeiti;">页面可以看到相关的信息</span>&#8230;.</p>
+<p>如果安装成功的<span style="font-family:STHeiti;">话，在</span>phpinfo<span style="font-family:STHeiti;">页面可以看到相关的信息</span>….</p>
 
 <p><a href="http://www.weixuhong.com/content/uploads/2008/09/picture-1.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/09/picture-1.png','popup','width=657,height=87,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/09/picture-1-tm.jpg" height="100" width="755" border="1" hspace="4" vspace="4" alt="Picture 1" title="Picture 1" /></a></p>
 
 <p><a href="http://www.weixuhong.com/content/uploads/2008/09/picture-2.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/09/picture-2.png','popup','width=859,height=513,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/09/picture-2-tm.jpg" height="100" width="167" border="1" hspace="4" vspace="4" alt="Picture 2" title="Picture 2" /></a></p>
 
 <ol>
-<li>配置</li>
-<li>在php.ini添加以下</li>
+  <li>配置<br />
+    <ul>
+      <li>在php.ini添加以下</li>
+    </ul>
+  </li>
 </ol>
-
 
 <pre lang="php">xdebug.default_enable = On
 xdebug.show_exception_trace = On
@@ -604,11 +646,10 @@ xdebug.collect_return = On
 xdebug.show_mem_delta = On
 </pre>
 
-
-<p><span style="font-family:STHeiti;">说明：</span><br/>
+<p><span style="font-family:STHeiti;">说明：</span><br />
 xdebug.dump_once、xdebug.dump_globals、xdebug.dump_undefined 和 xdebug.dump_SUPERGLOBAL <span style="font-family:STHeiti;">设置（其中</span> SUPERGLOBAL 可以是 COOKIE、FILES、GET、POST、REQUEST、SERVER 或 SESSION）用于控制哪些 PHP 超全局<span style="font-family:STHeiti;">变量将被包含在所有诊断结果中。</span></p>
 
-<p>　　将 xdebug.dump_globals <span style="font-family:STHeiti;">设为</span> On 以<span style="font-family:STHeiti;">转储名为</span> xdebug.dump_SUPERGLOBAL <span style="font-family:STHeiti;">设置中的超全局变量。例如，</span>xdebug.dump_SERVER = REQUEST_METHOD,REQUEST_URI,HTTP_USER_AGENT 将打印 PHP 超全局<span style="font-family:STHeiti;">变量</span> $_SERVER[&lsquo;REQUEST_METHOD&rsquo;]、$_SERVER[&lsquo;REQUEST_URI&rsquo;] 和 $_SERVER[&lsquo;HTTP_USER_AGENT&rsquo;]。如果需要打印超全局<span style="font-family:STHeiti;">变量数组中的所有值，请使用星号</span> (*)，例如 xdebug.dump_REQUEST=*。如果<span style="font-family:STHeiti;">进一步将</span> xdebug.dump_undefined <span style="font-family:STHeiti;">设为</span> On 并且不<span style="font-family:STHeiti;">设定指定的超全局变量，则仍用值</span> undefined 打印<span style="font-family:STHeiti;">变量。</span></p>
+<p>　　将 xdebug.dump_globals <span style="font-family:STHeiti;">设为</span> On 以<span style="font-family:STHeiti;">转储名为</span> xdebug.dump_SUPERGLOBAL <span style="font-family:STHeiti;">设置中的超全局变量。例如，</span>xdebug.dump_SERVER = REQUEST_METHOD,REQUEST_URI,HTTP_USER_AGENT 将打印 PHP 超全局<span style="font-family:STHeiti;">变量</span> $_SERVER[‘REQUEST_METHOD’]、$_SERVER[‘REQUEST_URI’] 和 $_SERVER[‘HTTP_USER_AGENT’]。如果需要打印超全局<span style="font-family:STHeiti;">变量数组中的所有值，请使用星号</span> (*)，例如 xdebug.dump_REQUEST=*。如果<span style="font-family:STHeiti;">进一步将</span> xdebug.dump_undefined <span style="font-family:STHeiti;">设为</span> On 并且不<span style="font-family:STHeiti;">设定指定的超全局变量，则仍用值</span> undefined 打印<span style="font-family:STHeiti;">变量。</span></p>
 
 <p>　　即使捕捉到异常，代<span style="font-family:STHeiti;">码行</span> xdebug.show_exception_trace = On 仍将强制<span style="font-family:STHeiti;">执行异常跟踪。代码行</span> xdebug.show_local_vars = 1 将打印每个函数<span style="font-family:STHeiti;">调用的最外围中的所有局部变量，包括尚未初始化的变量。而</span> xdebug.var_display_max_depth = 6 表示<span style="font-family:STHeiti;">转储复杂变量的深度。</span></p>
 
@@ -619,9 +660,8 @@ xdebug.dump_once、xdebug.dump_globals、xdebug.dump_undefined 和 xdebug.dump_S
 <p>　　默<span style="font-family:STHeiti;">认情况下，</span>Xdebug 将<span style="font-family:STHeiti;">显示时间、内存使用量、函数名和函数调用深度字段。如果将</span> xdebug.trace_format <span style="font-family:STHeiti;">设为</span> 0，<span style="font-family:STHeiti;">则输出将符合人类阅读习惯（将参数设为</span> 1 <span style="font-family:STHeiti;">则为机器可读格式）。此外，如果指定</span> xdebug.show_mem_delta = 1，<span style="font-family:STHeiti;">则可以查看内存使用量是在增加还是在减少，而如果指定</span> xdebug.collect_params = 4，<span style="font-family:STHeiti;">则可以查看传入参数的类型和值。要监视每个函数返回的值，请设定</span> xdebug.collect_return = 1。</p>
 
 <ol>
-<li>开始做个<span style="font-family:STHeiti;">测试</span></li>
+  <li>开始做个<span style="font-family:STHeiti;">测试</span></li>
 </ol>
-
 
 <p><span style="font-family:STHeiti;">测试代码：</span></p>
 
@@ -631,12 +671,13 @@ xdebug.dump_once、xdebug.dump_globals、xdebug.dump_undefined 和 xdebug.dump_S
 
 <p><a href="http://www.weixuhong.com/content/uploads/2008/09/picture-5.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/09/picture-5.png','popup','width=1250,height=858,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/09/picture-5-tm.jpg" height="100" width="145" border="1" hspace="4" vspace="4" alt="Picture 5" /></a></p>
 
-<p>我<span style="font-family:STHeiti;">们可以看追踪文件：</span>/tmp/traces下的文件（可以看配置目<span style="font-family:STHeiti;">录</span>)<br/>
+<p>我<span style="font-family:STHeiti;">们可以看追踪文件：</span>/tmp/traces下的文件（可以看配置目<span style="font-family:STHeiti;">录</span>)<br />
 用vim打开，但是有点不舒服，就是不是hightline的，但是你可以把xt.vim放到你.vim的配置文件下面，但是我的mac<span style="font-family:STHeiti;">还是不起作用，我需要在</span>vim 做set filetype=xt就可以了</p>
 
 <p><a href="http://www.weixuhong.com/content/uploads/2008/09/picture-7-1.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/09/picture-7-1.png','popup','width=1280,height=800,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/09/picture-7-1-tm.jpg" height="100" width="160" border="1" hspace="4" vspace="4" alt="Picture 7-1" /></a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/186">Xdebug on Mac</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/186">Xdebug on Mac</a></p>
+
 </div>
   
   
@@ -670,20 +711,20 @@ xdebug.dump_once、xdebug.dump_globals、xdebug.dump_undefined 和 xdebug.dump_S
 
   <div class="entry-content"><p>9月13-9月14日</p>
 
-<p>杭州西湖游<br/>
-天气： 下雨<br/>
-住： A Hotel （标间180，但是很小，下次不去了住了）<br/>
-游： 西湖（徒步走了一圈， 清坊街）<br/>
-图片在Picasaweb&#8230;</p>
+<p>杭州西湖游<br />
+天气： 下雨<br />
+住： A Hotel （标间180，但是很小，下次不去了住了）<br />
+游： 西湖（徒步走了一圈， 清坊街）<br />
+图片在Picasaweb…</p>
 
 <ul>
-<li>本来要去钱塘江观潮的，但是下雨，没有成行&#8230;</li>
-<li>灵隐寺，中山公园等景点没有去，下去一定要去</li>
-<li>下次去的时候，应该租自行车&#8230;</li>
+  <li>本来要去钱塘江观潮的，但是下雨，没有成行…  </li>
+  <li>灵隐寺，中山公园等景点没有去，下去一定要去  </li>
+  <li>下次去的时候，应该租自行车…</li>
 </ul>
 
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/212">西湖游</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/212">西湖游</a></p>
 </div>
   
   
@@ -715,12 +756,12 @@ xdebug.dump_once、xdebug.dump_globals、xdebug.dump_undefined 和 xdebug.dump_S
   </header>
 
 
-  <div class="entry-content"><p>使用VI的同学有福了&#8230;<br/>
+  <div class="entry-content"><p>使用VI的同学有福了…<br />
 不管在Mysql， Shell或者IRB都可以用Vi的编辑模式</p>
 
 <p>HOWTO</p>
 
-<p>把以下脚本放到Home目录的.inputrc就可以了&#8230;.</p>
+<p>把以下脚本放到Home目录的.inputrc就可以了….</p>
 
 <pre lang="php"># Enable vi mode for many apps that use libreadline including:
 # ncftp, lftp, ftp, mysql, bc, python, etc...
@@ -752,48 +793,10 @@ Control-o: edit-and-execute-command
 # http://checkmyip.com/man/sh.html
 </pre>
 
+<p>*按esc就就进入VI模式….</p>
 
-<p>*按esc就就进入VI模式&#8230;.</p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/187">所有的console都用VI模式</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/187">所有的console都用VI模式</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/archives/170">一个很有意思的PHP函数 Highlight_file()</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2008-09-02T00:00:00+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
-        
-           | <a href="/archives/170#disqus_thread"
-             data-disqus-identifier="http://weixuhong.com/archives/170">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>string highlight_file(string $file[,bool is_heighlight])</p>
-
-<p>有这个函数会帮你把代码heighlight输出网页，是相当的漂亮的&#8230;</p>
-
-<p>它的姐妹函数是highlight_string(string $string[,bool is_heighlight])), 顾名思义，一个是string， 一个是file&#8230;</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/170">一个很有意思的PHP函数 highlight_file()</a></p>
 </div>
   
   
@@ -814,10 +817,10 @@ Control-o: edit-and-execute-command
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -842,8 +845,12 @@ Control-o: edit-and-execute-command
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -861,40 +868,7 @@ Control-o: edit-and-execute-command
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

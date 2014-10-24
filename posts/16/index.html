@@ -9,11 +9,7 @@
   <meta name="author" content="Weston Wei(韦旭红)">
 
   
-  <meta name="description" content="1.1 创建一个Rails应用程序
-$ rails app_name
-可选项:
--d, database=xxx 指定安装一个数据库(mysql oracle postgresql sqlite2 sqlite3 ), 默认情况下是数据库
--r, ruby-path= 指定Ruby的安装路径, &hellip;">
+  <meta name="description" content=" 转载请注明：韦旭红的点点滴滴 » Rails 结构 ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -96,9 +92,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -106,6 +102,41 @@ $(document).ready(
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/118">Rails 结构</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/118#disqus_thread"
+             data-disqus-identifier="http://weixuhong.com/archives/118">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.weixuhong.com/content/uploads/2008/04/rails2.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/04/rails2.png','popup','width=698,height=527,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/04/rails2-tm.jpg" height="100" width="132" border="1" hspace="4" vspace="4" alt="rails2" title="rails2" /></a></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/118">Rails 结构</a></p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -131,160 +162,161 @@ $(document).ready(
   </header>
 
 
-  <div class="entry-content"><p>1.1 <span style="font-family:STHeiti;">创建一个</span>Rails<span style="font-family:STHeiti;">应用程序</span><br/>
-$ rails app_name<br/>
-可<span style="font-family:STHeiti;">选项</span>:<br/>
--d, database=xxx 指定安装一个数据<span style="font-family:STHeiti;">库</span>(mysql oracle postgresql sqlite2 sqlite3 ), 默<span style="font-family:STHeiti;">认情况下是数据库</span><br/>
--r, ruby-path= 指定Ruby的安装路径,如果没有指定，scripts使用env去找Ruby<br/>
+  <div class="entry-content"><p>1.1 <span style="font-family:STHeiti;">创建一个</span>Rails<span style="font-family:STHeiti;">应用程序</span><br />
+$ rails app_name<br />
+可<span style="font-family:STHeiti;">选项</span>:<br />
+-d, database=xxx 指定安装一个数据<span style="font-family:STHeiti;">库</span>(mysql oracle postgresql sqlite2 sqlite3 ), 默<span style="font-family:STHeiti;">认情况下是数据库</span><br />
+-r, ruby-path= 指定Ruby的安装路径,如果没有指定，scripts使用env去找Ruby<br />
 -f, freeze (<span style="font-family:STHeiti;">冻结</span>)freezes Rails在vendor/rails目<span style="font-family:STHeiti;">录</span></p>
 
-<p>1.2 API Documentation<br/>
-$ gem_server<br/>
-<span style="font-family:STHeiti;">启动一个</span>WEBrick服<span style="font-family:STHeiti;">务器。这时候你可以通过</span><a href="Http://localhost:8808/">Http://localhost:8808/</a> 打开<span style="font-family:STHeiti;">浏览器去查看</span>rails API文档</p>
+<p>1.2 API Documentation<br />
+$ gem_server<br />
+<span style="font-family:STHeiti;">启动一个</span>WEBrick服<span style="font-family:STHeiti;">务器。这时候你可以通过</span>Http://localhost:8808/ 打开<span style="font-family:STHeiti;">浏览器去查看</span>rails API文档</p>
 
-<p>1.3 Rake<br/>
-rake db:fixtures:load<br/>
-# <span style="font-family:STHeiti;">载入</span>fixtures到当前<span style="font-family:STHeiti;">环境的数据库</span><br/>
-# <span style="font-family:STHeiti;">载入指定的</span>fixtures使用FIXTURES=x,y<br/>
-rake db:migrate<br/>
-# 迁移数据<span style="font-family:STHeiti;">库通过在</span>db/migrate目<span style="font-family:STHeiti;">录下的脚本</span>.可以指定版本号通<span style="font-family:STHeiti;">过</span>VERSION=x<br/>
-rake db:schema:dump<br/>
-# <span style="font-family:STHeiti;">创建一个</span>db/schema.rb文件，通<span style="font-family:STHeiti;">过</span>AR能<span style="font-family:STHeiti;">过够支持任何数据库去使用</span><br/>
-rake db:schema:load<br/>
-# 再入一个schema.rb文件<span style="font-family:STHeiti;">进数据库</span><br/>
-rake db:sessions:clear<br/>
-# 清空sessions表<br/>
-rake db:sessions:create<br/>
-# 用CGI::Session::ActiveRecordStore<span style="font-family:STHeiti;">创建一个</span>sessions表<span style="font-family:STHeiti;">为用户</span><br/>
-rake db:structure:dump<br/>
-# <span style="font-family:STHeiti;">导出数据库结构为一个</span>SQL文件<br/>
-rake db:test:clone<br/>
-# 重新<span style="font-family:STHeiti;">创建一个测试数据库从当前环境数据库中</span><br/>
-rake db:test:clone_structure<br/>
-# 重新<span style="font-family:STHeiti;">创建测试数据库从开发模式数据库</span><br/>
-rake db:test:prepare<br/>
-# 准<span style="font-family:STHeiti;">备测试数据库并在入</span>schema<br/>
-rake db:test:purge<br/>
-# 清空<span style="font-family:STHeiti;">测试数据库</span><br/>
-rake doc:app<br/>
-# <span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br/>
-rake doc:clobber_app<br/>
-# <span style="font-family:STHeiti;">删除</span>Documentation<br/>
-rake doc:clobber_plugins<br/>
-# <span style="font-family:STHeiti;">删除</span> plugin Documentation<br/>
-rake doc:clobber_rails<br/>
-# <span style="font-family:STHeiti;">删除</span>Documentation<br/>
-rake doc:plugins<br/>
-# <span style="font-family:STHeiti;">产生</span>Documation<span style="font-family:STHeiti;">为所有安装的</span>plugins<br/>
-rake doc:rails<br/>
-# <span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br/>
-rake doc:reapp<br/>
-# 强制重新<span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br/>
-rake doc:rerails<br/>
-# 强制重新<span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br/>
-rake log:clear<br/>
-# 清空目<span style="font-family:STHeiti;">录</span>log/下的所有日志文件<br/>
-rake rails:freeze:edge<br/>
-# Lock this application to latest Edge Rails. Lock a specific revision with REVISION=X<br/>
-rake rails:freeze:gems<br/>
-# Lock this application to the current gems (by unpacking them into vendor/rails)<br/>
-rake rails:unfreeze<br/>
-# Unlock this application from freeze of gems or edge and return to a fluid use of system gems<br/>
-rake rails:update<br/>
-# Update both scripts and public/javascripts from Rails<br/>
-rake rails:update:javascripts<br/>
-# Update your javascripts from your current rails install<br/>
-rake rails:update:scripts<br/>
-# Add new scripts to the application script/ directory<br/>
-rake stats<br/>
-# Report code statistics (KLOCs, etc) from the application<br/>
-rake test<br/>
-# Test all units and functionals<br/>
-rake test:functionals<br/>
-# Run tests for functionalsdb:test:prepare<br/>
-rake test:integration<br/>
-# Run tests for integrationdb:test:prepare<br/>
-rake test:plugins<br/>
-# Run tests for pluginsenvironment<br/>
-rake test:recent<br/>
-# Run tests for recentdb:test:prepare<br/>
-rake test:uncommitted<br/>
-# Run tests for uncommitteddb:test:prepare<br/>
-rake test:units<br/>
-# Run tests for unitsdb:test:prepare<br/>
-rake tmp:cache:clear<br/>
-# 清空tmp/cache目<span style="font-family:STHeiti;">录下的所有文件</span><br/>
-rake tmp:clear<br/>
-# 清空session, cache, 和socket文件从tmp/目<span style="font-family:STHeiti;">录</span><br/>
-rake tmp:create<br/>
-# <span style="font-family:STHeiti;">为</span>sessions, cache, and sockets<span style="font-family:STHeiti;">创建</span>tmp/目<span style="font-family:STHeiti;">录</span><br/>
-rake tmp:sessions:clear<br/>
-# 清空所有在tmp/sessions目<span style="font-family:STHeiti;">录下的文件</span><br/>
-rake tmp:sockets:clear<br/>
+<p>1.3 Rake<br />
+rake db:fixtures:load<br />
+# <span style="font-family:STHeiti;">载入</span>fixtures到当前<span style="font-family:STHeiti;">环境的数据库</span><br />
+# <span style="font-family:STHeiti;">载入指定的</span>fixtures使用FIXTURES=x,y<br />
+rake db:migrate<br />
+# 迁移数据<span style="font-family:STHeiti;">库通过在</span>db/migrate目<span style="font-family:STHeiti;">录下的脚本</span>.可以指定版本号通<span style="font-family:STHeiti;">过</span>VERSION=x<br />
+rake db:schema:dump<br />
+# <span style="font-family:STHeiti;">创建一个</span>db/schema.rb文件，通<span style="font-family:STHeiti;">过</span>AR能<span style="font-family:STHeiti;">过够支持任何数据库去使用</span><br />
+rake db:schema:load<br />
+# 再入一个schema.rb文件<span style="font-family:STHeiti;">进数据库</span><br />
+rake db:sessions:clear<br />
+# 清空sessions表<br />
+rake db:sessions:create<br />
+# 用CGI::Session::ActiveRecordStore<span style="font-family:STHeiti;">创建一个</span>sessions表<span style="font-family:STHeiti;">为用户</span><br />
+rake db:structure:dump<br />
+# <span style="font-family:STHeiti;">导出数据库结构为一个</span>SQL文件<br />
+rake db:test:clone<br />
+# 重新<span style="font-family:STHeiti;">创建一个测试数据库从当前环境数据库中</span><br />
+rake db:test:clone_structure<br />
+# 重新<span style="font-family:STHeiti;">创建测试数据库从开发模式数据库</span><br />
+rake db:test:prepare<br />
+# 准<span style="font-family:STHeiti;">备测试数据库并在入</span>schema<br />
+rake db:test:purge<br />
+# 清空<span style="font-family:STHeiti;">测试数据库</span><br />
+rake doc:app<br />
+# <span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br />
+rake doc:clobber_app<br />
+# <span style="font-family:STHeiti;">删除</span>Documentation<br />
+rake doc:clobber_plugins<br />
+# <span style="font-family:STHeiti;">删除</span> plugin Documentation<br />
+rake doc:clobber_rails<br />
+# <span style="font-family:STHeiti;">删除</span>Documentation<br />
+rake doc:plugins<br />
+# <span style="font-family:STHeiti;">产生</span>Documation<span style="font-family:STHeiti;">为所有安装的</span>plugins<br />
+rake doc:rails<br />
+# <span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br />
+rake doc:reapp<br />
+# 强制重新<span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br />
+rake doc:rerails<br />
+# 强制重新<span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br />
+rake log:clear<br />
+# 清空目<span style="font-family:STHeiti;">录</span>log/下的所有日志文件<br />
+rake rails:freeze:edge<br />
+# Lock this application to latest Edge Rails. Lock a specific revision with REVISION=X<br />
+rake rails:freeze:gems<br />
+# Lock this application to the current gems (by unpacking them into vendor/rails)<br />
+rake rails:unfreeze<br />
+# Unlock this application from freeze of gems or edge and return to a fluid use of system gems<br />
+rake rails:update<br />
+# Update both scripts and public/javascripts from Rails<br />
+rake rails:update:javascripts<br />
+# Update your javascripts from your current rails install<br />
+rake rails:update:scripts<br />
+# Add new scripts to the application script/ directory<br />
+rake stats<br />
+# Report code statistics (KLOCs, etc) from the application<br />
+rake test<br />
+# Test all units and functionals<br />
+rake test:functionals<br />
+# Run tests for functionalsdb:test:prepare<br />
+rake test:integration<br />
+# Run tests for integrationdb:test:prepare<br />
+rake test:plugins<br />
+# Run tests for pluginsenvironment<br />
+rake test:recent<br />
+# Run tests for recentdb:test:prepare<br />
+rake test:uncommitted<br />
+# Run tests for uncommitteddb:test:prepare<br />
+rake test:units<br />
+# Run tests for unitsdb:test:prepare<br />
+rake tmp:cache:clear<br />
+# 清空tmp/cache目<span style="font-family:STHeiti;">录下的所有文件</span><br />
+rake tmp:clear<br />
+# 清空session, cache, 和socket文件从tmp/目<span style="font-family:STHeiti;">录</span><br />
+rake tmp:create<br />
+# <span style="font-family:STHeiti;">为</span>sessions, cache, and sockets<span style="font-family:STHeiti;">创建</span>tmp/目<span style="font-family:STHeiti;">录</span><br />
+rake tmp:sessions:clear<br />
+# 清空所有在tmp/sessions目<span style="font-family:STHeiti;">录下的文件</span><br />
+rake tmp:sockets:clear<br />
 # 清空所有在tmp/sessions 目<span style="font-family:STHeiti;">录下的</span>ruby_sess.* 文件</p>
 
-<p>1.4 Scripts<br/>
-script/about<br/>
-# <span style="font-family:STHeiti;">输出当前环境信息</span><br/>
-script/breakpointer<br/>
-# <span style="font-family:STHeiti;">启动断点</span>server<br/>
-script/console<br/>
-# <span style="font-family:STHeiti;">启动交换式的</span>Rails控制台<br/>
-script/destroy<br/>
-# <span style="font-family:STHeiti;">删除通过</span>generators<span style="font-family:STHeiti;">创建的文件</span><br/>
-script/generate<br/>
-# -> generators<br/>
-script/plugin<br/>
-# -> Plugins<br/>
-script/runner<br/>
-# <span style="font-family:STHeiti;">执行一个任务在</span>rails上下文中<br/>
-script/server<br/>
-# <span style="font-family:STHeiti;">启动开发模式服务器</span><a href="http://localhost:3000  ">http://localhost:3000  </a>
-//以下几个不知道怎么去使用<br/>
-script/performance/profiler<br/>
-script/performance/benchmarker<br/>
-script/process/reaper<br/>
+<p>1.4 Scripts<br />
+script/about<br />
+# <span style="font-family:STHeiti;">输出当前环境信息</span><br />
+script/breakpointer<br />
+# <span style="font-family:STHeiti;">启动断点</span>server<br />
+script/console<br />
+# <span style="font-family:STHeiti;">启动交换式的</span>Rails控制台<br />
+script/destroy<br />
+# <span style="font-family:STHeiti;">删除通过</span>generators<span style="font-family:STHeiti;">创建的文件</span><br />
+script/generate<br />
+# -&gt; generators<br />
+script/plugin<br />
+# -&gt; Plugins<br />
+script/runner<br />
+# <span style="font-family:STHeiti;">执行一个任务在</span>rails上下文中<br />
+script/server<br />
+# <span style="font-family:STHeiti;">启动开发模式服务器</span>http://localhost:3000<br />
+//以下几个不知道怎么去使用<br />
+script/performance/profiler<br />
+script/performance/benchmarker<br />
+script/process/reaper<br />
 script/process/spawner</p>
 
-<p>1.5 Generators<br/>
-ruby script/generate model ModelName<br/>
-ruby script/generate controller ListController show edit<br/>
-ruby script/generate scaffold ModelName ControllerName<br/>
-ruby script/generate migration AddNewTable<br/>
-ruby script/generate plugin PluginName<br/>
-ruby script/generate mailer Notification lost_password signup<br/>
-ruby script/generate web_service ServiceName api_one api_two<br/>
-ruby script/generate integration_test TestName<br/>
-ruby script/generate session_migration<br/>
-可<span style="font-family:STHeiti;">选项</span>:<br/>
--p, &#8211;pretend Run but do not make any changes.<br/>
--f, &#8211;force Overwrite files that already exist.<br/>
--s, &#8211;skip Skip files that already exist.<br/>
--q, &#8211;quiet Suppress normal output.<br/>
--t, &#8211;backtrace Debugging: show backtrace on errors.<br/>
--h, &#8211;help Show this help message.<br/>
--c, &#8211;svn Modify files with subversion. (Note: svn must be in path)</p>
+<p>1.5 Generators<br />
+ruby script/generate model ModelName<br />
+ruby script/generate controller ListController show edit<br />
+ruby script/generate scaffold ModelName ControllerName<br />
+ruby script/generate migration AddNewTable<br />
+ruby script/generate plugin PluginName<br />
+ruby script/generate mailer Notification lost_password signup<br />
+ruby script/generate web_service ServiceName api_one api_two<br />
+ruby script/generate integration_test TestName<br />
+ruby script/generate session_migration<br />
+可<span style="font-family:STHeiti;">选项</span>:<br />
+-p, –pretend Run but do not make any changes.<br />
+-f, –force Overwrite files that already exist.<br />
+-s, –skip Skip files that already exist.<br />
+-q, –quiet Suppress normal output.<br />
+-t, –backtrace Debugging: show backtrace on errors.<br />
+-h, –help Show this help message.<br />
+-c, –svn Modify files with subversion. (Note: svn must be in path) </p>
 
-<p>1.6 Plugins<br/>
-script/plugin discover<br/>
-# discover plugin repositories<br/>
-script/plugin list<br/>
-# list all available plugins<br/>
-script/plugin install where<br/>
-# install the a€wherea€? plugin<br/>
-script/plugin install -x where<br/>
-# install where plugin as SVN external<br/>
-script/plugin install <a href="http://invisible.ch/projects/plugins/where  ">http://invisible.ch/projects/plugins/where  </a>
-script/plugin update<br/>
-# update installed plugins<br/>
-script/plugin source<br/>
-# add a source repository<br/>
-script/plugin unsource<br/>
-# removes a source repository<br/>
-script/plugin sources<br/>
+<p>1.6 Plugins<br />
+script/plugin discover<br />
+# discover plugin repositories<br />
+script/plugin list<br />
+# list all available plugins<br />
+script/plugin install where<br />
+# install the a€wherea€? plugin<br />
+script/plugin install -x where<br />
+# install where plugin as SVN external<br />
+script/plugin install http://invisible.ch/projects/plugins/where<br />
+script/plugin update<br />
+# update installed plugins<br />
+script/plugin source<br />
+# add a source repository<br />
+script/plugin unsource<br />
+# removes a source repository<br />
+script/plugin sources<br />
 # lists source repositories</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/108">rails 常用命令大全</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/108">rails 常用命令大全</a></p>
+
 </div>
   
   
@@ -316,22 +348,22 @@ script/plugin sources<br/>
   </header>
 
 
-  <div class="entry-content"><p><a href="http://www.macx.cn/A/A.asp?B=89&amp;ID=84157">http://www.macx.cn/A/A.asp?B=89&amp;ID=84157</a></p>
+  <div class="entry-content"><p>http://www.macx.cn/A/A.asp?B=89&amp;ID=84157</p>
 
 <p>1.注意:一定要<span style="font-family:STHeiti;">设</span>XP的IP地址<span style="font-family:STHeiti;">为</span>192.168.0.1;2.苹果的无<span style="font-family:STHeiti;">线网设为自动获取</span>IP,3.<span style="font-family:STHeiti;">应该是</span>mac<span style="font-family:STHeiti;">创建网络</span>,然后PC<span style="font-family:STHeiti;">连接到</span>MAC,</p>
 
-<p>大家好！<br/>
-我<span style="font-family:STHeiti;">终于把家里的</span>pc与小白一起共享上网了。我截了<span style="font-family:STHeiti;">图划个路线，希望给还在苦苦找方法互联</span>pc与mac的fans有些帮助。<span style="font-family:STHeiti;">废话不说了－－－－－》</span>go！<br/>
-我家的条件：<br/>
-<span style="font-family:STHeiti;">软件</span>: sygate office networks4.851<br/>
-mac: 10.4.2系<span style="font-family:STHeiti;">统</span><br/>
-pc: xp sp2；双网卡，其中一个是无<span style="font-family:STHeiti;">线网卡，另一个网卡连接</span>lan，上网要虚<span style="font-family:STHeiti;">拟拨号，如图</span><br/>
+<p>大家好！<br />
+我<span style="font-family:STHeiti;">终于把家里的</span>pc与小白一起共享上网了。我截了<span style="font-family:STHeiti;">图划个路线，希望给还在苦苦找方法互联</span>pc与mac的fans有些帮助。<span style="font-family:STHeiti;">废话不说了－－－－－》</span>go！<br />
+我家的条件：<br />
+<span style="font-family:STHeiti;">软件</span>: sygate office networks4.851<br />
+mac: 10.4.2系<span style="font-family:STHeiti;">统</span><br />
+pc: xp sp2；双网卡，其中一个是无<span style="font-family:STHeiti;">线网卡，另一个网卡连接</span>lan，上网要虚<span style="font-family:STHeiti;">拟拨号，如图</span><br />
 <span style="font-family:STHeiti;">图片</span>193720.jpg</p>
 
-<p><span style="font-family:STHeiti;">宽带连接就是连网线的网卡；</span><br/>
+<p><span style="font-family:STHeiti;">宽带连接就是连网线的网卡；</span><br />
 <span style="font-family:STHeiti;">长城宽带是用来虚拟拨号的。</span></p>
 
-<p>开始<span style="font-family:STHeiti;">设置：</span><br/>
+<p>开始<span style="font-family:STHeiti;">设置：</span><br />
 1、<span style="font-family:STHeiti;">连互联网的宽带连接网卡设置：</span></p>
 
 <p><span style="font-family:STHeiti;">图片</span>194155.jpg</p>
@@ -340,32 +372,33 @@ pc: xp sp2；双网卡，其中一个是无<span style="font-family:STHeiti;">�
 
 <p><span style="font-family:STHeiti;">图片</span>194240.jpg</p>
 
-<p>2、无<span style="font-family:STHeiti;">线网卡用来和小白组局域网，设置如下：</span><br/>
-网卡要开<span style="font-family:STHeiti;">启</span>ad-hoc功能<br/>
+<p>2、无<span style="font-family:STHeiti;">线网卡用来和小白组局域网，设置如下：</span><br />
+网卡要开<span style="font-family:STHeiti;">启</span>ad-hoc功能<br />
 <span style="font-family:STHeiti;">设置</span>ssid名称（密<span style="font-family:STHeiti;">码随便），便于小白开</span>airport<span style="font-family:STHeiti;">查找，以及</span></p>
 
 <p><span style="font-family:STHeiti;">图片</span>194357.jpg</p>
 
 <p>高<span style="font-family:STHeiti;">级里面就不要设置共享了</span></p>
 
-<p>3、虚<span style="font-family:STHeiti;">拟拨号的</span>“<span style="font-family:STHeiti;">长城宽带</span>”就不要<span style="font-family:STHeiti;">设置了，自动获取</span>ip好了，高<span style="font-family:STHeiti;">级里面也不要设置共享</span><br/>
+<p>3、虚<span style="font-family:STHeiti;">拟拨号的</span>“<span style="font-family:STHeiti;">长城宽带</span>”就不要<span style="font-family:STHeiti;">设置了，自动获取</span>ip好了，高<span style="font-family:STHeiti;">级里面也不要设置共享</span><br />
 <span style="font-family:STHeiti;">设置的话可能要把前面</span>1、2步<span style="font-family:STHeiti;">骤的设置改掉了</span></p>
 
 <p>4、<span style="font-family:STHeiti;">设置小白，新小白的</span>airport派用<span style="font-family:STHeiti;">场了，很简单：</span></p>
 
-<p><span style="font-family:STHeiti;">这个自动吧</span><br/>
-<span style="font-family:STHeiti;">图片</span><br/>
-195525.jpg<br/>
+<p><span style="font-family:STHeiti;">这个自动吧</span><br />
+<span style="font-family:STHeiti;">图片</span><br />
+195525.jpg<br />
 <span style="font-family:STHeiti;">这个也是自动吧</span></p>
 
-<p><span style="font-family:STHeiti;">图片</span><br/>
+<p><span style="font-family:STHeiti;">图片</span><br />
 195627.jpg</p>
 
-<p>5、好了，小白搜索到了pc了吧？<br/>
-<span style="font-family:STHeiti;">这里，</span>pc可<span style="font-family:STHeiti;">设置共享的盘、文件夹等等，小白这样就可以找到，如下</span><br/>
+<p>5、好了，小白搜索到了pc了吧？<br />
+<span style="font-family:STHeiti;">这里，</span>pc可<span style="font-family:STHeiti;">设置共享的盘、文件夹等等，小白这样就可以找到，如下</span><br />
 (sorry，机器出状况了，finder不响<span style="font-family:STHeiti;">应了，重启再来）</span></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/111">pc与mac的共享上网路线图（双网卡）</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/111">pc与mac的共享上网路线图（双网卡）</a></p>
+
 </div>
   
   
@@ -397,15 +430,16 @@ pc: xp sp2；双网卡，其中一个是无<span style="font-family:STHeiti;">�
   </header>
 
 
-  <div class="entry-content"><p>安装游戏<br/>
-sudo apt-get install xmame-x<br/>
+  <div class="entry-content"><p>安装游戏<br />
+sudo apt-get install xmame-x<br />
 再下载小游戏来运行，呵呵</p>
 
 <p>安装 wine</p>
 
 <p>sudo apt-get install wine</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/65">linux装街机游戏和wine(可以运行windows程序的虚拟机）</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/65">linux装街机游戏和wine(可以运行windows程序的虚拟机）</a></p>
+
 </div>
   
   
@@ -437,7 +471,7 @@ sudo apt-get install xmame-x<br/>
   </header>
 
 
-  <div class="entry-content"><p>来源：<a href="http://anw.stikipad.com/ocean/show/Learning+Ruby">http://anw.stikipad.com/ocean/show/Learning+Ruby</a></p>
+  <div class="entry-content"><p>来源：http://anw.stikipad.com/ocean/show/Learning+Ruby</p>
 
 <p>跟各位介紹一些好的 ruby 文章, 看完之後演練一下, 很有趣的! 再看 rails 時也比較不會覺的真神奇, 它是怎麼辦到的!</p>
 
@@ -459,7 +493,8 @@ sudo apt-get install xmame-x<br/>
 
 <p>Learn to Program by Chris Pine, 這是 Pine 寫的一本書, 利用 ruby 來介紹程式語言.</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/115">Learn Ruby</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/115">Learn Ruby</a></p>
+
 </div>
   
   
@@ -511,49 +546,50 @@ sudo apt-get install xmame-x<br/>
 
 <p>第二种形式让脚本编译器更快的看到函数主体，于是其中的语法错误也会更快被检测出来。有时候程序员使用 new Function 是因为他们没有理解内部函数是如何工作的。</p>
 
-<p>selObj.onchange = new Function(”dynamicOptionListObjects[”+<br/>
+<p>selObj.onchange = new Function(”dynamicOptionListObjects[”+<br />
 dol.index+”].change(this)”);</p>
 
 <p>如果我们让用字符串做函数体，编译器不能看到它们。如果我们用字符串表达式做函数体，我们同样也看不到它们。更好的方式就是不要盲目编程。通过制造一个返回值为函数的函数调用，我们可以明确的按值传递我们想要绑定的值。这允许我们在循环中初始化一系列 selObj 对象。</p>
 
-<p>selObj.onchange = function (i) {<br/>
-return function () {<br/>
+<p>selObj.onchange = function (i) {<br />
+return function () {<br />
 dynamicOptionListObjects[i].change(this);</p>
 
-<p>};<br/>
+<p>};<br />
 }(dol.index);</p>
 
 <p>直接对一个函数使用new永远不是一个好主意。比如， new function 对构造新对象没有提供什么优势。</p>
 
-<p>myObj = new function () {<br/>
-this.type = ‘core’;<br/>
+<p>myObj = new function () {<br />
+this.type = ‘core’;<br />
 };</p>
 
 <p>更好的方式是使用对象字面量，它更轻巧，更快捷。</p>
 
-<p>myObj = {<br/>
-type: ‘core’<br/>
+<p>myObj = {<br />
+type: ‘core’<br />
 };</p>
 
-<p>假如我们需要创建的对象包含的方法需要访问私有变量或者函数，更好的方式仍然是避免使用new.var foo = new function() {<br/>
-function processMessages(message) {<br/>
-alert(”Message: ” + message.content);<br/>
-}<br/>
-this.init = function() {<br/>
-subscribe(”/mytopic”, this, processMessages);<br/>
-}<br/>
-}通过使用 new 去调用函数，对象会持有一个无意义的原型对象。这只会浪费内存而不会带来任何好处。如果我们不使用new，我们就不用在对象链维护一个无用的prototype对象。所以我们可以用（）来正确的调用工厂函数。var foo = function () {<br/>
-function processMessages(message) {<br/>
-alert(”Message: ” + message.content);<br/>
-}<br/>
-return {<br/>
-init: function () {<br/>
-subscribe(”/mytopic”, this, processMessages);<br/>
-}<br/>
-};<br/>
+<p>假如我们需要创建的对象包含的方法需要访问私有变量或者函数，更好的方式仍然是避免使用new.var foo = new function() {<br />
+function processMessages(message) {<br />
+alert(”Message: ” + message.content);<br />
+}<br />
+this.init = function() {<br />
+subscribe(”/mytopic”, this, processMessages);<br />
+}<br />
+}通过使用 new 去调用函数，对象会持有一个无意义的原型对象。这只会浪费内存而不会带来任何好处。如果我们不使用new，我们就不用在对象链维护一个无用的prototype对象。所以我们可以用（）来正确的调用工厂函数。var foo = function () {<br />
+function processMessages(message) {<br />
+alert(”Message: ” + message.content);<br />
+}<br />
+return {<br />
+init: function () {<br />
+subscribe(”/mytopic”, this, processMessages);<br />
+}<br />
+};<br />
 }();所以原则很简单： 唯一应该要用到new操作符的地方就是调用一个古老的构造器函数的时候。当调用一个构造器函数的时候，是强制要求使用new的。有时候可以来new一下, 有的时候还是不要了吧。</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/113">JavaScript 的 new， 好久不见啊</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/113">JavaScript 的 new， 好久不见啊</a></p>
+
 </div>
   
   
@@ -585,7 +621,7 @@ subscribe(”/mytopic”, this, processMessages);<br/>
   </header>
 
 
-  <div class="entry-content"><p>引用：link<br/>
+  <div class="entry-content"><p>引用：link<br />
 记住文章的题目：JavaScript 对象是词典“.才会有下面的方法</p>
 
 <pre lang="javascript">function sayHi(x) {
@@ -598,11 +634,10 @@ alert(sayHi[”text“]); // displays ”Hello World!“
 alert(sayHi.text2); // displays ”Hello World... again.“
 </pre>
 
-
 <p>看到有什么分别么？sayHi[”text2“]＝sayHi.text，sayHi[”text2“]感觉想一个数组中的值，这和JavaScript 对象是词典的描述是吻合的</p>
 
-<p>作为对象，函数还可以赋给变量、作为参数传递给其他函数、作为其他函数的值返回，并可以作为对象的属性或数组的元素进行存储等等<br/>
-在 C# 中，我们使用类来实例化对象实例。但 JavaScript 与此不同，因为它没有类。您将在下一节中看到，您可以充分利用这一情况：函数在与”new“运算符一起使用时，函数将充当构造函数。<br/>
+<p>作为对象，函数还可以赋给变量、作为参数传递给其他函数、作为其他函数的值返回，并可以作为对象的属性或数组的元素进行存储等等<br />
+在 C# 中，我们使用类来实例化对象实例。但 JavaScript 与此不同，因为它没有类。您将在下一节中看到，您可以充分利用这一情况：函数在与”new“运算符一起使用时，函数将充当构造函数。<br />
 构造函数而不是类</p>
 
 <p>前面提到过，有关 JavaScript OOP 的最奇怪的事情是，JavaScript 不像 C# 或 C++ 那样，它没有类。在 C# 中，在执行类似下面的操作时：</p>
@@ -625,12 +660,10 @@ spot.respondTo(”Rover“); // nope
 spot.respondTo(”Spot“); // yeah!
 </pre>
 
-
 <p>那么，结果会怎样呢？暂时忽略 DogConstructor 函数定义，看一看这一行：</p>
 
 <pre lang="javasript">var spot = new DogConstructor(”Spot“);
 </pre>
-
 
 <p>”new“运算符执行的操作很简单。首先，它创建一个新的空对象。然后执行紧随其后的函数调用，将新的空对象设置为该函数中”this“的值。换句话说，可以认为上面这行包含”new“运算符的代码与下面两行代码的功能相当：</p>
 
@@ -639,7 +672,6 @@ var spot = {};
 // call the function as a method of the empty object
 DogConstructor.call(spot, ”Spot“);
 </pre>
-
 
 <p>正如在 DogConstructor 主体中看到的那样，调用此函数将初始化对象，在调用期间关键字”this“将引用此对象。这样，就可以为对象创建模板！只要需要创建类似的对象，就可以与构造函数一起调用”new“，返回的结果将是一个完全初始化的对象。这与类非常相似，不是吗？实际上，在 JavaScript 中构造函数的名称通常就是所模拟的类的名称，因此在上面的示例中，可以直接命名构造函数 Dog：</p>
 
@@ -658,7 +690,6 @@ alert(”Woof“);
 var spot = new Dog(”Spot“);
 </pre>
 
-
 <p>在上面的 Dog 定义中，我定义了名为 name 的实例变量。使用 Dog 作为其构造函数所创建的每个对象都有它自己的实例变量名称副本（前面提到过，它就是对象词典的条目）。这就是希望的结果。毕竟，每个对象都需要它自己的实例变量副本来表示其状态。但如果看看下一行，就会发现每个 Dog 实例也都有它自己的 respondTo 方法副本，这是个浪费；您只需要一个可供各个 Dog 实例共享的 respondTo 实例！通过在 Dog 以外定义 respondTo，可以避免此问题，如下所示：</p>
 
 <pre lang="javascript">function respondTo() {
@@ -673,12 +704,12 @@ this.respondTo = respondTo;
 
 </pre>
 
-
 <p>这样，所有 Dog 实例（即用构造函数 Dog 创建的所有实例）都可以共享 respondTo 方法的一个实例。但随着方法数的增加，维护工作将越来越难。最后，基本代码中将有很多全局函数，而且随着”类“的增加，事情只会变得更加糟糕（如果它们的方法具有相似的名称，则尤甚）。但使用原型对象可以更好地解决这个问题，这是下一节的主题。</p>
 
 <p>但 JavaScript 本身并不支持私有成员（同样，也不支持受保护成员）。任何人都可以访问对象的所有属性和方法。但我们有办法让类中包含私有成员，但在此之前，您首先需要理解闭包。</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/74">JavaScript 对象是词典</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/74">JavaScript 对象是词典</a></p>
+
 </div>
   
   
@@ -712,16 +743,17 @@ this.respondTo = respondTo;
 
   <div class="entry-content"><p>星期六, 六月 16. 2007</p>
 
-<p>昨天是我的生日，本来没有什么计划的，但下班的时候，欧文（My Boss）问我有什么想法，我想了想，就大家吃顿饭吧！<br/>
-但是可能是没有提前通知的原因，所以Jerry和Thomas当晚都有安排，不过在我的一在说服下，他们都同意一起去吃饭了。<br/>
-经过讨论，我们决定去淮海路的”滴水洞“（一家装修很复古的湘菜馆，但有点贵），，主要考虑大家都能吃辣的。<br/>
-其实我们只喝了几瓶“青岛”，感觉和在老家有很大区别，但是我觉得很开心，其实很多人在一起吃饭，我多觉得很开心。<br/>
+<p>昨天是我的生日，本来没有什么计划的，但下班的时候，欧文（My Boss）问我有什么想法，我想了想，就大家吃顿饭吧！<br />
+但是可能是没有提前通知的原因，所以Jerry和Thomas当晚都有安排，不过在我的一在说服下，他们都同意一起去吃饭了。<br />
+经过讨论，我们决定去淮海路的”滴水洞“（一家装修很复古的湘菜馆，但有点贵），，主要考虑大家都能吃辣的。<br />
+其实我们只喝了几瓶“青岛”，感觉和在老家有很大区别，但是我觉得很开心，其实很多人在一起吃饭，我多觉得很开心。<br />
 当晚，鱼头和扒丝香蕉我最喜欢，大家开开心的吃到9点多就各自回去了。</p>
 
-<p>非常感谢：欧文，毛毛，Thomas，Daniel，Jerry，Suny，因为有他们，我的生日才如此的开心。<br/>
+<p>非常感谢：欧文，毛毛，Thomas，Daniel，Jerry，Suny，因为有他们，我的生日才如此的开心。<br />
 特别感谢欧文（Ryan Erwin），因为他买单，所以我们才有机会一起吃饭；）</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/85">2007生日晚餐</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/85">2007生日晚餐</a></p>
+
 </div>
   
   
@@ -753,13 +785,14 @@ this.respondTo = respondTo;
   </header>
 
 
-  <div class="entry-content"><p>在装了ubuntu后，svn ci 的编辑器不是vim ,我就全部安装了vim以后，默认的编辑器就是vim了<br/>
+  <div class="entry-content"><p>在装了ubuntu后，svn ci 的编辑器不是vim ,我就全部安装了vim以后，默认的编辑器就是vim了<br />
 sudo apt-get install vim-full</p>
 
-<p>如果还不可以就用以下命令：<br/>
-sudo update-alternatives &#8211;config editor 进行选择默认编辑器</p>
+<p>如果还不可以就用以下命令：<br />
+sudo update-alternatives –config editor 进行选择默认编辑器</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/64">解决svn ci时不是vim 编辑器的问题</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/64">解决svn ci时不是vim 编辑器的问题</a></p>
+
 </div>
   
   
@@ -791,53 +824,12 @@ sudo update-alternatives &#8211;config editor 进行选择默认编辑器</p>
   </header>
 
 
-  <div class="entry-content"><p>今天下午用了些许时间把旧的blog更新到现在的blog，算是了却一张心事&#8230;</p>
+  <div class="entry-content"><p>今天下午用了些许时间把旧的blog更新到现在的blog，算是了却一张心事…</p>
 
 <p>所以您看到的一些内容应该是2007年的故事：－）</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/128">终于把以前的blog更新到现在的blog</a></p>
-</div>
-  
-  
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/128">终于把以前的blog更新到现在的blog</a></p>
 
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/archives/105">百色姑娘&#8212;黄艳</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2008-04-26T00:00:00+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>26</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
-        
-           | <a href="/archives/105#disqus_thread"
-             data-disqus-identifier="http://weixuhong.com/archives/105">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>版权所有黄艳小姐,不能转载或商业他用,如有违者,我们保留追究其法律的权力</p>
-
-<p><a href="http://www.weixuhong.com/content/uploads/2008/04/img-2856.jpg" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/04/img-2856.jpg','popup','width=3072,height=2048,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/04/img-2856-tm.jpg" height="100" width="150" border="1" hspace="4" vspace="4" alt="IMG_2856" title="IMG_2856" /></a></p>
-
-<p><a href="http://www.weixuhong.com/content/uploads/2008/04/hytt.jpg" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/04/hytt.jpg','popup','width=2048,height=3072,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/04/hytt-tm.jpg" height="100" width="66" border="1" hspace="4" vspace="4" alt="hytt" title="hytt" /></a></p>
-
-<p><a href="http://www.weixuhong.com/content/uploads/2008/04/138.jpg" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/04/138.jpg','popup','width=3072,height=2048,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/04/138-tm.jpg" height="100" width="150" border="1" hspace="4" vspace="4" alt="138" title="138" /></a></p>
-
-<p><a href="http://www.weixuhong.com/content/uploads/2008/04/img-0731.jpg" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/04/img-0731.jpg','popup','width=3072,height=2048,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/04/img-0731-tm.jpg" height="100" width="150" border="1" hspace="4" vspace="4" alt="IMG_0731" title="IMG_0731" /></a></p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/105">百色姑娘&#8212;黄艳</a></p>
 </div>
   
   
@@ -858,10 +850,10 @@ sudo update-alternatives &#8211;config editor 进行选择默认编辑器</p>
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -886,8 +878,12 @@ sudo update-alternatives &#8211;config editor 进行选择默认编辑器</p>
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -905,40 +901,7 @@ sudo update-alternatives &#8211;config editor 进行选择默认编辑器</p>
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

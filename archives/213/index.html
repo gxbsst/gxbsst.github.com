@@ -95,9 +95,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -135,18 +135,15 @@ mkdir /home/weston/websites/colorunn.com/
 svn import /home/weston/websites/colorunn.com/  file:///home/weston/svn/colorunn.com/project  --message=“Importing Project”
 </pre>
 
-
-<h1>这个是在服务器上</h1>
+<h1 id="section">这个是在服务器上</h1>
 
 <pre lang="c">svn co file:///home/weston/svn/colounn.com/project colorunn.com
 </pre>
-
 
 <p>＃本机</p>
 
 <pre lang="c">svn co svn+ssh://baiselife/home/weston/svn/colorunn.com/project colorunn.com
 </pre>
-
 
 <p>＃配置trac+svn</p>
 
@@ -157,21 +154,16 @@ trac-admin /home/weston/trac.weixuhong.com/colorunn.com initenv
 
 </pre>
 
-
-
-
 <pre lang="c">cd ~/trac.weixuhong.com
 cp linyufang.cgi colorunn.cgi
 </pre>
 
-
-<h1>将linyufang.net替换成colorunn.com</h1>
+<h1 id="linyufangnetcolorunncom">将linyufang.net替换成colorunn.com</h1>
 
 <pre lang="c">vim colorunn.cgi 
 </pre>
 
-
-<h1>修改默认utf8</h1>
+<h1 id="utf8">修改默认utf8</h1>
 
 <pre lang="c">vim colorunn.com/conf/trac.ini
 
@@ -179,10 +171,10 @@ cp linyufang.cgi colorunn.cgi
 将 default_charset = utf-8 
 </pre>
 
-
 <p>访问 trac.weixuhogn.com</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; [配置一个工作项目（svn+trac)<a href="http://www.weixuhong.com/archives/213">这个仅限于我自己的工作环境)</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » [配置一个工作项目（svn+trac)<a href="http://www.weixuhong.com/archives/213">这个仅限于我自己的工作环境)</a></p>
+
 </div>
 
 
@@ -235,10 +227,10 @@ cp linyufang.cgi colorunn.cgi
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -263,8 +255,12 @@ cp linyufang.cgi colorunn.cgi
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -282,40 +278,7 @@ cp linyufang.cgi colorunn.cgi
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

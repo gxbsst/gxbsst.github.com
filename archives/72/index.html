@@ -95,9 +95,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -127,28 +127,29 @@ $(document).ready(
   </header>
 
 
-<div class="entry-content"><p>我知道在ruby可以通过Object.methods 知道对象都有什么方法（methods）但是在javascript怎么知道DOM元素所带的方法呢？<br/>
-今天我看了PeepCode 教程008 Phototype的有这个介绍<br/>
-如果我想知道元素h1有什么方法可以有以下步骤：<br/>
-1.var h1 = $$(&#8216;h1&#8242;).first();<br/>
-2.Object.keys(h1)或者Object.keys(window)在或者Object.keys(Event).sort()<br/>
-3.Object.keys(h1).sort() //则可以按字母的顺序查看方法<br/>
-就可以在firebug的console显示出来<br/>
+<div class="entry-content"><p>我知道在ruby可以通过Object.methods 知道对象都有什么方法（methods）但是在javascript怎么知道DOM元素所带的方法呢？<br />
+今天我看了PeepCode 教程008 Phototype的有这个介绍<br />
+如果我想知道元素h1有什么方法可以有以下步骤：<br />
+1.var h1 = $$(‘h1′).first();<br />
+2.Object.keys(h1)或者Object.keys(window)在或者Object.keys(Event).sort()<br />
+3.Object.keys(h1).sort() //则可以按字母的顺序查看方法<br />
+就可以在firebug的console显示出来<br />
 或者Element.addMethods({</p>
 
-<p>methods: function(element) {<br/>
-return Object.keys(element).select(function(methodName) {<br/>
-return typeof element[methodName] == &#8216;function&#8217;;<br/>
-}).sort();<br/>
+<p>methods: function(element) {<br />
+return Object.keys(element).select(function(methodName) {<br />
+return typeof element[methodName] == ‘function’;<br />
+}).sort();<br />
 }</p>
 
 <p>});</p>
 
-<p>然后调用 $(document.body).methods()就可以了<br/>
-$(document.body).methods().length()知道方法的个数<br/>
+<p>然后调用 $(document.body).methods()就可以了<br />
+$(document.body).methods().length()知道方法的个数<br />
 注意：这是在prototype中调试的</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/72">查看DOM元素的方法</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/72">查看DOM元素的方法</a></p>
+
 </div>
 
 
@@ -201,10 +202,10 @@ $(document.body).methods().length()知道方法的个数<br/>
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -229,8 +230,12 @@ $(document.body).methods().length()知道方法的个数<br/>
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -248,40 +253,7 @@ $(document.body).methods().length()知道方法的个数<br/>
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

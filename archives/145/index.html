@@ -94,9 +94,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -126,13 +126,14 @@ $(document).ready(
   </header>
 
 
-<div class="entry-content"><p>Autotest： 开始编码了？ 第一件事是打开Autotest，结束编码了，最后一件事是关闭Autotest。编码的过程中， 应该一直让autotest开着，它会一直检测你的代码改动，自动持续运行测试，是最好的TDD工具。<br/>
-Rspec ：抛弃Rails原有的测试框架吧，这个更优秀。<br/>
-Mocha：可以让你轻易实现Mock功能，非常好用，语法如英文般自然。<br/>
-Selenium：项目稳定后，可以用来做交付测试，自动启动浏览器，完全模拟人的鼠标键盘点击，进行测试。<br/>
+<div class="entry-content"><p>Autotest： 开始编码了？ 第一件事是打开Autotest，结束编码了，最后一件事是关闭Autotest。编码的过程中， 应该一直让autotest开着，它会一直检测你的代码改动，自动持续运行测试，是最好的TDD工具。<br />
+Rspec ：抛弃Rails原有的测试框架吧，这个更优秀。<br />
+Mocha：可以让你轻易实现Mock功能，非常好用，语法如英文般自然。<br />
+Selenium：项目稳定后，可以用来做交付测试，自动启动浏览器，完全模拟人的鼠标键盘点击，进行测试。<br />
 Cruise Control：持续集成，在源代码服务器端验证运行测试代码，确保不会出现“it works for me”，文件漏提交，以及开发环境不同带来的bug等问题。</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/145">Ruby On Rails的常用武器</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/145">Ruby On Rails的常用武器</a></p>
+
 </div>
 
 
@@ -185,10 +186,10 @@ Cruise Control：持续集成，在源代码服务器端验证运行测试代码
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -213,8 +214,12 @@ Cruise Control：持续集成，在源代码服务器端验证运行测试代码
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -232,40 +237,7 @@ Cruise Control：持续集成，在源代码服务器端验证运行测试代码
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

@@ -9,7 +9,7 @@
   <meta name="author" content="Weston Wei(韦旭红)">
 
   
-  <meta name="description" content="昨晚在自己mac装Xdebug，分享一下. 原来我用pecl安装，但是不起作用，后面通过编译安装&#8230; 可以参考这篇文章： http://www.designified.com/blog/article/60/compiling-installing-xdebug-for-php-525- &hellip;">
+  <meta name="description" content="昨晚在自己mac装Xdebug，分享一下. 原来我用pecl安装，但是不起作用，后面通过编译安装… 可以参考这篇文章： http://www.designified.com/blog/article/60/compiling-installing-xdebug-for-php-525- &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -92,9 +92,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -127,26 +127,32 @@ $(document).ready(
 <div class="entry-content"><p>昨晚在自己mac装Xdebug，分享一下.</p>
 
 <ol>
-<li><p>原来我用pecl安装，但是不起作用，后面通<span style="font-family:STHeiti;">过编译安装</span>&#8230; 可以参考<span style="font-family:STHeiti;">这篇文章：</span> <a href="http://www.designified.com/blog/article/60/compiling-installing-xdebug-for-php-525-entropych-build-on-os-x-105?commented=0#txpCommentInputForm">http://www.designified.com/blog/article/60/compiling-installing-xdebug-for-php-525-entropych-build-on-os-x-105?commented=0#txpCommentInputForm</a></p></li>
-<li><p>注意你的php.ini里面的extension_dir,可以在phpinfo<span style="font-family:STHeiti;">查看，然后把</span>xdebug.so 复制到你<span style="font-family:STHeiti;">这个目录，我的目录是：</span> /usr/lib/php/extensions/</p></li>
-<li><p>在php.ini添加以下<span style="font-family:STHeiti;">语句，即载入模块</span><br/>
-[xdebug]<br/>
-zend_extension=“/usr/lib/php/extensions/xdebug.so”</p></li>
-<li><p>安装完<span style="font-family:STHeiti;">毕要重启服务器</span>: sudo apachectl restart</p></li>
+  <li>原来我用pecl安装，但是不起作用，后面通<span style="font-family:STHeiti;">过编译安装</span>… 可以参考<span style="font-family:STHeiti;">这篇文章：</span> http://www.designified.com/blog/article/60/compiling-installing-xdebug-for-php-525-entropych-build-on-os-x-105?commented=0#txpCommentInputForm</li>
 </ol>
 
+<ul>
+  <li>注意你的php.ini里面的extension_dir,可以在phpinfo<span style="font-family:STHeiti;">查看，然后把</span>xdebug.so 复制到你<span style="font-family:STHeiti;">这个目录，我的目录是：</span> /usr/lib/php/extensions/  </li>
+  <li>
+    <p>在php.ini添加以下<span style="font-family:STHeiti;">语句，即载入模块</span><br />
+[xdebug]<br />
+zend_extension=“/usr/lib/php/extensions/xdebug.so”</p>
+  </li>
+  <li>安装完<span style="font-family:STHeiti;">毕要重启服务器</span>: sudo apachectl restart</li>
+</ul>
 
-<p>如果安装成功的<span style="font-family:STHeiti;">话，在</span>phpinfo<span style="font-family:STHeiti;">页面可以看到相关的信息</span>&#8230;.</p>
+<p>如果安装成功的<span style="font-family:STHeiti;">话，在</span>phpinfo<span style="font-family:STHeiti;">页面可以看到相关的信息</span>….</p>
 
 <p><a href="http://www.weixuhong.com/content/uploads/2008/09/picture-1.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/09/picture-1.png','popup','width=657,height=87,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/09/picture-1-tm.jpg" height="100" width="755" border="1" hspace="4" vspace="4" alt="Picture 1" title="Picture 1" /></a></p>
 
 <p><a href="http://www.weixuhong.com/content/uploads/2008/09/picture-2.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/09/picture-2.png','popup','width=859,height=513,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/09/picture-2-tm.jpg" height="100" width="167" border="1" hspace="4" vspace="4" alt="Picture 2" title="Picture 2" /></a></p>
 
 <ol>
-<li>配置</li>
-<li>在php.ini添加以下</li>
+  <li>配置<br />
+    <ul>
+      <li>在php.ini添加以下</li>
+    </ul>
+  </li>
 </ol>
-
 
 <pre lang="php">xdebug.default_enable = On
 xdebug.show_exception_trace = On
@@ -170,11 +176,10 @@ xdebug.collect_return = On
 xdebug.show_mem_delta = On
 </pre>
 
-
-<p><span style="font-family:STHeiti;">说明：</span><br/>
+<p><span style="font-family:STHeiti;">说明：</span><br />
 xdebug.dump_once、xdebug.dump_globals、xdebug.dump_undefined 和 xdebug.dump_SUPERGLOBAL <span style="font-family:STHeiti;">设置（其中</span> SUPERGLOBAL 可以是 COOKIE、FILES、GET、POST、REQUEST、SERVER 或 SESSION）用于控制哪些 PHP 超全局<span style="font-family:STHeiti;">变量将被包含在所有诊断结果中。</span></p>
 
-<p>　　将 xdebug.dump_globals <span style="font-family:STHeiti;">设为</span> On 以<span style="font-family:STHeiti;">转储名为</span> xdebug.dump_SUPERGLOBAL <span style="font-family:STHeiti;">设置中的超全局变量。例如，</span>xdebug.dump_SERVER = REQUEST_METHOD,REQUEST_URI,HTTP_USER_AGENT 将打印 PHP 超全局<span style="font-family:STHeiti;">变量</span> $_SERVER[&lsquo;REQUEST_METHOD&rsquo;]、$_SERVER[&lsquo;REQUEST_URI&rsquo;] 和 $_SERVER[&lsquo;HTTP_USER_AGENT&rsquo;]。如果需要打印超全局<span style="font-family:STHeiti;">变量数组中的所有值，请使用星号</span> (*)，例如 xdebug.dump_REQUEST=*。如果<span style="font-family:STHeiti;">进一步将</span> xdebug.dump_undefined <span style="font-family:STHeiti;">设为</span> On 并且不<span style="font-family:STHeiti;">设定指定的超全局变量，则仍用值</span> undefined 打印<span style="font-family:STHeiti;">变量。</span></p>
+<p>　　将 xdebug.dump_globals <span style="font-family:STHeiti;">设为</span> On 以<span style="font-family:STHeiti;">转储名为</span> xdebug.dump_SUPERGLOBAL <span style="font-family:STHeiti;">设置中的超全局变量。例如，</span>xdebug.dump_SERVER = REQUEST_METHOD,REQUEST_URI,HTTP_USER_AGENT 将打印 PHP 超全局<span style="font-family:STHeiti;">变量</span> $_SERVER[‘REQUEST_METHOD’]、$_SERVER[‘REQUEST_URI’] 和 $_SERVER[‘HTTP_USER_AGENT’]。如果需要打印超全局<span style="font-family:STHeiti;">变量数组中的所有值，请使用星号</span> (*)，例如 xdebug.dump_REQUEST=*。如果<span style="font-family:STHeiti;">进一步将</span> xdebug.dump_undefined <span style="font-family:STHeiti;">设为</span> On 并且不<span style="font-family:STHeiti;">设定指定的超全局变量，则仍用值</span> undefined 打印<span style="font-family:STHeiti;">变量。</span></p>
 
 <p>　　即使捕捉到异常，代<span style="font-family:STHeiti;">码行</span> xdebug.show_exception_trace = On 仍将强制<span style="font-family:STHeiti;">执行异常跟踪。代码行</span> xdebug.show_local_vars = 1 将打印每个函数<span style="font-family:STHeiti;">调用的最外围中的所有局部变量，包括尚未初始化的变量。而</span> xdebug.var_display_max_depth = 6 表示<span style="font-family:STHeiti;">转储复杂变量的深度。</span></p>
 
@@ -185,9 +190,8 @@ xdebug.dump_once、xdebug.dump_globals、xdebug.dump_undefined 和 xdebug.dump_S
 <p>　　默<span style="font-family:STHeiti;">认情况下，</span>Xdebug 将<span style="font-family:STHeiti;">显示时间、内存使用量、函数名和函数调用深度字段。如果将</span> xdebug.trace_format <span style="font-family:STHeiti;">设为</span> 0，<span style="font-family:STHeiti;">则输出将符合人类阅读习惯（将参数设为</span> 1 <span style="font-family:STHeiti;">则为机器可读格式）。此外，如果指定</span> xdebug.show_mem_delta = 1，<span style="font-family:STHeiti;">则可以查看内存使用量是在增加还是在减少，而如果指定</span> xdebug.collect_params = 4，<span style="font-family:STHeiti;">则可以查看传入参数的类型和值。要监视每个函数返回的值，请设定</span> xdebug.collect_return = 1。</p>
 
 <ol>
-<li>开始做个<span style="font-family:STHeiti;">测试</span></li>
+  <li>开始做个<span style="font-family:STHeiti;">测试</span></li>
 </ol>
-
 
 <p><span style="font-family:STHeiti;">测试代码：</span></p>
 
@@ -197,12 +201,13 @@ xdebug.dump_once、xdebug.dump_globals、xdebug.dump_undefined 和 xdebug.dump_S
 
 <p><a href="http://www.weixuhong.com/content/uploads/2008/09/picture-5.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/09/picture-5.png','popup','width=1250,height=858,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/09/picture-5-tm.jpg" height="100" width="145" border="1" hspace="4" vspace="4" alt="Picture 5" /></a></p>
 
-<p>我<span style="font-family:STHeiti;">们可以看追踪文件：</span>/tmp/traces下的文件（可以看配置目<span style="font-family:STHeiti;">录</span>)<br/>
+<p>我<span style="font-family:STHeiti;">们可以看追踪文件：</span>/tmp/traces下的文件（可以看配置目<span style="font-family:STHeiti;">录</span>)<br />
 用vim打开，但是有点不舒服，就是不是hightline的，但是你可以把xt.vim放到你.vim的配置文件下面，但是我的mac<span style="font-family:STHeiti;">还是不起作用，我需要在</span>vim 做set filetype=xt就可以了</p>
 
 <p><a href="http://www.weixuhong.com/content/uploads/2008/09/picture-7-1.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/09/picture-7-1.png','popup','width=1280,height=800,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/09/picture-7-1-tm.jpg" height="100" width="160" border="1" hspace="4" vspace="4" alt="Picture 7-1" /></a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/186">Xdebug on Mac</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/186">Xdebug on Mac</a></p>
+
 </div>
 
 
@@ -255,10 +260,10 @@ xdebug.dump_once、xdebug.dump_globals、xdebug.dump_undefined 和 xdebug.dump_S
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -283,8 +288,12 @@ xdebug.dump_once、xdebug.dump_globals、xdebug.dump_undefined 和 xdebug.dump_S
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -302,40 +311,7 @@ xdebug.dump_once、xdebug.dump_globals、xdebug.dump_undefined 和 xdebug.dump_S
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

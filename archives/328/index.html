@@ -93,9 +93,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -128,23 +128,30 @@ $(document).ready(
 <div class="entry-content"><p>本教程限使用在Linux或者Mac下面，但是如果在Windows使用，原理一样(但是需要用Putty登录代理主机), 本教程或许需要你有一定的计算机知识，一些设置也可以在视频找到。</p>
 
 <ol>
-<li><p>先要下载安装FireFox浏览器<br/>
-下载地址: www.mozilla.com/firefox/</p></li>
-<li><p>安装FireFox插件：FoxyProxy</p></li>
-<li><p>安装好FireFox之后，请在插件处，查找安装FoxyProxy, 如果不知道如何安装插件，请用Google搜索或者咨询我.</p></li>
-<li><p>配置FoxyProxy<br/>
-详细的配置在视频当中,请参考如何设置即可.</p></li>
-<li><p>使用Shell用SSH命令登录指定帐号（如果没有帐号，请咨询我，我会适当的发一些帐号)<br/>
-在Shell下面使用以下命令<br/>
-ssh -N -D 9999 test@example.com<br/>
-test: 为用户名<br/>
-example.com： 为您有登录权限的国外主机</p></li>
+  <li>
+    <p>先要下载安装FireFox浏览器<br />
+下载地址: www.mozilla.com/firefox/</p>
+  </li>
+  <li>安装FireFox插件：FoxyProxy<br />
+    <ul>
+      <li>安装好FireFox之后，请在插件处，查找安装FoxyProxy, 如果不知道如何安装插件，请用Google搜索或者咨询我.</li>
+    </ul>
+  </li>
+  <li>
+    <p>配置FoxyProxy<br />
+详细的配置在视频当中,请参考如何设置即可.</p>
+  </li>
+  <li>使用Shell用SSH命令登录指定帐号（如果没有帐号，请咨询我，我会适当的发一些帐号)<br />
+在Shell下面使用以下命令<br />
+ssh -N -D 9999 test@example.com<br />
+test: 为用户名<br />
+example.com： 为您有登录权限的国外主机</li>
 </ol>
-
 
 <p>*Windows用户请用Putty设置登录主机.</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/328">如果使用SSH隧道上网&#8211;For Mac篇</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/328">如果使用SSH隧道上网–For Mac篇</a></p>
+
 </div>
 
 
@@ -197,10 +204,10 @@ example.com： 为您有登录权限的国外主机</p></li>
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -225,8 +232,12 @@ example.com： 为您有登录权限的国外主机</p></li>
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -244,40 +255,7 @@ example.com： 为您有登录权限的国外主机</p></li>
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

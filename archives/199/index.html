@@ -9,10 +9,9 @@
   <meta name="author" content="Weston Wei(韦旭红)">
 
   
-  <meta name="description" content="因为经常在console下面工作，操作文件的命令都还可以，但是想想用程式来操作，那也是更有意思，特别是在shell程序的时候&#8230;
-* 熟悉*inx命令的人，相信对这些ruby的方法会很熟悉的
-操作目录（Directories）
-创建 Dir.chdir( “/Users/weston &hellip;">
+  <meta name="description" content="因为经常在console下面工作，操作文件的命令都还可以，但是想想用程式来操作，那也是更有意思，特别是在shell程序的时候…
+* 熟悉*inx命令的人，相信对这些ruby的方法会很熟悉的 操作目录（Directories）
+A. 创建 Dir.chdir( “/Users/weston &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -95,9 +94,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -128,63 +127,54 @@ $(document).ready(
 
 
 <div class="entry-content"><ul>
-<li><p>因为经常在console下面工作，操作文件的命令都还可以，但是想想用程式来操作，那也是更有意思，特别是在shell程序的时候&#8230;<br/>
-* 熟悉*inx命令的人，相信对这些ruby的方法会很熟悉的</p></li>
-<li><p>操作目录（Directories）</p></li>
-<li>创建</li>
+  <li>因为经常在console下面工作，操作文件的命令都还可以，但是想想用程式来操作，那也是更有意思，特别是在shell程序的时候…<br />
+* 熟悉*inx命令的人，相信对这些ruby的方法会很熟悉的</li>
 </ul>
 
+<ol>
+  <li>操作目录（Directories）<br />
+A. 创建</li>
+</ol>
 
 <pre lang="ruby">Dir.chdir( “/Users/weston” )  #进入目录
-home =Dir.pwd # => “/Users/weston/” * 显示目录
+home =Dir.pwd # =&gt; “/Users/weston/” * 显示目录
 Dir.mkdir( “/Users/weston/” )  ＃创建目录，和*nix命令一样吧
 Dir.rmdir( “/Users/weston/test” ) # 删除目录
 Dir.mkdir( “/Users/weston/test”,755 ) #常见目录，设置权限
 </pre>
 
-
 <p>B.查看</p>
 
-<pre lang="ruby">d = Dir.entries( “/Users/weston” ).each { |e| puts e } #=> Array
+<pre lang="ruby">d = Dir.entries( “/Users/weston” ).each { |e| puts e } #=&gt; Array
 
 ＃ 当然会有些隐藏文件，很方便的用数组操作，不显示隐藏文件
 
-d2 = d.delete_if{ |e| e=~ /^..*/} #=>这样出来的就是不包含隐藏文件了
+d2 = d.delete_if{ |e| e=~ /^..*/} #=&gt;这样出来的就是不包含隐藏文件了
 
 </pre>
 
+<p>C. 打开目录</p>
 
-<ol type="a">
-<li>打开目录</li>
-</ol>
-
-
-<pre lang="ruby">dir = Dir.open( “/Users/weston” ) # => #&lt;Dir:0x1cd784> 
-dir.path # => “/Users/weston” 
-dir.tell # => “.” 
-dir.read # => 1
-dir.tell # => “..” 
-dir.rewind # => rewind to beginning 
+<pre lang="ruby">dir = Dir.open( “/Users/weston” ) # =&gt; #&lt;Dir:0x1cd784&gt; 
+dir.path # =&gt; “/Users/weston” 
+dir.tell # =&gt; “.” 
+dir.read # =&gt; 1
+dir.tell # =&gt; “..” 
+dir.rewind # =&gt; rewind to beginning 
 dir.each { |e| puts e } # puts each entry in dir 
-dir.close # => close stream 
+dir.close # =&gt; close stream 
 </pre>
-
 
 <ol>
-<li>文件（ Files ）</li>
-<li>创建</li>
+  <li>文件（ Files ）<br />
+A. 创建</li>
 </ol>
 
-
-<pre lang="ruby">file = File.new( “file.rb”, “w” ) # => #&lt;File:file.rb> 
+<pre lang="ruby">file = File.new( “file.rb”, “w” ) # =&gt; #&lt;File:file.rb&gt; 
 * 其中的w是表示可以写，还有很多模式：r, r+, w, w+, a, a+,b
 </pre>
 
-
-<ol type="a">
-<li>打开文件</li>
-</ol>
-
+<p>B. 打开文件</p>
 
 <pre lang="ruby">file = File.open( “sonnet_129.txt” ) 
 file.each { |line| print “#{file.lineno}. ”, line } 
@@ -193,11 +183,7 @@ file.close
 #lineno 是行号
 </pre>
 
-
-<ol type="a">
-<li>删除或重命名文件</li>
-</ol>
-
+<p>C. 删除或重命名文件</p>
 
 <pre lang="ruby">File.new( “books.txt”, “w” ) 
 File.rename( “books.txt”, “chaps.txt” ) 
@@ -205,11 +191,9 @@ File.delete( “chaps.txt” )
 
 </pre>
 
-
 <ol>
-<li>操作URI</li>
+  <li>操作URI</li>
 </ol>
-
 
 <pre lang="ruby">require 'open-uri' 
 url = “http://www.google.com/search?q=ruby” 
@@ -219,50 +203,46 @@ links.each {|link| puts link}
 }
 </pre>
 
-
 <ol>
-<li>File Inquiries</li>
+  <li>File Inquiries</li>
 </ol>
 
-
 <pre lang="ruby">File::open(“file.rb”) if File::exists?( “file.rb” ) 
-File.file?( “sonnet29.txt” ) # => true 
+File.file?( “sonnet29.txt” ) # =&gt; true 
 # try it with a directory 
-File::directory?( “/usr/local/bin” ) # => true 
+File::directory?( “/usr/local/bin” ) # =&gt; true 
 
 ＃ 是否是目录
 # try it with a file...oops 
-File::directory?( “file.rb” ) # => false 
+File::directory?( “file.rb” ) # =&gt; false 
 
 ＃ 文件操作权限
-File.readable?( “sonnet_119.txt” ) # => true 
-File.writable?( “sonnet_119.txt” ) # => true 
-File.executable?( “sonnet_119.txt” ) # => false 
+File.readable?( “sonnet_119.txt” ) # =&gt; true 
+File.writable?( “sonnet_119.txt” ) # =&gt; true 
+File.executable?( “sonnet_119.txt” ) # =&gt; false 
 system(“touch chap.txt”) # Create a zero-length file with a system command 
-File.zero?( “chap.txt” ) # => true 
+File.zero?( “chap.txt” ) # =&gt; true 
 
 
 ＃ 文件大小
 # Get its size in bytes withsize? orsize: 
-File.size?( “sonnet_129.txt” ) # => 594 
-File.size( “sonnet_129.txt” ) # => 594 
+File.size?( “sonnet_129.txt” ) # =&gt; 594 
+File.size( “sonnet_129.txt” ) # =&gt; 594 
 
 # 文件类型
 # Finally, inquire about the type of a file withftype: 
-File::ftype( “file.rb” ) # => “file” 
+File::ftype( “file.rb” ) # =&gt; “file” 
 ＃ 创建，修改时间
-File::ctime( “file.rb” ) # => Wed Nov 08 10:06:37 -0700 2006 
-File::mtime( “file.rb” ) # => Wed Nov 08 10:44:44 -0700 2006 
-File::atime( “file.rb” ) # => Wed Nov 08 10:45:01 -0700 2006 
+File::ctime( “file.rb” ) # =&gt; Wed Nov 08 10:06:37 -0700 2006 
+File::mtime( “file.rb” ) # =&gt; Wed Nov 08 10:44:44 -0700 2006 
+File::atime( “file.rb” ) # =&gt; Wed Nov 08 10:45:01 -0700 2006 
 
 
 </pre>
 
-
 <ol>
-<li>Changing File Modes and Owner</li>
+  <li>Changing File Modes and Owner</li>
 </ol>
-
 
 <pre lang="ruby">file = File.new( “books.txt”, “w” ) 
 file.chmod( 0755 ) 
@@ -270,12 +250,12 @@ file.chmod( 0755 )
 
 or: 
 file = File.new( “books.txt”, “w” ).chmod(0755 ) 
-system “ls -l books.txt” # => -rwxr-xr-x     1 mikejfz  mikejfz     0 Nov  8 22:13 
+system “ls -l books.txt” # =&gt; -rwxr-xr-x     1 mikejfz  mikejfz     0 Nov  8 22:13 
 books.txt
 </pre>
 
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/199">Ruby 读取目录（Diretories)，文件(files), 网页的几个方法小结</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/199">Ruby 读取目录（Diretories)，文件(files), 网页的几个方法小结</a></p>
 </div>
 
 
@@ -328,10 +308,10 @@ books.txt
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -356,8 +336,12 @@ books.txt
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -375,40 +359,7 @@ books.txt
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

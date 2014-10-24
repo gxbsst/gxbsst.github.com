@@ -9,8 +9,8 @@
   <meta name="author" content="Weston Wei(韦旭红)">
 
   
-  <meta name="description" content="如果客户订的EVF比送的REDONE多，而且那些EVF还没有全部送货 lines = ERP::SalesLine.find(:all, :conditions => [&#8216;item_id = ? OR item_id = ?&#8217;, &#8216;301001&#8217;, &#8216;101001&#8217;],
-:joins => &#8217; &hellip;&#8221;>
+  <meta name="description" content="如果客户订的EVF比送的REDONE多，而且那些EVF还没有全部送货 lines = ERP::SalesLine.find(:all, :conditions =&gt; ['item_id = ? OR item_id = ?', '301001', '101001'],
+:joins =& &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -93,9 +93,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -128,8 +128,8 @@ $(document).ready(
 <div class="entry-content"><p>如果客户订的EVF比送的REDONE多，而且那些EVF还没有全部送货</p>
 
 <pre lang="ruby">lines = ERP::SalesLine.find(:all, 
-:conditions => ['item_id =  ? OR item_id = ?', '301001', '101001'],
-:joins => 'JOIN erp_sales_orders ON erp_sales_orders.id = erp_sales_lines.erp_sales_order_id 
+:conditions =&gt; ['item_id =  ? OR item_id = ?', '301001', '101001'],
+:joins =&gt; 'JOIN erp_sales_orders ON erp_sales_orders.id = erp_sales_lines.erp_sales_order_id 
 JOIN erp_customers ON erp_customers.id = erp_sales_orders.erp_customer_id'
 )
 
@@ -138,7 +138,7 @@ result = {}
 lines.each do |line| 
 
   unless result.key?(  account  = line.sales_order.customer.account_num)
-    result.merge!( account => { :red_one => 0, :evf => 0, :remain_sales_physical => 0 } )
+    result.merge!( account =&gt; { :red_one =&gt; 0, :evf =&gt; 0, :remain_sales_physical =&gt; 0 } )
   end
   s = result[account]  
 
@@ -158,7 +158,7 @@ end
 
 accounts = []
 result.each do |key,value|
-  if (value[:red_one] > 0 and value[:red_one] >= value[:evf] and value[:remain_sales_physical] > 0)
+  if (value[:red_one] &gt; 0 and value[:red_one] &gt;= value[:evf] and value[:remain_sales_physical] &gt; 0)
     accounts &lt;&lt; (key)
     a = ERP::Customer.find_by_account_num(key)
     open("#{RAILS_ROOT}/log/accountn_numbers.log", "a+") { |file| file &lt;&lt; "#{key} #{}n" }
@@ -167,8 +167,8 @@ result.each do |key,value|
 end
 </pre>
 
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/168">查询订单demo</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/168">查询订单demo</a></p>
 </div>
 
 
@@ -221,10 +221,10 @@ end
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -249,8 +249,12 @@ end
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -268,40 +272,7 @@ end
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

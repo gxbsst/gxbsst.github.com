@@ -9,8 +9,7 @@
   <meta name="author" content="Weston Wei(韦旭红)">
 
   
-  <meta name="description" content="http://www.w3pop.com/learn/view/p/5/o//doc/php_xss/ PHP：用javascript来防止吧
-或者考虑检查 $_SERVER[&lsquo;HTTP_REFERER&rsquo;] * 但是别人是可以修改这个值的，所以不是完全的完全的 &hellip;">
+  <meta name="description" content="string highlight_file(string $file[,bool is_heighlight]) 有这个函数会帮你把代码heighlight输出网页，是相当的漂亮的… 它的姐妹函数是highlight_string(string $string[,bool &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -93,9 +92,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -103,6 +102,45 @@ $(document).ready(
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/170">一个很有意思的PHP函数 Highlight_file()</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2008-09-02T00:00:00+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/170#disqus_thread"
+             data-disqus-identifier="http://weixuhong.com/archives/170">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>string highlight_file(string $file[,bool is_heighlight])</p>
+
+<p>有这个函数会帮你把代码heighlight输出网页，是相当的漂亮的…</p>
+
+<p>它的姐妹函数是highlight_string(string $string[,bool is_heighlight])), 顾名思义，一个是string， 一个是file…</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/170">一个很有意思的PHP函数 highlight_file()</a></p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -129,14 +167,13 @@ $(document).ready(
 
 
   <div class="entry-content"><ul>
-<li><a href="http://www.w3pop.com/learn/view/p/5/o//doc/php_xss/  ">http://www.w3pop.com/learn/view/p/5/o//doc/php_xss/  </a>
-PHP：用javascript来防止吧<br/>
-或者考虑检查 $_SERVER[&lsquo;HTTP_REFERER&rsquo;] * 但是别人是可以修改这个值的，所以不是完全的完全的<br/>
-或者用和rails一样的解决方法<br/>
-根据一个惟一的字符串或时间戳生成一个令牌，并将这个令牌放在会话变量和表单中<br/>
+  <li>http://www.w3pop.com/learn/view/p/5/o//doc/php_xss/<br />
+PHP：用javascript来防止吧<br />
+或者考虑检查 $_SERVER[‘HTTP_REFERER’] * 但是别人是可以修改这个值的，所以不是完全的完全的<br />
+或者用和rails一样的解决方法<br />
+根据一个惟一的字符串或时间戳生成一个令牌，并将这个令牌放在会话变量和表单中<br />
 要创建随机的令牌，可以使用 PHP 内置的 md5()、uniqid() 和 rand() 函数，如下所示：</li>
 </ul>
-
 
 <pre lang="php"><?php  
 session_start();  
@@ -169,10 +206,10 @@ function cleanHex($input){
   
 </pre>
 
+<p>Rails: rails2.1在这方面做了些工作，在post数据的时候，会post过去一个安全码，Rails认出来表示正常，否则非法…</p>
 
-<p>Rails: rails2.1在这方面做了些工作，在post数据的时候，会post过去一个安全码，Rails认出来表示正常，否则非法&#8230;</p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/172">PHP 跨站点脚本攻击</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/172">PHP 跨站点脚本攻击</a></p>
 </div>
   
   
@@ -209,8 +246,7 @@ function cleanHex($input){
 
 </pre>
 
-
-<p>以上语句总是返回1。。。怎麽辦？對or &#8217;1&#8242;=&#8217;1&#8242;轉義，就用以下函數<br/>
+<p>以上语句总是返回1。。。怎麽辦？對or ’1′=’1′轉義，就用以下函數<br />
 mysql_real_escape_string()</p>
 
 <pre lang="php"><?php
@@ -241,8 +277,8 @@ header(“login.php”);
 
 </pre>
 
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/171">PHP防mysql注入有用的函数mysql_real_escape_string()</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/171">PHP防mysql注入有用的函数mysql_real_escape_string()</a></p>
 </div>
   
   
@@ -274,11 +310,12 @@ header(“login.php”);
   </header>
 
 
-  <div class="entry-content"><p>一直想看研究Rails的模板系统， 但总是有各种各样的原因，给延误了，之前也和我的同事Jerry Guo<a href="http://weixuhong.com/rubyruby-on-rails/2008/08/05/%E5%85%B3%E4%BA%8Erails%E5%BC%95%E7%94%A8binding%E7%9A%84%E5%AF%B9%E8%AF%9D/">讨论过这个问题</a>，但是一直没有把结果写出来，Jerry的这篇文章相信解了很多同学的疑问了&#8230;</p>
+  <div class="entry-content"><p>一直想看研究Rails的模板系统， 但总是有各种各样的原因，给延误了，之前也和我的同事Jerry Guo<a href="http://weixuhong.com/rubyruby-on-rails/2008/08/05/关于rails引用binding的对话/">讨论过这个问题</a>，但是一直没有把结果写出来，Jerry的这篇文章相信解了很多同学的疑问了…</p>
 
-<p>大家可以到这里访问: <a href="http://hozaka.blogspot.com/2008/08/actionview-erb-binding.html">http://hozaka.blogspot.com/2008/08/actionview-erb-binding.html</a></p>
+<p>大家可以到这里访问: http://hozaka.blogspot.com/2008/08/actionview-erb-binding.html</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/169">关于Rails模板系统的运行原理（ERP &amp; Binding)</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/169">关于Rails模板系统的运行原理（ERP &amp; Binding)</a></p>
+
 </div>
   
   
@@ -313,8 +350,8 @@ header(“login.php”);
   <div class="entry-content"><p>如果客户订的EVF比送的REDONE多，而且那些EVF还没有全部送货</p>
 
 <pre lang="ruby">lines = ERP::SalesLine.find(:all, 
-:conditions => ['item_id =  ? OR item_id = ?', '301001', '101001'],
-:joins => 'JOIN erp_sales_orders ON erp_sales_orders.id = erp_sales_lines.erp_sales_order_id 
+:conditions =&gt; ['item_id =  ? OR item_id = ?', '301001', '101001'],
+:joins =&gt; 'JOIN erp_sales_orders ON erp_sales_orders.id = erp_sales_lines.erp_sales_order_id 
 JOIN erp_customers ON erp_customers.id = erp_sales_orders.erp_customer_id'
 )
 
@@ -323,7 +360,7 @@ result = {}
 lines.each do |line| 
 
   unless result.key?(  account  = line.sales_order.customer.account_num)
-    result.merge!( account => { :red_one => 0, :evf => 0, :remain_sales_physical => 0 } )
+    result.merge!( account =&gt; { :red_one =&gt; 0, :evf =&gt; 0, :remain_sales_physical =&gt; 0 } )
   end
   s = result[account]  
 
@@ -343,7 +380,7 @@ end
 
 accounts = []
 result.each do |key,value|
-  if (value[:red_one] > 0 and value[:red_one] >= value[:evf] and value[:remain_sales_physical] > 0)
+  if (value[:red_one] &gt; 0 and value[:red_one] &gt;= value[:evf] and value[:remain_sales_physical] &gt; 0)
     accounts &lt;&lt; (key)
     a = ERP::Customer.find_by_account_num(key)
     open("#{RAILS_ROOT}/log/accountn_numbers.log", "a+") { |file| file &lt;&lt; "#{key} #{}n" }
@@ -352,8 +389,8 @@ result.each do |key,value|
 end
 </pre>
 
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/168">查询订单demo</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/168">查询订单demo</a></p>
 </div>
   
   
@@ -463,13 +500,12 @@ sudo make install
 cd ..
 </pre>
 
-
 <ul>
-<li>安装RMagick:sudo gem install RMagick</li>
+  <li>安装RMagick:sudo gem install RMagick</li>
 </ul>
 
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/163">Installing ImageMagick/RMagick on Leopard (脚本)</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/163">Installing ImageMagick/RMagick on Leopard (脚本)</a></p>
 </div>
   
   
@@ -503,83 +539,69 @@ cd ..
 
   <div class="entry-content"><p><span style="text-decoration:underline;">声明：以下故事純屬虛構</span><span style="text-decoration:underline;">, </span><span style="text-decoration:underline;">如有雷同，純屬巧合</span><span style="text-decoration:underline;">.</span></p>
 
-<p>一直不想在自己的Blog抒<span style="font-family:STHeiti;">发自己的感情，因为这样很容易被人骂无病呻吟</span>, 但是又不知道要把<span style="font-family:STHeiti;">这些内容放在哪里，为了让更少人往下看，我只有在标题加了个</span> “<span style="font-family:STHeiti;">转</span>” 字了&#8230;只希望以后自己老了以后，可以拿出来看看&#8230;</p>
+<p>一直不想在自己的Blog抒<span style="font-family:STHeiti;">发自己的感情，因为这样很容易被人骂无病呻吟</span>, 但是又不知道要把<span style="font-family:STHeiti;">这些内容放在哪里，为了让更少人往下看，我只有在标题加了个</span> “<span style="font-family:STHeiti;">转</span>” 字了…只希望以后自己老了以后，可以拿出来看看…</p>
 
-<p>其<span style="font-family:STHeiti;">实相信很多人都有这样几段的感情经历，当然如果初恋就能结婚，</span> <span style="font-family:STHeiti;">这会令很多人羡慕的吧</span>! 但不是每个人都是<span style="font-family:STHeiti;">这样</span>&#8230;</p>
+<p>其<span style="font-family:STHeiti;">实相信很多人都有这样几段的感情经历，当然如果初恋就能结婚，</span> <span style="font-family:STHeiti;">这会令很多人羡慕的吧</span>! 但不是每个人都是<span style="font-family:STHeiti;">这样</span>…</p>
 
-<p><strong>初恋</strong><br/>
-<span style="font-family:STHeiti;">记得最早的对异性有相思之苦的是高中的时候，那时坐在我旁边的是一个身材匀称，很小巧、可爱的</span>H， 其<span style="font-family:STHeiti;">实最初吸引我的是她走路的姿势，</span> <span style="font-family:STHeiti;">轻飘飘的，然后我就开始注意她的小脚，</span> 很白很<span style="font-family:STHeiti;">细，让我惊为天人（声明：</span> 我不是恋脚癖），因<span style="font-family:STHeiti;">为喜欢她走路的姿势，然后到注意她的脚，</span> 然后注意她的手，再到她的脖子（她的脖子很<span style="font-family:STHeiti;">细，看起来也很性感</span>)&#8230; 所以高中的<span style="font-family:STHeiti;">时候我就特别喜欢到夏天，</span> <span style="font-family:STHeiti;">这样她就会穿校裙，</span> 我就可以大<span style="font-family:STHeiti;">饱眼福了，</span> 也<span style="font-family:STHeiti;">许从那段时间养成的习惯，</span> 以后<span style="font-family:STHeiti;">谈朋友，都喜欢特别注意女性的脚，手，脖子，</span> <span style="font-family:STHeiti;">对于手脚粗，脖子短的，吸引力已经大打折扣了</span>&#8230;</p>
+<p><strong>初恋</strong><br />
+<span style="font-family:STHeiti;">记得最早的对异性有相思之苦的是高中的时候，那时坐在我旁边的是一个身材匀称，很小巧、可爱的</span>H， 其<span style="font-family:STHeiti;">实最初吸引我的是她走路的姿势，</span> <span style="font-family:STHeiti;">轻飘飘的，然后我就开始注意她的小脚，</span> 很白很<span style="font-family:STHeiti;">细，让我惊为天人（声明：</span> 我不是恋脚癖），因<span style="font-family:STHeiti;">为喜欢她走路的姿势，然后到注意她的脚，</span> 然后注意她的手，再到她的脖子（她的脖子很<span style="font-family:STHeiti;">细，看起来也很性感</span>)… 所以高中的<span style="font-family:STHeiti;">时候我就特别喜欢到夏天，</span> <span style="font-family:STHeiti;">这样她就会穿校裙，</span> 我就可以大<span style="font-family:STHeiti;">饱眼福了，</span> 也<span style="font-family:STHeiti;">许从那段时间养成的习惯，</span> 以后<span style="font-family:STHeiti;">谈朋友，都喜欢特别注意女性的脚，手，脖子，</span> <span style="font-family:STHeiti;">对于手脚粗，脖子短的，吸引力已经大打折扣了</span>…</p>
 
-<p>就<span style="font-family:STHeiti;">这样默默暗恋了人家一直到高中毕业，一直都不敢表白，</span> <span style="font-family:STHeiti;">现在想真是后悔死了，</span> <span style="font-family:STHeiti;">读大学的时候，</span> <span style="font-family:STHeiti;">还专门摄文抒发这段感情，</span> 后来知道她在一家婚<span style="font-family:STHeiti;">纱店工作，</span> 就<span style="font-family:STHeiti;">过去找他，但是已经发现她不是我心中完美的小天使了，她脸上长了很多雀斑，</span> 不知道<span style="font-family:STHeiti;">为什么刚</span>20<span style="font-family:STHeiti;">岁，就长这么多的雀斑？</span> 当<span style="font-family:STHeiti;">时我郁闷了一段时间，</span> 但是<span style="font-family:STHeiti;">还是还是没有表白</span>&#8230;</p>
+<p>就<span style="font-family:STHeiti;">这样默默暗恋了人家一直到高中毕业，一直都不敢表白，</span> <span style="font-family:STHeiti;">现在想真是后悔死了，</span> <span style="font-family:STHeiti;">读大学的时候，</span> <span style="font-family:STHeiti;">还专门摄文抒发这段感情，</span> 后来知道她在一家婚<span style="font-family:STHeiti;">纱店工作，</span> 就<span style="font-family:STHeiti;">过去找他，但是已经发现她不是我心中完美的小天使了，她脸上长了很多雀斑，</span> 不知道<span style="font-family:STHeiti;">为什么刚</span>20<span style="font-family:STHeiti;">岁，就长这么多的雀斑？</span> 当<span style="font-family:STHeiti;">时我郁闷了一段时间，</span> 但是<span style="font-family:STHeiti;">还是还是没有表白</span>…</p>
 
 <p>后来我来上海， 在网上也能<span style="font-family:STHeiti;">联系到她了，我也肆无忌惮的说她是我的初恋，</span> 当然是半开玩笑的， 她<span style="font-family:STHeiti;">骂我是傻子，</span> 后面在我强烈表白之后，她相信是真的， <span style="font-family:STHeiti;">给我一句：</span> 美好的<span style="font-family:STHeiti;">东西还是留给过去吧！</span> 当<span style="font-family:STHeiti;">时她正失恋，</span> 我只能安慰她， 但是我<span style="font-family:STHeiti;">们只是要好的朋友而已。</span></p>
 
-<p>今年回家<span style="font-family:STHeiti;">过年，</span> <span style="font-family:STHeiti;">请她出来吃了顿饭，</span> <span style="font-family:STHeiti;">这是我</span>7年之后第一次<span style="font-family:STHeiti;">见到她，</span> 只能感<span style="font-family:STHeiti;">叹时间已经把女人折磨成不成样子了</span>&#8230;最后我<span style="font-family:STHeiti;">们还是成为最好的异性朋友</span>&#8230;<span style="font-family:STHeiti;">时间可以冲淡一切的</span>&#8230;</p>
+<p>今年回家<span style="font-family:STHeiti;">过年，</span> <span style="font-family:STHeiti;">请她出来吃了顿饭，</span> <span style="font-family:STHeiti;">这是我</span>7年之后第一次<span style="font-family:STHeiti;">见到她，</span> 只能感<span style="font-family:STHeiti;">叹时间已经把女人折磨成不成样子了</span>…最后我<span style="font-family:STHeiti;">们还是成为最好的异性朋友</span>…<span style="font-family:STHeiti;">时间可以冲淡一切的</span>…</p>
 
-<p><strong>校园恋情</strong><br/>
-在<span style="font-family:STHeiti;">读大学的时候，</span> 曾<span style="font-family:STHeiti;">经有两段感情，</span> 也是<span style="font-family:STHeiti;">值得回忆的，因为在学校谈的也是很纯的</span>&#8230;</p>
+<p><strong>校园恋情</strong><br />
+在<span style="font-family:STHeiti;">读大学的时候，</span> 曾<span style="font-family:STHeiti;">经有两段感情，</span> 也是<span style="font-family:STHeiti;">值得回忆的，因为在学校谈的也是很纯的</span>…</p>
 
-<p>当<span style="font-family:STHeiti;">时在大学里，</span>M和D是两个很好的朋友， 真是不知道何德何能，D会喜<span style="font-family:STHeiti;">欢上我，</span> 但是当<span style="font-family:STHeiti;">时我暗恋的是</span>M， 但是当<span style="font-family:STHeiti;">时很傻，</span> 傻到想先和D<span style="font-family:STHeiti;">谈，然后等毕业了在分手，</span> 当<span style="font-family:STHeiti;">时我已经和</span>M<span style="font-family:STHeiti;">谈了，</span> M也同意我的做法， <span style="font-family:STHeiti;">这样谁都不伤害，</span> 但是后面<span style="font-family:STHeiti;">给</span>M的<span style="font-family:STHeiti;">妈妈知道了，</span> <span style="font-family:STHeiti;">这样的事情当然不能发生了，所以没有办法，</span> 只有在<span style="font-family:STHeiti;">毕业之前的几个月，用街道边的电话亭跟</span>D<span style="font-family:STHeiti;">说分手，当时找不到任何理由（很傻</span>)， 我知道D同学一定很<span style="font-family:STHeiti;">伤心，</span> 只是我当<span style="font-family:STHeiti;">时没有体会到，很明显，当时我就是彻头彻尾的混蛋，只是这个是在几年以后我才明白的</span>&#8230;</p>
+<p>当<span style="font-family:STHeiti;">时在大学里，</span>M和D是两个很好的朋友， 真是不知道何德何能，D会喜<span style="font-family:STHeiti;">欢上我，</span> 但是当<span style="font-family:STHeiti;">时我暗恋的是</span>M， 但是当<span style="font-family:STHeiti;">时很傻，</span> 傻到想先和D<span style="font-family:STHeiti;">谈，然后等毕业了在分手，</span> 当<span style="font-family:STHeiti;">时我已经和</span>M<span style="font-family:STHeiti;">谈了，</span> M也同意我的做法， <span style="font-family:STHeiti;">这样谁都不伤害，</span> 但是后面<span style="font-family:STHeiti;">给</span>M的<span style="font-family:STHeiti;">妈妈知道了，</span> <span style="font-family:STHeiti;">这样的事情当然不能发生了，所以没有办法，</span> 只有在<span style="font-family:STHeiti;">毕业之前的几个月，用街道边的电话亭跟</span>D<span style="font-family:STHeiti;">说分手，当时找不到任何理由（很傻</span>)， 我知道D同学一定很<span style="font-family:STHeiti;">伤心，</span> 只是我当<span style="font-family:STHeiti;">时没有体会到，很明显，当时我就是彻头彻尾的混蛋，只是这个是在几年以后我才明白的</span>…</p>
 
-<p>后面<span style="font-family:STHeiti;">毕业了，</span> 我和M同学去了更<span style="font-family:STHeiti;">远的地方工作，</span> 小两口在外面也<span style="font-family:STHeiti;">过得比较惬意，毕竟年轻嘛，</span> 其中， D同学也打<span style="font-family:STHeiti;">电话到我家咨询我到情况，</span> <span style="font-family:STHeiti;">现在想真是痛心啊</span>&#8230;当然后来跟M同学<span style="font-family:STHeiti;">发生了很多事情，</span> 有苦，有快<span style="font-family:STHeiti;">乐，</span> 有<span style="font-family:STHeiti;">伤心，</span> 有幸福， 但是没有<span style="font-family:STHeiti;">办法，最终以离散收场，</span> 当然承<span style="font-family:STHeiti;">认是别人甩了我，</span> 当<span style="font-family:STHeiti;">时比较不爽的，</span> <span style="font-family:STHeiti;">现在理智分析，</span> 我知道都是我的<span style="font-family:STHeiti;">错，</span> 我已<span style="font-family:STHeiti;">经没有任何怨言了</span>&#8230;很多歌曲或文章都<span style="font-family:STHeiti;">说分手亦是朋友，</span> 我想那是屁<span style="font-family:STHeiti;">话，</span> 反正分手之后，我再也没有M的任何信息， 也不想去关心， 只能<span style="font-family:STHeiti;">这么说：我们已经不能喜欢对方，因为我们彼此伤害过，</span> 也不能恨<span style="font-family:STHeiti;">对方，因为我们曾经相爱过。</span> 就当成<span style="font-family:STHeiti;">长过程的一段经历吧。</span> 和M分手后， 我打<span style="font-family:STHeiti;">电话给了</span>D， 倒不是想<span style="font-family:STHeiti;">倾诉什么苦，</span> 因<span style="font-family:STHeiti;">为我体会什么是苦，所以我必须赎罪，</span> 我要道歉&#8230;不<span style="font-family:STHeiti;">过还好，</span> D<span style="font-family:STHeiti;">过得很好，</span> 前年<span style="font-family:STHeiti;">结婚，去年生了个女儿，</span> 很可<span style="font-family:STHeiti;">爱，</span> 祝福她&#8230;<br/>
-* 关于以上的恋情，<span style="font-family:STHeiti;">还</span>有很多<span style="font-family:STHeiti;">东</span>西可以<span style="font-family:STHeiti;">书</span>写，本来我在2006年的<span style="font-family:STHeiti;">时</span>候就想写了，但是一直无从下手，只好再等等，也<span style="font-family:STHeiti;">许这</span>就像我当初的誓言，3年吧&#8230;.</p>
+<p>后面<span style="font-family:STHeiti;">毕业了，</span> 我和M同学去了更<span style="font-family:STHeiti;">远的地方工作，</span> 小两口在外面也<span style="font-family:STHeiti;">过得比较惬意，毕竟年轻嘛，</span> 其中， D同学也打<span style="font-family:STHeiti;">电话到我家咨询我到情况，</span> <span style="font-family:STHeiti;">现在想真是痛心啊</span>…当然后来跟M同学<span style="font-family:STHeiti;">发生了很多事情，</span> 有苦，有快<span style="font-family:STHeiti;">乐，</span> 有<span style="font-family:STHeiti;">伤心，</span> 有幸福， 但是没有<span style="font-family:STHeiti;">办法，最终以离散收场，</span> 当然承<span style="font-family:STHeiti;">认是别人甩了我，</span> 当<span style="font-family:STHeiti;">时比较不爽的，</span> <span style="font-family:STHeiti;">现在理智分析，</span> 我知道都是我的<span style="font-family:STHeiti;">错，</span> 我已<span style="font-family:STHeiti;">经没有任何怨言了</span>…很多歌曲或文章都<span style="font-family:STHeiti;">说分手亦是朋友，</span> 我想那是屁<span style="font-family:STHeiti;">话，</span> 反正分手之后，我再也没有M的任何信息， 也不想去关心， 只能<span style="font-family:STHeiti;">这么说：我们已经不能喜欢对方，因为我们彼此伤害过，</span> 也不能恨<span style="font-family:STHeiti;">对方，因为我们曾经相爱过。</span> 就当成<span style="font-family:STHeiti;">长过程的一段经历吧。</span> 和M分手后， 我打<span style="font-family:STHeiti;">电话给了</span>D， 倒不是想<span style="font-family:STHeiti;">倾诉什么苦，</span> 因<span style="font-family:STHeiti;">为我体会什么是苦，所以我必须赎罪，</span> 我要道歉…不<span style="font-family:STHeiti;">过还好，</span> D<span style="font-family:STHeiti;">过得很好，</span> 前年<span style="font-family:STHeiti;">结婚，去年生了个女儿，</span> 很可<span style="font-family:STHeiti;">爱，</span> 祝福她…<br />
+* 关于以上的恋情，<span style="font-family:STHeiti;">还</span>有很多<span style="font-family:STHeiti;">东</span>西可以<span style="font-family:STHeiti;">书</span>写，本来我在2006年的<span style="font-family:STHeiti;">时</span>候就想写了，但是一直无从下手，只好再等等，也<span style="font-family:STHeiti;">许这</span>就像我当初的誓言，3年吧….</p>
 
-<p><strong>上海之恋</strong><br/>
-因<span style="font-family:STHeiti;">为经历过刻骨铭心的感情经历之后，</span> 也<span style="font-family:STHeiti;">许已经对新的恋情找不到任何的激情了，</span> <span style="font-family:STHeiti;">这样感觉很可怕。</span><br/>
-<span style="font-family:STHeiti;">刚开始到上海的时候，</span> 可能是因<span style="font-family:STHeiti;">为无聊，就厚着脸皮追了</span>z妹妹， 不<span style="font-family:STHeiti;">过人家也接受了</span>&#8230;但是就是不是我喜<span style="font-family:STHeiti;">欢的，我知道我在玩弄感情，</span> <span style="font-family:STHeiti;">这种状态就这样过了一年，</span> 后来z妹妹叫我打<span style="font-family:STHeiti;">电话给她妈妈，</span> 吓我一跳， 她希望我能和她<span style="font-family:STHeiti;">结婚，</span> 我<span style="font-family:STHeiti;">觉得这怎么可能，</span> 她<span style="font-family:STHeiti;">绝对不是我喜欢的类型，</span> 算了，不要欺<span style="font-family:STHeiti;">骗别人，</span> 也不要欺<span style="font-family:STHeiti;">骗自己吧，</span> 也<span style="font-family:STHeiti;">许这样的罪恶感会少点，</span> 最后我<span style="font-family:STHeiti;">还提出了分手，</span> <span style="font-family:STHeiti;">这次还好，能说出很多理由</span>&#8230;虽然她很<span style="font-family:STHeiti;">伤心，</span> 也想挽回， 但是我已<span style="font-family:STHeiti;">经不给自己任何机会了</span>&#8230;后面我听<span style="font-family:STHeiti;">说她和他那边的小伙子谈恋爱了，我也祝福他们</span>&#8230;</p>
+<p><strong>上海之恋</strong><br />
+因<span style="font-family:STHeiti;">为经历过刻骨铭心的感情经历之后，</span> 也<span style="font-family:STHeiti;">许已经对新的恋情找不到任何的激情了，</span> <span style="font-family:STHeiti;">这样感觉很可怕。</span><br />
+<span style="font-family:STHeiti;">刚开始到上海的时候，</span> 可能是因<span style="font-family:STHeiti;">为无聊，就厚着脸皮追了</span>z妹妹， 不<span style="font-family:STHeiti;">过人家也接受了</span>…但是就是不是我喜<span style="font-family:STHeiti;">欢的，我知道我在玩弄感情，</span> <span style="font-family:STHeiti;">这种状态就这样过了一年，</span> 后来z妹妹叫我打<span style="font-family:STHeiti;">电话给她妈妈，</span> 吓我一跳， 她希望我能和她<span style="font-family:STHeiti;">结婚，</span> 我<span style="font-family:STHeiti;">觉得这怎么可能，</span> 她<span style="font-family:STHeiti;">绝对不是我喜欢的类型，</span> 算了，不要欺<span style="font-family:STHeiti;">骗别人，</span> 也不要欺<span style="font-family:STHeiti;">骗自己吧，</span> 也<span style="font-family:STHeiti;">许这样的罪恶感会少点，</span> 最后我<span style="font-family:STHeiti;">还提出了分手，</span> <span style="font-family:STHeiti;">这次还好，能说出很多理由</span>…虽然她很<span style="font-family:STHeiti;">伤心，</span> 也想挽回， 但是我已<span style="font-family:STHeiti;">经不给自己任何机会了</span>…后面我听<span style="font-family:STHeiti;">说她和他那边的小伙子谈恋爱了，我也祝福他们</span>…</p>
 
-<p>今年，真的想<span style="font-family:STHeiti;">谈一段纯的感情，</span> <span style="font-family:STHeiti;">经同事介绍，认识了</span>T， T是没有任何<span style="font-family:STHeiti;">闪光点的一个人，</span> 但是有<span style="font-family:STHeiti;">时我就喜欢她呆呆的样子，很可爱</span>&#8230;但是<span style="font-family:STHeiti;">说实话，我感觉我和她有时更像哥妹，</span> 至少到<span style="font-family:STHeiti;">现在还没有出任何火花，</span> 也<span style="font-family:STHeiti;">许是我心里的保护意识太强了吧，</span> 所以有<span style="font-family:STHeiti;">时就比较冷谈，</span> T好像也感<span style="font-family:STHeiti;">觉到了，</span> 但是她什么也没有<span style="font-family:STHeiti;">说，</span> 我不知道我<span style="font-family:STHeiti;">们下去会是怎么样？</span></p>
+<p>今年，真的想<span style="font-family:STHeiti;">谈一段纯的感情，</span> <span style="font-family:STHeiti;">经同事介绍，认识了</span>T， T是没有任何<span style="font-family:STHeiti;">闪光点的一个人，</span> 但是有<span style="font-family:STHeiti;">时我就喜欢她呆呆的样子，很可爱</span>…但是<span style="font-family:STHeiti;">说实话，我感觉我和她有时更像哥妹，</span> 至少到<span style="font-family:STHeiti;">现在还没有出任何火花，</span> 也<span style="font-family:STHeiti;">许是我心里的保护意识太强了吧，</span> 所以有<span style="font-family:STHeiti;">时就比较冷谈，</span> T好像也感<span style="font-family:STHeiti;">觉到了，</span> 但是她什么也没有<span style="font-family:STHeiti;">说，</span> 我不知道我<span style="font-family:STHeiti;">们下去会是怎么样？</span></p>
 
-<p>上个星期五， 去喝朋友的喜酒， 遇<span style="font-family:STHeiti;">见了</span>W， 我被她吸引住了， 我已<span style="font-family:STHeiti;">经好久好久没有这种感觉了，</span> 我被她<span style="font-family:STHeiti;">说话的声音，</span> 她的性格吸引住了(很直爽)&#8230;本来我<span style="font-family:STHeiti;">对异性很少说脸红的时候，</span> 一般都能找到<span style="font-family:STHeiti;">话题，</span> 不知道<span style="font-family:STHeiti;">为什么当晚，</span> 面<span style="font-family:STHeiti;">对她，</span> 我竟然有点不知所措，甚至有些窒息的感<span style="font-family:STHeiti;">觉</span>， 但是<span style="font-family:STHeiti;">这样的感觉我觉得很高兴，这才是我自己的真实体现</span>&#8230; 吃完<span style="font-family:STHeiti;">饭，</span> 大家各自回去， 但是我心里<span style="font-family:STHeiti;">还是不听的想她，</span> 在网上，就希望她在<span style="font-family:STHeiti;">线（我写这篇搏文的时候，</span> 她正在去吃<span style="font-family:STHeiti;">饭</span>), 但是她在<span style="font-family:STHeiti;">线，</span> 我又不敢和她聊天， 我<span style="font-family:STHeiti;">总是找出很多理由，</span> <span style="font-family:STHeiti;">说服自己对这份感情是不可能的，</span> 不段的<span style="font-family:STHeiti;">说服自己，</span> 但是到后面越来越来勉强了&#8230;以至于昨晚睡<span style="font-family:STHeiti;">觉的时候，</span> 心中所想都是她， 我失眠了&#8230;我已<span style="font-family:STHeiti;">经很久很久没有这样的感觉了，也许我的判断是对的，</span> 如果<span style="font-family:STHeiti;">谈下去，也不会有任何的结果，</span> 但是有<span style="font-family:STHeiti;">这样的感觉就好，</span> <span style="font-family:STHeiti;">说明我还未死去</span>&#8230;</p>
+<p>上个星期五， 去喝朋友的喜酒， 遇<span style="font-family:STHeiti;">见了</span>W， 我被她吸引住了， 我已<span style="font-family:STHeiti;">经好久好久没有这种感觉了，</span> 我被她<span style="font-family:STHeiti;">说话的声音，</span> 她的性格吸引住了(很直爽)…本来我<span style="font-family:STHeiti;">对异性很少说脸红的时候，</span> 一般都能找到<span style="font-family:STHeiti;">话题，</span> 不知道<span style="font-family:STHeiti;">为什么当晚，</span> 面<span style="font-family:STHeiti;">对她，</span> 我竟然有点不知所措，甚至有些窒息的感<span style="font-family:STHeiti;">觉</span>， 但是<span style="font-family:STHeiti;">这样的感觉我觉得很高兴，这才是我自己的真实体现</span>… 吃完<span style="font-family:STHeiti;">饭，</span> 大家各自回去， 但是我心里<span style="font-family:STHeiti;">还是不听的想她，</span> 在网上，就希望她在<span style="font-family:STHeiti;">线（我写这篇搏文的时候，</span> 她正在去吃<span style="font-family:STHeiti;">饭</span>), 但是她在<span style="font-family:STHeiti;">线，</span> 我又不敢和她聊天， 我<span style="font-family:STHeiti;">总是找出很多理由，</span> <span style="font-family:STHeiti;">说服自己对这份感情是不可能的，</span> 不段的<span style="font-family:STHeiti;">说服自己，</span> 但是到后面越来越来勉强了…以至于昨晚睡<span style="font-family:STHeiti;">觉的时候，</span> 心中所想都是她， 我失眠了…我已<span style="font-family:STHeiti;">经很久很久没有这样的感觉了，也许我的判断是对的，</span> 如果<span style="font-family:STHeiti;">谈下去，也不会有任何的结果，</span> 但是有<span style="font-family:STHeiti;">这样的感觉就好，</span> <span style="font-family:STHeiti;">说明我还未死去</span>…</p>
 
-<p>更新：<br/>
-<span style="font-family:STHeiti;">经过长时间</span>考<span style="font-family:STHeiti;">虑</span>，我已<span style="font-family:STHeiti;">经</span>决定放弃<span style="font-family:STHeiti;">这</span>次心<span style="font-family:STHeiti;">动</span>了，感<span style="font-family:STHeiti;">觉</span>虽然是美好的，但是思念更加的痛苦， 也<span style="font-family:STHeiti;">许</span>理想和<span style="font-family:STHeiti;">现实总</span>是有差距的吧&#8230; 人在很多<span style="font-family:STHeiti;">现实</span>面前，<span style="font-family:STHeiti;">总</span>要做些<span style="font-family:STHeiti;">让</span>步， 我已<span style="font-family:STHeiti;">经对</span>生活的些事情做些<span style="font-family:STHeiti;">让</span>步， <span style="font-family:STHeiti;">这</span>是我得以<span style="font-family:STHeiti;">专</span>注工作的原因之一， 因<span style="font-family:STHeiti;">为</span>我知道有些事情，我是不可以控制的，但是有些事情， 就是我要怎么做，我自己是可以控制的&#8230;</p>
+<p>更新：<br />
+<span style="font-family:STHeiti;">经过长时间</span>考<span style="font-family:STHeiti;">虑</span>，我已<span style="font-family:STHeiti;">经</span>决定放弃<span style="font-family:STHeiti;">这</span>次心<span style="font-family:STHeiti;">动</span>了，感<span style="font-family:STHeiti;">觉</span>虽然是美好的，但是思念更加的痛苦， 也<span style="font-family:STHeiti;">许</span>理想和<span style="font-family:STHeiti;">现实总</span>是有差距的吧… 人在很多<span style="font-family:STHeiti;">现实</span>面前，<span style="font-family:STHeiti;">总</span>要做些<span style="font-family:STHeiti;">让</span>步， 我已<span style="font-family:STHeiti;">经对</span>生活的些事情做些<span style="font-family:STHeiti;">让</span>步， <span style="font-family:STHeiti;">这</span>是我得以<span style="font-family:STHeiti;">专</span>注工作的原因之一， 因<span style="font-family:STHeiti;">为</span>我知道有些事情，我是不可以控制的，但是有些事情， 就是我要怎么做，我自己是可以控制的…</p>
 
-<p><span style="font-family:STHeiti;">这</span>段<span style="font-family:STHeiti;">时间</span>一直和黄Sir<span style="font-family:STHeiti;">讨论</span>投<span style="font-family:STHeiti;">资</span>方面的<span style="font-family:STHeiti;">问题</span>，当然<span style="font-family:STHeiti;">现</span>在我<span style="font-family:STHeiti;">们</span>真的没有找到好突破口， 但是我<span style="font-family:STHeiti;">们</span>真的付出了，真的想了，我也一直<span style="font-family:STHeiti;">坚</span>信<span style="font-family:STHeiti;">这样</span>会有好的<span style="font-family:STHeiti;">结</span>果， <span style="font-family:STHeiti;">这样</span>的信念一直未<span style="font-family:STHeiti;">变</span>， 当然我也知道<span style="font-family:STHeiti;">过</span>程是相当的痛苦， <span style="font-family:STHeiti;">这就是我或我们的宿命&#8230;</span></p>
+<p><span style="font-family:STHeiti;">这</span>段<span style="font-family:STHeiti;">时间</span>一直和黄Sir<span style="font-family:STHeiti;">讨论</span>投<span style="font-family:STHeiti;">资</span>方面的<span style="font-family:STHeiti;">问题</span>，当然<span style="font-family:STHeiti;">现</span>在我<span style="font-family:STHeiti;">们</span>真的没有找到好突破口， 但是我<span style="font-family:STHeiti;">们</span>真的付出了，真的想了，我也一直<span style="font-family:STHeiti;">坚</span>信<span style="font-family:STHeiti;">这样</span>会有好的<span style="font-family:STHeiti;">结</span>果， <span style="font-family:STHeiti;">这样</span>的信念一直未<span style="font-family:STHeiti;">变</span>， 当然我也知道<span style="font-family:STHeiti;">过</span>程是相当的痛苦， <span style="font-family:STHeiti;">这就是我或我们的宿命…</span></p>
 
-<p>也<span style="font-family:STHeiti;">许</span>哪一天我真的会<span style="font-family:STHeiti;">远离这</span>座城市&#8230;</p>
+<p>也<span style="font-family:STHeiti;">许</span>哪一天我真的会<span style="font-family:STHeiti;">远离这</span>座城市…</p>
 
 <ul>
-<li>其中有位女孩我不能不提到就是J, 像<span style="font-family:STHeiti;">这样说话</span>口无遮<span style="font-family:STHeiti;">拦</span>的人，当然会引起人家的<span style="font-family:STHeiti;">误</span>会了，J是向我表白<span style="font-family:STHeiti;">过</span>的，但是我没有做任何回<span style="font-family:STHeiti;">应</span>，因<span style="font-family:STHeiti;">为</span>我<span style="font-family:STHeiti;">觉</span>得她是个太好的女孩子， 我不想<span style="font-family:STHeiti;">伤</span>害她，<span style="font-family:STHeiti;">这样连</span>朋友都没有得做了&#8230;因<span style="font-family:STHeiti;">为</span>我知道一个道理， 朋友比恋人的关系更<span style="font-family:STHeiti;">长</span>久&#8230;</li>
-<li>以上我相信会很多雷同的地方， 但是不管你<span style="font-family:STHeiti;">认为</span>是不是你，都不用多想吧， 只愿意我以上提到的人，你<span style="font-family:STHeiti;">们</span>都<span style="font-family:STHeiti;">过</span>得很好，<span style="font-family:STHeiti;">这</span>个是真心的愿望</li>
-<li>从98年到<span style="font-family:STHeiti;">现</span>在，一直陪伴我的老<span style="font-family:STHeiti;">师</span>， 他<span style="font-family:STHeiti;">让</span>我真的一步步走出困境， <span style="font-family:STHeiti;">我一定好好遵从他的话，好好做下去, 因为我是一定要回去的，不管付出多少，也许我现在真的做的不好，对不起，老师:-(<br /> * 最近老是有奇怪的想法，想去香港或者新西兰，或者其它地方工作&#8230;也许这就是我不安分的因素都在起作用了<br /> * Mr Lu 生了一个女儿， 希望这个小宝宝能好好成长<br /> * HAN ，我不知道他现在怎么样了<br /> * 其实在工作中的牢骚不是我真意，我不是这么想不开的人&#8230;<br /> * 我现在所做的工作，就是希望有一天， 我可以脱离Coding这个工作，如果没有更好的工作，我会不会去摆地摊的呢&#8230;</p> <p>
-8.15<br /> 决定放弃之后，我的心理压力轻松了许多， 至少说心无旁骛了，原来的过去几天都是感到心情沉重的，原来是因为我想得到太多了， 想通就好了，感谢生活所给予我的一切&#8230;
-</p></li>
+  <li>其中有位女孩我不能不提到就是J, 像<span style="font-family:STHeiti;">这样说话</span>口无遮<span style="font-family:STHeiti;">拦</span>的人，当然会引起人家的<span style="font-family:STHeiti;">误</span>会了，J是向我表白<span style="font-family:STHeiti;">过</span>的，但是我没有做任何回<span style="font-family:STHeiti;">应</span>，因<span style="font-family:STHeiti;">为</span>我<span style="font-family:STHeiti;">觉</span>得她是个太好的女孩子， 我不想<span style="font-family:STHeiti;">伤</span>害她，<span style="font-family:STHeiti;">这样连</span>朋友都没有得做了…因<span style="font-family:STHeiti;">为</span>我知道一个道理， 朋友比恋人的关系更<span style="font-family:STHeiti;">长</span>久…  </li>
+  <li>以上我相信会很多雷同的地方， 但是不管你<span style="font-family:STHeiti;">认为</span>是不是你，都不用多想吧， 只愿意我以上提到的人，你<span style="font-family:STHeiti;">们</span>都<span style="font-family:STHeiti;">过</span>得很好，<span style="font-family:STHeiti;">这</span>个是真心的愿望  </li>
+  <li>从98年到<span style="font-family:STHeiti;">现</span>在，一直陪伴我的老<span style="font-family:STHeiti;">师</span>， 他<span style="font-family:STHeiti;">让</span>我真的一步步走出困境， <span style="font-family:STHeiti;">我一定好好遵从他的话，好好做下去, 因为我是一定要回去的，不管付出多少，也许我现在真的做的不好，对不起，老师:-(<br /> * 最近老是有奇怪的想法，想去香港或者新西兰，或者其它地方工作…也许这就是我不安分的因素都在起作用了<br /> * Mr Lu 生了一个女儿， 希望这个小宝宝能好好成长<br /> * HAN ，我不知道他现在怎么样了<br /> * 其实在工作中的牢骚不是我真意，我不是这么想不开的人…<br /> * 我现在所做的工作，就是希望有一天， 我可以脱离Coding这个工作，如果没有更好的工作，我会不会去摆地摊的呢…&lt;/p&gt; &lt;p&gt;
+8.15<br /> 决定放弃之后，我的心理压力轻松了许多， 至少说心无旁骛了，原来的过去几天都是感到心情沉重的，原来是因为我想得到太多了， 想通就好了，感谢生活所给予我的一切…</span></li>
 </ul>
-
+<p>&lt;/p&gt;</p>
 
 <p>
   8.23
 </p>
 
-
-
-
 <p>
   这段时间老是在想出国的事情，今天咨询了一个移民咨询的公司， 她跟我讲如果要移民到加拿大，至少雅思要有4门是7分，澳大利亚是6分，而且是要等1年多两年的时间&#8230;也许我更希望能找到一份工作是在境外的，希望下一分工作是这样吧&#8230;
 </p>
-
-
-
 
 <p>
   11.17
 </p>
 
-
-
-
 <p>
-  前两个星期， T向我提出了分手， 我竟然没有感觉， 感觉无所谓这样&#8230;这个和预料的一样， 女孩子先提出分手，这样对大家都好&#8230;既然不能给人家幸福， 那就放手吧&#8230;祝她找到好的归宿了 <img src="http://www.weixuhong.com/content/themes/d82.0/img/smilies/icon_smile.gif" alt=":-)" class="wp-smiley" /><br /> </span>
+  前两个星期， T向我提出了分手， 我竟然没有感觉， 感觉无所谓这样&#8230;这个和预料的一样， 女孩子先提出分手，这样对大家都好&#8230;既然不能给人家幸福， 那就放手吧&#8230;祝她找到好的归宿了 <img src="http://www.weixuhong.com/content/themes/d82.0/img/smilies/icon_smile.gif" alt=":-)" class="wp-smiley" /><br /> 
 </p>
-
-
-
 
 <p>
   转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/164">情感事（转)</a>
 </p>
-
 </div>
   
   
@@ -614,20 +636,20 @@ cd ..
   <div class="entry-content"><pre lang="c">3 # Core Website/ERP &#038; RSS Sync Tools
  4 # m h  dom mon dow   command
  5   0  0   15  *   *    cd /dir &#038;&#038; rake db:ipdb:create
- 6   0  0   *   *   *    cd /dir &#038;&#038; RAILS_ENV=production rake report:website_ax_variance >/dev/null 
- 7   0  0   *   *   *    cd /dir &#038;&#038; RAILS_ENV=production rake report:website_ax_inventories_variance >/dev/null 
- 8 */15 *   *   *   *    cd /dir &#038;&#038; RAILS_ENV=production rake rss:refresh >/dev/null 
- 9   0 */4  *   *   *    cd /dir &#038;&#038; RAILS_ENV=production rake ax:hourly >/dev/null 2>&#038;1
-10   0 */1  *   *   *    /dir/script/erp_process_batch production >/dev/null 2>&#038;1 &lt;/dev/null
+ 6   0  0   *   *   *    cd /dir &#038;&#038; RAILS_ENV=production rake report:website_ax_variance &gt;/dev/null 
+ 7   0  0   *   *   *    cd /dir &#038;&#038; RAILS_ENV=production rake report:website_ax_inventories_variance &gt;/dev/null 
+ 8 */15 *   *   *   *    cd /dir &#038;&#038; RAILS_ENV=production rake rss:refresh &gt;/dev/null 
+ 9   0 */4  *   *   *    cd /dir &#038;&#038; RAILS_ENV=production rake ax:hourly &gt;/dev/null 2&gt;&#038;1
+10   0 */1  *   *   *    /dir/script/erp_process_batch production &gt;/dev/null 2&gt;&#038;1 &lt;/dev/null
 11 # Run the AX Customer/Sales Order Update Every 5 Minutes...
-12  */5 *   *   *   *    cd /dir &#038;&#038; RAILS_ENV=production rake erp:sync >/dev/null 
+12  */5 *   *   *   *    cd /dir &#038;&#038; RAILS_ENV=production rake erp:sync &gt;/dev/null 
 13 
 14 # Delete Expired Cache Files
 15 */30 *   *   *   *    find /dir/public/downloads/ -noleaf -cmin +30 -delete
 16   1  *   *   *   *    find /dir/tmp/sessions -noleaf -name 'ruby_sess*' -ctime +1 -delete
 17   1  *   *   *   *    find /dir/tmp/cache/ -noleaf -name “_*.cache” | xargs rm -f
 18 */15 *   *   *   *    rm -f /dir/public/{zh_CN.html,cs_CZ.html,es_ES.html,ja_JP.html,index.html}
-19   1  *   *   *   *    find /tmp -noleaf -name 'ruby_sess*' -ctime +1 -delete >/dev/null
+19   1  *   *   *   *    find /tmp -noleaf -name 'ruby_sess*' -ctime +1 -delete &gt;/dev/null
 20 
 21 # Backup Databases
 22   2  *   *   *   *    /var/www/store/current/script/backup_db.sh 
@@ -645,11 +667,11 @@ cd ..
 
 24* #!/bin/bash
 EXTENSION=`/bin/date “+%Y-%m-%d”`
-/usr/bin/mysqldump -A --default-character-set=utf8 -u root -p passwd database | gzip --fast > /mail_backup/database.$EXTENSION.gz
+/usr/bin/mysqldump -A --default-character-set=utf8 -u root -p passwd database | gzip --fast &gt; /mail_backup/database.$EXTENSION.gz
 </pre>
 
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/162">crontab demo</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/162">crontab demo</a></p>
 </div>
   
   
@@ -682,73 +704,75 @@ EXTENSION=`/bin/date “+%Y-%m-%d”`
 
 
   <div class="entry-content"><ul>
-<li>以下是我同事Jerry的谈话介绍</li>
+  <li>以下是我同事Jerry的谈话介绍</li>
 </ul>
 
+<p>鸡蛋黄(77883817) 19:29:17<br />
+我说的简单了点，真正的 Rails 的代码会另外复制一个状态创造 binding 的 </p>
 
-<p>鸡蛋黄(77883817) 19:29:17<br/>
-我说的简单了点，真正的 Rails 的代码会另外复制一个状态创造 binding 的</p>
+<p>鸡蛋黄(77883817) 19:29:44<br />
+比如有个模板是 &lt;%= @name %&gt; </p>
 
-<p>鸡蛋黄(77883817) 19:29:44<br/>
-比如有个模板是 &lt;%= @name %></p>
+<p>鸡蛋黄(77883817) 19:30:09<br />
+然后有个对象<br />
+class People<br />
+def initialize(name)<br />
+@name = name<br />
+end<br />
+end </p>
 
-<p>鸡蛋黄(77883817) 19:30:09<br/>
-然后有个对象<br/>
-class People<br/>
-def initialize(name)<br/>
-@name = name<br/>
-end<br/>
-end</p>
+<p>鸡蛋黄(77883817) 19:30:29<br />
+那么 People.new(“your name”).send(:binding) 就会得到一个 binding 对象 </p>
 
-<p>鸡蛋黄(77883817) 19:30:29<br/>
-那么 People.new(“your name”).send(:binding) 就会得到一个 binding 对象</p>
+<p>鸡蛋黄(77883817) 19:30:51<br />
+可以说这个对象就是保存了这个 people 实例的环境，自然包括了 @name </p>
 
-<p>鸡蛋黄(77883817) 19:30:51<br/>
-可以说这个对象就是保存了这个 people 实例的环境，自然包括了 @name</p>
+<p>微风(297749) 19:31:13<br />
+binding是这个对象的context，可以这样理解？ </p>
 
-<p>微风(297749) 19:31:13<br/>
-binding是这个对象的context，可以这样理解？</p>
+<p>鸡蛋黄(77883817) 19:31:15<br />
+ERB.new(“&lt;%= @name %&gt;”).result( binding ) 能得到结果 </p>
 
-<p>鸡蛋黄(77883817) 19:31:15<br/>
-ERB.new(“&lt;%= @name %>”).result( binding ) 能得到结果</p>
+<p>鸡蛋黄(77883817) 19:31:17<br />
+可以 </p>
 
-<p>鸡蛋黄(77883817) 19:31:17<br/>
-可以</p>
+<p>鸡蛋黄(77883817) 19:31:35<br />
+有了binding </p>
 
-<p>鸡蛋黄(77883817) 19:31:35<br/>
-有了binding</p>
+<p>鸡蛋黄(77883817) 19:31:42<br />
+甚至可以调用私有方法…… </p>
 
-<p>鸡蛋黄(77883817) 19:31:42<br/>
-甚至可以调用私有方法……</p>
+<p>古月星辰(65009835) 19:31:44<br />
+可以给action指定layout吗？ </p>
 
-<p>古月星辰(65009835) 19:31:44<br/>
-可以给action指定layout吗？</p>
+<p>鸡蛋黄(77883817) 19:31:46<br />
+有点不太干净哦？ </p>
 
-<p>鸡蛋黄(77883817) 19:31:46<br/>
-有点不太干净哦？</p>
-
-<p>鸡蛋黄(77883817) 19:31:58<br/>
-render :action => “action”, :layout => “abc</p>
+<p>鸡蛋黄(77883817) 19:31:58<br />
+render :action =&gt; “action”, :layout =&gt; “abc </p>
 
 <ul>
-<li><ol>
-<li>将实例的变量放到binding环境<br/>
-People.new(”your name“).send(:binding)</li>
-</ol>
-</li>
-<li><ol>
-<li>引用binding的环境的变量&#8230;<br/>
-ERB.new(”&lt;%= @name %>“).result( binding )</li>
-</ol>
-</li>
-<li><ol>
-<li>甚至可以调用私有方法…… (如果People有私有方法，也可以调用)</li>
-</ol>
-</li>
+  <li>
+    <ol>
+      <li>将实例的变量放到binding环境<br />
+People.new(”your name“).send(:binding)  </li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>引用binding的环境的变量…<br />
+ERB.new(”&lt;%= @name %&gt;“).result( binding )  </li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>甚至可以调用私有方法…… (如果People有私有方法，也可以调用)</li>
+    </ol>
+  </li>
 </ul>
 
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/161">关于rails引用binding的对话</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/161">关于rails引用binding的对话</a></p>
 </div>
   
   
@@ -782,77 +806,24 @@ ERB.new(”&lt;%= @name %>“).result( binding )</li>
 
   <div class="entry-content"><p>为了方便程序的处理，我需要将数据库的数据导入文本</p>
 
-<p>select * from mail_tasks into outfile “/Users/weston/test/test.txt”;<br/>
+<p>select * from mail_tasks into outfile “/Users/weston/test/test.txt”;<br />
 *确定test这个文件夹的写权限</p>
 
-<p>后面有空我将介绍用程序怎么处理文本&#8230;</p>
+<p>后面有空我将介绍用程序怎么处理文本…</p>
 
-<p>更新:<br/>
+<p>更新:<br />
 我想用其他方法把文本的字段直接都转成数组，但都不是很理想，水平有限吧，我用了一个折中的方法，就是把内容复制到Excel，然后导出CVS文件，这样就好办了</p>
 
-<p>require &#8216;fastercsv&#8217;</p>
+<p>require ‘fastercsv’</p>
 
-<p>csv = FasterCSV.read(&#8216;test.csv&#8217;) #=>Array</p>
+<p>csv = FasterCSV.read(‘test.csv’) #=&gt;Array</p>
 
-<p>然後還有什麽事情不可以做的呢&#8230;.</p>
+<p>然後還有什麽事情不可以做的呢….</p>
 
-<p>*水平有限，真的需要指正，謝謝&#8230;.</p>
+<p>*水平有限，真的需要指正，謝謝….</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/160">用mysql命令将数据导入到文本</a></p>
-</div>
-  
-  
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/160">用mysql命令将数据导入到文本</a></p>
 
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/archives/159">Ruby Long String Block(ruby长字符串的处理)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2008-07-27T00:00:00+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
-        
-           | <a href="/archives/159#disqus_thread"
-             data-disqus-identifier="http://weixuhong.com/archives/159">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://rubyluabridge.rubyforge.org/">http://rubyluabridge.rubyforge.org/</a></p>
-
-<p>*主要是为了使用long string，不用写些转义字符&#8230;</p>
-
-<pre lang="ruby">l.eval &lt;&lt;LUA_END
-        n = 5                 -- see how Ruby long strings
-        s = "hello"           -- make it easy to embed Lua code?
-        a = { 1, 2, 3, 4 }
-        h = { a='x', b='y', }
-   LUA_END
-   l.n       # => 5
-   l.s       # => “hello”
-   l.a       # => Lua::Table
-   l.a[1]    # => 1
-   l.h       # => Lua::Table
-   l.h['a']  # => “x”
-   l.h.a     # => “x”
-</pre>
-
-
-<p>*当然这个LUA_END，主要是和下面的配对就行吧&#8230;.</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/159">Ruby long string block(ruby长字符串的处理)</a></p>
 </div>
   
   
@@ -873,10 +844,10 @@ ERB.new(”&lt;%= @name %>“).result( binding )</li>
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -901,8 +872,12 @@ ERB.new(”&lt;%= @name %>“).result( binding )</li>
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -920,40 +895,7 @@ ERB.new(”&lt;%= @name %>“).result( binding )</li>
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

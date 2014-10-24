@@ -9,7 +9,9 @@
   <meta name="author" content="Weston Wei(韦旭红)">
 
   
-  <meta name="description" content="以下文章是我的同事Flanker(&#x66;&#x6c;&#97;&#x6e;&#x6b;&#x65;&#x72;&#x6f;&#111;&#116;&#x40;&#x67;&#x6d;&#x61;&#105;&#108;&#x2e;&#x63;&#x6f;&#109;)先生在深夜实现的， &hellip;">
+  <meta name="description" content="以下文章是我的同事Flanker(flankeroot@gmail.com)先生在深夜实现的，其中他翻阅了很多manual，都不能实现，以下是他试验的过程.
+*如果有任何疑问可以发Email给他，或者在本网站留言…. 好处
+不用RAID1就可以实现RAID的功能，可以节约很多钱呢… 配置过程 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -92,9 +94,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -124,15 +126,18 @@ $(document).ready(
   </header>
 
 
-<div class="entry-content"><p>以下文章是我的同事Flanker(<a href="&#109;&#x61;&#105;&#x6c;&#116;&#x6f;&#58;&#x66;&#x6c;&#x61;&#x6e;&#x6b;&#101;&#x72;&#x6f;&#x6f;&#116;&#64;&#x67;&#x6d;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#109;">&#x66;&#x6c;&#97;&#x6e;&#x6b;&#x65;&#x72;&#x6f;&#111;&#116;&#x40;&#x67;&#x6d;&#x61;&#105;&#108;&#x2e;&#x63;&#x6f;&#109;</a>)先生在深夜<span style="font-family:STHeiti;">实现的，其中他翻阅了很多</span>manual，都不能<span style="font-family:STHeiti;">实现，以下是他试验的过程</span>.<br/>
-*如果有任何疑<span style="font-family:STHeiti;">问</span>可以<span style="font-family:STHeiti;">发</span>Email<span style="font-family:STHeiti;">给</span>他，或者在本网站留言&#8230;.</p>
+<div class="entry-content"><p>以下文章是我的同事Flanker(flankeroot@gmail.com)先生在深夜<span style="font-family:STHeiti;">实现的，其中他翻阅了很多</span>manual，都不能<span style="font-family:STHeiti;">实现，以下是他试验的过程</span>.<br />
+*如果有任何疑<span style="font-family:STHeiti;">问</span>可以<span style="font-family:STHeiti;">发</span>Email<span style="font-family:STHeiti;">给</span>他，或者在本网站留言….</p>
 
 <ol>
-<li><p>好<span style="font-family:STHeiti;">处</span><br/>
-不用RAID1就可以<span style="font-family:STHeiti;">实现</span>RAID的功能，可以<span style="font-family:STHeiti;">节约很多钱呢</span>&#8230;</p></li>
-<li><p>配置<span style="font-family:STHeiti;">过程</span></p></li>
+  <li>
+    <p>好<span style="font-family:STHeiti;">处</span><br />
+不用RAID1就可以<span style="font-family:STHeiti;">实现</span>RAID的功能，可以<span style="font-family:STHeiti;">节约很多钱呢</span>…</p>
+  </li>
+  <li>
+    <p>配置<span style="font-family:STHeiti;">过程</span></p>
+  </li>
 </ol>
-
 
 <pre lang="c">Hostname: Server
 IPAddress: 10.0.0.60
@@ -274,8 +279,8 @@ version: 8.0.12 (api:86/proto:86)
 GIT-hash: 5c9f89594553e32adb87d9638dce591782f947e3 build by buildsvn@c5-x8664-build, 2008-06-26 19:32:09
 0: cs:Connected st:Secondary/Primary ds:UpToDate/UpToDate C r---
 ns:0 nr:2843380 dw:2843380 dr:0 al:0 bm:174 lo:0 pe:0 ua:0 ap:0
-    resync: used:0/61 hits:1421516 misses:174 starving:0 dirty:0 changed:174
-    act_log: used:0/127 hits:0 misses:0 starving:0 dirty:0 changed:0
+	resync: used:0/61 hits:1421516 misses:174 starving:0 dirty:0 changed:174
+	act_log: used:0/127 hits:0 misses:0 starving:0 dirty:0 changed:0
 ---------------------------------
 # drbdsetup /dev/drbd0 primary
 # cat /proc/drbd
@@ -284,8 +289,8 @@ version: 8.0.12 (api:86/proto:86)
 GIT-hash: 5c9f89594553e32adb87d9638dce591782f947e3 build by buildsvn@c5-x8664-build, 2008-06-26 19:32:09
 0: cs:Connected st:Primary/Primary ds:UpToDate/UpToDate C r---
 ns:0 nr:2843380 dw:2843380 dr:0 al:0 bm:174 lo:0 pe:0 ua:0 ap:0
-    resync: used:0/61 hits:1421516 misses:174 starving:0 dirty:0 changed:174
-    act_log: used:0/127 hits:0 misses:0 starving:0 dirty:0 changed:0
+	resync: used:0/61 hits:1421516 misses:174 starving:0 dirty:0 changed:174
+	act_log: used:0/127 hits:0 misses:0 starving:0 dirty:0 changed:0
 -----------------
 * Now at the same time
 [root@server ~]# cat /proc/drbd
@@ -294,7 +299,7 @@ GIT-hash: 5c9f89594553e32adb87d9638dce591782f947e3 build by buildsvn@c5-x8664-bu
 0: cs:Connected st:Primary/Primary ds:UpToDate/UpToDate C r---
 ns:2843380 nr:0 dw:0 dr:2843380 al:0 bm:174 lo:0 pe:0 ua:0 ap:0
 resync: used:0/61 hits:1421516 misses:174 starving:0 dirty:0 changed:174
-    act_log: used:0/127 hits:0 misses:0 starving:0 dirty:0 changed:0
+	act_log: used:0/127 hits:0 misses:0 starving:0 dirty:0 changed:0
 --------------------------------
 
 Testing
@@ -316,11 +321,9 @@ Notes: It shouldn't mount the drbd0 at the same time on both nodes
 
 </pre>
 
-
 <ol>
-<li>以下是<span style="font-family:STHeiti;">配置文件</span></li>
+  <li>以下是<span style="font-family:STHeiti;">配置文件</span></li>
 </ol>
-
 
 <pre lang="c">resource r0 {
 protocol C;
@@ -347,10 +350,10 @@ meta-disk  internal;
 /etc/drbd.conf
 </pre>
 
-
 <p><a href="http://www.weixuhong.com/content/uploads/2008/07/drbd.txt" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/07/drbd.txt','popup','width=160,height=112,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/07/drbd-tm.jpg" height="100" width="142" border="1" hspace="4" vspace="4" alt="Drbd" /></a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/151">Configuration of DRBD on CentOS5.2 with XEN</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/151">Configuration of DRBD on CentOS5.2 with XEN</a></p>
+
 </div>
 
 
@@ -403,10 +406,10 @@ meta-disk  internal;
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -431,8 +434,12 @@ meta-disk  internal;
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -450,40 +457,7 @@ meta-disk  internal;
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

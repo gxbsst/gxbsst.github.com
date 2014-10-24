@@ -92,9 +92,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -124,32 +124,33 @@ $(document).ready(
   </header>
 
 
-<div class="entry-content"><p><span style="font-family:STHeiti;">详细</span>: <a href="http://www.nsfocus.net/index.php?act=magazine&amp;do=view&amp;mid=841">http://www.nsfocus.net/index.php?act=magazine&amp;do=view&amp;mid=841</a></p>
+<div class="entry-content"><p><span style="font-family:STHeiti;">详细</span>: http://www.nsfocus.net/index.php?act=magazine&amp;do=view&amp;mid=841</p>
 
 <p>我<span style="font-family:STHeiti;">们假设</span>A与B通信，A是SSL客<span style="font-family:STHeiti;">户端，</span>B是SSL服<span style="font-family:STHeiti;">务器端，加密后的消息放在方括号</span>[]里，以突出明文消息的区别。双方的<span style="font-family:STHeiti;">处理动作的说明用圆括号（）括起。</span></p>
 
 <p>A：我想和你安全的通<span style="font-family:STHeiti;">话，我这里的对称加密算法有</span>DES,RC5,密<span style="font-family:STHeiti;">钥交换算法有</span>RSA和DH，摘要算法有MD5和SHA。</p>
 
-<p>B：我<span style="font-family:STHeiti;">们用</span>DES－RSA－SHA<span style="font-family:STHeiti;">这对组合好了。</span><br/>
-<span style="font-family:STHeiti;">这是我的证书，里面有我的名字和公钥，你拿去验证一下我的身份（把证书发给</span>A）。<br/>
-目前没有别的可<span style="font-family:STHeiti;">说的了。</span></p>
+<p>B：我<span style="font-family:STHeiti;">们用</span>DES－RSA－SHA<span style="font-family:STHeiti;">这对组合好了。</span><br />
+<span style="font-family:STHeiti;">这是我的证书，里面有我的名字和公钥，你拿去验证一下我的身份（把证书发给</span>A）。<br />
+目前没有别的可<span style="font-family:STHeiti;">说的了。</span> </p>
 
-<p>A：（<span style="font-family:STHeiti;">查看证书上</span>B的名字是否无<span style="font-family:STHeiti;">误，并通过手头早已有的</span>CA的<span style="font-family:STHeiti;">证书验证了</span>B的<span style="font-family:STHeiti;">证书的真实性，如果其中一项有误，发出警告并断开连接，这一步保证了</span>B的公<span style="font-family:STHeiti;">钥的真实性）</span><br/>
-（<span style="font-family:STHeiti;">产生一份秘密消息，这份秘密消息处理后将用作加密密钥，加密初始化向量和</span>hmac的密<span style="font-family:STHeiti;">钥。将这份秘密消息</span>-<span style="font-family:STHeiti;">协议中称为</span>per_master_secret-用B的公<span style="font-family:STHeiti;">钥加密，封装成称作</span>ClientKeyExchange的消息。由于用了B的公<span style="font-family:STHeiti;">钥，保证了第三方无法窃听）</span><br/>
-我生成了一份秘密消息，并用你的公<span style="font-family:STHeiti;">钥加密了，给你（把</span>ClientKeyExchange<span style="font-family:STHeiti;">发给</span>B）<br/>
-注意，下面我就要用加密的<span style="font-family:STHeiti;">办法给你发消息了！</span><br/>
-（将秘密消息<span style="font-family:STHeiti;">进行处理，生成加密密钥，加密初始化向量和</span>hmac的密<span style="font-family:STHeiti;">钥）</span><br/>
+<p>A：（<span style="font-family:STHeiti;">查看证书上</span>B的名字是否无<span style="font-family:STHeiti;">误，并通过手头早已有的</span>CA的<span style="font-family:STHeiti;">证书验证了</span>B的<span style="font-family:STHeiti;">证书的真实性，如果其中一项有误，发出警告并断开连接，这一步保证了</span>B的公<span style="font-family:STHeiti;">钥的真实性）</span><br />
+（<span style="font-family:STHeiti;">产生一份秘密消息，这份秘密消息处理后将用作加密密钥，加密初始化向量和</span>hmac的密<span style="font-family:STHeiti;">钥。将这份秘密消息</span>-<span style="font-family:STHeiti;">协议中称为</span>per_master_secret-用B的公<span style="font-family:STHeiti;">钥加密，封装成称作</span>ClientKeyExchange的消息。由于用了B的公<span style="font-family:STHeiti;">钥，保证了第三方无法窃听）</span><br />
+我生成了一份秘密消息，并用你的公<span style="font-family:STHeiti;">钥加密了，给你（把</span>ClientKeyExchange<span style="font-family:STHeiti;">发给</span>B）<br />
+注意，下面我就要用加密的<span style="font-family:STHeiti;">办法给你发消息了！</span><br />
+（将秘密消息<span style="font-family:STHeiti;">进行处理，生成加密密钥，加密初始化向量和</span>hmac的密<span style="font-family:STHeiti;">钥）</span><br />
 [我<span style="font-family:STHeiti;">说完了</span>]</p>
 
-<p>B：（用自己的私<span style="font-family:STHeiti;">钥将</span>ClientKeyExchange中的秘密消息解密出来，然后将秘密消息<span style="font-family:STHeiti;">进行处理，生成加密密钥，加密初始化向量和</span>hmac的密<span style="font-family:STHeiti;">钥，这时双方已经安全的协商出一套加密办法了）</span><br/>
-注意，我也要开始用加密的<span style="font-family:STHeiti;">办法给你发消息了！</span><br/>
+<p>B：（用自己的私<span style="font-family:STHeiti;">钥将</span>ClientKeyExchange中的秘密消息解密出来，然后将秘密消息<span style="font-family:STHeiti;">进行处理，生成加密密钥，加密初始化向量和</span>hmac的密<span style="font-family:STHeiti;">钥，这时双方已经安全的协商出一套加密办法了）</span><br />
+注意，我也要开始用加密的<span style="font-family:STHeiti;">办法给你发消息了！</span><br />
 [我<span style="font-family:STHeiti;">说完了</span>]</p>
 
-<p>A: [我的秘密是&hellip;]</p>
+<p>A: [我的秘密是…]</p>
 
-<p>B: [其它人不会听到的&hellip;]</p>
+<p>B: [其它人不会听到的…] </p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/301">密钥协商的形象化比喻</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/301">密钥协商的形象化比喻</a></p>
+
 </div>
 
 
@@ -202,10 +203,10 @@ $(document).ready(
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -230,8 +231,12 @@ $(document).ready(
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -249,40 +254,7 @@ $(document).ready(
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

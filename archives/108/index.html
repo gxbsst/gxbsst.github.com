@@ -96,9 +96,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -128,160 +128,161 @@ $(document).ready(
   </header>
 
 
-<div class="entry-content"><p>1.1 <span style="font-family:STHeiti;">创建一个</span>Rails<span style="font-family:STHeiti;">应用程序</span><br/>
-$ rails app_name<br/>
-可<span style="font-family:STHeiti;">选项</span>:<br/>
--d, database=xxx 指定安装一个数据<span style="font-family:STHeiti;">库</span>(mysql oracle postgresql sqlite2 sqlite3 ), 默<span style="font-family:STHeiti;">认情况下是数据库</span><br/>
--r, ruby-path= 指定Ruby的安装路径,如果没有指定，scripts使用env去找Ruby<br/>
+<div class="entry-content"><p>1.1 <span style="font-family:STHeiti;">创建一个</span>Rails<span style="font-family:STHeiti;">应用程序</span><br />
+$ rails app_name<br />
+可<span style="font-family:STHeiti;">选项</span>:<br />
+-d, database=xxx 指定安装一个数据<span style="font-family:STHeiti;">库</span>(mysql oracle postgresql sqlite2 sqlite3 ), 默<span style="font-family:STHeiti;">认情况下是数据库</span><br />
+-r, ruby-path= 指定Ruby的安装路径,如果没有指定，scripts使用env去找Ruby<br />
 -f, freeze (<span style="font-family:STHeiti;">冻结</span>)freezes Rails在vendor/rails目<span style="font-family:STHeiti;">录</span></p>
 
-<p>1.2 API Documentation<br/>
-$ gem_server<br/>
-<span style="font-family:STHeiti;">启动一个</span>WEBrick服<span style="font-family:STHeiti;">务器。这时候你可以通过</span><a href="Http://localhost:8808/">Http://localhost:8808/</a> 打开<span style="font-family:STHeiti;">浏览器去查看</span>rails API文档</p>
+<p>1.2 API Documentation<br />
+$ gem_server<br />
+<span style="font-family:STHeiti;">启动一个</span>WEBrick服<span style="font-family:STHeiti;">务器。这时候你可以通过</span>Http://localhost:8808/ 打开<span style="font-family:STHeiti;">浏览器去查看</span>rails API文档</p>
 
-<p>1.3 Rake<br/>
-rake db:fixtures:load<br/>
-# <span style="font-family:STHeiti;">载入</span>fixtures到当前<span style="font-family:STHeiti;">环境的数据库</span><br/>
-# <span style="font-family:STHeiti;">载入指定的</span>fixtures使用FIXTURES=x,y<br/>
-rake db:migrate<br/>
-# 迁移数据<span style="font-family:STHeiti;">库通过在</span>db/migrate目<span style="font-family:STHeiti;">录下的脚本</span>.可以指定版本号通<span style="font-family:STHeiti;">过</span>VERSION=x<br/>
-rake db:schema:dump<br/>
-# <span style="font-family:STHeiti;">创建一个</span>db/schema.rb文件，通<span style="font-family:STHeiti;">过</span>AR能<span style="font-family:STHeiti;">过够支持任何数据库去使用</span><br/>
-rake db:schema:load<br/>
-# 再入一个schema.rb文件<span style="font-family:STHeiti;">进数据库</span><br/>
-rake db:sessions:clear<br/>
-# 清空sessions表<br/>
-rake db:sessions:create<br/>
-# 用CGI::Session::ActiveRecordStore<span style="font-family:STHeiti;">创建一个</span>sessions表<span style="font-family:STHeiti;">为用户</span><br/>
-rake db:structure:dump<br/>
-# <span style="font-family:STHeiti;">导出数据库结构为一个</span>SQL文件<br/>
-rake db:test:clone<br/>
-# 重新<span style="font-family:STHeiti;">创建一个测试数据库从当前环境数据库中</span><br/>
-rake db:test:clone_structure<br/>
-# 重新<span style="font-family:STHeiti;">创建测试数据库从开发模式数据库</span><br/>
-rake db:test:prepare<br/>
-# 准<span style="font-family:STHeiti;">备测试数据库并在入</span>schema<br/>
-rake db:test:purge<br/>
-# 清空<span style="font-family:STHeiti;">测试数据库</span><br/>
-rake doc:app<br/>
-# <span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br/>
-rake doc:clobber_app<br/>
-# <span style="font-family:STHeiti;">删除</span>Documentation<br/>
-rake doc:clobber_plugins<br/>
-# <span style="font-family:STHeiti;">删除</span> plugin Documentation<br/>
-rake doc:clobber_rails<br/>
-# <span style="font-family:STHeiti;">删除</span>Documentation<br/>
-rake doc:plugins<br/>
-# <span style="font-family:STHeiti;">产生</span>Documation<span style="font-family:STHeiti;">为所有安装的</span>plugins<br/>
-rake doc:rails<br/>
-# <span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br/>
-rake doc:reapp<br/>
-# 强制重新<span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br/>
-rake doc:rerails<br/>
-# 强制重新<span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br/>
-rake log:clear<br/>
-# 清空目<span style="font-family:STHeiti;">录</span>log/下的所有日志文件<br/>
-rake rails:freeze:edge<br/>
-# Lock this application to latest Edge Rails. Lock a specific revision with REVISION=X<br/>
-rake rails:freeze:gems<br/>
-# Lock this application to the current gems (by unpacking them into vendor/rails)<br/>
-rake rails:unfreeze<br/>
-# Unlock this application from freeze of gems or edge and return to a fluid use of system gems<br/>
-rake rails:update<br/>
-# Update both scripts and public/javascripts from Rails<br/>
-rake rails:update:javascripts<br/>
-# Update your javascripts from your current rails install<br/>
-rake rails:update:scripts<br/>
-# Add new scripts to the application script/ directory<br/>
-rake stats<br/>
-# Report code statistics (KLOCs, etc) from the application<br/>
-rake test<br/>
-# Test all units and functionals<br/>
-rake test:functionals<br/>
-# Run tests for functionalsdb:test:prepare<br/>
-rake test:integration<br/>
-# Run tests for integrationdb:test:prepare<br/>
-rake test:plugins<br/>
-# Run tests for pluginsenvironment<br/>
-rake test:recent<br/>
-# Run tests for recentdb:test:prepare<br/>
-rake test:uncommitted<br/>
-# Run tests for uncommitteddb:test:prepare<br/>
-rake test:units<br/>
-# Run tests for unitsdb:test:prepare<br/>
-rake tmp:cache:clear<br/>
-# 清空tmp/cache目<span style="font-family:STHeiti;">录下的所有文件</span><br/>
-rake tmp:clear<br/>
-# 清空session, cache, 和socket文件从tmp/目<span style="font-family:STHeiti;">录</span><br/>
-rake tmp:create<br/>
-# <span style="font-family:STHeiti;">为</span>sessions, cache, and sockets<span style="font-family:STHeiti;">创建</span>tmp/目<span style="font-family:STHeiti;">录</span><br/>
-rake tmp:sessions:clear<br/>
-# 清空所有在tmp/sessions目<span style="font-family:STHeiti;">录下的文件</span><br/>
-rake tmp:sockets:clear<br/>
+<p>1.3 Rake<br />
+rake db:fixtures:load<br />
+# <span style="font-family:STHeiti;">载入</span>fixtures到当前<span style="font-family:STHeiti;">环境的数据库</span><br />
+# <span style="font-family:STHeiti;">载入指定的</span>fixtures使用FIXTURES=x,y<br />
+rake db:migrate<br />
+# 迁移数据<span style="font-family:STHeiti;">库通过在</span>db/migrate目<span style="font-family:STHeiti;">录下的脚本</span>.可以指定版本号通<span style="font-family:STHeiti;">过</span>VERSION=x<br />
+rake db:schema:dump<br />
+# <span style="font-family:STHeiti;">创建一个</span>db/schema.rb文件，通<span style="font-family:STHeiti;">过</span>AR能<span style="font-family:STHeiti;">过够支持任何数据库去使用</span><br />
+rake db:schema:load<br />
+# 再入一个schema.rb文件<span style="font-family:STHeiti;">进数据库</span><br />
+rake db:sessions:clear<br />
+# 清空sessions表<br />
+rake db:sessions:create<br />
+# 用CGI::Session::ActiveRecordStore<span style="font-family:STHeiti;">创建一个</span>sessions表<span style="font-family:STHeiti;">为用户</span><br />
+rake db:structure:dump<br />
+# <span style="font-family:STHeiti;">导出数据库结构为一个</span>SQL文件<br />
+rake db:test:clone<br />
+# 重新<span style="font-family:STHeiti;">创建一个测试数据库从当前环境数据库中</span><br />
+rake db:test:clone_structure<br />
+# 重新<span style="font-family:STHeiti;">创建测试数据库从开发模式数据库</span><br />
+rake db:test:prepare<br />
+# 准<span style="font-family:STHeiti;">备测试数据库并在入</span>schema<br />
+rake db:test:purge<br />
+# 清空<span style="font-family:STHeiti;">测试数据库</span><br />
+rake doc:app<br />
+# <span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br />
+rake doc:clobber_app<br />
+# <span style="font-family:STHeiti;">删除</span>Documentation<br />
+rake doc:clobber_plugins<br />
+# <span style="font-family:STHeiti;">删除</span> plugin Documentation<br />
+rake doc:clobber_rails<br />
+# <span style="font-family:STHeiti;">删除</span>Documentation<br />
+rake doc:plugins<br />
+# <span style="font-family:STHeiti;">产生</span>Documation<span style="font-family:STHeiti;">为所有安装的</span>plugins<br />
+rake doc:rails<br />
+# <span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br />
+rake doc:reapp<br />
+# 强制重新<span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br />
+rake doc:rerails<br />
+# 强制重新<span style="font-family:STHeiti;">创建</span>HTML文件的API Documentation<br />
+rake log:clear<br />
+# 清空目<span style="font-family:STHeiti;">录</span>log/下的所有日志文件<br />
+rake rails:freeze:edge<br />
+# Lock this application to latest Edge Rails. Lock a specific revision with REVISION=X<br />
+rake rails:freeze:gems<br />
+# Lock this application to the current gems (by unpacking them into vendor/rails)<br />
+rake rails:unfreeze<br />
+# Unlock this application from freeze of gems or edge and return to a fluid use of system gems<br />
+rake rails:update<br />
+# Update both scripts and public/javascripts from Rails<br />
+rake rails:update:javascripts<br />
+# Update your javascripts from your current rails install<br />
+rake rails:update:scripts<br />
+# Add new scripts to the application script/ directory<br />
+rake stats<br />
+# Report code statistics (KLOCs, etc) from the application<br />
+rake test<br />
+# Test all units and functionals<br />
+rake test:functionals<br />
+# Run tests for functionalsdb:test:prepare<br />
+rake test:integration<br />
+# Run tests for integrationdb:test:prepare<br />
+rake test:plugins<br />
+# Run tests for pluginsenvironment<br />
+rake test:recent<br />
+# Run tests for recentdb:test:prepare<br />
+rake test:uncommitted<br />
+# Run tests for uncommitteddb:test:prepare<br />
+rake test:units<br />
+# Run tests for unitsdb:test:prepare<br />
+rake tmp:cache:clear<br />
+# 清空tmp/cache目<span style="font-family:STHeiti;">录下的所有文件</span><br />
+rake tmp:clear<br />
+# 清空session, cache, 和socket文件从tmp/目<span style="font-family:STHeiti;">录</span><br />
+rake tmp:create<br />
+# <span style="font-family:STHeiti;">为</span>sessions, cache, and sockets<span style="font-family:STHeiti;">创建</span>tmp/目<span style="font-family:STHeiti;">录</span><br />
+rake tmp:sessions:clear<br />
+# 清空所有在tmp/sessions目<span style="font-family:STHeiti;">录下的文件</span><br />
+rake tmp:sockets:clear<br />
 # 清空所有在tmp/sessions 目<span style="font-family:STHeiti;">录下的</span>ruby_sess.* 文件</p>
 
-<p>1.4 Scripts<br/>
-script/about<br/>
-# <span style="font-family:STHeiti;">输出当前环境信息</span><br/>
-script/breakpointer<br/>
-# <span style="font-family:STHeiti;">启动断点</span>server<br/>
-script/console<br/>
-# <span style="font-family:STHeiti;">启动交换式的</span>Rails控制台<br/>
-script/destroy<br/>
-# <span style="font-family:STHeiti;">删除通过</span>generators<span style="font-family:STHeiti;">创建的文件</span><br/>
-script/generate<br/>
-# -> generators<br/>
-script/plugin<br/>
-# -> Plugins<br/>
-script/runner<br/>
-# <span style="font-family:STHeiti;">执行一个任务在</span>rails上下文中<br/>
-script/server<br/>
-# <span style="font-family:STHeiti;">启动开发模式服务器</span><a href="http://localhost:3000  ">http://localhost:3000  </a>
-//以下几个不知道怎么去使用<br/>
-script/performance/profiler<br/>
-script/performance/benchmarker<br/>
-script/process/reaper<br/>
+<p>1.4 Scripts<br />
+script/about<br />
+# <span style="font-family:STHeiti;">输出当前环境信息</span><br />
+script/breakpointer<br />
+# <span style="font-family:STHeiti;">启动断点</span>server<br />
+script/console<br />
+# <span style="font-family:STHeiti;">启动交换式的</span>Rails控制台<br />
+script/destroy<br />
+# <span style="font-family:STHeiti;">删除通过</span>generators<span style="font-family:STHeiti;">创建的文件</span><br />
+script/generate<br />
+# -&gt; generators<br />
+script/plugin<br />
+# -&gt; Plugins<br />
+script/runner<br />
+# <span style="font-family:STHeiti;">执行一个任务在</span>rails上下文中<br />
+script/server<br />
+# <span style="font-family:STHeiti;">启动开发模式服务器</span>http://localhost:3000<br />
+//以下几个不知道怎么去使用<br />
+script/performance/profiler<br />
+script/performance/benchmarker<br />
+script/process/reaper<br />
 script/process/spawner</p>
 
-<p>1.5 Generators<br/>
-ruby script/generate model ModelName<br/>
-ruby script/generate controller ListController show edit<br/>
-ruby script/generate scaffold ModelName ControllerName<br/>
-ruby script/generate migration AddNewTable<br/>
-ruby script/generate plugin PluginName<br/>
-ruby script/generate mailer Notification lost_password signup<br/>
-ruby script/generate web_service ServiceName api_one api_two<br/>
-ruby script/generate integration_test TestName<br/>
-ruby script/generate session_migration<br/>
-可<span style="font-family:STHeiti;">选项</span>:<br/>
--p, &#8211;pretend Run but do not make any changes.<br/>
--f, &#8211;force Overwrite files that already exist.<br/>
--s, &#8211;skip Skip files that already exist.<br/>
--q, &#8211;quiet Suppress normal output.<br/>
--t, &#8211;backtrace Debugging: show backtrace on errors.<br/>
--h, &#8211;help Show this help message.<br/>
--c, &#8211;svn Modify files with subversion. (Note: svn must be in path)</p>
+<p>1.5 Generators<br />
+ruby script/generate model ModelName<br />
+ruby script/generate controller ListController show edit<br />
+ruby script/generate scaffold ModelName ControllerName<br />
+ruby script/generate migration AddNewTable<br />
+ruby script/generate plugin PluginName<br />
+ruby script/generate mailer Notification lost_password signup<br />
+ruby script/generate web_service ServiceName api_one api_two<br />
+ruby script/generate integration_test TestName<br />
+ruby script/generate session_migration<br />
+可<span style="font-family:STHeiti;">选项</span>:<br />
+-p, –pretend Run but do not make any changes.<br />
+-f, –force Overwrite files that already exist.<br />
+-s, –skip Skip files that already exist.<br />
+-q, –quiet Suppress normal output.<br />
+-t, –backtrace Debugging: show backtrace on errors.<br />
+-h, –help Show this help message.<br />
+-c, –svn Modify files with subversion. (Note: svn must be in path) </p>
 
-<p>1.6 Plugins<br/>
-script/plugin discover<br/>
-# discover plugin repositories<br/>
-script/plugin list<br/>
-# list all available plugins<br/>
-script/plugin install where<br/>
-# install the a€wherea€? plugin<br/>
-script/plugin install -x where<br/>
-# install where plugin as SVN external<br/>
-script/plugin install <a href="http://invisible.ch/projects/plugins/where  ">http://invisible.ch/projects/plugins/where  </a>
-script/plugin update<br/>
-# update installed plugins<br/>
-script/plugin source<br/>
-# add a source repository<br/>
-script/plugin unsource<br/>
-# removes a source repository<br/>
-script/plugin sources<br/>
+<p>1.6 Plugins<br />
+script/plugin discover<br />
+# discover plugin repositories<br />
+script/plugin list<br />
+# list all available plugins<br />
+script/plugin install where<br />
+# install the a€wherea€? plugin<br />
+script/plugin install -x where<br />
+# install where plugin as SVN external<br />
+script/plugin install http://invisible.ch/projects/plugins/where<br />
+script/plugin update<br />
+# update installed plugins<br />
+script/plugin source<br />
+# add a source repository<br />
+script/plugin unsource<br />
+# removes a source repository<br />
+script/plugin sources<br />
 # lists source repositories</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/108">rails 常用命令大全</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/108">rails 常用命令大全</a></p>
+
 </div>
 
 
@@ -334,10 +335,10 @@ script/plugin sources<br/>
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -362,8 +363,12 @@ script/plugin sources<br/>
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -381,40 +386,7 @@ script/plugin sources<br/>
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

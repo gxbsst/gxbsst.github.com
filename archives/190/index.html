@@ -9,7 +9,7 @@
   <meta name="author" content="Weston Wei(韦旭红)">
 
   
-  <meta name="description" content="今天用几个小时在在dreamhost虚拟主机上配置了trac、svn真是辛苦得很，不过总算是配置好了，明天会把相关的配置细节写出来，鼓励一下自己 http://trac.weixuhong.com &nbsp; 参考以下链接: http://wiki.dreamhost.com/index.php &hellip;">
+  <meta name="description" content="今天用几个小时在在dreamhost虚拟主机上配置了trac、svn真是辛苦得很，不过总算是配置好了，明天会把相关的配置细节写出来，鼓励一下自己 http://trac.weixuhong.com   参考以下链接: http://wiki.dreamhost.com/index.php/Trac &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -92,9 +92,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -126,20 +126,20 @@ $(document).ready(
 
 <div class="entry-content"><p>今天用几个小时在在dreamhost虚拟主机上配置了trac、svn真是辛苦得很，不过总算是配置好了，明天会把相关的配置细节写出来，鼓励一下自己</p>
 
-<p><a href="http://trac.weixuhong.com/">http://trac.weixuhong.com </a>&nbsp;</p>
+<p><a href="http://trac.weixuhong.com/">http://trac.weixuhong.com </a> </p>
 
 <p>参考以下链接:</p>
 
-<p><a href="http://wiki.dreamhost.com/index.php/Trac">http://wiki.dreamhost.com/index.php/Trac</a></p>
+<p>http://wiki.dreamhost.com/index.php/Trac</p>
 
-<p><a href="http://li.mn/work/2006/07/11/484/installing-trac-on-dreamhost#p">http://li.mn/work/2006/07/11/484/installing-trac-on-dreamhost#p</a></p>
+<p>http://li.mn/work/2006/07/11/484/installing-trac-on-dreamhost#p</p>
 
 <ul>
-<li>如果安装不成功， 有版本方面的原因&#8230;所有要尽量变通&#8230;</li>
+  <li>如果安装不成功， 有版本方面的原因…所有要尽量变通…</li>
 </ul>
 
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/190">在Dreamhost上配置trac and svn</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/190">在Dreamhost上配置trac and svn</a></p>
 </div>
 
 
@@ -192,10 +192,10 @@ $(document).ready(
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -220,8 +220,12 @@ $(document).ready(
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -239,40 +243,7 @@ $(document).ready(
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

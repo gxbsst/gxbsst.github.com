@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Regular Expressions | 韦旭红的幸福时光]]></title>
+  <title><![CDATA[分类：regular Expressions | 韦旭红的幸福时光]]></title>
   <link href="http://weixuhong.com/blog/categories/regular-expressions/atom.xml" rel="self"/>
   <link href="http://weixuhong.com/"/>
-  <updated>2014-10-24T14:14:26+08:00</updated>
+  <updated>2014-10-24T15:21:07+08:00</updated>
   <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
@@ -25,8 +25,8 @@ ar -rc libsource.a source.o
  
 </pre>
 
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/259">如果将C源文件(.c)生成目标文件(.o)</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/259">如果将C源文件(.c)生成目标文件(.o)</a></p>
 ]]></content>
   </entry>
   
@@ -39,31 +39,30 @@ ar -rc libsource.a source.o
 
 <p>下面有一个例子:</p>
 
-<pre lang="php">Yii::app()->fileCache->attachBehavior('EFileCacheBehavior', array('class'=>'EFileCacheBehavior'));
+<pre lang="php">Yii::app()-&gt;fileCache-&gt;attachBehavior('EFileCacheBehavior', array('class'=&gt;'EFileCacheBehavior'));
 
 </pre>
 
+<p>如果要在App启动的时候就能永这个EFileCacheBehavior,可以在Main.php配置这个文件…</p>
 
-<p>如果要在App启动的时候就能永这个EFileCacheBehavior,可以在Main.php配置这个文件&#8230;</p>
-
-<pre lang="php">'fileCache'=>array(
-            'class'=>'application.extensions.filecache.EFileCache',
-            'autoCleanExpiredCache'=>false,
-            'behaviors'=>array(
-                'EFileCacheBehavior'=>array(
-                    'class'=>'EFileCacheBehavior',
+<pre lang="php">'fileCache'=&gt;array(
+            'class'=&gt;'application.extensions.filecache.EFileCache',
+            'autoCleanExpiredCache'=&gt;false,
+            'behaviors'=&gt;array(
+                'EFileCacheBehavior'=&gt;array(
+                    'class'=&gt;'EFileCacheBehavior',
                 ),
             ),
         ), 
 </pre>
 
+<p>这样就可以扩展的方法了。<br />
+就是说如果EFileCacheBehavior有一个方法叫test();<br />
+那么你就可以通过：<br />
+Yii::app()-&gt;fileCache-&gt;test()调用。</p>
 
-<p>这样就可以扩展的方法了。<br/>
-就是说如果EFileCacheBehavior有一个方法叫test();<br/>
-那么你就可以通过：<br/>
-Yii::app()->fileCache->test()调用。</p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/257">在Yii使用Mixin – Behavior</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/257">在Yii使用Mixin &#8211; Behavior</a></p>
 ]]></content>
   </entry>
   

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Ios | 韦旭红的幸福时光]]></title>
+  <title><![CDATA[分类：ios | 韦旭红的幸福时光]]></title>
   <link href="http://weixuhong.com/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://weixuhong.com/"/>
-  <updated>2014-10-24T14:14:26+08:00</updated>
+  <updated>2014-10-24T15:21:07+08:00</updated>
   <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
@@ -21,8 +21,8 @@
     <content type="html"><![CDATA[<pre lang="c">sudo python three20/src/scripts/ttmodule.py -p /Users/weston/LearnIphone/Three20_hello/Three20_hello.xcodeproj:Three20_hello  Three20  -c Debug -c Release
 </pre>
 
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/531">导入Three20</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/531">导入Three20</a></p>
 ]]></content>
   </entry>
   
@@ -31,13 +31,13 @@
     <link href="http://weixuhong.com/archives/529"/>
     <updated>2011-07-06T00:00:00+08:00</updated>
     <id>http://weixuhong.com/archives/objective-c-enum-%e4%b8%8e-typedef</id>
-    <content type="html"><![CDATA[<p>今天看到enum 和 typedef， 在两个小节中书中分别出现了2个例子，如下<br/>
-enum direction {north, south, east, west};<br/>
-typedef enum {north, south, east, west} direction;<br/>
-不禁产生疑问，这两个有什么区别，仔细对照了一下，发现是这样的：<br/>
-大同小异，<br/>
-同： 都是申明了一个枚举类型。<br/>
-异：在使用该枚举类型定义变量的时候，语法不一样，举例如下：</p>
+    <content type="html"><![CDATA[<p>今天看到enum 和 typedef， 在两个小节中书中分别出现了2个例子，如下<br />
+enum direction {north, south, east, west};<br />
+typedef enum {north, south, east, west} direction;<br />
+不禁产生疑问，这两个有什么区别，仔细对照了一下，发现是这样的：<br />
+大同小异，<br />
+同： 都是申明了一个枚举类型。<br />
+异：在使用该枚举类型定义变量的时候，语法不一样，举例如下： </p>
 
 <pre lang="c">1  enum direction {north, south, east, west};    
 3  enum direction facing = north;  
@@ -46,8 +46,8 @@ typedef enum {north, south, east, west} direction;<br/>
 7  direction facing = north; 
 </pre>
 
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/529">objective-c enum 与 typedef</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/529">objective-c enum 与 typedef</a></p>
 ]]></content>
   </entry>
   
@@ -56,17 +56,17 @@ typedef enum {north, south, east, west} direction;<br/>
     <link href="http://weixuhong.com/archives/525"/>
     <updated>2011-07-06T00:00:00+08:00</updated>
     <id>http://weixuhong.com/archives/objective-c-%e5%85%a5%e9%97%a8%e7%9f%a5%e8%af%86%ef%bc%88%e8%bd%ac</id>
-    <content type="html"><![CDATA[<p>罗朝辉（<a href="http://www.cppblog.com/kesalin%EF%BC%89">http://www.cppblog.com/kesalin%EF%BC%89</a></p>
+    <content type="html"><![CDATA[<p>罗朝辉（http://www.cppblog.com/kesalin）</p>
 
 <p>转载请注明出处</p>
 
-<p>编程工作做久了，最初的新鲜感难免会消磨殆尽。幸好总是会有新的技术闪耀登场，重燃编辑人员的兴趣，Mac OS X 就饱含这样神奇的技术。</p>
+<p>编程工作做久了，最初的新鲜感难免会消磨殆尽。幸好总是会有新的技术闪耀登场，重燃编辑人员的兴趣，Mac OS X 就饱含这样神奇的技术。 </p>
 
-<p>&#8212;Mark Dalrymple &amp; Scott Knaster</p>
+<p>—Mark Dalrymple &amp; Scott Knaster</p>
 
 <p>1，从 HelloWorld 开始，</p>
 
-<pre lang="c">#import &lt;Foundation/Foundation.h>
+<pre lang="c">#import &lt;Foundation/Foundation.h&gt;
 
 int main (int argc, const char * argv[]) {
 
@@ -83,8 +83,7 @@ int main (int argc, const char * argv[]) {
 }
 </pre>
 
-
-<h1>import 就相当于 #include，用来通知编译起应该在头文件中查询定义，当 import 功能更强大，它可以保证头文件只可以被包含一次。而在C／C＋＋中我们是通过</h1>
+<h1 id="import--include-import-cc">import 就相当于 #include，用来通知编译起应该在头文件中查询定义，当 import 功能更强大，它可以保证头文件只可以被包含一次。而在C／C＋＋中我们是通过</h1>
 
 <pre lang="c">#ifndef __HELLO_WORLD_H__
 
@@ -94,7 +93,6 @@ int main (int argc, const char * argv[]) {
 
 #endif // __HELLO_WORLD_H__
 </pre>
-
 
 <p>来实现的（在VC中可以使用 #program once 来实现这一目的）。</p>
 
@@ -106,7 +104,6 @@ int main (int argc, const char * argv[]) {
 
  #define NO 0
 </pre>
-
 
 <p>所以 BOOL 实际上是一个有符号的 char 类型，YES 被定义为 1，而 NO 被定义为 0，但 BOOL 还可以是其他值，但均不是约定的 YES 或 NO 值。也就是非零的 BOOL 类型的数据不一定等于 YES，使用时要注意这一点。</p>
 
@@ -120,7 +117,7 @@ int main (int argc, const char * argv[]) {
 
 <p>5,在新生成的文件中使用公司名称或自己的名称代替默认的占位符 __MyCompanyName__，在 Finder 中打开 Utilities 文件夹，打开其中的 Terminal 应用程序，在命令行中按照如下格式输入，回车就可以了。</p>
 
-<p>defaults write com.apple.Xcode.PBXCustomTemplateMacroDefinites &#8216;{&#8220;ORGANIZATIONNAME&#8221;=&#8221;kesalin@gmail.com&#8221;;}&#8217;</p>
+<p>defaults write com.apple.Xcode.PBXCustomTemplateMacroDefinites ‘{“ORGANIZATIONNAME”=”kesalin@gmail.com”;}’</p>
 
 <p>6，XCode 3.2 快捷键</p>
 
@@ -142,9 +139,9 @@ int main (int argc, const char * argv[]) {
 
 <p>command + control + s 创建快照</p>
 
-<p>Edit->Edit all in scope 修改局部变量或参数</p>
+<p>Edit-&gt;Edit all in scope 修改局部变量或参数</p>
 
-<p>Edit->Refactor 全局修改类名（但无法修改注释中出现的类名）</p>
+<p>Edit-&gt;Refactor 全局修改类名（但无法修改注释中出现的类名）</p>
 
 <p>command + shift + D 打开文件快速查找对话框</p>
 
@@ -188,9 +185,9 @@ int main (int argc, const char * argv[]) {
 
 <p>折叠代码， 点击代码左边的焦点列，就可以进行代码的折叠。</p>
 
-<p>添加可读的标记 在代码中加入 ＃pragma mark STUFF，#pragma mark &#8211; 则是在菜单中插入分割线</p>
+<p>添加可读的标记 在代码中加入 ＃pragma mark STUFF，#pragma mark – 则是在菜单中插入分割线</p>
 
-<p>或在代码中加入如下 TODO:, FIDME,!!! 或 ???</p>
+<p>或在代码中加入如下 TODO:, FIDME,!!! 或 ??? </p>
 
 <p>7，NSString 的比较方法：</p>
 
@@ -222,7 +219,6 @@ NSOrderedDescending
 
 </pre>
 
-
 <p>8, NSArray 只能存储 Objective-C对象，而不能存储 C 语言中的基本数据类型，如 int，float，enum，struct，或者 NSArray中的随机指针，也不能将存储 nil。</p>
 
 <p>对于可变数组进行枚举操作时，有一点需要注意：你不能通过添加或着删除对象这类方式来改变数组的容器。</p>
@@ -236,7 +232,6 @@ NSOrderedDescending
                     objCType:(const char *) type;
 </pre>
 
-
 <p>传递的参数 value 时想要包装的数值的地址，type 时一个用来描述这个数据类型的字符串，通常用来说明 struct 中实体的类型和大小。我们不必自己写代码来生存这个字符串，通过 @encode 编译器指令（接收数据类型的名称作为输入参数）来生成合适的字符串。例如：</p>
 
 <pre lang="c">NSRect rect = NSMakeRect(10, 10, 200, 200);
@@ -249,7 +244,6 @@ value = [NSValue valueWidthBytes: &#038;rect,
 
 [array addObject: value];
 </pre>
-
 
 <p>10，内存管理</p>
 
@@ -297,17 +291,16 @@ value = [NSValue valueWidthBytes: &#038;rect,
 
 <pre lang="c">if ([objectArray respondsToSelector: @selector(setObject:atIndex:)) {
 
-objectArray->setObject(object, index);
+objectArray-&gt;setObject(object, index);
 
 }
 </pre>
-
 
 <p>16,正式的协议 protocol</p>
 
 <p>正式的协议采用 protocol 关键字。声明协议的语法类似于声明类，但是要注意协议不能有成员变量，它相当于 Java 中的 interface。</p>
 
-<p>例如：Cocoa 声明了一个协议-&ndash;NSCopying：</p>
+<p>例如：Cocoa 声明了一个协议-–NSCopying：</p>
 
 <pre lang="c">@protocol NSCopying
 
@@ -316,12 +309,11 @@ objectArray->setObject(object, index);
 @end
 </pre>
 
-
 <p>要采纳某个协议，可以在类的声明中列出该协议的名称，并用尖括号将协议名称括起来，然后必须在 @implement 中实现协议中声明为 required（默认就是 required）的所有方法，而声明为 optional 的方法可以。</p>
 
 <p>下面让类 MyObject 采纳 NSCopying 协议：</p>
 
-<pre lang="c">@interface MyObject : NSObject &lt;NSCopying>
+<pre lang="c">@interface MyObject : NSObject &lt;NSCopying&gt;
 
 {
 
@@ -347,12 +339,11 @@ return (objectCopy);
 @end
 </pre>
 
-
 <p>说明：[self class] 返回的是对象所属的类。allocWidthZone 是一个类方法，因此在这里使用是合适的。</p>
 
 <p>我们可以在实例变量和函数参数的数据类型中指定协议的名称，这样就可以约束该变量或参数必须满足的条件（即遵循声明的协议），编译器会对此约束条件进行检查。如：</p>
 
-<p>-(void) setObjectValue:(id<NSCopying>) obj;</p>
+<p>-(void) setObjectValue:(id<nscopying>) obj;</nscopying></p>
 
 <p>在这里 setObjectValue 要求传入的参数必须遵循 NSCopying 协议，即实现了 NSCopying 协议中声明的所有方法。</p>
 
@@ -376,7 +367,7 @@ return (objectCopy);
 
 <p>控件执行流程：</p>
 
-<p>加载主 nib 文件 &#8211;> awakeFromNib &#8211;> 处理事务</p>
+<p>加载主 nib 文件 –&gt; awakeFromNib –&gt; 处理事务 </p>
 
 <p>18，谓词 NSPredicate</p>
 
@@ -390,7 +381,6 @@ predicate = [NSPredicate predicateWidthFormat: @"name == 'kesalin'"];
 
 Bool match = [predicate evaluateWidthObject: myObject];
 </pre>
-
 
 <p>使用谓词过滤数组：</p>
 
@@ -410,7 +400,7 @@ Bool match = [predicate evaluateWidthObject: myObject];
 
 <p>我们可以将格式说明符和变量名放入谓词格式字符串中。我们可以将 printf 中常用的 ％d，％f等放入谓词中。如：</p>
 
-<p>predicate = [NSPredicate predicateWithFormat: @&ldquo;age > %d&rdquo;, 18];</p>
+<p>predicate = [NSPredicate predicateWithFormat: @”age &gt; %d”, 18];</p>
 
 <p>支持的其他格式字符串：</p>
 
@@ -420,11 +410,11 @@ Bool match = [predicate evaluateWidthObject: myObject];
 
 <p>例如：</p>
 
-<p>predicate = [NSPredicate predicateWithFormat: @&ldquo;%K > %d&rdquo;, @&ldquo;age&rdquo;, 18];</p>
+<p>predicate = [NSPredicate predicateWithFormat: @”%K &gt; %d”, @”age”, 18];</p>
 
 <p>将变量放入谓词字符串中，使用方法类似于环境变量：</p>
 
-<p>predicate = [NSPredicate predicateWithFormat: @&ldquo;name == $NAME&rdquo;];</p>
+<p>predicate = [NSPredicate predicateWithFormat: @”name == $NAME”];</p>
 
 <p>19,Objective-C 中不存在类变量，可以使用文件范围内的全局变量来模拟类变量并为它们提供访问器。例如：</p>
 
@@ -461,7 +451,6 @@ g_age = age;
 @end
 </pre>
 
-
 <p>20, C++ 具有很多 Objective-C 所没有的特性：</p>
 
 <p>多重继承，命名空间，运算符重载，模板，类变量，抽象类，STL等。</p>
@@ -474,7 +463,8 @@ g_age = age;
 
 <p>Objective-C 很少使用子类化行为，因为通过类别和动态运行时机制，可以向任何对象发送任何消息，可以将某些功能放到含有较少功能的类中，可以将功能放到最有意义的类中。一般来说只有当创建某个全新的对象，或者需要从跟不上改变某个对象的行为，或者由于类不能实现某个功能而需要使用子类时，才需要载 Cocoa 中设置子类。而对于其他大多数情况，使用委托和数据远源的方式足以应付了。由于 Objective-C 可以向任何对象发送任何消息，对象不必含有特定的子类或遵循特定的接口，这样，单个类就可以成为任意个不同对象的委托或者数据源。</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/525">Objective-C 入门知识（转)</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/525">Objective-C 入门知识（转)</a></p>
+
 ]]></content>
   </entry>
   
@@ -487,9 +477,9 @@ g_age = age;
 
 <p><a href="http://www.ios-developer.net/iphone-ipad-programmer">Our resources for other geeks, designers and engineers.(推荐)</a></p>
 
-<p><a href="http://www.cnblogs.com/visen-0/archive/2011/06/06/2073717.html">iOS高效开发必备的10款Objective-C类库</a></p>
+<p><a href="http://www.cnblogs.com/visen-0/archive/2011/06/06/2073717.html">iOS高效开发必备的10款Objective-C类库</a> </p>
 
-<p><a href="http://iphoneexamples.com/">iPhone SDK Examples</a></p>
+<p><a href="http://iphoneexamples.com/">iPhone SDK Examples</a> </p>
 
 <p><a href="http://www.techotopia.com/index.php/An_iOS_4_iPhone_Graphics_Drawing_Tutorial_using_Quartz_2D_%28Xcode_4%29">An iOS 4 iPhone Graphics Drawing Tutorial using Quartz 2D (Xcode 4) </a></p>
 
@@ -511,7 +501,8 @@ g_age = age;
 
 <p>如果您有更好的推荐， 也请追加， 非常感谢;-)</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/503">IOS开发资源推荐</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/503">IOS开发资源推荐</a></p>
+
 ]]></content>
   </entry>
   
@@ -524,32 +515,34 @@ g_age = age;
   <img src="http://www.weixuhong.com/content/uploads/2010/11/Screen-shot-2010-11-08-at-1.19.12-PM.png" alt="Screen shot 2010-11-08 at 1.19.12 PM.png" border="0" width="260" height="245" />
 </div>
 
-
 <ol>
-<li><p>首先从入口脚本：main.m 启动Application.</p></li>
-<li><p>Application加载MainWindow.我们知道MainWindow的file&#8217;s Owner是UIApplication， 而且里面有delegate到MainWindow的delegate组件。</p></li>
+  <li>
+    <p>首先从入口脚本：main.m 启动Application.</p>
+  </li>
+  <li>
+    <p>Application加载MainWindow.我们知道MainWindow的file’s Owner是UIApplication， 而且里面有delegate到MainWindow的delegate组件。</p>
+  </li>
 </ol>
 
-
-<p>这样我们可以想象：<br/>
-Application拥有了Delegate对象， 为什么要拥有？ 因为它要用到Delegate对象的方法，如：<br/>
+<p>这样我们可以想象：<br />
+Application拥有了Delegate对象， 为什么要拥有？ 因为它要用到Delegate对象的方法，如：<br />
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{}</p>
 
 <p>等其他方法， 当然也包括Delegate对象的变量（window， viewController)。</p>
 
-<p>或许图可以这样: Application->Delegate->{window, ViewController[Label, Button])}</p>
+<p>或许图可以这样: Application-&gt;Delegate-&gt;{window, ViewController[Label, Button])}</p>
 
 <p>从这里我可以想象到：Application,可以引用整个app的对象，包括button，label等。</p>
 
 <ol>
-<li>从图中可以可以看出， Hello world View Controller也被示例， 因为它是Hello_World_View_Controller.xib的File&#8217;s Owner， 所以Hello_World_View_Controller.xib里面的东西都要被实例化。<br/>
+  <li>从图中可以可以看出， Hello world View Controller也被示例， 因为它是Hello_World_View_Controller.xib的File’s Owner， 所以Hello_World_View_Controller.xib里面的东西都要被实例化。<br />
 这个Controller就是具体去控制label, button等具体的东西，如显示啊。</li>
 </ol>
 
-
 <p>*不一定是对的，请高人指点, 谢谢.</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/492">关于iPhone的启动流程</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/492">关于iPhone的启动流程</a></p>
+
 ]]></content>
   </entry>
   

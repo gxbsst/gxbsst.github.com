@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Php | 韦旭红的幸福时光]]></title>
+  <title><![CDATA[分类：php | 韦旭红的幸福时光]]></title>
   <link href="http://weixuhong.com/blog/categories/php/atom.xml" rel="self"/>
   <link href="http://weixuhong.com/"/>
-  <updated>2014-10-24T14:14:26+08:00</updated>
+  <updated>2014-10-24T15:21:07+08:00</updated>
   <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
@@ -19,204 +19,190 @@
     <updated>2010-04-19T00:00:00+08:00</updated>
     <id>http://weixuhong.com/archives/yii%e7%9a%84%e5%b7%a5%e4%bd%9c%e6%b5%81%e7%a8%8b%e5%b0%8f%e8%a7%a3%e5%8e%9f%e5%88%9b</id>
     <content type="html"><![CDATA[<ol>
-<li>我们可以看入口文件index.php</li>
+  <li>我们可以看入口文件index.php</li>
 </ol>
-
 
 <pre lang="php">#index.php
 // change the following paths if necessary
 $yii=dirname(__FILE__).'/../framework/yii.php';
 $config=dirname(__FILE__).'/protected/config/main.php';
 require_once($yii);
-Yii::createWebApplication($config)->run();
+Yii::createWebApplication($config)-&gt;run();
 
 
-* Yii::createWebApplication($config)->run(); 这个是我们比较感兴趣的， Yii在哪里？ ===> YiiBase.php, createWebApplication这个静态方法也是
+* Yii::createWebApplication($config)-&gt;run(); 这个是我们比较感兴趣的， Yii在哪里？ ===&gt; YiiBase.php, createWebApplication这个静态方法也是
 
-*Yii::createWebApplication($config) => 表示创建一个Appcication实例，它做什么？
+*Yii::createWebApplication($config) =&gt; 表示创建一个Appcication实例，它做什么？
 </pre>
 
-
 <ol>
-<li>看看YiiBash.php</li>
+  <li>看看YiiBash.php</li>
 </ol>
-
 
 <pre lang="php">#YiiBash.php
-    public static function createWebApplication($config=null)
-    {
-        return self::createApplication('CWebApplication',$config);
-    }
+	public static function createWebApplication($config=null)
+	{
+		return self::createApplication('CWebApplication',$config);
+	}
 
-    public static function createApplication($class,$config=null)
-    {
-        return new $class($config); //==> <strong>new CWebApplication()</strong>
-    }
+	public static function createApplication($class,$config=null)
+	{
+		return new $class($config); //==&gt; <strong>new CWebApplication()</strong>
+	}
 </pre>
 
-
-<p><em><strong>以上表示创建WebAPP实例， 以后的战场就在这里进行咯，这个跟ROR，或者iPhone或者其他框架都相似吧</strong><br/>
-</em><strong>但是创建这个实例的时候，初始化做了什么事情呢?我们往下看</strong></p>
+<p><strong><em>以上表示创建WebAPP实例， 以后的战场就在这里进行咯，这个跟ROR，或者iPhone或者其他框架都相似吧**<br />
+**</em>但是创建这个实例的时候，初始化做了什么事情呢?我们往下看</strong></p>
 
 <ol>
-<li>到了CApplication.php</li>
+  <li>到了CApplication.php</li>
 </ol>
-
 
 <pre lang="php">#CApplication.php
 public function __construct($config=null)
-    {
-        Yii::setApplication($this); // 这个作用就是以后你就可以使用 Yii::app()->user //还记得我说app是战场么？
+	{
+		Yii::setApplication($this); // 这个作用就是以后你就可以使用 Yii::app()-&gt;user //还记得我说app是战场么？
 
-        // set basePath at early as possible to avoid trouble
-        //配置文件的处理
-        if(is_string($config))
-            $config=require($config);
-        if(isset($config['basePath']))
-        {
-            $this->setBasePath($config['basePath']);
-            unset($config['basePath']);
-        }
-        else
-            $this->setBasePath('protected');
-        Yii::setPathOfAlias('application',$this->getBasePath());
-        Yii::setPathOfAlias('webroot',dirname($_SERVER['SCRIPT_FILENAME']));
-        Yii::setPathOfAlias('ext',$this->getBasePath().DIRECTORY_SEPARATOR.'extensions');
+		// set basePath at early as possible to avoid trouble
+		//配置文件的处理
+		if(is_string($config))
+			$config=require($config);
+		if(isset($config['basePath']))
+		{
+			$this-&gt;setBasePath($config['basePath']);
+			unset($config['basePath']);
+		}
+		else
+			$this-&gt;setBasePath('protected');
+		Yii::setPathOfAlias('application',$this-&gt;getBasePath());
+		Yii::setPathOfAlias('webroot',dirname($_SERVER['SCRIPT_FILENAME']));
+		Yii::setPathOfAlias('ext',$this-&gt;getBasePath().DIRECTORY_SEPARATOR.'extensions');
 
-        $this->preinit();
+		$this-&gt;preinit();
 
-        $this->initSystemHandlers();
-        //注册核心组建
-        $this->registerCoreComponents();
+		$this-&gt;initSystemHandlers();
+		//注册核心组建
+		$this-&gt;registerCoreComponents();
 
-        $this->configure($config);
-        $this->attachBehaviors($this->behaviors);
-        $this->preloadComponents();
+		$this-&gt;configure($config);
+		$this-&gt;attachBehaviors($this-&gt;behaviors);
+		$this-&gt;preloadComponents();
 
-        $this->init();
-    }
+		$this-&gt;init();
+	}
 
 </pre>
 
-
-<p><strong>*$this->registerCoreComponents(); 这个很重要，因为要实例的是CWebApplication，所以请回到CWebApplication.php</strong></p>
+<p><strong>*$this-&gt;registerCoreComponents(); 这个很重要，因为要实例的是CWebApplication，所以请回到CWebApplication.php</strong></p>
 
 <ol>
-<li>CWebApplication.php</li>
+  <li>CWebApplication.php</li>
 </ol>
 
-
 <pre lang="php">protected function registerCoreComponents()
-    {
-        parent::registerCoreComponents();
+	{
+		parent::registerCoreComponents();
 
-        $components=array(
-            'session'=>array(
-                'class'=>'CHttpSession',
-            ),
-            'assetManager'=>array(
-                'class'=>'CAssetManager',
-            ),
-            'user'=>array(
-                'class'=>'CWebUser',
-            ),
-            'themeManager'=>array(
-                'class'=>'CThemeManager',
-            ),
-            'authManager'=>array(
-                'class'=>'CPhpAuthManager',
-            ),
-            'clientScript'=>array(
-                'class'=>'CClientScript',
-            ),
-        );
+		$components=array(
+			'session'=&gt;array(
+				'class'=&gt;'CHttpSession',
+			),
+			'assetManager'=&gt;array(
+				'class'=&gt;'CAssetManager',
+			),
+			'user'=&gt;array(
+				'class'=&gt;'CWebUser',
+			),
+			'themeManager'=&gt;array(
+				'class'=&gt;'CThemeManager',
+			),
+			'authManager'=&gt;array(
+				'class'=&gt;'CPhpAuthManager',
+			),
+			'clientScript'=&gt;array(
+				'class'=&gt;'CClientScript',
+			),
+		);
 
-        $this->setComponents($components);
-    }
+		$this-&gt;setComponents($components);
+	}
 </pre>
 
-
-<p>注意$this->setComponents($components); ==> 这个方法在CModule.php</p>
+<p>注意$this-&gt;setComponents($components); ==&gt; 这个方法在CModule.php</p>
 
 <ul>
-<li>registerCoreComponents 方法实现了注册Core components, 但是不实现，后面的 $this->setComponents($components);就表示实实例这些components了, 所以一个WebAPP，初始化的时候应该可以使用: session, assetManager, user, themeManager, clientScript 这几个实例， 通过Yii:app()->session调用，如果要在启动一个WebAPP的时候初始化一个对象，请在main.php配置</li>
+  <li>registerCoreComponents 方法实现了注册Core components, 但是不实现，后面的 $this-&gt;setComponents($components);就表示实实例这些components了, 所以一个WebAPP，初始化的时候应该可以使用: session, assetManager, user, themeManager, clientScript 这几个实例， 通过Yii:app()-&gt;session调用，如果要在启动一个WebAPP的时候初始化一个对象，请在main.php配置</li>
 </ul>
-
 
 <p>好了，这个是一个WebAPP初始化要做的事情: 路径，配置文件，Handlers，Behaviors，Componts等</p>
 
 <ol>
-<li>接下来就是要做run()</li>
+  <li>接下来就是要做run()</li>
 </ol>
-
 
 <pre lang="php">#CApplication.php
 
-    public function run()
-    {
-        if($this->hasEventHandler('onBeginRequest'))
-            $this->onBeginRequest(new CEvent($this));
-        $this->processRequest();
-        if($this->hasEventHandler('onEndRequest'))
-            $this->onEndRequest(new CEvent($this));
-    }
+	public function run()
+	{
+		if($this-&gt;hasEventHandler('onBeginRequest'))
+			$this-&gt;onBeginRequest(new CEvent($this));
+		$this-&gt;processRequest();
+		if($this-&gt;hasEventHandler('onEndRequest'))
+			$this-&gt;onEndRequest(new CEvent($this));
+	}
 </pre>
 
-
-<p><strong>*先进行onBeginRequest => processRequest => onEndRequest //相信这个些英文单词都很好理解了</strong></p>
+<p><strong>*先进行onBeginRequest =&gt; processRequest =&gt; onEndRequest //相信这个些英文单词都很好理解了</strong></p>
 
 <ol>
-<li>我们重点看$this->processRequest()</li>
+  <li>我们重点看$this-&gt;processRequest()</li>
 </ol>
-
 
 <pre lang="php">#CWebApplication.php
-    public function processRequest()
-    {
-        if(is_array($this->catchAllRequest) &#038;&#038; isset($this->catchAllRequest[0]))
-        {
-            $route=$this->catchAllRequest[0];
-            foreach(array_splice($this->catchAllRequest,1) as $name=>$value)
-                $_GET[$name]=$value;
-        }
-        else
-            $route=$this->getUrlManager()->parseUrl($this->getRequest());
-        $this->runController($route);
+	public function processRequest()
+	{
+		if(is_array($this-&gt;catchAllRequest) &#038;&#038; isset($this-&gt;catchAllRequest[0]))
+		{
+			$route=$this-&gt;catchAllRequest[0];
+			foreach(array_splice($this-&gt;catchAllRequest,1) as $name=&gt;$value)
+				$_GET[$name]=$value;
+		}
+		else
+			$route=$this-&gt;getUrlManager()-&gt;parseUrl($this-&gt;getRequest());
+		$this-&gt;runController($route);
 </pre>
 
-
-<p><em>1.处理URL的部分，知道哪部分是Controller, 哪部分是Action等，这个部分由urlManager来处理<br/>
-</em>重要的在这里: $this->runController($route)</p>
+<p>*1.处理URL的部分，知道哪部分是Controller, 哪部分是Action等，这个部分由urlManager来处理<br />
+*重要的在这里: $this-&gt;runController($route)</p>
 
 <ol>
-<li>看看runController($route)</li>
+  <li>看看runController($route)</li>
 </ol>
-
 
 <pre lang="php">#CWebApplication.php
 public function runController($route)
-    {
-        if(($ca=$this->createController($route))!==null)
-        {
-            list($controller,$actionID)=$ca;
-            $oldController=$this->_controller;
-            $this->_controller=$controller;
-            $controller->init();
-            $controller->run($actionID);
-            $this->_controller=$oldController;
-        }
-        else
-            throw new CHttpException(404,Yii::t('yii','Unable to resolve the request "{route}".',
-                array('{route}'=>$route===''?$this->defaultController:$route)));
-    
+	{
+		if(($ca=$this-&gt;createController($route))!==null)
+		{
+			list($controller,$actionID)=$ca;
+			$oldController=$this-&gt;_controller;
+			$this-&gt;_controller=$controller;
+			$controller-&gt;init();
+			$controller-&gt;run($actionID);
+			$this-&gt;_controller=$oldController;
+		}
+		else
+			throw new CHttpException(404,Yii::t('yii','Unable to resolve the request "{route}".',
+				array('{route}'=&gt;$route===''?$this-&gt;defaultController:$route)));
+	
 </pre>
-
 
 <p>*以上当然是创建一个controller的实例，然后执行一个action方法, 这个时候,WebApp环境又多了一个controller的实例</p>
 
 <p>所有流程就是这样了，当然错漏很难免，但请赐教;-)</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/480">Yii的工作流程小解(原创)</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/480">Yii的工作流程小解(原创)</a></p>
+
 ]]></content>
   </entry>
   
@@ -228,51 +214,47 @@ public function runController($route)
     <content type="html"><![CDATA[<p>要点：</p>
 
 <ol>
-<li>撑宽目标node的宽度 shift R &amp;&amp; L Values</li>
+  <li>撑宽目标node的宽度 shift R &amp;&amp; L Values</li>
 </ol>
-
 
 <pre lang="php">$first = $parent_manual['node']['l']+1; //The dst node l value
 
 $delta  = $current_manual['rgt'] - $current_manual['lft']+1;
 
 mysql_query('START TRANSACTION');
-  $result_a = mysql_query("UPDATE ".$thandle['table']." SET ".$thandle['lvalname']."=".$thandle['lvalname']."+$delta WHERE ".$thandle['lvalname'].">=$first ");
-  $result_b = mysql_query("UPDATE ".$thandle['table']." SET ".$thandle['rvalname']."=".$thandle['rvalname']."+$delta WHERE ".$thandle['rvalname'].">=$first ");
-    /*IF UPDATE IS SUCCESS ,THEN DO COMMIT*/
-    if ($result_a &#038;&#038; $result_b) {
-        mysql_query('COMMIT');
-    } else {
-        mysql_query('ROLLBACK');
-    }
+  $result_a = mysql_query("UPDATE ".$thandle['table']." SET ".$thandle['lvalname']."=".$thandle['lvalname']."+$delta WHERE ".$thandle['lvalname']."&gt;=$first ");
+  $result_b = mysql_query("UPDATE ".$thandle['table']." SET ".$thandle['rvalname']."=".$thandle['rvalname']."+$delta WHERE ".$thandle['rvalname']."&gt;=$first ");
+	/*IF UPDATE IS SUCCESS ,THEN DO COMMIT*/
+	if ($result_a &#038;&#038; $result_b) {
+		mysql_query('COMMIT');
+	} else {
+		mysql_query('ROLLBACK');
+	}
 
 </pre>
 
-
 <ol>
-<li>复制的操作</li>
+  <li>复制的操作</li>
 </ol>
-
 
 <pre lang="php">$delta  = $parent_manual['node']['l'] - $current_manual['lft'] + 1;
 
-    foreach ($tree as  $manual) {
-    $manual['description'] = '';
-    $manual['lft'] += $delta;
-    $manual['rgt'] += $delta ;
-    $manual['root_id'] = $root_id;
-    copy_one_item($manual, $root_id, $thandle);
+	foreach ($tree as  $manual) {
+	$manual['description'] = '';
+	$manual['lft'] += $delta;
+	$manual['rgt'] += $delta ;
+	$manual['root_id'] = $root_id;
+	copy_one_item($manual, $root_id, $thandle);
 }
 
 </pre>
 
-
 <ul>
-<li>其实最重要的就是$first和$delta的计算方法.</li>
+  <li>其实最重要的就是$first和$delta的计算方法.</li>
 </ul>
 
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/402">Nested set model: Copy SubTree</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/402">Nested set model: Copy SubTree</a></p>
 ]]></content>
   </entry>
   
@@ -295,10 +277,10 @@ mysql_query('START TRANSACTION');
 }
 </pre>
 
-
 <p><img src="http://www.weixuhong.com/content/uploads/2010/01/螢幕快照-2010-01-07-3.30.54-PM.png" alt="螢幕快照 2010-01-07 3.30.54 PM.png" border="0" width="1016" height="77" /></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/400">在firebug显示mysql query</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/400">在firebug显示mysql query</a></p>
+
 ]]></content>
   </entry>
   
@@ -311,7 +293,8 @@ mysql_query('START TRANSACTION');
 
 <p><a href="http://www.weixuhong.com/content/uploads/2009/09/interview.tar.gz">interview.tar.gz</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/266">面试题目</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/266">面试题目</a></p>
+
 ]]></content>
   </entry>
   
@@ -320,26 +303,34 @@ mysql_query('START TRANSACTION');
     <link href="http://weixuhong.com/archives/260"/>
     <updated>2009-08-18T00:00:00+08:00</updated>
     <id>http://weixuhong.com/archives/configure</id>
-    <content type="html"><![CDATA[<p>在RedHat AS4 安装<a href="http://blog.s135.com/nginx_php_v5/%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%B8%AAlibpng%E7%9A%84%E9%97%AE%E9%A2%98">http://blog.s135.com/nginx_php_v5/%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%B8%AAlibpng%E7%9A%84%E9%97%AE%E9%A2%98</a></p>
+    <content type="html"><![CDATA[<p>在RedHat AS4 安装http://blog.s135.com/nginx_php_v5/遇到的一个libpng的问题</p>
 
 <p>下载了其中的rpm，安装但是编译php的时候老是遇到configure: error: png.h not found.的问题</p>
 
-<p>我到/usr/src/redhat/SOURCES/找到<br/>
+<p>我到/usr/src/redhat/SOURCES/找到<br />
 libpng-1.2.7.tar.bz2</p>
 
 <ol>
-<li><p>tar jxvf libpng-1.2.7.tar.bz2</p></li>
-<li><p>cp scripts/makefile.std makefile</p></li>
-<li><p>make</p></li>
-<li><p>make install</p></li>
+  <li>
+    <p>tar jxvf libpng-1.2.7.tar.bz2 </p>
+  </li>
+  <li>
+    <p>cp scripts/makefile.std makefile</p>
+  </li>
+  <li>
+    <p>make</p>
+  </li>
+  <li>
+    <p>make install</p>
+  </li>
 </ol>
-
 
 <p>这个问题才解决</p>
 
-<p>不知道rpm安装为什么不成功&#8230;</p>
+<p>不知道rpm安装为什么不成功…</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/260">configure</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/260">configure</a></p>
+
 ]]></content>
   </entry>
   

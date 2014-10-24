@@ -95,9 +95,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -127,11 +127,11 @@ $(document).ready(
   </header>
 
 
-<div class="entry-content"><p>来自：<a href="http://blog.prosight.me/index.php/2009/11/485">http://blog.prosight.me/index.php/2009/11/485</a></p>
+<div class="entry-content"><p>来自：http://blog.prosight.me/index.php/2009/11/485</p>
 
-<p>如果使用git的人数较少，可以使用下面的步骤快速部署一个git服务器环境。<br/>
-1. 生成 SSH 公钥<br/>
-每个需要使用git服务器的工程师，自己需要生成一个ssh公钥<br/>
+<p>如果使用git的人数较少，可以使用下面的步骤快速部署一个git服务器环境。<br />
+1. 生成 SSH 公钥<br />
+每个需要使用git服务器的工程师，自己需要生成一个ssh公钥<br />
 进入自己的~/.ssh目录，看有没有用 文件名 和 文件名.pub 来命名的一对文件，这个 文件名 通常是 id_dsa 或者 id_rsa。 .pub 文件是公钥，另一个文件是密钥。假如没有这些文件（或者干脆连 .ssh 目录都没有），你可以用 ssh-keygen 的程序来建立它们，该程序在 Linux/Mac 系统由 SSH 包提供， 在 Windows 上则包含在 MSysGit 包里:</p>
 
 <pre lang="c">$ ssh-keygen 
@@ -145,8 +145,7 @@ The key fingerprint is:
 43:c5:5b:5f:b1:f1:50:43:ad:20:a6:92:6a:1f:9a:3a schacon@agadorlaptop.local
 </pre>
 
-
-<p>它先要求你确认保存公钥的位置（.ssh/id_rsa），然后它会让你重复一个密码两次，如果不想在使用公钥的时候输入密码，可以留空。<br/>
+<p>它先要求你确认保存公钥的位置（.ssh/id_rsa），然后它会让你重复一个密码两次，如果不想在使用公钥的时候输入密码，可以留空。<br />
 现在，所有做过这一步的用户都得把它们的公钥给你或者 Git 服务器的管理者（假设 SSH 服务被设定为使用公钥机制）。他们只需要复制 .pub 文件的内容然后 e-</p>
 
 <pre lang="c">$ cat ~/.ssh/id_rsa.pub 
@@ -158,12 +157,10 @@ mZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbx
 NrRFi9wrf+M7Q== schacon@agadorlaptop.local
 </pre>
 
-
 <ol>
-<li>架设服务器<br/>
+  <li>架设服务器<br />
 首先，创建一个 ‘git’ 用户并为其创建一个 .ssh 目录，在用户主目录下:</li>
 </ol>
-
 
 <pre lang="c">$ sudo adduser git
 $ su git
@@ -171,14 +168,12 @@ $ cd
 $ mkdir .ssh
 </pre>
 
-
 <p>接下来，把开发者的 SSH 公钥添加到这个用户的 authorized_keys 文件中。假设你通过 e-mail 收到了几个公钥并存到了临时文件里。只要把它们加入 authorized_keys 文件</p>
 
-<pre lang="c">$ cat /tmp/id_rsa.john.pub >> ~/.ssh/authorized_keys
-$ cat /tmp/id_rsa.josie.pub >> ~/.ssh/authorized_keys
-$ cat /tmp/id_rsa.jessica.pub >> ~/.ssh/authorized_keys
+<pre lang="c">$ cat /tmp/id_rsa.john.pub &gt;&gt; ~/.ssh/authorized_keys
+$ cat /tmp/id_rsa.josie.pub &gt;&gt; ~/.ssh/authorized_keys
+$ cat /tmp/id_rsa.jessica.pub &gt;&gt; ~/.ssh/authorized_keys
 </pre>
-
 
 <p>现在可以使用 –bare 选项运行 git init 来设定一个空仓库，这会初始化一个不包含工作目录的仓库。</p>
 
@@ -187,7 +182,6 @@ $ mkdir project.git
 $ cd project.git
 $ git --bare init
 </pre>
-
 
 <p>这时，开发人员就可以把它加为远程仓库，推送一个分支，从而把第一个版本的工程上传到仓库里了。值得注意的是，每次添加一个新项目都需要通过 shell 登入主机并创建一个纯仓库。我们不妨以 gitserver 作为 git 用户和仓库所在的主机名。如果你在网络内部运行该主机，并且在 DNS 中设定 gitserver 指向该主机，那么以下这些命令都是可用的：</p>
 
@@ -201,7 +195,6 @@ $ git remote add origin git@gitserver:/opt/git/project.git
 $ git push origin master
 </pre>
 
-
 <p>这样，其他人的克隆和推送也一样变得很简单：</p>
 
 <pre lang="c">$ git clone git@gitserver:/opt/git/project.git
@@ -210,33 +203,30 @@ $ git commit -am 'fix for the README file'
 $ git push origin master
 </pre>
 
-
-<p>用这个方法可以很快捷的为少数几个开发者架设一个可读写的 Git 服务。<br/>
+<p>用这个方法可以很快捷的为少数几个开发者架设一个可读写的 Git 服务。<br />
 作为一个额外的防范措施，你可以用 Git 自带的 git-shell 简单工具来把 git 用户的活动限制在仅与 Git 相关。把它设为 git 用户登入的 shell，那么该用户就不能拥有主机正常的 shell 访问权。为了实现这一点，需要指明用户的登入shell 是 git-shell ，而不是 bash 或者 csh。你可能得编辑 /etc/passwd 文件</p>
 
 <pre lang="c">$ sudo vim /etc/passwd
 </pre>
-
 
 <p>在文件末尾，你应该能找到类似这样的行：</p>
 
 <pre lang="c">git:x:1000:1000::/home/git:/bin/sh
 </pre>
 
-
 <p>把 bin/sh 改为 /usr/bin/git-shell （或者用 which git-shell 查看它的位置）。该行修改后的样子如下：</p>
 
-<p>git:x:1000:1000::/home/git:/usr/bin/git-shell<br/>
+<p>git:x:1000:1000::/home/git:/usr/bin/git-shell<br />
 现在 git 用户只能用 SSH 连接来推送和获取 Git 仓库，而不能直接使用主机 shell。尝试登录的话，你会看到下面这样的拒绝信息：</p>
 
 <pre lang="c">$ ssh git@gitserver
 </pre>
 
-
-<p>fatal: What do you think I am? A shell? （你以为我是个啥？shell吗？)<br/>
+<p>fatal: What do you think I am? A shell? （你以为我是个啥？shell吗？)<br />
 Connection to gitserver closed. （gitserver 连接已断开。）</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/541">小组级git服务器搭建（转)</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/541">小组级git服务器搭建（转)</a></p>
+
 </div>
 
 
@@ -289,10 +279,10 @@ Connection to gitserver closed. （gitserver 连接已断开。）</p>
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -317,8 +307,12 @@ Connection to gitserver closed. （gitserver 连接已断开。）</p>
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -336,40 +330,7 @@ Connection to gitserver closed. （gitserver 连接已断开。）</p>
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

@@ -92,9 +92,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -126,17 +126,16 @@ $(document).ready(
 
 <div class="entry-content"><p>在了解 Moutable之前， 先看这个视频：</p>
 
-<p><a href="http://railscasts.com/episodes/277-mountable-engines">http://railscasts.com/episodes/277-mountable-engines</a></p>
+<p>http://railscasts.com/episodes/277-mountable-engines</p>
 
 <p>了解Mountable Engines与Full Engines的区别， 看这篇文章:</p>
 
-<p><a href="http://stackoverflow.com/questions/6118905/rails-3-1-engine-vs-mountable-app">http://stackoverflow.com/questions/6118905/rails-3-1-engine-vs-mountable-app</a></p>
+<p>http://stackoverflow.com/questions/6118905/rails-3-1-engine-vs-mountable-app</p>
 
 <p>当我们使用：</p>
 
 <pre lang="ruby">rails plugin new uhoh --mountable
 </pre>
-
 
 <p>我们可以把这个创建好的plugin变成一个gem来使用。</p>
 
@@ -145,13 +144,11 @@ $(document).ready(
 <pre lang="ruby">rails new with_engine -T -O -J
 </pre>
 
-
 <p>编辑Gemfile, 添加以下一行:</p>
 
-<pre lang="ruby">gem 'uhoh', :path => '/Users/weston/Downloads/277-mountable-engines/uhoh-after/' #刚才创建的mountable 路径
+<pre lang="ruby">gem 'uhoh', :path =&gt; '/Users/weston/Downloads/277-mountable-engines/uhoh-after/' #刚才创建的mountable 路径
 
 </pre>
-
 
 <p>执行</p>
 
@@ -160,16 +157,15 @@ $(document).ready(
 vim config/routs.rb
 </pre>
 
-
 <p>添加以下一行:</p>
 
-<pre lang="ruby">mount Uhoh::Engine => "/uhoh", :as => "uhoh_engine"
+<pre lang="ruby">mount Uhoh::Engine =&gt; "/uhoh", :as =&gt; "uhoh_engine"
 </pre>
 
+<p>这样我们就可以使用这个engines了…</p>
 
-<p>这样我们就可以使用这个engines了&#8230;</p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/551">rails 3.1 Mountable Engines 使用方法</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/551">rails 3.1 Mountable Engines 使用方法</a></p>
 </div>
 
 
@@ -222,10 +218,10 @@ vim config/routs.rb
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -250,8 +246,12 @@ vim config/routs.rb
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -269,40 +269,7 @@ vim config/routs.rb
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

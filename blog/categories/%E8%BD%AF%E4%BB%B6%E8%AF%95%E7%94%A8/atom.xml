@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: 软件试用 | 韦旭红的幸福时光]]></title>
+  <title><![CDATA[分类：软件试用 | 韦旭红的幸福时光]]></title>
   <link href="http://weixuhong.com/blog/categories/%E8%BD%AF%E4%BB%B6%E8%AF%95%E7%94%A8/atom.xml" rel="self"/>
   <link href="http://weixuhong.com/"/>
-  <updated>2014-10-24T14:14:26+08:00</updated>
+  <updated>2014-10-24T15:21:07+08:00</updated>
   <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
@@ -18,7 +18,9 @@
     <link href="http://weixuhong.com/archives/417"/>
     <updated>2010-01-08T00:00:00+08:00</updated>
     <id>http://weixuhong.com/archives/%e5%9c%a8%e4%b8%ad%e5%9b%bd%e6%b3%a8%e5%86%8c%e7%94%b3%e8%af%b7google-voice</id>
-    <content type="html"><![CDATA[<blockquote><p>传说中的Google Voice,据说是打美国的电话、短信都是免费的， 但是现在的只是限制于美国本土， 不过我们国内用户使用也有个好处，就是可以免费的发送短信， 不足的是，只能发送英文短信， 中文短信会无法发送&#8230;</p></blockquote>
+    <content type="html"><![CDATA[<blockquote>
+  <p>传说中的Google Voice,据说是打美国的电话、短信都是免费的， 但是现在的只是限制于美国本土， 不过我们国内用户使用也有个好处，就是可以免费的发送短信， 不足的是，只能发送英文短信， 中文短信会无法发送…</p>
+</blockquote>
 
 <p><strong>1. 注册Google Voice</strong></p>
 
@@ -38,9 +40,10 @@
 
 <p><strong>3.更具体看视频吧</strong></p>
 
-<p>也可以参考这篇文章: <a href="http://www.cnbeta.com/articles/90493.htm">http://www.cnbeta.com/articles/90493.htm</a></p>
+<p>也可以参考这篇文章: http://www.cnbeta.com/articles/90493.htm</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/417">在中国注册申请Google Voice</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/417">在中国注册申请Google Voice</a></p>
+
 ]]></content>
   </entry>
   
@@ -55,7 +58,7 @@
 
 <p><strong>Dropbox的介绍</strong></p>
 
-<p>Dropbox是一个网络存储平台，如果你有一些比较重要的文件需要备份，比如亲密爱人的图片或者一些配置文件，都可以放到Dropbox上，它可以设置各种阅读权限，当然也可以公开给别人下载，现在注册的用户的容量是2GB，当然你可以多邀请朋友，每邀请一个是增量250MB，可不要忘记你的邀请链接在这里: <a href="https://www.dropbox.com/referrals,">https://www.dropbox.com/referrals,</a> 看图红线处:</p>
+<p>Dropbox是一个网络存储平台，如果你有一些比较重要的文件需要备份，比如亲密爱人的图片或者一些配置文件，都可以放到Dropbox上，它可以设置各种阅读权限，当然也可以公开给别人下载，现在注册的用户的容量是2GB，当然你可以多邀请朋友，每邀请一个是增量250MB，可不要忘记你的邀请链接在这里: https://www.dropbox.com/referrals, 看图红线处:</p>
 
 <p><img src="http://www.weixuhong.com/content/uploads/2010/01/Dropbox-Referrals-Secure-backup-sync-and-sharing-made-easy..jpg" alt="Dropbox - Referrals - Secure backup, sync and sharing made easy..jpg" border="0" width="732" height="554" /></p>
 
@@ -69,13 +72,11 @@
   *请牢记你的密码
 </p>
 
-
 <p><strong>2. 下载: Dropbox客户端</strong></p>
 
 <ul>
-<li>一般操作完第一步，就会自动下载客户端了，如果不会自动下载，请到<a href="https://www.dropbox.com/install">https://www.dropbox.com/install</a>下载</li>
+  <li>一般操作完第一步，就会自动下载客户端了，如果不会自动下载，请到<a href="https://www.dropbox.com/install">https://www.dropbox.com/install</a>下载</li>
 </ul>
-
 
 <p><strong>3. 安装Dropbox（请看视频)</strong></p>
 
@@ -91,15 +92,14 @@
   本地文件
 </p>
 
-
 <p><img src="http://www.weixuhong.com/content/uploads/2010/01/螢幕快照-2010-01-05-9.38.41-PM.png" alt="螢幕快照 2010-01-05 9.38.41 PM.png" border="0" width="831" height="723" /></p>
 
 <p align="center">
   网站文件
 </p>
 
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/378">如何在Windows上使用Dropbox</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/378">如何在Windows上使用Dropbox</a></p>
 ]]></content>
   </entry>
   
@@ -108,7 +108,7 @@
     <link href="http://weixuhong.com/archives/361"/>
     <updated>2009-12-05T00:00:00+08:00</updated>
     <id>http://weixuhong.com/archives/%e7%94%a8%e8%bf%87%e7%9a%84twitter%e7%9a%84%e5%ae%a2%e6%88%b7%e7%ab%af</id>
-    <content type="html"><![CDATA[<p><a href="http://www.weixuhong.com/content/uploads/2009/12/Picture-11.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/12/Picture-11.png','popup','width=267,height=760,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/12/Picture-11-tm.jpg" height="760" width="267" border="1" hspace="4" vspace="4" alt="Picture 11" /></a><br/>
+    <content type="html"><![CDATA[<p><a href="http://www.weixuhong.com/content/uploads/2009/12/Picture-11.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/12/Picture-11.png','popup','width=267,height=760,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/12/Picture-11-tm.jpg" height="760" width="267" border="1" hspace="4" vspace="4" alt="Picture 11" /></a><br />
 <a href="http://twitterrific.com/">twitterrific</a></p>
 
 <p><span style="font-family:STHeiti;">这款软件</span>是我第一次用Twitter<span style="font-family:STHeiti;">时</span>用的<span style="font-family:STHeiti;">软件</span>，后来被<span style="font-family:STHeiti;">墙</span>之后，就把其放弃了，用了FF的插件<a href="http://echofon.com/">echofon</a></p>
@@ -121,13 +121,14 @@
 
 <p><a href="http://echofon.com/">echofon</a>是在Firefox上使用的，平<span style="font-family:STHeiti;">时</span>也是使用最多的，包括在Window<span style="font-family:STHeiti;">时</span></p>
 
-<p><a href="http://www.weixuhong.com/content/uploads/2009/12/Picture-7-3.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/12/Picture-7-3.png','popup','width=1283,height=717,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/12/Picture-7-3-tm.jpg" height="500" width="894" border="1" hspace="4" vspace="4" alt="Picture 7-3" /></a><br/>
+<p><a href="http://www.weixuhong.com/content/uploads/2009/12/Picture-7-3.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/12/Picture-7-3.png','popup','width=1283,height=717,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/12/Picture-7-3-tm.jpg" height="500" width="894" border="1" hspace="4" vspace="4" alt="Picture 7-3" /></a><br />
 <a href="http://www.tweetdeck.com/">tweetdeck</a></p>
 
-<p><a href="http://www.weixuhong.com/content/uploads/2009/12/Picture-8-3.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/12/Picture-8-3.png','popup','width=1276,height=778,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/12/Picture-8-3-tm.jpg" height="500" width="820" border="1" hspace="4" vspace="4" alt="Picture 8-3" /></a><br/>
+<p><a href="http://www.weixuhong.com/content/uploads/2009/12/Picture-8-3.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/12/Picture-8-3.png','popup','width=1276,height=778,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/12/Picture-8-3-tm.jpg" height="500" width="820" border="1" hspace="4" vspace="4" alt="Picture 8-3" /></a><br />
 <a href="http://seesmic.com/">Seesmic</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/361">用过的Twitter的客户端</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/361">用过的Twitter的客户端</a></p>
+
 ]]></content>
   </entry>
   
@@ -136,10 +137,11 @@
     <link href="http://weixuhong.com/archives/339"/>
     <updated>2009-11-15T00:00:00+08:00</updated>
     <id>http://weixuhong.com/archives/mac%e5%b8%b8%e7%94%a8%e8%bd%af%e4%bb%b6%e4%b9%8bdropbox</id>
-    <content type="html"><![CDATA[<p>一般本机比<span style="font-family:STHeiti;">较重要的文件，如一些配置文件</span>:ssh key, .vimrc等等，<span style="font-family:STHeiti;">这些重要的文件一般备份到网络去，我使用的是</span>Dropbox（<a href="https://www.dropbox.com%EF%BC%89,">https://www.dropbox.com%EF%BC%89,</a> <span style="font-family:STHeiti;">这个软件很好用，</span> 注册之后的网<span style="font-family:STHeiti;">络空间就有</span>2.2G， 只要把需要<span style="font-family:STHeiti;">备份的文件放到特定的文件夹，它就会自动上传到远程的网站</span>.<a href="http://www.weixuhong.com/content/uploads/2009/11/dropbox1.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/11/dropbox1.png','popup','width=750,height=444,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/11/dropbox1-tm.jpg" height="450" width="760" border="1" hspace="4" vspace="4" alt="Dropbox1" /></a><br/>
+    <content type="html"><![CDATA[<p>一般本机比<span style="font-family:STHeiti;">较重要的文件，如一些配置文件</span>:ssh key, .vimrc等等，<span style="font-family:STHeiti;">这些重要的文件一般备份到网络去，我使用的是</span>Dropbox（https://www.dropbox.com）, <span style="font-family:STHeiti;">这个软件很好用，</span> 注册之后的网<span style="font-family:STHeiti;">络空间就有</span>2.2G， 只要把需要<span style="font-family:STHeiti;">备份的文件放到特定的文件夹，它就会自动上传到远程的网站</span>.<a href="http://www.weixuhong.com/content/uploads/2009/11/dropbox1.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/11/dropbox1.png','popup','width=750,height=444,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/11/dropbox1-tm.jpg" height="450" width="760" border="1" hspace="4" vspace="4" alt="Dropbox1" /></a><br />
 <a href="http://www.weixuhong.com/content/uploads/2009/11/dropbox2.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/11/dropbox2.png','popup','width=933,height=474,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/11/dropbox2-tm.jpg" height="450" width="885" border="1" hspace="4" vspace="4" alt="Dropbox2" /></a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/339">Mac常用软件之Dropbox</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/339">Mac常用软件之Dropbox</a></p>
+
 ]]></content>
   </entry>
   

@@ -9,7 +9,7 @@
   <meta name="author" content="Weston Wei(韦旭红)">
 
   
-  <meta name="description" content="当使用了svn版本控制系统后每个目录下都会有一个.svn目录存在，开发完当交付产品或者上传到服务器时一般要把这些目录删除，这里总结了一下在linux和win下的办法。 一、在linux下 删除这些目录是很简单的，命令如下 find . -type d -name &#8220;.svn&#8221 &hellip;">
+  <meta name="description" content="当使用了svn版本控制系统后每个目录下都会有一个.svn目录存在，开发完当交付产品或者上传到服务器时一般要把这些目录删除，这里总结了一下在linux和win下的办法。 一、在linux下 删除这些目录是很简单的，命令如下 find . -type d -name “.svn” xargs rm - &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -92,9 +92,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -130,21 +130,28 @@ $(document).ready(
 
 <p>删除这些目录是很简单的，命令如下</p>
 
-<p>find . -type d -name &#8220;.svn&#8221;|xargs rm -rf</p>
+<table>
+  <tbody>
+    <tr>
+      <td>find . -type d -name “.svn”</td>
+      <td>xargs rm -rf</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>或者</p>
 
-<p>find . -type d -iname &#8220;.svn&#8221; -exec rm -rf {} ;</p>
+<p>find . -type d -iname “.svn” -exec rm -rf {} ; </p>
 
-<p>全部搞定。(<a href="http://tech.techweb.com.cn/redirect.php?fid=26&amp;tid=205673&amp;goto=nextnewset">http://tech.techweb.com.cn/redirect.php?fid=26&amp;tid=205673&amp;goto=nextnewset</a>)</p>
+<p>全部搞定。(http://tech.techweb.com.cn/redirect.php?fid=26&amp;tid=205673&amp;goto=nextnewset)</p>
 
 <p>二、在windows下用以下法子：</p>
 
-<p>1、在项目平级的目录，执行dos命令：<br/>
+<p>1、在项目平级的目录，执行dos命令：<br />
 xcopy project_dir project_dir_1 /s /i</p>
 
-<p>2、或者在项目根目录执行以下dos命令<br/>
-for /r . %%a in (.) do @if exist &#8220;%%a.svn&#8221; rd /s /q &#8220;%%a.svn&#8221;<br/>
+<p>2、或者在项目根目录执行以下dos命令<br />
+for /r . %%a in (.) do @if exist “%%a.svn” rd /s /q “%%a.svn”<br />
 其实第二种方法可以用来干很多事的，比如把代码中的.svn替换为任意其他文件名并在硬盘根目录下执行，就可以从硬盘上删除所有的这个文件啦。</p>
 
 <p>3、加注册表</p>
@@ -157,10 +164,11 @@ for /r . %%a in (.) do @if exist &#8220;%%a.svn&#8221; rd /s /q &#8220;%%a.svn&#
 
 <p>[HKEY_LOCAL_MACHINESOFTWAREClassesFoldershellDeleteSVN]@=”Delete SVN Folders“</p>
 
-<p>[HKEY_LOCAL_MACHINESOFTWAREClassesFoldershellDeleteSVNcommand]@=”cmd.exe /c ”TITLE Removing SVN Folders in %1 &amp;&amp; COLOR 9A &amp;&amp; FOR /r ”%1” %%f IN (.svn) DO RD /s /q ”%%f” ”“<br/>
+<p>[HKEY_LOCAL_MACHINESOFTWAREClassesFoldershellDeleteSVNcommand]@=”cmd.exe /c ”TITLE Removing SVN Folders in %1 &amp;&amp; COLOR 9A &amp;&amp; FOR /r ”%1” %%f IN (.svn) DO RD /s /q ”%%f” ”“<br />
 将这段代码保存为一个.reg文件，双击确认导入注册表即可。</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/258">删除所有.svn目录</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/258">删除所有.svn目录</a></p>
+
 </div>
 
 
@@ -213,10 +221,10 @@ for /r . %%a in (.) do @if exist &#8220;%%a.svn&#8221; rd /s /q &#8220;%%a.svn&#
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -241,8 +249,12 @@ for /r . %%a in (.) do @if exist &#8220;%%a.svn&#8221; rd /s /q &#8220;%%a.svn&#
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -260,40 +272,7 @@ for /r . %%a in (.) do @if exist &#8220;%%a.svn&#8221; rd /s /q &#8220;%%a.svn&#
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

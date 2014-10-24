@@ -92,9 +92,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -127,20 +127,20 @@ $(document).ready(
 <div class="entry-content"><pre lang="c">3 # Core Website/ERP &#038; RSS Sync Tools
  4 # m h  dom mon dow   command
  5   0  0   15  *   *    cd /dir &#038;&#038; rake db:ipdb:create
- 6   0  0   *   *   *    cd /dir &#038;&#038; RAILS_ENV=production rake report:website_ax_variance >/dev/null 
- 7   0  0   *   *   *    cd /dir &#038;&#038; RAILS_ENV=production rake report:website_ax_inventories_variance >/dev/null 
- 8 */15 *   *   *   *    cd /dir &#038;&#038; RAILS_ENV=production rake rss:refresh >/dev/null 
- 9   0 */4  *   *   *    cd /dir &#038;&#038; RAILS_ENV=production rake ax:hourly >/dev/null 2>&#038;1
-10   0 */1  *   *   *    /dir/script/erp_process_batch production >/dev/null 2>&#038;1 &lt;/dev/null
+ 6   0  0   *   *   *    cd /dir &#038;&#038; RAILS_ENV=production rake report:website_ax_variance &gt;/dev/null 
+ 7   0  0   *   *   *    cd /dir &#038;&#038; RAILS_ENV=production rake report:website_ax_inventories_variance &gt;/dev/null 
+ 8 */15 *   *   *   *    cd /dir &#038;&#038; RAILS_ENV=production rake rss:refresh &gt;/dev/null 
+ 9   0 */4  *   *   *    cd /dir &#038;&#038; RAILS_ENV=production rake ax:hourly &gt;/dev/null 2&gt;&#038;1
+10   0 */1  *   *   *    /dir/script/erp_process_batch production &gt;/dev/null 2&gt;&#038;1 &lt;/dev/null
 11 # Run the AX Customer/Sales Order Update Every 5 Minutes...
-12  */5 *   *   *   *    cd /dir &#038;&#038; RAILS_ENV=production rake erp:sync >/dev/null 
+12  */5 *   *   *   *    cd /dir &#038;&#038; RAILS_ENV=production rake erp:sync &gt;/dev/null 
 13 
 14 # Delete Expired Cache Files
 15 */30 *   *   *   *    find /dir/public/downloads/ -noleaf -cmin +30 -delete
 16   1  *   *   *   *    find /dir/tmp/sessions -noleaf -name 'ruby_sess*' -ctime +1 -delete
 17   1  *   *   *   *    find /dir/tmp/cache/ -noleaf -name “_*.cache” | xargs rm -f
 18 */15 *   *   *   *    rm -f /dir/public/{zh_CN.html,cs_CZ.html,es_ES.html,ja_JP.html,index.html}
-19   1  *   *   *   *    find /tmp -noleaf -name 'ruby_sess*' -ctime +1 -delete >/dev/null
+19   1  *   *   *   *    find /tmp -noleaf -name 'ruby_sess*' -ctime +1 -delete &gt;/dev/null
 20 
 21 # Backup Databases
 22   2  *   *   *   *    /var/www/store/current/script/backup_db.sh 
@@ -158,11 +158,11 @@ $(document).ready(
 
 24* #!/bin/bash
 EXTENSION=`/bin/date “+%Y-%m-%d”`
-/usr/bin/mysqldump -A --default-character-set=utf8 -u root -p passwd database | gzip --fast > /mail_backup/database.$EXTENSION.gz
+/usr/bin/mysqldump -A --default-character-set=utf8 -u root -p passwd database | gzip --fast &gt; /mail_backup/database.$EXTENSION.gz
 </pre>
 
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/162">crontab demo</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/162">crontab demo</a></p>
 </div>
 
 
@@ -215,10 +215,10 @@ EXTENSION=`/bin/date “+%Y-%m-%d”`
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -243,8 +243,12 @@ EXTENSION=`/bin/date “+%Y-%m-%d”`
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -262,40 +266,7 @@ EXTENSION=`/bin/date “+%Y-%m-%d”`
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

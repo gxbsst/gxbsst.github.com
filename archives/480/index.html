@@ -95,9 +95,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -128,204 +128,190 @@ $(document).ready(
 
 
 <div class="entry-content"><ol>
-<li>我们可以看入口文件index.php</li>
+  <li>我们可以看入口文件index.php</li>
 </ol>
-
 
 <pre lang="php">#index.php
 // change the following paths if necessary
 $yii=dirname(__FILE__).'/../framework/yii.php';
 $config=dirname(__FILE__).'/protected/config/main.php';
 require_once($yii);
-Yii::createWebApplication($config)->run();
+Yii::createWebApplication($config)-&gt;run();
 
 
-* Yii::createWebApplication($config)->run(); 这个是我们比较感兴趣的， Yii在哪里？ ===> YiiBase.php, createWebApplication这个静态方法也是
+* Yii::createWebApplication($config)-&gt;run(); 这个是我们比较感兴趣的， Yii在哪里？ ===&gt; YiiBase.php, createWebApplication这个静态方法也是
 
-*Yii::createWebApplication($config) => 表示创建一个Appcication实例，它做什么？
+*Yii::createWebApplication($config) =&gt; 表示创建一个Appcication实例，它做什么？
 </pre>
 
-
 <ol>
-<li>看看YiiBash.php</li>
+  <li>看看YiiBash.php</li>
 </ol>
-
 
 <pre lang="php">#YiiBash.php
-    public static function createWebApplication($config=null)
-    {
-        return self::createApplication('CWebApplication',$config);
-    }
+	public static function createWebApplication($config=null)
+	{
+		return self::createApplication('CWebApplication',$config);
+	}
 
-    public static function createApplication($class,$config=null)
-    {
-        return new $class($config); //==> <strong>new CWebApplication()</strong>
-    }
+	public static function createApplication($class,$config=null)
+	{
+		return new $class($config); //==&gt; <strong>new CWebApplication()</strong>
+	}
 </pre>
 
-
-<p><em><strong>以上表示创建WebAPP实例， 以后的战场就在这里进行咯，这个跟ROR，或者iPhone或者其他框架都相似吧</strong><br/>
-</em><strong>但是创建这个实例的时候，初始化做了什么事情呢?我们往下看</strong></p>
+<p><strong><em>以上表示创建WebAPP实例， 以后的战场就在这里进行咯，这个跟ROR，或者iPhone或者其他框架都相似吧**<br />
+**</em>但是创建这个实例的时候，初始化做了什么事情呢?我们往下看</strong></p>
 
 <ol>
-<li>到了CApplication.php</li>
+  <li>到了CApplication.php</li>
 </ol>
-
 
 <pre lang="php">#CApplication.php
 public function __construct($config=null)
-    {
-        Yii::setApplication($this); // 这个作用就是以后你就可以使用 Yii::app()->user //还记得我说app是战场么？
+	{
+		Yii::setApplication($this); // 这个作用就是以后你就可以使用 Yii::app()-&gt;user //还记得我说app是战场么？
 
-        // set basePath at early as possible to avoid trouble
-        //配置文件的处理
-        if(is_string($config))
-            $config=require($config);
-        if(isset($config['basePath']))
-        {
-            $this->setBasePath($config['basePath']);
-            unset($config['basePath']);
-        }
-        else
-            $this->setBasePath('protected');
-        Yii::setPathOfAlias('application',$this->getBasePath());
-        Yii::setPathOfAlias('webroot',dirname($_SERVER['SCRIPT_FILENAME']));
-        Yii::setPathOfAlias('ext',$this->getBasePath().DIRECTORY_SEPARATOR.'extensions');
+		// set basePath at early as possible to avoid trouble
+		//配置文件的处理
+		if(is_string($config))
+			$config=require($config);
+		if(isset($config['basePath']))
+		{
+			$this-&gt;setBasePath($config['basePath']);
+			unset($config['basePath']);
+		}
+		else
+			$this-&gt;setBasePath('protected');
+		Yii::setPathOfAlias('application',$this-&gt;getBasePath());
+		Yii::setPathOfAlias('webroot',dirname($_SERVER['SCRIPT_FILENAME']));
+		Yii::setPathOfAlias('ext',$this-&gt;getBasePath().DIRECTORY_SEPARATOR.'extensions');
 
-        $this->preinit();
+		$this-&gt;preinit();
 
-        $this->initSystemHandlers();
-        //注册核心组建
-        $this->registerCoreComponents();
+		$this-&gt;initSystemHandlers();
+		//注册核心组建
+		$this-&gt;registerCoreComponents();
 
-        $this->configure($config);
-        $this->attachBehaviors($this->behaviors);
-        $this->preloadComponents();
+		$this-&gt;configure($config);
+		$this-&gt;attachBehaviors($this-&gt;behaviors);
+		$this-&gt;preloadComponents();
 
-        $this->init();
-    }
+		$this-&gt;init();
+	}
 
 </pre>
 
-
-<p><strong>*$this->registerCoreComponents(); 这个很重要，因为要实例的是CWebApplication，所以请回到CWebApplication.php</strong></p>
+<p><strong>*$this-&gt;registerCoreComponents(); 这个很重要，因为要实例的是CWebApplication，所以请回到CWebApplication.php</strong></p>
 
 <ol>
-<li>CWebApplication.php</li>
+  <li>CWebApplication.php</li>
 </ol>
 
-
 <pre lang="php">protected function registerCoreComponents()
-    {
-        parent::registerCoreComponents();
+	{
+		parent::registerCoreComponents();
 
-        $components=array(
-            'session'=>array(
-                'class'=>'CHttpSession',
-            ),
-            'assetManager'=>array(
-                'class'=>'CAssetManager',
-            ),
-            'user'=>array(
-                'class'=>'CWebUser',
-            ),
-            'themeManager'=>array(
-                'class'=>'CThemeManager',
-            ),
-            'authManager'=>array(
-                'class'=>'CPhpAuthManager',
-            ),
-            'clientScript'=>array(
-                'class'=>'CClientScript',
-            ),
-        );
+		$components=array(
+			'session'=&gt;array(
+				'class'=&gt;'CHttpSession',
+			),
+			'assetManager'=&gt;array(
+				'class'=&gt;'CAssetManager',
+			),
+			'user'=&gt;array(
+				'class'=&gt;'CWebUser',
+			),
+			'themeManager'=&gt;array(
+				'class'=&gt;'CThemeManager',
+			),
+			'authManager'=&gt;array(
+				'class'=&gt;'CPhpAuthManager',
+			),
+			'clientScript'=&gt;array(
+				'class'=&gt;'CClientScript',
+			),
+		);
 
-        $this->setComponents($components);
-    }
+		$this-&gt;setComponents($components);
+	}
 </pre>
 
-
-<p>注意$this->setComponents($components); ==> 这个方法在CModule.php</p>
+<p>注意$this-&gt;setComponents($components); ==&gt; 这个方法在CModule.php</p>
 
 <ul>
-<li>registerCoreComponents 方法实现了注册Core components, 但是不实现，后面的 $this->setComponents($components);就表示实实例这些components了, 所以一个WebAPP，初始化的时候应该可以使用: session, assetManager, user, themeManager, clientScript 这几个实例， 通过Yii:app()->session调用，如果要在启动一个WebAPP的时候初始化一个对象，请在main.php配置</li>
+  <li>registerCoreComponents 方法实现了注册Core components, 但是不实现，后面的 $this-&gt;setComponents($components);就表示实实例这些components了, 所以一个WebAPP，初始化的时候应该可以使用: session, assetManager, user, themeManager, clientScript 这几个实例， 通过Yii:app()-&gt;session调用，如果要在启动一个WebAPP的时候初始化一个对象，请在main.php配置</li>
 </ul>
-
 
 <p>好了，这个是一个WebAPP初始化要做的事情: 路径，配置文件，Handlers，Behaviors，Componts等</p>
 
 <ol>
-<li>接下来就是要做run()</li>
+  <li>接下来就是要做run()</li>
 </ol>
-
 
 <pre lang="php">#CApplication.php
 
-    public function run()
-    {
-        if($this->hasEventHandler('onBeginRequest'))
-            $this->onBeginRequest(new CEvent($this));
-        $this->processRequest();
-        if($this->hasEventHandler('onEndRequest'))
-            $this->onEndRequest(new CEvent($this));
-    }
+	public function run()
+	{
+		if($this-&gt;hasEventHandler('onBeginRequest'))
+			$this-&gt;onBeginRequest(new CEvent($this));
+		$this-&gt;processRequest();
+		if($this-&gt;hasEventHandler('onEndRequest'))
+			$this-&gt;onEndRequest(new CEvent($this));
+	}
 </pre>
 
-
-<p><strong>*先进行onBeginRequest => processRequest => onEndRequest //相信这个些英文单词都很好理解了</strong></p>
+<p><strong>*先进行onBeginRequest =&gt; processRequest =&gt; onEndRequest //相信这个些英文单词都很好理解了</strong></p>
 
 <ol>
-<li>我们重点看$this->processRequest()</li>
+  <li>我们重点看$this-&gt;processRequest()</li>
 </ol>
-
 
 <pre lang="php">#CWebApplication.php
-    public function processRequest()
-    {
-        if(is_array($this->catchAllRequest) &#038;&#038; isset($this->catchAllRequest[0]))
-        {
-            $route=$this->catchAllRequest[0];
-            foreach(array_splice($this->catchAllRequest,1) as $name=>$value)
-                $_GET[$name]=$value;
-        }
-        else
-            $route=$this->getUrlManager()->parseUrl($this->getRequest());
-        $this->runController($route);
+	public function processRequest()
+	{
+		if(is_array($this-&gt;catchAllRequest) &#038;&#038; isset($this-&gt;catchAllRequest[0]))
+		{
+			$route=$this-&gt;catchAllRequest[0];
+			foreach(array_splice($this-&gt;catchAllRequest,1) as $name=&gt;$value)
+				$_GET[$name]=$value;
+		}
+		else
+			$route=$this-&gt;getUrlManager()-&gt;parseUrl($this-&gt;getRequest());
+		$this-&gt;runController($route);
 </pre>
 
-
-<p><em>1.处理URL的部分，知道哪部分是Controller, 哪部分是Action等，这个部分由urlManager来处理<br/>
-</em>重要的在这里: $this->runController($route)</p>
+<p>*1.处理URL的部分，知道哪部分是Controller, 哪部分是Action等，这个部分由urlManager来处理<br />
+*重要的在这里: $this-&gt;runController($route)</p>
 
 <ol>
-<li>看看runController($route)</li>
+  <li>看看runController($route)</li>
 </ol>
-
 
 <pre lang="php">#CWebApplication.php
 public function runController($route)
-    {
-        if(($ca=$this->createController($route))!==null)
-        {
-            list($controller,$actionID)=$ca;
-            $oldController=$this->_controller;
-            $this->_controller=$controller;
-            $controller->init();
-            $controller->run($actionID);
-            $this->_controller=$oldController;
-        }
-        else
-            throw new CHttpException(404,Yii::t('yii','Unable to resolve the request "{route}".',
-                array('{route}'=>$route===''?$this->defaultController:$route)));
-    
+	{
+		if(($ca=$this-&gt;createController($route))!==null)
+		{
+			list($controller,$actionID)=$ca;
+			$oldController=$this-&gt;_controller;
+			$this-&gt;_controller=$controller;
+			$controller-&gt;init();
+			$controller-&gt;run($actionID);
+			$this-&gt;_controller=$oldController;
+		}
+		else
+			throw new CHttpException(404,Yii::t('yii','Unable to resolve the request "{route}".',
+				array('{route}'=&gt;$route===''?$this-&gt;defaultController:$route)));
+	
 </pre>
-
 
 <p>*以上当然是创建一个controller的实例，然后执行一个action方法, 这个时候,WebApp环境又多了一个controller的实例</p>
 
 <p>所有流程就是这样了，当然错漏很难免，但请赐教;-)</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/480">Yii的工作流程小解(原创)</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/480">Yii的工作流程小解(原创)</a></p>
+
 </div>
 
 
@@ -378,10 +364,10 @@ public function runController($route)
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -406,8 +392,12 @@ public function runController($route)
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -425,40 +415,7 @@ public function runController($route)
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

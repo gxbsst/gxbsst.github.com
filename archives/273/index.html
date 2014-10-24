@@ -9,7 +9,7 @@
   <meta name="author" content="Weston Wei(韦旭红)">
 
   
-  <meta name="description" content="2.5 A Sea of Schemes In this section, we&#8217;ll take a look at the more common scheme formats on the Web. Appendix A gives a fairly exhaustive list &hellip;">
+  <meta name="description" content="2.5 A Sea of Schemes In this section, we’ll take a look at the more common scheme formats on the Web. Appendix A gives a fairly exhaustive list of &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -92,9 +92,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -126,7 +126,7 @@ $(document).ready(
 
 <div class="entry-content"><p>2.5 A Sea of Schemes</p>
 
-<p>In this section, we&#8217;ll take a look at the more common scheme formats on the Web. Appendix A gives a fairly exhaustive list of schemes and references to their individual documentation.</p>
+<p>In this section, we’ll take a look at the more common scheme formats on the Web. Appendix A gives a fairly exhaustive list of schemes and references to their individual documentation.</p>
 
 <p>Table 2-4 summarizes some of the most popular schemes. Reviewing Section 2.2 will make the syntax portion of the table a little more familiar.</p>
 
@@ -142,25 +142,25 @@ $(document).ready(
 
 <p>Basic form:</p>
 
-<p><a href="http://">http://</a><host>:<port>/<path>?<query>#<frag></p>
+<p>http://<host>:<port>/<path>?<query>#<frag></frag></query></path></port></host></p>
 
 <p>Examples:</p>
 
-<p><a href="http://www.joes-hardware.com/index.html">http://www.joes-hardware.com/index.html</a></p>
+<p>http://www.joes-hardware.com/index.html</p>
 
-<p><a href="http://www.joes-hardware.com:80/index.html">http://www.joes-hardware.com:80/index.html</a></p>
+<p>http://www.joes-hardware.com:80/index.html</p>
 
 <p>https</p>
 
-<p>The https scheme is a twin to the http scheme. The only difference is that the https scheme uses Netscape&#8217;s Secure Sockets Layer (SSL), which provides end-to-end encryption of HTTP connections. Its syntax is identical to that of HTTP, with a default port of 443.</p>
+<p>The https scheme is a twin to the http scheme. The only difference is that the https scheme uses Netscape’s Secure Sockets Layer (SSL), which provides end-to-end encryption of HTTP connections. Its syntax is identical to that of HTTP, with a default port of 443.</p>
 
 <p>Basic form:</p>
 
-<p><a href="https://">https://</a><host>:<port>/<path>?<query>#<frag></p>
+<p>https://<host>:<port>/<path>?<query>#<frag></frag></query></path></port></host></p>
 
 <p>Example:</p>
 
-<p><a href="https://www.joes-hardware.com/secure.html">https://www.joes-hardware.com/secure.html</a></p>
+<p>https://www.joes-hardware.com/secure.html</p>
 
 <p>mailto</p>
 
@@ -168,11 +168,11 @@ $(document).ready(
 
 <p>Basic form:</p>
 
-<p>mailto:<RFC-822-addr-spec></p>
+<p>mailto:<rfc-822-addr-spec></rfc-822-addr-spec></p>
 
 <p>Example:</p>
 
-<p><a href="&#109;&#97;&#x69;&#108;&#x74;&#x6f;&#x3a;&#x6a;&#111;&#x65;&#x40;&#x6a;&#x6f;&#x65;&#x73;&#45;&#x68;&#x61;&#x72;&#100;&#119;&#97;&#x72;&#101;&#46;&#x63;&#x6f;&#109;">&#106;&#111;&#x65;&#64;&#x6a;&#111;&#101;&#115;&#x2d;&#x68;&#97;&#x72;&#100;&#x77;&#97;&#x72;&#101;&#46;&#x63;&#x6f;&#x6d;</a></p>
+<p>mailto:joe@joes-hardware.com</p>
 
 <p>ftp</p>
 
@@ -182,23 +182,23 @@ $(document).ready(
 
 <p>Basic form:</p>
 
-<p><a href="ftp://">ftp://</a><user>:<password>@<host>:<port>/<path>;<params></p>
+<p>ftp://<user>:<password>@<host>:<port>/<path>;<params></params></path></port></host></password></user></p>
 
 <p>Example:</p>
 
-<p><a href="ftp://anonymous:joe%40joes-hardware.com@prep.ai.mit.edu:21/pub/gnu/">ftp://anonymous:joe%40joes-hardware.com@prep.ai.mit.edu:21/pub/gnu/</a></p>
+<p>ftp://anonymous:joe%40joes-hardware.com@prep.ai.mit.edu:21/pub/gnu/</p>
 
 <p>rtsp, rtspu</p>
 
 <p>RTSP URLs are identifiers for audio and video media resources that can be retrieved through the Real Time Streaming Protocol.</p>
 
-<p>The &#8220;u&#8221; in the rtspu scheme denotes that the UDP protocol is used to retrieve the resource.</p>
+<p>The “u” in the rtspu scheme denotes that the UDP protocol is used to retrieve the resource.</p>
 
 <p>Basic forms:</p>
 
-<p>rtsp://<user>:<password>@<host>:<port>/<path></p>
+<p>rtsp://<user>:<password>@<host>:<port>/<path></path></port></host></password></user></p>
 
-<p>rtspu://<user>:<password>@<host>:<port>/<path></p>
+<p>rtspu://<user>:<password>@<host>:<port>/<path></path></port></host></password></user></p>
 
 <p>Example:</p>
 
@@ -210,7 +210,7 @@ $(document).ready(
 
 <p>Basic form:</p>
 
-<p>file://<host>/<path></p>
+<p>file://<host>/<path></path></host></p>
 
 <p>Example:</p>
 
@@ -220,21 +220,21 @@ $(document).ready(
 
 <p>The news scheme is used to access specific articles or newsgroups, as defined by RFC 1036. It has the unusual property that a news URL in itself does not contain sufficient information to locate the resource.</p>
 
-<p>The news URL is missing information about where to acquire the resource—no hostname or machine name is supplied. It is the interpreting application&#8217;s job to acquire this information from the user. For example, in your Netscape browser, under the Options menu, you can specify your NNTP (news) server. This tells your browser what server to use when it has a news URL.</p>
+<p>The news URL is missing information about where to acquire the resource—no hostname or machine name is supplied. It is the interpreting application’s job to acquire this information from the user. For example, in your Netscape browser, under the Options menu, you can specify your NNTP (news) server. This tells your browser what server to use when it has a news URL.</p>
 
 <p>News resources can be accessed from multiple servers. They are said to be location-independent, as they are not dependent on any one source for access.</p>
 
-<p>The &#8220;@&#8221; character is reserved within a news URL and is used to distinguish between news URLs that refer to newsgroups and news URLs that refer to specific news articles.</p>
+<p>The “@” character is reserved within a news URL and is used to distinguish between news URLs that refer to newsgroups and news URLs that refer to specific news articles.</p>
 
 <p>Basic forms:</p>
 
-<p><a href="news:">news:</a><newsgroup></p>
+<p>news:<newsgroup></newsgroup></p>
 
-<p><a href="news:">news:</a><news-article-id></p>
+<p>news:<news-article-id></news-article-id></p>
 
 <p>Example:</p>
 
-<p><a href="news:rec.arts.startrek">news:rec.arts.startrek</a></p>
+<p>news:rec.arts.startrek</p>
 
 <p>telnet</p>
 
@@ -242,13 +242,14 @@ $(document).ready(
 
 <p>Basic form:</p>
 
-<p>telnet://<user>:<password>@<host>:<port>/</p>
+<p>telnet://<user>:<password>@<host>:<port>/</port></host></password></user></p>
 
 <p>Example:</p>
 
 <p>telnet://slurp:webhound@joes-hardware.com:23/</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/273">A Sea of Schemes</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/273">A Sea of Schemes</a></p>
+
 </div>
 
 
@@ -301,10 +302,10 @@ $(document).ready(
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -329,8 +330,12 @@ $(document).ready(
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -348,40 +353,7 @@ $(document).ready(
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

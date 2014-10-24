@@ -92,9 +92,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -124,20 +124,19 @@ $(document).ready(
   </header>
 
 
-<div class="entry-content"><p>今天是2007年的最后的一天，也是我来上海的第二年20天，感觉比2006年有更多的收获吧..</p>
+<div class="entry-content"><p>今天是2007年的最后的一天，也是我来上海的第二年20天，感觉比2006年有更多的收获吧.. </p>
 
 <p>2007.1.17到现在的公司任职，开始了对于我来说估计是影响我未来的一年，所以说这一年意义重大.. 接触的新鲜事物：</p>
 
 <ol>
-<li>用了新的电脑：MAC，到现在一直我非常喜欢的工作工具（前几天公司为我换了新的macbook，使我调式程序可以在双系统了进行了，我更喜欢mac了）</li>
+  <li>用了新的电脑：MAC，到现在一直我非常喜欢的工作工具（前几天公司为我换了新的macbook，使我调式程序可以在双系统了进行了，我更喜欢mac了）</li>
 </ol>
-
 
 <p>2.用了Linux（当然以前是用过的，只是不常用），由于工作的需要，不得不接触Linux，说实话，我非常喜欢Linux的Shell，如果以后不用Mac，我会换到Linux，那才是一个真正的工作环境。</p>
 
 <p>3.接触了新的程序语言：Ruby，因为公司网站的需要，我们的语言全部用了Ruby on Rails上，那是一门令人愉悦的语言..</p>
 
-<p>4.新的编辑器：VIM,它让我的Coding生活更有乐趣其他：新的同事，新的老板等等&#8230;</p>
+<p>4.新的编辑器：VIM,它让我的Coding生活更有乐趣其他：新的同事，新的老板等等… </p>
 
 <p>展望未来：</p>
 
@@ -150,13 +149,13 @@ $(document).ready(
 <p>4.英语更好..</p>
 
 <ol>
-<li>学习正册，网站架构方面的知识，有个朋友对flash很熟，估计也会想他讨教这方面的知识</p></li>
+  <li>学习正册，网站架构方面的知识，有个朋友对flash很熟，估计也会想他讨教这方面的知识&lt;/p&gt; </li>
 </ol>
 
+<p>最后，在此向父母家人，朋友，同学及阅读我博客的朋友问候2008新年快乐…</p>
 
-<p>最后，在此向父母家人，朋友，同学及阅读我博客的朋友问候2008新年快乐&#8230;</p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/33">2007个人总结</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/33">2007个人总结</a></p>
 </div>
 
 
@@ -209,10 +208,10 @@ $(document).ready(
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -237,8 +236,12 @@ $(document).ready(
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -256,40 +259,7 @@ $(document).ready(
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

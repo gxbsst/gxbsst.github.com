@@ -9,7 +9,8 @@
   <meta name="author" content="Weston Wei(韦旭红)">
 
   
-  <meta name="description" content="[code lang=&ldquo;html&rdquo;] This video requires a browser with support for open video: Firefox 3.5 or greater Safari 3.1 or greater or the Adobe &hellip;">
+  <meta name="description" content="[code lang=”html”]
+&lt;!–[if IE]&gt; &lt;![endif]–&gt; This video requires a browser with support for open video: Firefox 3.5 or greater Safari 3.1 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -92,9 +93,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -124,35 +125,30 @@ $(document).ready(
   </header>
 
 
-<div class="entry-content"><p><img src="http://www.weixuhong.com/content/uploads/2010/01/Screen-shot-2010-01-30-at-1.47.27-AM.png" alt="Screen shot 2010-01-30 at 1.47.27 AM.png" border="0" width="652" height="373" /><br/>
-[code lang=&ldquo;html&rdquo;]</p>
-
-<!--[if IE]>
+<div class="entry-content"><p><img src="http://www.weixuhong.com/content/uploads/2010/01/Screen-shot-2010-01-30-at-1.47.27-AM.png" alt="Screen shot 2010-01-30 at 1.47.27 AM.png" border="0" width="652" height="373" /><br />
+[code lang=”html”]<br />
+&lt;!–[if IE]&gt;</p>
 
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 
-<![endif]-->
+<p>&lt;![endif]–&gt;</p>
 
+<video width="320" height="240" controls="">  
+<source src="NewOrleans2006.ogv" type="video/ogg; codecs=&quot;theora, vorbis&quot;" />
 
-<p><video width="320" height="240" controls><br/>
-<source src="NewOrleans2006.ogv" type='video/ogg; codecs="theora, vorbis"'></p>
+<source src="NewOrleans2006.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" />
 
-<p><source src="NewOrleans2006.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'></p>
-
-<p></video></p>
+</video>
 
 <!--如何使用html5播放flash 开始-->
+<video width="640" height="360" id="video" tabindex="0" controls="">  
+<source type="video/ogg; codecs=&quot;theora, vorbis&quot;" src="http://videos.mozilla.org/firefox/3.5/meet/meet.ogv" />  
+<source type="video/mp4" src="http://videos.mozilla.org/firefox/3.5/meet/meet.mp4" />
 
+<object data="/includes/flash/playerWithControls.swf?flv=firefox/3.5/meet/meet.mp4&amp;autoplay=false&amp;msg=Play%20Video" style="width: 640px; height: 388px;" type="application/x-shockwave-flash">
 
-<p>
-<video width="640" height="360" id="video" tabindex="0" controls=""><br/>
-<source type='video/ogg; codecs="theora, vorbis"' src="http://videos.mozilla.org/firefox/3.5/meet/meet.ogv"/><br/>
-<source type="video/mp4" src="http://videos.mozilla.org/firefox/3.5/meet/meet.mp4"/></p>
-
-<object data="/includes/flash/playerWithControls.swf?flv=firefox/3.5/meet/meet.mp4&autoplay=false&msg=Play%20Video" style="width: 640px; height: 388px;" type="application/x-shockwave-flash">
-
-<param value="/includes/flash/playerWithControls.swf?flv=firefox/3.5/meet/meet.mp4&autoplay=false&msg=Play%20Video" name="movie"/>  
-<param value="transparent" name="wmode"/>
+<param value="/includes/flash/playerWithControls.swf?flv=firefox/3.5/meet/meet.mp4&amp;autoplay=false&amp;msg=Play%20Video" name="movie" />  
+<param value="transparent" name="wmode" />
 
 <div class="video-player-no-flash">  
 This video requires a browser with support for open video:  
@@ -163,18 +159,14 @@ This video requires a browser with support for open video:
 or the <a href="http://www.adobe.com/go/getflashplayer">Adobe Flash Player</a>.  
 Alternatively, you may use the video download links to the right.  
 </div>  
-</object>
-
-
-<p>
-</video></p>
-
+</object>  
+</video>
 <!--如何使用html5播放flash 结束-->
-
 
 <p>[/code]</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/443">如何使用html5播放flash</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/443">如何使用html5播放flash</a></p>
+
 </div>
 
 
@@ -227,10 +219,10 @@ Alternatively, you may use the video download links to the right.
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -255,8 +247,12 @@ Alternatively, you may use the video download links to the right.
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -274,40 +270,7 @@ Alternatively, you may use the video download links to the right.
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

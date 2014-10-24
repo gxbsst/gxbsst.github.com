@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Rails | 韦旭红的幸福时光]]></title>
+  <title><![CDATA[分类：rails | 韦旭红的幸福时光]]></title>
   <link href="http://weixuhong.com/blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://weixuhong.com/"/>
-  <updated>2014-10-24T14:14:26+08:00</updated>
+  <updated>2014-10-24T15:21:07+08:00</updated>
   <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
@@ -18,55 +18,59 @@
     <link href="http://weixuhong.com/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/"/>
     <updated>2014-10-24T10:33:47+08:00</updated>
     <id>http://weixuhong.com/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao</id>
-    <content type="html"><![CDATA[<pre><code class="ruby">obj.should ...
+    <content type="html"><![CDATA[<p><code>ruby
+obj.should ...
 expect(obj).to ...
-</code></pre>
-
-<pre><code class="ruby">obj.should_not ...
+</code>
+<code>ruby
+obj.should_not ...
 expect(obj).not_to ...
-</code></pre>
-
-<pre><code class="ruby">obj.should =~ //
+</code>
+<code>ruby
+obj.should =~ //
 expect(obj).to match(//)
-</code></pre>
-
-<pre><code class="ruby">[1, 2, 3].should =~ [3, 2, 1]
+</code>
+<code>ruby
+[1, 2, 3].should =~ [3, 2, 1]
 expect([1, 2, 3]).to match_array([3, 2, 1])
-</code></pre>
-
-<pre><code class="ruby">obj.should &gt; 3
+</code>
+<code>ruby
+obj.should &gt; 3
 expect(obj).to be &gt; 3
-</code></pre>
-
-<pre><code class="ruby">lambda { ... }.should raise_error
+</code>
+<code>ruby
+lambda { ... }.should raise_error
 expect { ... }.to raise_error
-</code></pre>
+</code></p>
 
-<h2>RSpec 2.14.0 or later</h2>
+<h2 id="rspec-2140-or-later">RSpec 2.14.0 or later</h2>
 
-<pre><code class="ruby">obj.stub(:foo)
+<p><code>ruby
+obj.stub(:foo)
 allow(obj).to receive(:foo)
-</code></pre>
-
-<pre><code class="ruby">SomeClass.any_instance.should_receive(:foo)
+</code>
+<code>ruby
+SomeClass.any_instance.should_receive(:foo)
 expect_any_instance_of(SomeClass).to receive(:foo)
-</code></pre>
-
-<pre><code class="ruby">SomeClass.any_instance.stub(:foo)
+</code>
+<code>ruby
+SomeClass.any_instance.stub(:foo)
 allow_any_instance_of(SomeClass).to receive(:foo)
-</code></pre>
+</code></p>
 
-<h2>RSpec 2.99.0.beta1 or later</h2>
+<h2 id="rspec-2990beta1-or-later">RSpec 2.99.0.beta1 or later</h2>
 
-<pre><code class="ruby">it { should eq(something) }
+<p><code>ruby
+it { should eq(something) }
 it { is_expected.to eq(something) }
-</code></pre>
+</code></p>
 
-<h2>RSpec 3.0.0.beta1 or later</h2>
+<h2 id="rspec-300beta1-or-later">RSpec 3.0.0.beta1 or later</h2>
 
-<pre><code class="ruby">obj.stub_chain(:foo, :bar).and_return(something)
+<p><code>ruby
+obj.stub_chain(:foo, :bar).and_return(something)
 allow(obj).to receive_message_chain(:foo, :bar).and_return(something)
-</code></pre>
+</code></p>
 ]]></content>
   </entry>
   

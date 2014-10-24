@@ -9,7 +9,8 @@
   <meta name="author" content="Weston Wei(韦旭红)">
 
   
-  <meta name="description" content="*找了很久才找到相关的介绍STDIN,STDOUT在Web中的运用，记住加黑的部分，能解释很多东西&#8230;(任何一个被系统激活的进程都拥有标准输入和输出这两个文件句柄)&nbsp; 利用通用网关接口CGI，WEB服务器可以执行一些外部程序， &hellip;">
+  <meta name="description" content="&lt;p&gt; *找了很久才找到相关的介绍STDIN,STDOUT在Web中的运用，记住加黑的部分，能解释很多东西…(任何一个被系统激活的进程都拥有标准输入和输出这两个文件句柄) 
+&lt;/p&gt; 利用通用网关接口CGI，WEB服务器可以执行一些外部程序， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -92,9 +93,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -124,42 +125,29 @@ $(document).ready(
   </header>
 
 
-<div class="entry-content"><p><span class="Apple-style-span" style="WORD-SPACING: 0px; FONT: 15px/22px 宋体; TEXT-TRANSFORM: none; COLOR: rgb(0,0,0); TEXT-INDENT: 0px; WHITE-SPACE: normal; LETTER-SPACING: normal; BORDER-COLLAPSE: separate; orphans: 2; widows: 2; webkit-border-horizontal-spacing: 0px; webkit-border-vertical-spacing: 0px; webkit-text-decorations-in-effect: none; webkit-text-size-adjust: auto; webkit-text-stroke-width: 0"> <p>
-  *找了很久才找到相关的介绍STDIN,STDOUT在Web中的运用，记住加黑的部分，能解释很多东西&#8230;(<strong><u>任何一个被系统激活的进程都拥有标准输入和输出这两个文件句柄)</u></strong>&nbsp;
-</p></p>
+<div class="entry-content"><p><span class="Apple-style-span" style="WORD-SPACING: 0px; FONT: 15px/22px 宋体; TEXT-TRANSFORM: none; COLOR: rgb(0,0,0); TEXT-INDENT: 0px; WHITE-SPACE: normal; LETTER-SPACING: normal; BORDER-COLLAPSE: separate; orphans: 2; widows: 2; webkit-border-horizontal-spacing: 0px; webkit-border-vertical-spacing: 0px; webkit-text-decorations-in-effect: none; webkit-text-size-adjust: auto; webkit-text-stroke-width: 0"> &lt;p&gt;
+  *找了很久才找到相关的介绍STDIN,STDOUT在Web中的运用，记住加黑的部分，能解释很多东西…(<strong><u>任何一个被系统激活的进程都拥有标准输入和输出这两个文件句柄)</u></strong> 
+&lt;/p&gt;</span></p>
 
 <p>
   利用通用网关接口CGI，WEB服务器可以执行一些外部程序，可以将这些外部程序所产生的输出结果和WEB服务器所管理的静态文本、图象和声音融合在一起传给相应的WEB浏览器。当客户方的浏览器向WEB服务器请求一个HTML文件时，服务器在收到请求后就去寻找这个文件并将找到的文件传送给客户方。而当客户方的请求是一个CGI程序时，WEB服务器将激活客户方所请求的CGI程序并把程序的执行结果传给客户方。
 </p>
 
-
-
-
 <p>
   标准的CGI程序是通过环境变量和标准输入输出和WEB服务器交换信息的。<strong><u>任何一个被系统激活的进程都拥有标准输入和输出这两个文件句柄，CGI程序的进程也不例外</u></strong>。不过当CGI程序被WEB服务器激活以后，<strong><u>它的标准输入STDIN被连接到WEB服务器的标准输出STDOUT上，而CGI程序的标准输出STDOUT则被连到服务器的标准输入STDIN上。因此CGI程序从标准输入读取信息也就是从WEB服务器的标准输出读信息，而它向标准输出写信息也就是向WEB服务器的标准输入写信息。 </u></strong>&nbsp;
 </p>
-
-
-
 
 <p style="TEXT-INDENT: 2em">
   WEB服务器一般将客户方传送来的信息放在它的标准输出和相关环境变量中，而CGI程序则从环境变量和它的标准输入（也就是WEB服务器的标准输出）获取所需的信息，程序的最终输出结果则被写向它的标准输出STDOUT（也就是WEB服务器的标准输入）。WEB服务器将从它的标准输入STDIN（也就是CGI程序的标准输出）获取CGI程序的输出结果并将它传送给客户方。客户方、WEB服务器和CGI程序之间的信息交流如图1所示，显然，WEB服务器就象是客户方和CGI程序间的中介人。
 </p>
 
-
-
-
 <p>
-  </span>
+  
 </p>
-
-
-
 
 <p>
   转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/209">关于标准输入，输出在Web中的运用</a>
 </p>
-
 </div>
 
 
@@ -212,10 +200,10 @@ $(document).ready(
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -240,8 +228,12 @@ $(document).ready(
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -259,40 +251,7 @@ $(document).ready(
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

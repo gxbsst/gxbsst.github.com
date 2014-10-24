@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: 心情随写 | 韦旭红的幸福时光]]></title>
+  <title><![CDATA[分类：心情随写 | 韦旭红的幸福时光]]></title>
   <link href="http://weixuhong.com/blog/categories/%E5%BF%83%E6%83%85%E9%9A%8F%E5%86%99/atom.xml" rel="self"/>
   <link href="http://weixuhong.com/"/>
-  <updated>2014-10-24T14:14:26+08:00</updated>
+  <updated>2014-10-24T15:21:07+08:00</updated>
   <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
@@ -18,46 +18,46 @@
     <link href="http://weixuhong.com/archives/496"/>
     <updated>2010-11-12T00:00:00+08:00</updated>
     <id>http://weixuhong.com/archives/mac</id>
-    <content type="html"><![CDATA[<p>Disabling Spotlight<br/>
-Launch Terminal and type the following: sudo nano /etc/hostconfig<br/>
-Navigate using the arrow keys down the following entry: SPOTLIGHT=-YES-<br/>
-Change SPOTLIGHT=-YES- to SPOTLIGHT=-NO-<br/>
-Save /etc/hostconfig by hitting Control-O and the return key, next hit Control-X to exit the nano editor<br/>
-Next, you’ll want to disable the index by typing the following in the Terminal:<br/>
-mdutil -i off /<br/>
-And to erase the current Spotlight index, type: mdutil -E /<br/>
-That’s pretty much it, on your next reboot, Spotlight will be completely disabled.<br/>
-Re-Enable Spotlight<br/>
-If you want to enable Spotlight again, follow the same steps as above, but change SPOTLIGHT=-NO- to SPOTLIGHT=-YES-<br/>
-and then type mdutil -i on / in the Terminal<br/>
+    <content type="html"><![CDATA[<p>Disabling Spotlight<br />
+Launch Terminal and type the following: sudo nano /etc/hostconfig<br />
+Navigate using the arrow keys down the following entry: SPOTLIGHT=-YES-<br />
+Change SPOTLIGHT=-YES- to SPOTLIGHT=-NO-<br />
+Save /etc/hostconfig by hitting Control-O and the return key, next hit Control-X to exit the nano editor<br />
+Next, you’ll want to disable the index by typing the following in the Terminal:<br />
+mdutil -i off /<br />
+And to erase the current Spotlight index, type: mdutil -E /<br />
+That’s pretty much it, on your next reboot, Spotlight will be completely disabled.<br />
+Re-Enable Spotlight<br />
+If you want to enable Spotlight again, follow the same steps as above, but change SPOTLIGHT=-NO- to SPOTLIGHT=-YES-<br />
+and then type mdutil -i on / in the Terminal<br />
 Reboot, and Spotlight is back as usual<!--more--></p>
 
 <p><strong>Disabling Spotlight</strong></p>
 
-<p>Launch Terminal and type the following: sudo nano /etc/hostconfig<br/>
-Navigate using the arrow keys down the following entry: SPOTLIGHT=-YES-<br/>
-Change SPOTLIGHT=-YES- to SPOTLIGHT=-NO-<br/>
-Save /etc/hostconfig by hitting Control-O and the return key, next hit Control-X to exit the nano editor<br/>
-Next, you’ll want to disable the index by typing the following in the Terminal:<br/>
-mdutil -i off /<br/>
-And to erase the current Spotlight index, type: mdutil -E /<br/>
+<p>Launch Terminal and type the following: sudo nano /etc/hostconfig<br />
+Navigate using the arrow keys down the following entry: SPOTLIGHT=-YES-<br />
+Change SPOTLIGHT=-YES- to SPOTLIGHT=-NO-<br />
+Save /etc/hostconfig by hitting Control-O and the return key, next hit Control-X to exit the nano editor<br />
+Next, you’ll want to disable the index by typing the following in the Terminal:<br />
+mdutil -i off /<br />
+And to erase the current Spotlight index, type: mdutil -E /<br />
 That’s pretty much it, on your next reboot, Spotlight will be completely disabled.</p>
 
 <p><strong>Re-Enable Spotlight</strong></p>
 
-<p>If you want to enable Spotlight again, follow the same steps as above, but change SPOTLIGHT=-NO- to SPOTLIGHT=-YES-<br/>
-and then type mdutil -i on / in the Terminal<br/>
+<p>If you want to enable Spotlight again, follow the same steps as above, but change SPOTLIGHT=-NO- to SPOTLIGHT=-YES-<br />
+and then type mdutil -i on / in the Terminal<br />
 Reboot, and Spotlight is back as usual</p>
 
 <p>如果出现：Spotlight server is disabled，那么用以下方法解决:</p>
 
 <ol>
-<li>sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist</li>
-<li>mdutil -i on</li>
+  <li>sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist  </li>
+  <li>mdutil -i on</li>
 </ol>
 
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/496">disable/enable spotlight on mac</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/496">disable/enable spotlight on mac</a></p>
 ]]></content>
   </entry>
   
@@ -68,21 +68,27 @@ Reboot, and Spotlight is back as usual</p>
     <id>http://weixuhong.com/archives/postfix-rt-mailgate-extmail</id>
     <content type="html"><![CDATA[<p>请参考这个地方配置：</p>
 
-<p><a href="http://www.ptitov.net/2008/07/request-tracker-installation-o.html">http://www.ptitov.net/2008/07/request-tracker-installation-o.html</a></p>
+<p>http://www.ptitov.net/2008/07/request-tracker-installation-o.html</p>
 
-<p>但是在Rt-mailgate这个地方遇到了问题， 主要是alias的问题， 只要需要在email服务器设置别名就可以了<br/>
+<p>但是在Rt-mailgate这个地方遇到了问题， 主要是alias的问题， 只要需要在email服务器设置别名就可以了<br />
 如：</p>
 
 <div style="text-align:center;">
   <img src="http://www.weixuhong.com/content/uploads/2010/10/概述_.jpg" alt="概述_.jpg" border="0" width="772" height="111" />
 </div>
 
-
 <p>然后配置： /etc/postfix/aliases</p>
 
 <p>添加如下行：</p>
 
-<p>rt: &#8220;|/opt/rt3/bin/rt-mailgate &#8211;queue General &#8211;action correspond &#8211;url <a href="http://rt.icooking.me&amp;#8221;">http://rt.icooking.me&amp;#8221;</a></p>
+<table>
+  <tbody>
+    <tr>
+      <td>rt: “</td>
+      <td>/opt/rt3/bin/rt-mailgate –queue General –action correspond –url http://rt.icooking.me”</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>就可以了。</p>
 
@@ -90,9 +96,10 @@ Reboot, and Spotlight is back as usual</p>
 
 <p>参考：</p>
 
-<p><a href="http://wiki.bestpractical.com/view/PostFixSQLAliasProblem">http://wiki.bestpractical.com/view/PostFixSQLAliasProblem</a></p>
+<p>http://wiki.bestpractical.com/view/PostFixSQLAliasProblem</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/487">配置RT的rt-mailgate在Postfix , Extmail</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/487">配置RT的rt-mailgate在Postfix , Extmail</a></p>
+
 ]]></content>
   </entry>
   
@@ -107,22 +114,20 @@ Reboot, and Spotlight is back as usual</p>
   <img src="http://blog.hellojessica.info/wp-content/uploads/2010/04/Screen-shot-2010-04-14-at-10.51.18-PM.png" alt="Screen shot 2010-04-14 at 10.51.18 PM.png" border="0" width="816" height="703" />
 </div>
 
-
 <p>一个iPhone程序 启动的时候估计有UIApplication, Delegate, Controller, 还有UI(xib文件), 但是他们是如何工作的呢？</p>
 
-<p>为什么要用Outlet?<br/>
-我的想法:<br/>
-比如ROR程序中，要使用Views，views中要使用某个实例变量（当然这样比喻估计不是准确), 那在iPhone程序怎么实现呢？ 那就用outlet， 比如window &#8212;> Window， 图中表示 Delegate 的outlet window 引用了 Window， 那么Delegate实例就可以使用Window实例的方法：</p>
+<p>为什么要用Outlet?<br />
+我的想法:<br />
+比如ROR程序中，要使用Views，views中要使用某个实例变量（当然这样比喻估计不是准确), 那在iPhone程序怎么实现呢？ 那就用outlet， 比如window —&gt; Window， 图中表示 Delegate 的outlet window 引用了 Window， 那么Delegate实例就可以使用Window实例的方法：</p>
 
 <p>delegate.m 文件中有这样一个例子</p>
 
 <ul>
-<li>(void)applicationDidFinishLaunching:(UIApplication *)application {<br/>
+  <li>(void)applicationDidFinishLaunching:(UIApplication *)application {<br />
 [window addSubview:switchViewController.view];</li>
 </ul>
 
-
-<p>// Configure and show the window<br/>
+<p>// Configure and show the window<br />
 [window makeKeyAndVisible];</p>
 
 <p>}</p>
@@ -131,47 +136,45 @@ Reboot, and Spotlight is back as usual</p>
 
 <p><strong>UIApplication</strong></p>
 
-<p>UIApplication 是这个核心，它调度controller等的工作，我就把它想象成ROR的一个Application，那为什么UIApplication会有一个Outlets delegate==> Delegate呢？ 这个意味着UIApplication实例可以调用Delegate实例， 但是delegate这个outlet在哪里定义呢？ 这个是我比较迷惑的地方? 或许 UIApplication 类就有这样一个outlet.</p>
+<p>UIApplication 是这个核心，它调度controller等的工作，我就把它想象成ROR的一个Application，那为什么UIApplication会有一个Outlets delegate==&gt; Delegate呢？ 这个意味着UIApplication实例可以调用Delegate实例， 但是delegate这个outlet在哪里定义呢？ 这个是我比较迷惑的地方? 或许 UIApplication 类就有这样一个outlet.</p>
 
 <div style="text-align:center;">
   <img src="http://blog.hellojessica.info/wp-content/uploads/2010/04/Screen-shot-2010-04-14-at-10.57.30-PM.png" alt="Screen shot 2010-04-14 at 10.57.30 PM.png" border="0" width="816" height="706" />
 </div>
 
-
 <p><strong>Delegate</strong></p>
 
 <p>Delegate是一个Protocol，其实我可以想象成一个虚拟类（只定义方法，不实现), 在这里delegate.h 遵守了UIApplicationDelegate</p>
 
-<p>@interface iPhoneRadioAppDelegate : NSObject <UIApplicationDelegate> {<br/>
-UIWindow <em>window;<br/>
-SwitchViewController </em>switchViewController;<br/>
-}</p>
+<p>@interface iPhoneRadioAppDelegate : NSObject <uiapplicationdelegate> {  
+UIWindow *window;  
+SwitchViewController *switchViewController;  
+}</uiapplicationdelegate></p>
 
 <p>这意味着delegate.m 可以实现UIApplicationDelegate的方法</p>
 
 <p>delegate.m 中的代码</p>
 
 <ul>
-<li>(void)applicationDidFinishLaunching:(UIApplication *)application {<br/>
+  <li>(void)applicationDidFinishLaunching:(UIApplication *)application {<br />
 [window addSubview:switchViewController.view];</li>
 </ul>
 
-
-<p>// Configure and show the window<br/>
-[window makeKeyAndVisible];<br/>
+<p>// Configure and show the window<br />
+[window makeKeyAndVisible];<br />
 }</p>
 
 <p>那applicationDidFinishLaunching顾名思义，就是application完成lanche之后， 我是否可以想象成UIApplication的一个Callback呢？</p>
 
-<p>第一张图中，delegate的outlet了Window, Controller， File&#8217;s Owner, 那表示，Delegate实例可以引用这几个实例, 这行代码可以证明:</p>
+<p>第一张图中，delegate的outlet了Window, Controller， File’s Owner, 那表示，Delegate实例可以引用这几个实例, 这行代码可以证明:</p>
 
 <p>[window addSubview:switchViewController.view];</p>
 
 <p><strong>Controller</strong></p>
 
-<p>controller就是控制输出，当然包括对views的控制： 数据的处理（比如处理views中post【暂且理解用web app的方式理解】）数据，或者views如何controller要在views显示数据等等&#8230;</p>
+<p>controller就是控制输出，当然包括对views的控制： 数据的处理（比如处理views中post【暂且理解用web app的方式理解】）数据，或者views如何controller要在views显示数据等等…</p>
 
-<p>Tips:</p>
+<p>Tips: </p>
 
 <p>因为有些时候，需要自己定义controller或者delegate实例到MainWindow.xib中，但是</p>
 
@@ -179,22 +182,20 @@ SwitchViewController </em>switchViewController;<br/>
   <img src="http://blog.hellojessica.info/wp-content/uploads/2010/04/Screen-shot-2010-04-14-at-11.24.09-PM.png" alt="Screen shot 2010-04-14 at 11.24.09 PM.png" border="0" width="487" height="610" />
 </div>
 
-
 <p>图中的outlet不会自动出现Delegate出现定义的outlet，那只能手动添加了，添加好之后，就可以在inspetor中看到这几个outlet， 然后手动点击圆圈拉到要链接的对象就可以了</p>
 
 <div style="text-align:center;">
   <img src="http://blog.hellojessica.info/wp-content/uploads/2010/04/Screen-shot-2010-04-14-at-11.26.45-PM.png" alt="Screen shot 2010-04-14 at 11.26.45 PM.png" border="0" width="289" height="159" />
 </div>
 
-
 <ul>
-<li>文章比较混乱，只是为了理清自己的思绪，请不要转载，以免误认子弟</li>
+  <li>文章比较混乱，只是为了理清自己的思绪，请不要转载，以免误认子弟</li>
 </ul>
 
+<p>–EOF–</p>
 
-<p>&#8211;EOF&#8211;</p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/476">关于iPhone的outlet, delegate, window, file’s Owner的关系(本文逻辑有欠紧密，请不要随便转载，以免误人子弟)</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/476">关于iPhone的outlet, delegate, window, file&#8217;s Owner的关系(本文逻辑有欠紧密，请不要随便转载，以免误人子弟)</a></p>
 ]]></content>
   </entry>
   
@@ -203,12 +204,12 @@ SwitchViewController </em>switchViewController;<br/>
     <link href="http://weixuhong.com/archives/341"/>
     <updated>2009-11-30T00:00:00+08:00</updated>
     <id>http://weixuhong.com/archives/%e5%a6%82%e6%9e%9c%e4%bd%bf%e7%94%a8ssh%e9%9a%a7%e9%81%93%e7%bf%bb%e5%a2%99%e4%b8%8a%e7%bd%91-windows-%e7%af%87%e5%8e%9f%e5%88%9b</id>
-    <content type="html"><![CDATA[<p><span style="color:#ff0000;"><strong>更新（重要</strong></span><span style="color:#ff0000;"><strong>):</strong></span><br/>
-新版FroxyProxy做了一个很<span style="font-family:STHeiti;">重要功能的更新:</p> <p>
-  将再全局设置中的“</span><span style="font-family:STHeiti;color:#ff0000;"><strong>使用SOCKS代理服务器查找DNS(U)&#8221;</strong></span><span style="font-family:STHeiti;">移除了，用每个Proxy设置来设置，而不是全局，如下图</p> <p>
-    </span><span style="font-family:STHeiti;color:#d21217;">*影响： 如果不使用这个功能， 有一些网址将使用本地的DNS，那么重要的网站就可能无法访问了，希望用</span><span style="color:#d21217;"><em>FroxyProxy</em></span><span style="color:#d21217;">一定要重</span><span style="font-family:STHeiti;color:#d21217;">视</span><span style="color:#d21217;"><em>.</em></span><span style="font-family:STHeiti;color:#d21217;"><br /> </span><br /> <a href="http://www.weixuhong.com/content/uploads/2009/12/2009-12-05_1105.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/12/2009-12-05_1105.png','popup','width=692,height=419,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/12/2009-12-05_1105-tm.jpg" height="419" width="692" border="1" hspace="4" vspace="4" alt="2009-12-05 1105" /></a><br /> (旧版)中有&#8221;<span style="font-family:STHeiti;">将再全局设置中的“</span><span style="font-family:STHeiti;color:#ff0000;">使用SOCKS代理服务器查找DNS(U)</span><span style="font-family:STHeiti;">&#8221;</p> <p>
+    <content type="html"><![CDATA[<p><span style="color:#ff0000;"><strong>更新（重要</strong></span><span style="color:#ff0000;"><strong>):</strong></span><br />
+新版FroxyProxy做了一个很<span style="font-family:STHeiti;">重要功能的更新:&lt;/p&gt; &lt;p&gt;
+  将再全局设置中的“</span><span style="font-family:STHeiti;color:#ff0000;"><strong>使用SOCKS代理服务器查找DNS(U)”</strong></span><span style="font-family:STHeiti;">移除了，用每个Proxy设置来设置，而不是全局，如下图&lt;/p&gt; &lt;p&gt;
+    </span><span style="font-family:STHeiti;color:#d21217;">*影响： 如果不使用这个功能， 有一些网址将使用本地的DNS，那么重要的网站就可能无法访问了，希望用</span><span style="color:#d21217;"><em>FroxyProxy</em></span><span style="color:#d21217;">一定要重</span><span style="font-family:STHeiti;color:#d21217;">视</span><span style="color:#d21217;"><em>.</em></span><span style="font-family:STHeiti;color:#d21217;"><br /> </span><br /> <a href="http://www.weixuhong.com/content/uploads/2009/12/2009-12-05_1105.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/12/2009-12-05_1105.png','popup','width=692,height=419,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/12/2009-12-05_1105-tm.jpg" height="419" width="692" border="1" hspace="4" vspace="4" alt="2009-12-05 1105" /></a><br /> (旧版)中有”<span style="font-family:STHeiti;">将再全局设置中的“</span><span style="font-family:STHeiti;color:#ff0000;">使用SOCKS代理服务器查找DNS(U)</span><span style="font-family:STHeiti;">”&lt;/p&gt; &lt;p&gt;
       </span><a href="http://www.weixuhong.com/content/uploads/2009/12/Picture-5-2.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/12/Picture-5-2.png','popup','width=753,height=534,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/12/Picture-5-2-tm.jpg" height="534" width="753" border="1" hspace="4" vspace="4" alt="Picture 5-2" /></a><br /> 新版已<span style="font-family:STHeiti;">经</span>将<span style="font-family:STHeiti;">这个</span>移除了
-    </p></p>
+    &lt;/p&gt;</p>
 
 <pre><code>&lt;p&gt;
   &lt;a href="http://www.weixuhong.com/content/uploads/2009/12/Picture-6-1.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/12/Picture-6-1.png','popup','width=761,height=519,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"&gt;&lt;img src="http://www.weixuhong.com/content/uploads/2009/12/Picture-6-1-tm.jpg" height="519" width="761" border="1" hspace="4" vspace="4" alt="Picture 6-1" /&gt;&lt;/a&gt;&lt;br /&gt; 将“ &lt;span style="color:#ff0000;"&gt;Use this Proxy for all DNS Lookups&lt;/span&gt;&amp;#8221; &lt;span style="font-family:STHeiti;"&gt;选&lt;/span&gt;上就可以了
@@ -237,23 +238,30 @@ SwitchViewController </em>switchViewController;<br/>
     <content type="html"><![CDATA[<p>本教程限使用在Linux或者Mac下面，但是如果在Windows使用，原理一样(但是需要用Putty登录代理主机), 本教程或许需要你有一定的计算机知识，一些设置也可以在视频找到。</p>
 
 <ol>
-<li><p>先要下载安装FireFox浏览器<br/>
-下载地址: www.mozilla.com/firefox/</p></li>
-<li><p>安装FireFox插件：FoxyProxy</p></li>
-<li><p>安装好FireFox之后，请在插件处，查找安装FoxyProxy, 如果不知道如何安装插件，请用Google搜索或者咨询我.</p></li>
-<li><p>配置FoxyProxy<br/>
-详细的配置在视频当中,请参考如何设置即可.</p></li>
-<li><p>使用Shell用SSH命令登录指定帐号（如果没有帐号，请咨询我，我会适当的发一些帐号)<br/>
-在Shell下面使用以下命令<br/>
-ssh -N -D 9999 test@example.com<br/>
-test: 为用户名<br/>
-example.com： 为您有登录权限的国外主机</p></li>
+  <li>
+    <p>先要下载安装FireFox浏览器<br />
+下载地址: www.mozilla.com/firefox/</p>
+  </li>
+  <li>安装FireFox插件：FoxyProxy<br />
+    <ul>
+      <li>安装好FireFox之后，请在插件处，查找安装FoxyProxy, 如果不知道如何安装插件，请用Google搜索或者咨询我.</li>
+    </ul>
+  </li>
+  <li>
+    <p>配置FoxyProxy<br />
+详细的配置在视频当中,请参考如何设置即可.</p>
+  </li>
+  <li>使用Shell用SSH命令登录指定帐号（如果没有帐号，请咨询我，我会适当的发一些帐号)<br />
+在Shell下面使用以下命令<br />
+ssh -N -D 9999 test@example.com<br />
+test: 为用户名<br />
+example.com： 为您有登录权限的国外主机</li>
 </ol>
-
 
 <p>*Windows用户请用Putty设置登录主机.</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/328">如果使用SSH隧道上网&#8211;For Mac篇</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/328">如果使用SSH隧道上网–For Mac篇</a></p>
+
 ]]></content>
   </entry>
   

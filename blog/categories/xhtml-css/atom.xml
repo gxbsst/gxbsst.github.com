@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Xhtml/css | 韦旭红的幸福时光]]></title>
+  <title><![CDATA[分类：xhtml/css | 韦旭红的幸福时光]]></title>
   <link href="http://weixuhong.com/blog/categories/xhtml-css/atom.xml" rel="self"/>
   <link href="http://weixuhong.com/"/>
-  <updated>2014-10-24T14:14:26+08:00</updated>
+  <updated>2014-10-24T15:21:07+08:00</updated>
   <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
@@ -18,35 +18,30 @@
     <link href="http://weixuhong.com/archives/443"/>
     <updated>2010-01-29T00:00:00+08:00</updated>
     <id>http://weixuhong.com/archives/%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8html5%e6%92%ad%e6%94%beflash</id>
-    <content type="html"><![CDATA[<p><img src="http://www.weixuhong.com/content/uploads/2010/01/Screen-shot-2010-01-30-at-1.47.27-AM.png" alt="Screen shot 2010-01-30 at 1.47.27 AM.png" border="0" width="652" height="373" /><br/>
-[code lang=&ldquo;html&rdquo;]</p>
-
-<!--[if IE]>
+    <content type="html"><![CDATA[<p><img src="http://www.weixuhong.com/content/uploads/2010/01/Screen-shot-2010-01-30-at-1.47.27-AM.png" alt="Screen shot 2010-01-30 at 1.47.27 AM.png" border="0" width="652" height="373" /><br />
+[code lang=”html”]<br />
+&lt;!–[if IE]&gt;</p>
 
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 
-<![endif]-->
+<p>&lt;![endif]–&gt;</p>
 
+<video width="320" height="240" controls="">  
+<source src="NewOrleans2006.ogv" type="video/ogg; codecs=&quot;theora, vorbis&quot;" />
 
-<p><video width="320" height="240" controls><br/>
-<source src="NewOrleans2006.ogv" type='video/ogg; codecs="theora, vorbis"'></p>
+<source src="NewOrleans2006.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" />
 
-<p><source src="NewOrleans2006.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'></p>
-
-<p></video></p>
+</video>
 
 <!--如何使用html5播放flash 开始-->
+<video width="640" height="360" id="video" tabindex="0" controls="">  
+<source type="video/ogg; codecs=&quot;theora, vorbis&quot;" src="http://videos.mozilla.org/firefox/3.5/meet/meet.ogv" />  
+<source type="video/mp4" src="http://videos.mozilla.org/firefox/3.5/meet/meet.mp4" />
 
+<object data="/includes/flash/playerWithControls.swf?flv=firefox/3.5/meet/meet.mp4&amp;autoplay=false&amp;msg=Play%20Video" style="width: 640px; height: 388px;" type="application/x-shockwave-flash">
 
-<p>
-<video width="640" height="360" id="video" tabindex="0" controls=""><br/>
-<source type='video/ogg; codecs="theora, vorbis"' src="http://videos.mozilla.org/firefox/3.5/meet/meet.ogv"/><br/>
-<source type="video/mp4" src="http://videos.mozilla.org/firefox/3.5/meet/meet.mp4"/></p>
-
-<object data="/includes/flash/playerWithControls.swf?flv=firefox/3.5/meet/meet.mp4&autoplay=false&msg=Play%20Video" style="width: 640px; height: 388px;" type="application/x-shockwave-flash">
-
-<param value="/includes/flash/playerWithControls.swf?flv=firefox/3.5/meet/meet.mp4&autoplay=false&msg=Play%20Video" name="movie"/>  
-<param value="transparent" name="wmode"/>
+<param value="/includes/flash/playerWithControls.swf?flv=firefox/3.5/meet/meet.mp4&amp;autoplay=false&amp;msg=Play%20Video" name="movie" />  
+<param value="transparent" name="wmode" />
 
 <div class="video-player-no-flash">  
 This video requires a browser with support for open video:  
@@ -57,18 +52,14 @@ This video requires a browser with support for open video:
 or the <a href="http://www.adobe.com/go/getflashplayer">Adobe Flash Player</a>.  
 Alternatively, you may use the video download links to the right.  
 </div>  
-</object>
-
-
-<p>
-</video></p>
-
+</object>  
+</video>
 <!--如何使用html5播放flash 结束-->
-
 
 <p>[/code]</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/443">如何使用html5播放flash</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/443">如何使用html5播放flash</a></p>
+
 ]]></content>
   </entry>
   
@@ -87,7 +78,8 @@ Alternatively, you may use the video download links to the right.
 
 <p><a href="http://www.weixuhong.com/content/uploads/2009/11/Picture-4-2.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/11/Picture-4-2.png','popup','width=632,height=656,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/11/Picture-4-2-tm.jpg" height="350" width="337" border="1" hspace="4" vspace="4" alt="Picture 4-2" /></a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/327">业余设计作品（1）</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/327">业余设计作品（1）</a></p>
+
 ]]></content>
   </entry>
   
@@ -96,10 +88,11 @@ Alternatively, you may use the video download links to the right.
     <link href="http://weixuhong.com/archives/291"/>
     <updated>2009-09-17T00:00:00+08:00</updated>
     <id>http://weixuhong.com/archives/seo%e5%8f%82%e8%80%83</id>
-    <content type="html"><![CDATA[<p><a href="http://www.weixuhong.com/content/uploads/2009/09/SEO_Web_Developer_Cheat_Sheet.pdf" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/09/SEO_Web_Developer_Cheat_Sheet.pdf','popup','width=1024,height=768,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/09/SEO_Web_Developer_Cheat_Sheet-tm.jpg" height="500" width="666" border="1" hspace="4" vspace="4" alt="Seo Web Developer Cheat Sheet" /></a><br/>
+    <content type="html"><![CDATA[<p><a href="http://www.weixuhong.com/content/uploads/2009/09/SEO_Web_Developer_Cheat_Sheet.pdf" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/09/SEO_Web_Developer_Cheat_Sheet.pdf','popup','width=1024,height=768,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/09/SEO_Web_Developer_Cheat_Sheet-tm.jpg" height="500" width="666" border="1" hspace="4" vspace="4" alt="Seo Web Developer Cheat Sheet" /></a><br />
 有大量关于标签、定向、站点地图语法、robots.txt 语法等等的信息。以小手册的形式给出了大量有用的信息。SEO 工作者必备。</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/291">SEO参考</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/291">SEO参考</a></p>
+
 ]]></content>
   </entry>
   
@@ -110,7 +103,8 @@ Alternatively, you may use the video download links to the right.
     <id>http://weixuhong.com/archives/html5%e6%89%8b%e5%86%8c</id>
     <content type="html"><![CDATA[<p><a href="http://www.weixuhong.com/content/uploads/2009/09/WOORK-HTML-5-Cheat-Sheet-1.jpg" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/09/WOORK-HTML-5-Cheat-Sheet-1.jpg','popup','width=4961,height=3508,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/09/WOORK-HTML-5-Cheat-Sheet-1-tm.jpg" height="400" width="565" border="1" hspace="4" vspace="4" alt="Woork - Html 5 Cheat Sheet-1" /></a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/276">HTML5手册</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/276">HTML5手册</a></p>
+
 ]]></content>
   </entry>
   
@@ -120,33 +114,33 @@ Alternatively, you may use the video download links to the right.
     <updated>2009-09-05T00:00:00+08:00</updated>
     <id>http://weixuhong.com/archives/how-a-browser-uses-http-to-display-a-simple-html-resource</id>
     <content type="html"><![CDATA[<ul>
-<li><span style="font-family:STHeiti;">这</span>个是来自《<span style="font-family:serif;">HTTP The Definitive Guide</span>》的解<span style="font-family:STHeiti;">释</span>，当然<span style="font-family:STHeiti;">这</span>个只是<span style="font-family:STHeiti;">层</span>面上的解<span style="font-family:STHeiti;">释</span>，如果要理解底<span style="font-family:STHeiti;">层</span>的<span style="font-family:STHeiti;">知识，应该看《unix网络编程><br /> </span><br/>
-(a)<br/>
-The browser extracts the server&#8217;s hostname from the URL.</li>
+  <li><span style="font-family:STHeiti;">这</span>个是来自《<span style="font-family:serif;">HTTP The Definitive Guide</span>》的解<span style="font-family:STHeiti;">释</span>，当然<span style="font-family:STHeiti;">这</span>个只是<span style="font-family:STHeiti;">层</span>面上的解<span style="font-family:STHeiti;">释</span>，如果要理解底<span style="font-family:STHeiti;">层</span>的<span style="font-family:STHeiti;">知识，应该看《unix网络编程&gt;<br /> </span><br />
+(a)<br />
+The browser extracts the server’s hostname from the URL.</li>
 </ul>
 
+<p>(b)<br />
+The browser converts the server’s hostname into the server’s IP address.</p>
 
-<p>(b)<br/>
-The browser converts the server&#8217;s hostname into the server&#8217;s IP address.</p>
-
-<p>&copy;<br/>
+<p>(c)<br />
 The browser extracts the port number (if any) from the URL.</p>
 
-<p>(d)<br/>
+<p>(d)<br />
 The browser establishes a TCP connection with the web server.</p>
 
-<p>(e)<br/>
+<p>(e)<br />
 The browser sends an HTTP request message to the server.</p>
 
-<p>(f)<br/>
+<p>(f)<br />
 The server sends an HTTP response back to the browser.</p>
 
-<p>(g)<br/>
+<p>(g)<br />
 The connection is closed, and the browser displays the document.</p>
 
 <p><img src="http://www.weixuhong.com/content/uploads/2009/09/Picture-2-1.png" height="484" width="606" border="1" hspace="4" vspace="4" alt="Picture 2-1" /></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/272">how a browser uses HTTP to display a simple HTML resource</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/272">how a browser uses HTTP to display a simple HTML resource</a></p>
+
 ]]></content>
   </entry>
   

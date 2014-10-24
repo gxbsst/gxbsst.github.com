@@ -12,8 +12,8 @@
   <meta name="description" content="source 'http://rubygems.org' # --------------------
 # Rails
 # --------------------
-# gem 'rails', '~> 3.0.0&#8217;
-gem &#8216;rails&#8217;, :git => &#8216;git://github.com/ &hellip;&#8221;>
+# gem 'rails', '~&gt; 3.0.0'
+gem 'rails', :git =&gt; 'git://github &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -96,9 +96,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -133,46 +133,46 @@ $(document).ready(
 # --------------------
 #   Rails
 # --------------------
-# gem 'rails',                     '~> 3.0.0'
-gem 'rails',                     :git => 'git://github.com/rails/rails.git', :branch => '3-0-stable'
-# gem 'rails',                     :path => '/Users/fred/Downloads/Repos/Rails/rails-master'
+# gem 'rails',                     '~&gt; 3.0.0'
+gem 'rails',                     :git =&gt; 'git://github.com/rails/rails.git', :branch =&gt; '3-0-stable'
+# gem 'rails',                     :path =&gt; '/Users/fred/Downloads/Repos/Rails/rails-master'
 
 # --------------------
 #   Database
 # --------------------
-gem 'mysql2',                    :git => 'git://github.com/brianmario/mysql2.git'
-gem 'datamappify',               '>= 0.2.1'
-gem 'by_star',                   '~> 0.9.0'
-# gem 'slim_scrooge',              '~> 1.0.10', :group => :production
-# gem 'meta_where',                '>= 0.9.3'
+gem 'mysql2',                    :git =&gt; 'git://github.com/brianmario/mysql2.git'
+gem 'datamappify',               '&gt;= 0.2.1'
+gem 'by_star',                   '~&gt; 0.9.0'
+# gem 'slim_scrooge',              '~&gt; 1.0.10', :group =&gt; :production
+# gem 'meta_where',                '&gt;= 0.9.3'
 
 # --------------------
 #   Resources
 # --------------------
-gem 'inherited_resources',       '~> 1.1.2'
+gem 'inherited_resources',       '~&gt; 1.1.2'
 gem 'inherited_resources_views'
-gem 'devise',                    '~> 1.1.2'
-gem 'cancan',                    '~> 1.3.0'
-gem 'carrierwave',               '~> 0.5.0'
+gem 'devise',                    '~&gt; 1.1.2'
+gem 'cancan',                    '~&gt; 1.3.0'
+gem 'carrierwave',               '~&gt; 0.5.0'
 
 # --------------------
 #   Presentation
 # --------------------
-gem 'haml',                      '~> 3.0.18'
+gem 'haml',                      '~&gt; 3.0.18'
 gem 'compass'
-gem 'simple_form',               '~> 1.2.0'
-gem 'simple-navigation',         '~> 2.7.0'
-gem 'will_paginate',             '~> 3.0.pre'
+gem 'simple_form',               '~&gt; 1.2.0'
+gem 'simple-navigation',         '~&gt; 2.7.0'
+gem 'will_paginate',             '~&gt; 3.0.pre'
 
 # --------------------
 #   Assets
 # --------------------
 gem 'rails_config'
-gem 'rdiscount',                 '>= 1.6.5'
+gem 'rdiscount',                 '&gt;= 1.6.5'
 gem 'sanitize'
-gem 'rubyzip',                   :require => 'zip/zip'
-gem 'csv-mapper',                '>= 0.5.0'
-gem 'ffaker',                    '>= 0.4.0'
+gem 'rubyzip',                   :require =&gt; 'zip/zip'
+gem 'csv-mapper',                '&gt;= 0.5.0'
+gem 'ffaker',                    '&gt;= 0.4.0'
 
 # --------------------
 #   Server/Deployment
@@ -180,32 +180,32 @@ gem 'ffaker',                    '>= 0.4.0'
 gem 'dalli'
 gem 'thin'
 gem 'capistrano-ext'
-gem 'deployer',                  :git => 'git://github.com/meskyanichi/deployer.git'
+gem 'deployer',                  :git =&gt; 'git://github.com/meskyanichi/deployer.git'
 gem 'hoptoad_notifier'
 gem 'newrelic_rpm'
 
 group :development do
-  gem 'bullet',                  '~> 2.0.0.rc1'
-  gem 'hpricot',                 '>= 0.8.2'
-  gem 'ruby_parser',             '>= 2.0.4'
+  gem 'bullet',                  '~&gt; 2.0.0.rc1'
+  gem 'hpricot',                 '&gt;= 0.8.2'
+  gem 'ruby_parser',             '&gt;= 2.0.4'
 end
 
 group :development, :test do
-  gem 'rspec-rails',             '~> 2.0.0.beta.22'
-  gem 'steak',                   :git => 'git://github.com/cavalle/steak.git'
-  gem 'capybara',                :git => 'git://github.com/jnicklas/capybara.git'
+  gem 'rspec-rails',             '~&gt; 2.0.0.beta.22'
+  gem 'steak',                   :git =&gt; 'git://github.com/cavalle/steak.git'
+  gem 'capybara',                :git =&gt; 'git://github.com/jnicklas/capybara.git'
   gem 'delorean'
   gem 'database_cleaner'
   gem 'launchy'
-  gem 'parallel_tests',          :git => 'git://github.com/grosser/parallel_tests.git'
-  # gem 'parallel_tests',          :path => '/Users/fred/Downloads/Repos/Rails/fredwu-parallel_tests'
+  gem 'parallel_tests',          :git =&gt; 'git://github.com/grosser/parallel_tests.git'
+  # gem 'parallel_tests',          :path =&gt; '/Users/fred/Downloads/Repos/Rails/fredwu-parallel_tests'
 end
 </pre>
 
+<p>也可以参考：http://thoughtrails.com/episodes/24-popular-and-useful-plugins-for-rails3</p>
 
-<p>也可以参考：<a href="http://thoughtrails.com/episodes/24-popular-and-useful-plugins-for-rails3">http://thoughtrails.com/episodes/24-popular-and-useful-plugins-for-rails3</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/537">常用gem</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/537">常用gem</a></p>
 </div>
 
 
@@ -258,10 +258,10 @@ end
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -286,8 +286,12 @@ end
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -305,40 +309,7 @@ end
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

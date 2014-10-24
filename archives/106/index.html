@@ -92,9 +92,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -124,13 +124,13 @@ $(document).ready(
   </header>
 
 
-<div class="entry-content"><p>　在一个基于MVC的Web应用程序中，应用程序逻辑以及数据的存取是由MVC中的C,也就是控制器来完成的。因此，深刻地理解MVC框架所提供控制器对于开发一个高效、可升级、稳定的应用程序是十分必要的。RoR也不例外。</p>
+<div class="entry-content"><p>　在一个基于MVC的Web应用程序中，应用程序逻辑以及数据的存取是由MVC中的C,也就是控制器来完成的。因此，深刻地理解MVC框架所提供控制器对于开发一个高效、可升级、稳定的应用程序是十分必要的。RoR也不例外。 </p>
 
 <p>　　RoR中所提供的控制器叫动作控制器(ActionController)。本文将主要讨论动作控制器所提供的几种服务，以及如何使用动作控制器。</p>
 
 <p>　　什么是动作控制器</p>
 
-<p>　　在RoR中，动作包(Action Pack)是这个框架的核心。它包括两部分，动作视图和动作控制器。动作包的一个特点是除了Web程序，不能使用在其它类型的程序中。下面让我们看看在我们通过浏览器键入一个URL后，如<a href="http://localhost:3000/demo/say/hello%EF%BC%8C%E9%83%BD%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88%E3%80%82%E4%B8%8B%E9%9D%A2%E6%98%AF%E5%9C%A8RoR%E4%B8%AD%E5%A4%84%E7%90%86%E5%8A%A8%E4%BD%9C%E7%9A%84%E6%AD%A5%E9%AA%A4%EF%BC%9A">http://localhost:3000/demo/say/hello%EF%BC%8C%E9%83%BD%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88%E3%80%82%E4%B8%8B%E9%9D%A2%E6%98%AF%E5%9C%A8RoR%E4%B8%AD%E5%A4%84%E7%90%86%E5%8A%A8%E4%BD%9C%E7%9A%84%E6%AD%A5%E9%AA%A4%EF%BC%9A</a></p>
+<p>　　在RoR中，动作包(Action Pack)是这个框架的核心。它包括两部分，动作视图和动作控制器。动作包的一个特点是除了Web程序，不能使用在其它类型的程序中。下面让我们看看在我们通过浏览器键入一个URL后，如http://localhost:3000/demo/say/hello，都发生了什么。下面是在RoR中处理动作的步骤：</p>
 
 <p>　　1. RoR首先装载了位于app/controllers目录中的say_controller.rb文件。这个文件只被装载一次。</p>
 
@@ -154,14 +154,14 @@ $(document).ready(
 
 <p>　　1. URL映射</p>
 
-<p>　　当我们在浏览器中输入<a href="http://localhost:3000/admin/show%E6%97%B6%EF%BC%8C%E4%BC%9A%E6%98%BE%E7%A4%BA%E7%9B%B8%E5%BA%94%E7%9A%84%E5%86%85%E5%AE%B9%E3%80%82%E4%BD%86%E4%BD%A0%E4%B9%9F%E8%AE%B8%E4%BC%9A%E6%9C%89%E7%96%91%E9%97%AE%EF%BC%8CRoR%E6%98%AF%E5%A6%82%E4%BD%95%E5%B0%86URL%E9%93%BE%E6%8E%A5%E6%98%A0%E5%B0%84%E6%88%90%E7%9B%B8%E5%BA%94%E7%9A%84%E7%B1%BB%E6%88%96%E6%96%B9%E6%B3%95%E5%91%A2%EF%BC%9F%E4%BA%8B%E5%AE%9E%E4%B8%8A%EF%BC%8C%E8%BF%99%E4%BA%9B%E6%98%A0%E5%B0%84%E7%9A%84%E4%BB%A3%E7%A0%81%E9%83%BD%E8%A2%AB%E5%86%99%E5%9C%A8%E4%BA%86config%E7%9B%AE%E5%BD%95%E4%B8%AD%E7%9A%84routers.rb%E4%B8%AD%E3%80%82%E4%B8%8B%E9%9D%A2%E6%98%AF%E8%BF%99%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E9%83%A8%E5%88%86%E4%BB%A3%E7%A0%81%E3%80%82">http://localhost:3000/admin/show%E6%97%B6%EF%BC%8C%E4%BC%9A%E6%98%BE%E7%A4%BA%E7%9B%B8%E5%BA%94%E7%9A%84%E5%86%85%E5%AE%B9%E3%80%82%E4%BD%86%E4%BD%A0%E4%B9%9F%E8%AE%B8%E4%BC%9A%E6%9C%89%E7%96%91%E9%97%AE%EF%BC%8CRoR%E6%98%AF%E5%A6%82%E4%BD%95%E5%B0%86URL%E9%93%BE%E6%8E%A5%E6%98%A0%E5%B0%84%E6%88%90%E7%9B%B8%E5%BA%94%E7%9A%84%E7%B1%BB%E6%88%96%E6%96%B9%E6%B3%95%E5%91%A2%EF%BC%9F%E4%BA%8B%E5%AE%9E%E4%B8%8A%EF%BC%8C%E8%BF%99%E4%BA%9B%E6%98%A0%E5%B0%84%E7%9A%84%E4%BB%A3%E7%A0%81%E9%83%BD%E8%A2%AB%E5%86%99%E5%9C%A8%E4%BA%86config%E7%9B%AE%E5%BD%95%E4%B8%AD%E7%9A%84routers.rb%E4%B8%AD%E3%80%82%E4%B8%8B%E9%9D%A2%E6%98%AF%E8%BF%99%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E9%83%A8%E5%88%86%E4%BB%A3%E7%A0%81%E3%80%82</a></p>
+<p>　　当我们在浏览器中输入http://localhost:3000/admin/show时，会显示相应的内容。但你也许会有疑问，RoR是如何将URL链接映射成相应的类或方法呢？事实上，这些映射的代码都被写在了config目录中的routers.rb中。下面是这个文件的部分代码。</p>
 
-<p>ActionController::Routing::Routes.drawdo|map|<br/>
-map.connect &#8216;:controller/service.wsdl&#8217;, :action => &#8216;wsdl&#8217;<br/>
-map.connect &#8216;:controller/:action/:id&#8217;<br/>
+<p>ActionController::Routing::Routes.drawdo|map|<br />
+map.connect ‘:controller/service.wsdl’, :action =&gt; ‘wsdl’<br />
+map.connect ‘:controller/:action/:id’<br />
 end</p>
 
-<p>　　动作控制器通过它的映射组件将来自外部请求的URL和内部的应用程序连接了起来。上述代码的第3行就是完成这个功能的。在这行语句中，map.connect的连接字符串是&#8221;:controller/:action/:id&#8221;。请求的URL只有匹配这个字符串才能被接受。对于一个URL请求来说，它可以被RoR分成三部分：</p>
+<p>　　动作控制器通过它的映射组件将来自外部请求的URL和内部的应用程序连接了起来。上述代码的第3行就是完成这个功能的。在这行语句中，map.connect的连接字符串是”:controller/:action/:id”。请求的URL只有匹配这个字符串才能被接受。对于一个URL请求来说，它可以被RoR分成三部分：</p>
 
 <p>　　a. 第一部分是模式字符串中的:controller部分。</p>
 
@@ -169,27 +169,27 @@ end</p>
 
 <p>　　c. 第三部分是模式字符串中的:id部分。</p>
 
-<p>　　根据上面所描述的三部分，URL：<a href="http://localhost:3000/demo/admin/show/1/%E5%B0%86%E8%A2%AB%E6%98%A0%E5%B0%84%E6%88%90%E4%BB%A5%E4%B8%8B%E4%B8%89%E9%83%A8%E5%88%86%EF%BC%9A">http://localhost:3000/demo/admin/show/1/%E5%B0%86%E8%A2%AB%E6%98%A0%E5%B0%84%E6%88%90%E4%BB%A5%E4%B8%8B%E4%B8%89%E9%83%A8%E5%88%86%EF%BC%9A</a></p>
+<p>　　根据上面所描述的三部分，URL：http://localhost:3000/demo/admin/show/1/将被映射成以下三部分：</p>
 
-<p>:controller ： &#8216;admin&#8217;,<br/>
-:action ：&#8217;show&#8217;,<br/>
+<p>:controller ： ‘admin’,<br />
+:action ：’show’,<br />
 :id ：1</p>
 
-<p>　　根据以上的三部分，RoR将调用admin控制器的show方法，并将参数1传到show方法中。因此，我们可以看出，RoR在其中做了很多本应该由我们做的事件。因此，RoR是一项十分强大技术。<br/>
+<p>　　根据以上的三部分，RoR将调用admin控制器的show方法，并将参数1传到show方法中。因此，我们可以看出，RoR在其中做了很多本应该由我们做的事件。因此，RoR是一项十分强大技术。<br />
 2. 会话跟踪</p>
 
 <p>　　跨应用跟踪用户是大多数Web应用程序都需要的功能。在RoR中，我们可使用由RoR框架提供cookies或session管理来跟踪用户。但在RoR中的cookies和session管理和其它框架所提供的类似的管理不同的，RoR的cookies和session管理无需显式地调用相应的cookies和session对象就可以做到这一切。下面让我们来看看它的实现代码：</p>
 
-<p>class CookiesController &lt; ApplicationController<br/>
-def create_cookie<br/>
-cookies[:the_time] = Time.now.to_s<br/>
-redirect_to :action =>&#8220;action_two&#8221;<br/>
+<p>class CookiesController &lt; ApplicationController<br />
+def create_cookie<br />
+cookies[:the_time] = Time.now.to_s<br />
+redirect_to :action =&gt;“action_two”<br />
 end</p>
 
-<p>def get_cookie<br/>
-cookie_value = cookies[:the_time]<br/>
-render(:text =>&#8221; #{cookie_value}&#8221;)<br/>
-end<br/>
+<p>def get_cookie<br />
+cookie_value = cookies[:the_time]<br />
+render(:text =&gt;” #{cookie_value}”)<br />
+end<br />
 end</p>
 
 <p>　　在以上代码中，在控制器中有两个动作方法，一个是设置cookie的，另一个是读取和显示cookie值的。在这里cookies[]是一个cookies对象数组，我们不需要声明它，只需要将它看成一个普通数组即可。</p>
@@ -198,16 +198,16 @@ end</p>
 
 <p>　　上面讨论cookie的使用方法。但如果有一种方法可以透明使用cookie，那不是更好吗？这个技术就是session。就象cookie一样，session数组也无需声明。它的用法类似于cookie对象。下面的代码描述了session的使用。</p>
 
-<p>class SessionController &lt; ApplicationController<br/>
-def login<br/>
-user = User.find_by_name_and_password(params[:user], params[:password])<br/>
-if user<br/>
-session[:user_id] = user.id<br/>
-redirect_to :action =>&#8220;index&#8221;<br/>
-else<br/>
-reset_session<br/>
-flash[:note] =&#8221;有户名或密码不正确!&#8221;<br/>
-end<br/>
+<p>class SessionController &lt; ApplicationController<br />
+def login<br />
+user = User.find_by_name_and_password(params[:user], params[:password])<br />
+if user<br />
+session[:user_id] = user.id<br />
+redirect_to :action =&gt;“index”<br />
+else<br />
+reset_session<br />
+flash[:note] =”有户名或密码不正确!”<br />
+end<br />
 end</p>
 
 <p>　　上面代码对user_id和password进行核对。如果用户存在，将这个用户的user-id保存在session中。其中session[:user_id] = user.id的形式和保存cookie的形式完全一样。接下来重定向到index页上。如果用户不存在，使用reset_session将session设为无效，并通过RoR返回简单的提示信息。</p>
@@ -216,26 +216,26 @@ end</p>
 
 <p>　　在一此情况下，在请求被处理之前，要进行一系列处理。这个过程就叫做过滤。过滤器所包含代码需要在许多动作执行前或执行后被调用。因此，过滤器分为两种，before过滤器和after过滤器。Before过滤器的代码在请求被处理前被执行，而after过滤器恰恰相反，是在请求被处理之后执行过滤代码。例如，验证用户身份代码必须要在调用一个动作之前被调用，代码如下示：</p>
 
-<p>def authorize<br/>
-unless session[:user_id]<br/>
-flash[:notice] =&#8221;请登录&#8221;<br/>
-redirect_to(:controller =>&#8221;login&#8221;, :action =>&#8221;login&#8221;)<br/>
-end<br/>
+<p>def authorize<br />
+unless session[:user_id]<br />
+flash[:notice] =”请登录”<br />
+redirect_to(:controller =&gt;”login”, :action =&gt;”login”)<br />
+end<br />
 end</p>
 
-<p>class AdminController &lt; ApplicationController<br/>
-before_filter :authorize<br/>
+<p>class AdminController &lt; ApplicationController<br />
+before_filter :authorize<br />
 … …</p>
 
 <p>　　以上代码在AdminController中的任何动作被执行之前调用，而在控制器中要想调用authorize函数，必须在其中加上before_filter。after_filter的使用方法和before_filter类似。</p>
 
 <p>　　过滤器虽然可以执行验证代码，但有时对请求需要更进一步的验证，如此一来，过滤器就显得捉襟见肘了。为了完成这些功能，我们就需要使用更为强大的验证机制。在控制器中，可以通过verify实现更强大的验证功能。如下面的代码验证了用户提交方式。即用户只能用post进行提交。</p>
 
-<p>class BlogController &lt; ApplicationController<br/>
-verify :only => :post_comment,<br/>
-:session => :user_id,<br/>
-:add_flash => { :note =>&#8221;You must log in to comment&#8221;},<br/>
-:redirect_to => :index</p>
+<p>class BlogController &lt; ApplicationController<br />
+verify :only =&gt; :post_comment,<br />
+:session =&gt; :user_id,<br />
+:add_flash =&gt; { :note =&gt;”You must log in to comment”},<br />
+:redirect_to =&gt; :index</p>
 
 <p>… …</p>
 
@@ -245,11 +245,12 @@ verify :only => :post_comment,<br/>
 
 <p>　　在RoR中，可以通过caches_page来实现缓冲功能。缓冲可分为不同的层次，如对整个网页进行缓冲，对动作缓冲，或是同时对网页和动作进行缓冲。如在一个blog管理应用程序，将大家经常访问的内容进行缓冲的代码如下：</p>
 
-<p>class ContentController &lt; ApplicationController<br/>
-before_filter :verify_premium_user, :except => :public_content<br/>
+<p>class ContentController &lt; ApplicationController<br />
+before_filter :verify_premium_user, :except =&gt; :public_content<br />
 caches_page :public_content</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/106">Ruby on Rails：控制器纵览</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/106">Ruby on Rails：控制器纵览</a></p>
+
 </div>
 
 
@@ -302,10 +303,10 @@ caches_page :public_content</p>
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -330,8 +331,12 @@ caches_page :public_content</p>
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -349,40 +354,7 @@ caches_page :public_content</p>
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

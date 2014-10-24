@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Rubymine | 韦旭红的幸福时光]]></title>
+  <title><![CDATA[分类：rubymine | 韦旭红的幸福时光]]></title>
   <link href="http://weixuhong.com/blog/categories/rubymine/atom.xml" rel="self"/>
   <link href="http://weixuhong.com/"/>
-  <updated>2014-10-24T14:14:26+08:00</updated>
+  <updated>2014-10-24T15:21:07+08:00</updated>
   <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
@@ -20,8 +20,9 @@
     <id>http://weixuhong.com/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-?</id>
     <content type="html"><![CDATA[<p>如果你的rubymine 不能输入中文，请做这样的修改:</p>
 
-<pre><code class="bash"> vim /Applications/RubyMine.app/bin/idea.vmoptions
-</code></pre>
+<p><code>bash
+ vim /Applications/RubyMine.app/bin/idea.vmoptions
+</code></p>
 
 <p>加入下面一行：
 <code>java
@@ -29,12 +30,13 @@
 </code>
 所以长得这样子:</p>
 
-<pre><code class="java">-Xms128m
+<p><code>java
+-Xms128m
 -Xmx512m
 -XX:MaxPermSize=250m
 -XX:+UseCompressedOops
 -J-Djava.awt.im.style=on-the-spot
-</code></pre>
+</code></p>
 
 <p>–EOF–</p>
 ]]></content>

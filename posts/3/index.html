@@ -9,7 +9,10 @@
   <meta name="author" content="Weston Wei(韦旭红)">
 
   
-  <meta name="description" content="罗朝辉（http://www.cppblog.com/kesalin%EF%BC%89 转载请注明出处 编程工作做久了，最初的新鲜感难免会消磨殆尽。幸好总是会有新的技术闪耀登场，重燃编辑人员的兴趣，Mac OS X 就饱含这样神奇的技术。 &#8212;Mark Dalrymple &amp; &hellip;">
+  <meta name="description" content="今天看到enum 和 typedef， 在两个小节中书中分别出现了2个例子，如下
+enum direction {north, south, east, west};
+typedef enum {north, south, east, west} direction;
+不禁产生疑问， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -92,9 +95,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -102,6 +105,54 @@ $(document).ready(
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/529">Objective-c Enum 与 Typedef</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2011-07-06T00:00:00+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2011</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/529#disqus_thread"
+             data-disqus-identifier="http://weixuhong.com/archives/529">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天看到enum 和 typedef， 在两个小节中书中分别出现了2个例子，如下<br />
+enum direction {north, south, east, west};<br />
+typedef enum {north, south, east, west} direction;<br />
+不禁产生疑问，这两个有什么区别，仔细对照了一下，发现是这样的：<br />
+大同小异，<br />
+同： 都是申明了一个枚举类型。<br />
+异：在使用该枚举类型定义变量的时候，语法不一样，举例如下： </p>
+
+<pre lang="c">1  enum direction {north, south, east, west};    
+3  enum direction facing = north;  
+4 
+5  typedef enum {north, south, east, west} direction;     
+7  direction facing = north; 
+</pre>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/529">objective-c enum 与 typedef</a></p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -127,17 +178,17 @@ $(document).ready(
   </header>
 
 
-  <div class="entry-content"><p>罗朝辉（<a href="http://www.cppblog.com/kesalin%EF%BC%89">http://www.cppblog.com/kesalin%EF%BC%89</a></p>
+  <div class="entry-content"><p>罗朝辉（http://www.cppblog.com/kesalin）</p>
 
 <p>转载请注明出处</p>
 
-<p>编程工作做久了，最初的新鲜感难免会消磨殆尽。幸好总是会有新的技术闪耀登场，重燃编辑人员的兴趣，Mac OS X 就饱含这样神奇的技术。</p>
+<p>编程工作做久了，最初的新鲜感难免会消磨殆尽。幸好总是会有新的技术闪耀登场，重燃编辑人员的兴趣，Mac OS X 就饱含这样神奇的技术。 </p>
 
-<p>&#8212;Mark Dalrymple &amp; Scott Knaster</p>
+<p>—Mark Dalrymple &amp; Scott Knaster</p>
 
 <p>1，从 HelloWorld 开始，</p>
 
-<pre lang="c">#import &lt;Foundation/Foundation.h>
+<pre lang="c">#import &lt;Foundation/Foundation.h&gt;
 
 int main (int argc, const char * argv[]) {
 
@@ -154,8 +205,7 @@ int main (int argc, const char * argv[]) {
 }
 </pre>
 
-
-<h1>import 就相当于 #include，用来通知编译起应该在头文件中查询定义，当 import 功能更强大，它可以保证头文件只可以被包含一次。而在C／C＋＋中我们是通过</h1>
+<h1 id="import--include-import-cc">import 就相当于 #include，用来通知编译起应该在头文件中查询定义，当 import 功能更强大，它可以保证头文件只可以被包含一次。而在C／C＋＋中我们是通过</h1>
 
 <pre lang="c">#ifndef __HELLO_WORLD_H__
 
@@ -165,7 +215,6 @@ int main (int argc, const char * argv[]) {
 
 #endif // __HELLO_WORLD_H__
 </pre>
-
 
 <p>来实现的（在VC中可以使用 #program once 来实现这一目的）。</p>
 
@@ -177,7 +226,6 @@ int main (int argc, const char * argv[]) {
 
  #define NO 0
 </pre>
-
 
 <p>所以 BOOL 实际上是一个有符号的 char 类型，YES 被定义为 1，而 NO 被定义为 0，但 BOOL 还可以是其他值，但均不是约定的 YES 或 NO 值。也就是非零的 BOOL 类型的数据不一定等于 YES，使用时要注意这一点。</p>
 
@@ -191,7 +239,7 @@ int main (int argc, const char * argv[]) {
 
 <p>5,在新生成的文件中使用公司名称或自己的名称代替默认的占位符 __MyCompanyName__，在 Finder 中打开 Utilities 文件夹，打开其中的 Terminal 应用程序，在命令行中按照如下格式输入，回车就可以了。</p>
 
-<p>defaults write com.apple.Xcode.PBXCustomTemplateMacroDefinites &#8216;{&#8220;ORGANIZATIONNAME&#8221;=&#8221;kesalin@gmail.com&#8221;;}&#8217;</p>
+<p>defaults write com.apple.Xcode.PBXCustomTemplateMacroDefinites ‘{“ORGANIZATIONNAME”=”kesalin@gmail.com”;}’</p>
 
 <p>6，XCode 3.2 快捷键</p>
 
@@ -213,9 +261,9 @@ int main (int argc, const char * argv[]) {
 
 <p>command + control + s 创建快照</p>
 
-<p>Edit->Edit all in scope 修改局部变量或参数</p>
+<p>Edit-&gt;Edit all in scope 修改局部变量或参数</p>
 
-<p>Edit->Refactor 全局修改类名（但无法修改注释中出现的类名）</p>
+<p>Edit-&gt;Refactor 全局修改类名（但无法修改注释中出现的类名）</p>
 
 <p>command + shift + D 打开文件快速查找对话框</p>
 
@@ -259,9 +307,9 @@ int main (int argc, const char * argv[]) {
 
 <p>折叠代码， 点击代码左边的焦点列，就可以进行代码的折叠。</p>
 
-<p>添加可读的标记 在代码中加入 ＃pragma mark STUFF，#pragma mark &#8211; 则是在菜单中插入分割线</p>
+<p>添加可读的标记 在代码中加入 ＃pragma mark STUFF，#pragma mark – 则是在菜单中插入分割线</p>
 
-<p>或在代码中加入如下 TODO:, FIDME,!!! 或 ???</p>
+<p>或在代码中加入如下 TODO:, FIDME,!!! 或 ??? </p>
 
 <p>7，NSString 的比较方法：</p>
 
@@ -293,7 +341,6 @@ NSOrderedDescending
 
 </pre>
 
-
 <p>8, NSArray 只能存储 Objective-C对象，而不能存储 C 语言中的基本数据类型，如 int，float，enum，struct，或者 NSArray中的随机指针，也不能将存储 nil。</p>
 
 <p>对于可变数组进行枚举操作时，有一点需要注意：你不能通过添加或着删除对象这类方式来改变数组的容器。</p>
@@ -307,7 +354,6 @@ NSOrderedDescending
                     objCType:(const char *) type;
 </pre>
 
-
 <p>传递的参数 value 时想要包装的数值的地址，type 时一个用来描述这个数据类型的字符串，通常用来说明 struct 中实体的类型和大小。我们不必自己写代码来生存这个字符串，通过 @encode 编译器指令（接收数据类型的名称作为输入参数）来生成合适的字符串。例如：</p>
 
 <pre lang="c">NSRect rect = NSMakeRect(10, 10, 200, 200);
@@ -320,7 +366,6 @@ value = [NSValue valueWidthBytes: &#038;rect,
 
 [array addObject: value];
 </pre>
-
 
 <p>10，内存管理</p>
 
@@ -368,17 +413,16 @@ value = [NSValue valueWidthBytes: &#038;rect,
 
 <pre lang="c">if ([objectArray respondsToSelector: @selector(setObject:atIndex:)) {
 
-objectArray->setObject(object, index);
+objectArray-&gt;setObject(object, index);
 
 }
 </pre>
-
 
 <p>16,正式的协议 protocol</p>
 
 <p>正式的协议采用 protocol 关键字。声明协议的语法类似于声明类，但是要注意协议不能有成员变量，它相当于 Java 中的 interface。</p>
 
-<p>例如：Cocoa 声明了一个协议-&ndash;NSCopying：</p>
+<p>例如：Cocoa 声明了一个协议-–NSCopying：</p>
 
 <pre lang="c">@protocol NSCopying
 
@@ -387,12 +431,11 @@ objectArray->setObject(object, index);
 @end
 </pre>
 
-
 <p>要采纳某个协议，可以在类的声明中列出该协议的名称，并用尖括号将协议名称括起来，然后必须在 @implement 中实现协议中声明为 required（默认就是 required）的所有方法，而声明为 optional 的方法可以。</p>
 
 <p>下面让类 MyObject 采纳 NSCopying 协议：</p>
 
-<pre lang="c">@interface MyObject : NSObject &lt;NSCopying>
+<pre lang="c">@interface MyObject : NSObject &lt;NSCopying&gt;
 
 {
 
@@ -418,12 +461,11 @@ return (objectCopy);
 @end
 </pre>
 
-
 <p>说明：[self class] 返回的是对象所属的类。allocWidthZone 是一个类方法，因此在这里使用是合适的。</p>
 
 <p>我们可以在实例变量和函数参数的数据类型中指定协议的名称，这样就可以约束该变量或参数必须满足的条件（即遵循声明的协议），编译器会对此约束条件进行检查。如：</p>
 
-<p>-(void) setObjectValue:(id<NSCopying>) obj;</p>
+<p>-(void) setObjectValue:(id<nscopying>) obj;</nscopying></p>
 
 <p>在这里 setObjectValue 要求传入的参数必须遵循 NSCopying 协议，即实现了 NSCopying 协议中声明的所有方法。</p>
 
@@ -447,7 +489,7 @@ return (objectCopy);
 
 <p>控件执行流程：</p>
 
-<p>加载主 nib 文件 &#8211;> awakeFromNib &#8211;> 处理事务</p>
+<p>加载主 nib 文件 –&gt; awakeFromNib –&gt; 处理事务 </p>
 
 <p>18，谓词 NSPredicate</p>
 
@@ -461,7 +503,6 @@ predicate = [NSPredicate predicateWidthFormat: @"name == 'kesalin'"];
 
 Bool match = [predicate evaluateWidthObject: myObject];
 </pre>
-
 
 <p>使用谓词过滤数组：</p>
 
@@ -481,7 +522,7 @@ Bool match = [predicate evaluateWidthObject: myObject];
 
 <p>我们可以将格式说明符和变量名放入谓词格式字符串中。我们可以将 printf 中常用的 ％d，％f等放入谓词中。如：</p>
 
-<p>predicate = [NSPredicate predicateWithFormat: @&ldquo;age > %d&rdquo;, 18];</p>
+<p>predicate = [NSPredicate predicateWithFormat: @”age &gt; %d”, 18];</p>
 
 <p>支持的其他格式字符串：</p>
 
@@ -491,11 +532,11 @@ Bool match = [predicate evaluateWidthObject: myObject];
 
 <p>例如：</p>
 
-<p>predicate = [NSPredicate predicateWithFormat: @&ldquo;%K > %d&rdquo;, @&ldquo;age&rdquo;, 18];</p>
+<p>predicate = [NSPredicate predicateWithFormat: @”%K &gt; %d”, @”age”, 18];</p>
 
 <p>将变量放入谓词字符串中，使用方法类似于环境变量：</p>
 
-<p>predicate = [NSPredicate predicateWithFormat: @&ldquo;name == $NAME&rdquo;];</p>
+<p>predicate = [NSPredicate predicateWithFormat: @”name == $NAME”];</p>
 
 <p>19,Objective-C 中不存在类变量，可以使用文件范围内的全局变量来模拟类变量并为它们提供访问器。例如：</p>
 
@@ -532,7 +573,6 @@ g_age = age;
 @end
 </pre>
 
-
 <p>20, C++ 具有很多 Objective-C 所没有的特性：</p>
 
 <p>多重继承，命名空间，运算符重载，模板，类变量，抽象类，STL等。</p>
@@ -545,7 +585,8 @@ g_age = age;
 
 <p>Objective-C 很少使用子类化行为，因为通过类别和动态运行时机制，可以向任何对象发送任何消息，可以将某些功能放到含有较少功能的类中，可以将功能放到最有意义的类中。一般来说只有当创建某个全新的对象，或者需要从跟不上改变某个对象的行为，或者由于类不能实现某个功能而需要使用子类时，才需要载 Cocoa 中设置子类。而对于其他大多数情况，使用委托和数据远源的方式足以应付了。由于 Objective-C 可以向任何对象发送任何消息，对象不必含有特定的子类或遵循特定的接口，这样，单个类就可以成为任意个不同对象的委托或者数据源。</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/525">Objective-C 入门知识（转)</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/525">Objective-C 入门知识（转)</a></p>
+
 </div>
   
   
@@ -578,21 +619,18 @@ g_age = age;
 
 
   <div class="entry-content"><ol>
-<li>首先打开多个文件</li>
+  <li>首先打开多个文件</li>
 </ol>
 
-
-<p>如: <pre lang="c">vim ./*.html</pre></p>
+<p>如: &lt;pre lang=&#8221;c&#8221;&gt;vim ./*.html&lt;/pre&gt;</p>
 
 <p>2.使用如下命令,</p>
 
 <pre lang="c">:argdo %s/2007/2008/g | wq</pre>
 
-
 <p>*如果要单个文件修改， 则使用:</p>
 
 <pre lang="c">:next </pre>
-
 
 <p>或者使用脚本:</p>
 
@@ -600,18 +638,18 @@ g_age = age;
 
 for file in $(grep -l -R  'Copyright © 2011' ./)
 do
-sed -e "s/Copyright © 2011/Copyright © 2011/ig" $file > /tmp/tempfile.tmp
+sed -e "s/Copyright © 2011/Copyright © 2011/ig" $file &gt; /tmp/tempfile.tmp
 mv /tmp/tempfile.tmp $file
 done
 
 </pre>
 
-
 <p>参考:</p>
 
-<p><a href="http://www.legend.ws/blog/tips-tricks/replace-text-in-multiple-files/">http://www.legend.ws/blog/tips-tricks/replace-text-in-multiple-files/</a></p>
+<p>http://www.legend.ws/blog/tips-tricks/replace-text-in-multiple-files/</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/519">使用VIM/VI批量替换</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/519">使用VIM/VI批量替换</a></p>
+
 </div>
   
   
@@ -647,9 +685,9 @@ done
 
 <p><a href="http://www.ios-developer.net/iphone-ipad-programmer">Our resources for other geeks, designers and engineers.(推荐)</a></p>
 
-<p><a href="http://www.cnblogs.com/visen-0/archive/2011/06/06/2073717.html">iOS高效开发必备的10款Objective-C类库</a></p>
+<p><a href="http://www.cnblogs.com/visen-0/archive/2011/06/06/2073717.html">iOS高效开发必备的10款Objective-C类库</a> </p>
 
-<p><a href="http://iphoneexamples.com/">iPhone SDK Examples</a></p>
+<p><a href="http://iphoneexamples.com/">iPhone SDK Examples</a> </p>
 
 <p><a href="http://www.techotopia.com/index.php/An_iOS_4_iPhone_Graphics_Drawing_Tutorial_using_Quartz_2D_%28Xcode_4%29">An iOS 4 iPhone Graphics Drawing Tutorial using Quartz 2D (Xcode 4) </a></p>
 
@@ -671,7 +709,8 @@ done
 
 <p>如果您有更好的推荐， 也请追加， 非常感谢;-)</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/503">IOS开发资源推荐</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/503">IOS开发资源推荐</a></p>
+
 </div>
   
   
@@ -705,14 +744,15 @@ done
 
   <div class="entry-content"><p>遇到这个问题一般是public key权限的问题， 一般修改服务器的.ssh 和 authorized_keys就可以解决问题了， 可以这样试一试:</p>
 
-<p>chmod 700 .ssh<br/>
+<p>chmod 700 .ssh<br />
 chmod 700 .ssh/authorized_keys</p>
 
 <p>也可以参考之前的文章:</p>
 
-<p><a href="http://weixuhong.com/%E6%8A%80%E6%9C%AF%E6%84%9F%E6%83%B3/2008/04/26/ssh-%E4%B8%8D%E7%94%A8%E5%AF%86%E7%A0%81/">http://weixuhong.com/%E6%8A%80%E6%9C%AF%E6%84%9F%E6%83%B3/2008/04/26/ssh-%E4%B8%8D%E7%94%A8%E5%AF%86%E7%A0%81/</a></p>
+<p>http://weixuhong.com/技术感想/2008/04/26/ssh-不用密码/</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/501">关于SSH we did not send a packet, disable method</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/501">关于SSH we did not send a packet, disable method</a></p>
+
 </div>
   
   
@@ -744,23 +784,23 @@ chmod 700 .ssh/authorized_keys</p>
   </header>
 
 
-  <div class="entry-content"><p>Disabling Spotlight<br/>
-Launch Terminal and type the following: sudo nano /etc/hostconfig<br/>
-Navigate using the arrow keys down the following entry: SPOTLIGHT=-YES-<br/>
-Change SPOTLIGHT=-YES- to SPOTLIGHT=-NO-<br/>
-Save /etc/hostconfig by hitting Control-O and the return key, next hit Control-X to exit the nano editor<br/>
-Next, you’ll want to disable the index by typing the following in the Terminal:<br/>
-mdutil -i off /<br/>
-And to erase the current Spotlight index, type: mdutil -E /<br/>
-That’s pretty much it, on your next reboot, Spotlight will be completely disabled.<br/>
-Re-Enable Spotlight<br/>
-If you want to enable Spotlight again, follow the same steps as above, but change SPOTLIGHT=-NO- to SPOTLIGHT=-YES-<br/>
-and then type mdutil -i on / in the Terminal<br/>
+  <div class="entry-content"><p>Disabling Spotlight<br />
+Launch Terminal and type the following: sudo nano /etc/hostconfig<br />
+Navigate using the arrow keys down the following entry: SPOTLIGHT=-YES-<br />
+Change SPOTLIGHT=-YES- to SPOTLIGHT=-NO-<br />
+Save /etc/hostconfig by hitting Control-O and the return key, next hit Control-X to exit the nano editor<br />
+Next, you’ll want to disable the index by typing the following in the Terminal:<br />
+mdutil -i off /<br />
+And to erase the current Spotlight index, type: mdutil -E /<br />
+That’s pretty much it, on your next reboot, Spotlight will be completely disabled.<br />
+Re-Enable Spotlight<br />
+If you want to enable Spotlight again, follow the same steps as above, but change SPOTLIGHT=-NO- to SPOTLIGHT=-YES-<br />
+and then type mdutil -i on / in the Terminal<br />
 Reboot, and Spotlight is back as usual</div>
   
   
     <footer>
-      <a rel="full-article" href="/archives/496">Read on &rarr;</a>
+      <a rel="full-article" href="/archives/496">「继续阅读」&rarr;</a>
     </footer>
   
 
@@ -795,32 +835,34 @@ Reboot, and Spotlight is back as usual</div>
   <img src="http://www.weixuhong.com/content/uploads/2010/11/Screen-shot-2010-11-08-at-1.19.12-PM.png" alt="Screen shot 2010-11-08 at 1.19.12 PM.png" border="0" width="260" height="245" />
 </div>
 
-
 <ol>
-<li><p>首先从入口脚本：main.m 启动Application.</p></li>
-<li><p>Application加载MainWindow.我们知道MainWindow的file&#8217;s Owner是UIApplication， 而且里面有delegate到MainWindow的delegate组件。</p></li>
+  <li>
+    <p>首先从入口脚本：main.m 启动Application.</p>
+  </li>
+  <li>
+    <p>Application加载MainWindow.我们知道MainWindow的file’s Owner是UIApplication， 而且里面有delegate到MainWindow的delegate组件。</p>
+  </li>
 </ol>
 
-
-<p>这样我们可以想象：<br/>
-Application拥有了Delegate对象， 为什么要拥有？ 因为它要用到Delegate对象的方法，如：<br/>
+<p>这样我们可以想象：<br />
+Application拥有了Delegate对象， 为什么要拥有？ 因为它要用到Delegate对象的方法，如：<br />
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{}</p>
 
 <p>等其他方法， 当然也包括Delegate对象的变量（window， viewController)。</p>
 
-<p>或许图可以这样: Application->Delegate->{window, ViewController[Label, Button])}</p>
+<p>或许图可以这样: Application-&gt;Delegate-&gt;{window, ViewController[Label, Button])}</p>
 
 <p>从这里我可以想象到：Application,可以引用整个app的对象，包括button，label等。</p>
 
 <ol>
-<li>从图中可以可以看出， Hello world View Controller也被示例， 因为它是Hello_World_View_Controller.xib的File&#8217;s Owner， 所以Hello_World_View_Controller.xib里面的东西都要被实例化。<br/>
+  <li>从图中可以可以看出， Hello world View Controller也被示例， 因为它是Hello_World_View_Controller.xib的File’s Owner， 所以Hello_World_View_Controller.xib里面的东西都要被实例化。<br />
 这个Controller就是具体去控制label, button等具体的东西，如显示啊。</li>
 </ol>
 
-
 <p>*不一定是对的，请高人指点, 谢谢.</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/492">关于iPhone的启动流程</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/492">关于iPhone的启动流程</a></p>
+
 </div>
   
   
@@ -854,21 +896,27 @@ Application拥有了Delegate对象， 为什么要拥有？ 因为它要用到De
 
   <div class="entry-content"><p>请参考这个地方配置：</p>
 
-<p><a href="http://www.ptitov.net/2008/07/request-tracker-installation-o.html">http://www.ptitov.net/2008/07/request-tracker-installation-o.html</a></p>
+<p>http://www.ptitov.net/2008/07/request-tracker-installation-o.html</p>
 
-<p>但是在Rt-mailgate这个地方遇到了问题， 主要是alias的问题， 只要需要在email服务器设置别名就可以了<br/>
+<p>但是在Rt-mailgate这个地方遇到了问题， 主要是alias的问题， 只要需要在email服务器设置别名就可以了<br />
 如：</p>
 
 <div style="text-align:center;">
   <img src="http://www.weixuhong.com/content/uploads/2010/10/概述_.jpg" alt="概述_.jpg" border="0" width="772" height="111" />
 </div>
 
-
 <p>然后配置： /etc/postfix/aliases</p>
 
 <p>添加如下行：</p>
 
-<p>rt: &#8220;|/opt/rt3/bin/rt-mailgate &#8211;queue General &#8211;action correspond &#8211;url <a href="http://rt.icooking.me&amp;#8221;">http://rt.icooking.me&amp;#8221;</a></p>
+<table>
+  <tbody>
+    <tr>
+      <td>rt: “</td>
+      <td>/opt/rt3/bin/rt-mailgate –queue General –action correspond –url http://rt.icooking.me”</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>就可以了。</p>
 
@@ -876,9 +924,10 @@ Application拥有了Delegate对象， 为什么要拥有？ 因为它要用到De
 
 <p>参考：</p>
 
-<p><a href="http://wiki.bestpractical.com/view/PostFixSQLAliasProblem">http://wiki.bestpractical.com/view/PostFixSQLAliasProblem</a></p>
+<p>http://wiki.bestpractical.com/view/PostFixSQLAliasProblem</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/487">配置RT的rt-mailgate在Postfix , Extmail</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/487">配置RT的rt-mailgate在Postfix , Extmail</a></p>
+
 </div>
   
   
@@ -911,204 +960,190 @@ Application拥有了Delegate对象， 为什么要拥有？ 因为它要用到De
 
 
   <div class="entry-content"><ol>
-<li>我们可以看入口文件index.php</li>
+  <li>我们可以看入口文件index.php</li>
 </ol>
-
 
 <pre lang="php">#index.php
 // change the following paths if necessary
 $yii=dirname(__FILE__).'/../framework/yii.php';
 $config=dirname(__FILE__).'/protected/config/main.php';
 require_once($yii);
-Yii::createWebApplication($config)->run();
+Yii::createWebApplication($config)-&gt;run();
 
 
-* Yii::createWebApplication($config)->run(); 这个是我们比较感兴趣的， Yii在哪里？ ===> YiiBase.php, createWebApplication这个静态方法也是
+* Yii::createWebApplication($config)-&gt;run(); 这个是我们比较感兴趣的， Yii在哪里？ ===&gt; YiiBase.php, createWebApplication这个静态方法也是
 
-*Yii::createWebApplication($config) => 表示创建一个Appcication实例，它做什么？
+*Yii::createWebApplication($config) =&gt; 表示创建一个Appcication实例，它做什么？
 </pre>
 
-
 <ol>
-<li>看看YiiBash.php</li>
+  <li>看看YiiBash.php</li>
 </ol>
-
 
 <pre lang="php">#YiiBash.php
-    public static function createWebApplication($config=null)
-    {
-        return self::createApplication('CWebApplication',$config);
-    }
+	public static function createWebApplication($config=null)
+	{
+		return self::createApplication('CWebApplication',$config);
+	}
 
-    public static function createApplication($class,$config=null)
-    {
-        return new $class($config); //==> <strong>new CWebApplication()</strong>
-    }
+	public static function createApplication($class,$config=null)
+	{
+		return new $class($config); //==&gt; <strong>new CWebApplication()</strong>
+	}
 </pre>
 
-
-<p><em><strong>以上表示创建WebAPP实例， 以后的战场就在这里进行咯，这个跟ROR，或者iPhone或者其他框架都相似吧</strong><br/>
-</em><strong>但是创建这个实例的时候，初始化做了什么事情呢?我们往下看</strong></p>
+<p><strong><em>以上表示创建WebAPP实例， 以后的战场就在这里进行咯，这个跟ROR，或者iPhone或者其他框架都相似吧**<br />
+**</em>但是创建这个实例的时候，初始化做了什么事情呢?我们往下看</strong></p>
 
 <ol>
-<li>到了CApplication.php</li>
+  <li>到了CApplication.php</li>
 </ol>
-
 
 <pre lang="php">#CApplication.php
 public function __construct($config=null)
-    {
-        Yii::setApplication($this); // 这个作用就是以后你就可以使用 Yii::app()->user //还记得我说app是战场么？
+	{
+		Yii::setApplication($this); // 这个作用就是以后你就可以使用 Yii::app()-&gt;user //还记得我说app是战场么？
 
-        // set basePath at early as possible to avoid trouble
-        //配置文件的处理
-        if(is_string($config))
-            $config=require($config);
-        if(isset($config['basePath']))
-        {
-            $this->setBasePath($config['basePath']);
-            unset($config['basePath']);
-        }
-        else
-            $this->setBasePath('protected');
-        Yii::setPathOfAlias('application',$this->getBasePath());
-        Yii::setPathOfAlias('webroot',dirname($_SERVER['SCRIPT_FILENAME']));
-        Yii::setPathOfAlias('ext',$this->getBasePath().DIRECTORY_SEPARATOR.'extensions');
+		// set basePath at early as possible to avoid trouble
+		//配置文件的处理
+		if(is_string($config))
+			$config=require($config);
+		if(isset($config['basePath']))
+		{
+			$this-&gt;setBasePath($config['basePath']);
+			unset($config['basePath']);
+		}
+		else
+			$this-&gt;setBasePath('protected');
+		Yii::setPathOfAlias('application',$this-&gt;getBasePath());
+		Yii::setPathOfAlias('webroot',dirname($_SERVER['SCRIPT_FILENAME']));
+		Yii::setPathOfAlias('ext',$this-&gt;getBasePath().DIRECTORY_SEPARATOR.'extensions');
 
-        $this->preinit();
+		$this-&gt;preinit();
 
-        $this->initSystemHandlers();
-        //注册核心组建
-        $this->registerCoreComponents();
+		$this-&gt;initSystemHandlers();
+		//注册核心组建
+		$this-&gt;registerCoreComponents();
 
-        $this->configure($config);
-        $this->attachBehaviors($this->behaviors);
-        $this->preloadComponents();
+		$this-&gt;configure($config);
+		$this-&gt;attachBehaviors($this-&gt;behaviors);
+		$this-&gt;preloadComponents();
 
-        $this->init();
-    }
+		$this-&gt;init();
+	}
 
 </pre>
 
-
-<p><strong>*$this->registerCoreComponents(); 这个很重要，因为要实例的是CWebApplication，所以请回到CWebApplication.php</strong></p>
+<p><strong>*$this-&gt;registerCoreComponents(); 这个很重要，因为要实例的是CWebApplication，所以请回到CWebApplication.php</strong></p>
 
 <ol>
-<li>CWebApplication.php</li>
+  <li>CWebApplication.php</li>
 </ol>
 
-
 <pre lang="php">protected function registerCoreComponents()
-    {
-        parent::registerCoreComponents();
+	{
+		parent::registerCoreComponents();
 
-        $components=array(
-            'session'=>array(
-                'class'=>'CHttpSession',
-            ),
-            'assetManager'=>array(
-                'class'=>'CAssetManager',
-            ),
-            'user'=>array(
-                'class'=>'CWebUser',
-            ),
-            'themeManager'=>array(
-                'class'=>'CThemeManager',
-            ),
-            'authManager'=>array(
-                'class'=>'CPhpAuthManager',
-            ),
-            'clientScript'=>array(
-                'class'=>'CClientScript',
-            ),
-        );
+		$components=array(
+			'session'=&gt;array(
+				'class'=&gt;'CHttpSession',
+			),
+			'assetManager'=&gt;array(
+				'class'=&gt;'CAssetManager',
+			),
+			'user'=&gt;array(
+				'class'=&gt;'CWebUser',
+			),
+			'themeManager'=&gt;array(
+				'class'=&gt;'CThemeManager',
+			),
+			'authManager'=&gt;array(
+				'class'=&gt;'CPhpAuthManager',
+			),
+			'clientScript'=&gt;array(
+				'class'=&gt;'CClientScript',
+			),
+		);
 
-        $this->setComponents($components);
-    }
+		$this-&gt;setComponents($components);
+	}
 </pre>
 
-
-<p>注意$this->setComponents($components); ==> 这个方法在CModule.php</p>
+<p>注意$this-&gt;setComponents($components); ==&gt; 这个方法在CModule.php</p>
 
 <ul>
-<li>registerCoreComponents 方法实现了注册Core components, 但是不实现，后面的 $this->setComponents($components);就表示实实例这些components了, 所以一个WebAPP，初始化的时候应该可以使用: session, assetManager, user, themeManager, clientScript 这几个实例， 通过Yii:app()->session调用，如果要在启动一个WebAPP的时候初始化一个对象，请在main.php配置</li>
+  <li>registerCoreComponents 方法实现了注册Core components, 但是不实现，后面的 $this-&gt;setComponents($components);就表示实实例这些components了, 所以一个WebAPP，初始化的时候应该可以使用: session, assetManager, user, themeManager, clientScript 这几个实例， 通过Yii:app()-&gt;session调用，如果要在启动一个WebAPP的时候初始化一个对象，请在main.php配置</li>
 </ul>
-
 
 <p>好了，这个是一个WebAPP初始化要做的事情: 路径，配置文件，Handlers，Behaviors，Componts等</p>
 
 <ol>
-<li>接下来就是要做run()</li>
+  <li>接下来就是要做run()</li>
 </ol>
-
 
 <pre lang="php">#CApplication.php
 
-    public function run()
-    {
-        if($this->hasEventHandler('onBeginRequest'))
-            $this->onBeginRequest(new CEvent($this));
-        $this->processRequest();
-        if($this->hasEventHandler('onEndRequest'))
-            $this->onEndRequest(new CEvent($this));
-    }
+	public function run()
+	{
+		if($this-&gt;hasEventHandler('onBeginRequest'))
+			$this-&gt;onBeginRequest(new CEvent($this));
+		$this-&gt;processRequest();
+		if($this-&gt;hasEventHandler('onEndRequest'))
+			$this-&gt;onEndRequest(new CEvent($this));
+	}
 </pre>
 
-
-<p><strong>*先进行onBeginRequest => processRequest => onEndRequest //相信这个些英文单词都很好理解了</strong></p>
+<p><strong>*先进行onBeginRequest =&gt; processRequest =&gt; onEndRequest //相信这个些英文单词都很好理解了</strong></p>
 
 <ol>
-<li>我们重点看$this->processRequest()</li>
+  <li>我们重点看$this-&gt;processRequest()</li>
 </ol>
-
 
 <pre lang="php">#CWebApplication.php
-    public function processRequest()
-    {
-        if(is_array($this->catchAllRequest) &#038;&#038; isset($this->catchAllRequest[0]))
-        {
-            $route=$this->catchAllRequest[0];
-            foreach(array_splice($this->catchAllRequest,1) as $name=>$value)
-                $_GET[$name]=$value;
-        }
-        else
-            $route=$this->getUrlManager()->parseUrl($this->getRequest());
-        $this->runController($route);
+	public function processRequest()
+	{
+		if(is_array($this-&gt;catchAllRequest) &#038;&#038; isset($this-&gt;catchAllRequest[0]))
+		{
+			$route=$this-&gt;catchAllRequest[0];
+			foreach(array_splice($this-&gt;catchAllRequest,1) as $name=&gt;$value)
+				$_GET[$name]=$value;
+		}
+		else
+			$route=$this-&gt;getUrlManager()-&gt;parseUrl($this-&gt;getRequest());
+		$this-&gt;runController($route);
 </pre>
 
-
-<p><em>1.处理URL的部分，知道哪部分是Controller, 哪部分是Action等，这个部分由urlManager来处理<br/>
-</em>重要的在这里: $this->runController($route)</p>
+<p>*1.处理URL的部分，知道哪部分是Controller, 哪部分是Action等，这个部分由urlManager来处理<br />
+*重要的在这里: $this-&gt;runController($route)</p>
 
 <ol>
-<li>看看runController($route)</li>
+  <li>看看runController($route)</li>
 </ol>
-
 
 <pre lang="php">#CWebApplication.php
 public function runController($route)
-    {
-        if(($ca=$this->createController($route))!==null)
-        {
-            list($controller,$actionID)=$ca;
-            $oldController=$this->_controller;
-            $this->_controller=$controller;
-            $controller->init();
-            $controller->run($actionID);
-            $this->_controller=$oldController;
-        }
-        else
-            throw new CHttpException(404,Yii::t('yii','Unable to resolve the request "{route}".',
-                array('{route}'=>$route===''?$this->defaultController:$route)));
-    
+	{
+		if(($ca=$this-&gt;createController($route))!==null)
+		{
+			list($controller,$actionID)=$ca;
+			$oldController=$this-&gt;_controller;
+			$this-&gt;_controller=$controller;
+			$controller-&gt;init();
+			$controller-&gt;run($actionID);
+			$this-&gt;_controller=$oldController;
+		}
+		else
+			throw new CHttpException(404,Yii::t('yii','Unable to resolve the request "{route}".',
+				array('{route}'=&gt;$route===''?$this-&gt;defaultController:$route)));
+	
 </pre>
-
 
 <p>*以上当然是创建一个controller的实例，然后执行一个action方法, 这个时候,WebApp环境又多了一个controller的实例</p>
 
 <p>所有流程就是这样了，当然错漏很难免，但请赐教;-)</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/480">Yii的工作流程小解(原创)</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/480">Yii的工作流程小解(原创)</a></p>
+
 </div>
   
   
@@ -1146,22 +1181,20 @@ public function runController($route)
   <img src="http://blog.hellojessica.info/wp-content/uploads/2010/04/Screen-shot-2010-04-14-at-10.51.18-PM.png" alt="Screen shot 2010-04-14 at 10.51.18 PM.png" border="0" width="816" height="703" />
 </div>
 
-
 <p>一个iPhone程序 启动的时候估计有UIApplication, Delegate, Controller, 还有UI(xib文件), 但是他们是如何工作的呢？</p>
 
-<p>为什么要用Outlet?<br/>
-我的想法:<br/>
-比如ROR程序中，要使用Views，views中要使用某个实例变量（当然这样比喻估计不是准确), 那在iPhone程序怎么实现呢？ 那就用outlet， 比如window &#8212;> Window， 图中表示 Delegate 的outlet window 引用了 Window， 那么Delegate实例就可以使用Window实例的方法：</p>
+<p>为什么要用Outlet?<br />
+我的想法:<br />
+比如ROR程序中，要使用Views，views中要使用某个实例变量（当然这样比喻估计不是准确), 那在iPhone程序怎么实现呢？ 那就用outlet， 比如window —&gt; Window， 图中表示 Delegate 的outlet window 引用了 Window， 那么Delegate实例就可以使用Window实例的方法：</p>
 
 <p>delegate.m 文件中有这样一个例子</p>
 
 <ul>
-<li>(void)applicationDidFinishLaunching:(UIApplication *)application {<br/>
+  <li>(void)applicationDidFinishLaunching:(UIApplication *)application {<br />
 [window addSubview:switchViewController.view];</li>
 </ul>
 
-
-<p>// Configure and show the window<br/>
+<p>// Configure and show the window<br />
 [window makeKeyAndVisible];</p>
 
 <p>}</p>
@@ -1170,47 +1203,45 @@ public function runController($route)
 
 <p><strong>UIApplication</strong></p>
 
-<p>UIApplication 是这个核心，它调度controller等的工作，我就把它想象成ROR的一个Application，那为什么UIApplication会有一个Outlets delegate==> Delegate呢？ 这个意味着UIApplication实例可以调用Delegate实例， 但是delegate这个outlet在哪里定义呢？ 这个是我比较迷惑的地方? 或许 UIApplication 类就有这样一个outlet.</p>
+<p>UIApplication 是这个核心，它调度controller等的工作，我就把它想象成ROR的一个Application，那为什么UIApplication会有一个Outlets delegate==&gt; Delegate呢？ 这个意味着UIApplication实例可以调用Delegate实例， 但是delegate这个outlet在哪里定义呢？ 这个是我比较迷惑的地方? 或许 UIApplication 类就有这样一个outlet.</p>
 
 <div style="text-align:center;">
   <img src="http://blog.hellojessica.info/wp-content/uploads/2010/04/Screen-shot-2010-04-14-at-10.57.30-PM.png" alt="Screen shot 2010-04-14 at 10.57.30 PM.png" border="0" width="816" height="706" />
 </div>
 
-
 <p><strong>Delegate</strong></p>
 
 <p>Delegate是一个Protocol，其实我可以想象成一个虚拟类（只定义方法，不实现), 在这里delegate.h 遵守了UIApplicationDelegate</p>
 
-<p>@interface iPhoneRadioAppDelegate : NSObject <UIApplicationDelegate> {<br/>
-UIWindow <em>window;<br/>
-SwitchViewController </em>switchViewController;<br/>
-}</p>
+<p>@interface iPhoneRadioAppDelegate : NSObject <uiapplicationdelegate> {  
+UIWindow *window;  
+SwitchViewController *switchViewController;  
+}</uiapplicationdelegate></p>
 
 <p>这意味着delegate.m 可以实现UIApplicationDelegate的方法</p>
 
 <p>delegate.m 中的代码</p>
 
 <ul>
-<li>(void)applicationDidFinishLaunching:(UIApplication *)application {<br/>
+  <li>(void)applicationDidFinishLaunching:(UIApplication *)application {<br />
 [window addSubview:switchViewController.view];</li>
 </ul>
 
-
-<p>// Configure and show the window<br/>
-[window makeKeyAndVisible];<br/>
+<p>// Configure and show the window<br />
+[window makeKeyAndVisible];<br />
 }</p>
 
 <p>那applicationDidFinishLaunching顾名思义，就是application完成lanche之后， 我是否可以想象成UIApplication的一个Callback呢？</p>
 
-<p>第一张图中，delegate的outlet了Window, Controller， File&#8217;s Owner, 那表示，Delegate实例可以引用这几个实例, 这行代码可以证明:</p>
+<p>第一张图中，delegate的outlet了Window, Controller， File’s Owner, 那表示，Delegate实例可以引用这几个实例, 这行代码可以证明:</p>
 
 <p>[window addSubview:switchViewController.view];</p>
 
 <p><strong>Controller</strong></p>
 
-<p>controller就是控制输出，当然包括对views的控制： 数据的处理（比如处理views中post【暂且理解用web app的方式理解】）数据，或者views如何controller要在views显示数据等等&#8230;</p>
+<p>controller就是控制输出，当然包括对views的控制： 数据的处理（比如处理views中post【暂且理解用web app的方式理解】）数据，或者views如何controller要在views显示数据等等…</p>
 
-<p>Tips:</p>
+<p>Tips: </p>
 
 <p>因为有些时候，需要自己定义controller或者delegate实例到MainWindow.xib中，但是</p>
 
@@ -1218,113 +1249,20 @@ SwitchViewController </em>switchViewController;<br/>
   <img src="http://blog.hellojessica.info/wp-content/uploads/2010/04/Screen-shot-2010-04-14-at-11.24.09-PM.png" alt="Screen shot 2010-04-14 at 11.24.09 PM.png" border="0" width="487" height="610" />
 </div>
 
-
 <p>图中的outlet不会自动出现Delegate出现定义的outlet，那只能手动添加了，添加好之后，就可以在inspetor中看到这几个outlet， 然后手动点击圆圈拉到要链接的对象就可以了</p>
 
 <div style="text-align:center;">
   <img src="http://blog.hellojessica.info/wp-content/uploads/2010/04/Screen-shot-2010-04-14-at-11.26.45-PM.png" alt="Screen shot 2010-04-14 at 11.26.45 PM.png" border="0" width="289" height="159" />
 </div>
 
-
 <ul>
-<li>文章比较混乱，只是为了理清自己的思绪，请不要转载，以免误认子弟</li>
+  <li>文章比较混乱，只是为了理清自己的思绪，请不要转载，以免误认子弟</li>
 </ul>
 
+<p>–EOF–</p>
 
-<p>&#8211;EOF&#8211;</p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/476">关于iPhone的outlet, delegate, window, file’s Owner的关系(本文逻辑有欠紧密，请不要随便转载，以免误人子弟)</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/476">关于iPhone的outlet, delegate, window, file&#8217;s Owner的关系(本文逻辑有欠紧密，请不要随便转载，以免误人子弟)</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/archives/474">招聘PHP工程师和前端工程师(上海)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2010-03-31T00:00:00+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>31</span><span class='date-suffix'>st</span>, <span class='date-year'>2010</span></span> <span class='time'>12:00 am</span></time>
-        
-           | <a href="/archives/474#disqus_thread"
-             data-disqus-identifier="http://weixuhong.com/archives/474">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>我们在51job.com的招聘信息</p>
-
-<p><a href="http://search.51job.com/list/co,c,273404,0000,10,1.html">http://search.51job.com/list/co,c,273404,0000,10,1.html</a></p>
-
-<p>高级PHP程序员</p>
-
-<p>工作描述:<br/>
-1. 建立数据库模型<br/>
-2. 编写核心代码<br/>
-3. 扩展网站的框架<br/>
-技术要求：<br/>
-　　熟练使用PHP+Smarty开发<br/>
-　　有基于MySQL的Master/Slave架构的PHP应用开发经验,掌握数据库读写分开的开发<br/>
-　　使用过Memcached开发PHP项目<br/>
-　　熟悉PHP的PEAR模块，并且熟练运用过其中的部分模块进行开发<br/>
-　　了解PHP的框架，使用面向对象编程(OOP)，熟悉MVC的网站结构, 熟悉 YII或者其他PHP框架者优先<br/>
-　　熟悉基本的 Linux/FreeBSD 操作<br/>
-　　熟悉 Apache / Nginx基本技术和配置<br/>
-其他：<br/>
-　　两年以上php经验<br/>
-　　性别无要求，学历无要求</p>
-
-<p>初级PHP程序员</p>
-
-<p>工作描述:<br/>
-1. 编写网站的功能模块<br/>
-2. 配合前端工程师，编写Views模板<br/>
-技术要求:<br/>
-　　熟练使用PHP+Smarty开发<br/>
-熟悉MYSQL的基本操作<br/>
-熟悉基本的 Linux/FreeBSD 操作<br/>
-其他：<br/>
-　　1年以上php经验， 优秀毕业生亦可<br/>
-　　性别无要求，学历无要求</p>
-
-<p>前端工程师</p>
-
-<p>工作描述:<br/>
-1. 根据输出的数组会使用SMARTY进行模板制作<br/>
-2. 利用JAVASCIRPT提高用户使用体验(UED）<br/>
-3. 修复页面在各种主流浏览器的兼容性</p>
-
-<p>技术要求:<br/>
-了解主要HTML的标签语义。以及主要HTML标签的属性以及用法。<br/>
-对CSS在各浏览器下的差异有所了解。<br/>
-知道如何解决IE6的滤镜问题。<br/>
-对盒模型的主要BUG了解并知道解决方案。<br/>
-有一定的JS基础，有脱离框架书写JS的能力。掌握对DOM的节点操作、样式操作，知道事件及事件处理，了解COOKIE，对正则有一定了解。<br/>
-对框架使用不做强性要求，使用过MOOTOOLS或JQUERY框架尤佳。</p>
-
-<p>BTW， 我们也非常注重应聘者的人品，同时对互联网有足够的热情， 当然我们也会根据个人的能力给出合理的薪水</p>
-
-<p>其他<br/>
-* 公司有班车<br/>
-* 中餐免费<br/>
-* 应有的各种福利</p>
-
-<p>如果你对以上工作感兴趣，且相信足够胜任， 请Email: weixuhong#gmail.com Twitter:@Weixuhong</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/474">招聘PHP工程师和前端工程师(上海)</a></p>
 </div>
   
   
@@ -1345,10 +1283,10 @@ SwitchViewController </em>switchViewController;<br/>
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -1373,8 +1311,12 @@ SwitchViewController </em>switchViewController;<br/>
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -1392,40 +1334,7 @@ SwitchViewController </em>switchViewController;<br/>
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

@@ -92,9 +92,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -134,7 +134,7 @@ $(document).ready(
 
 <p>　　# chgrp [svn-users] [/home/svn-repos]</p>
 
-<p>　　# svnadmin create &#8211;fs-type fsfs [/home/svn-repos]</p>
+<p>　　# svnadmin create –fs-type fsfs [/home/svn-repos]</p>
 
 <p>　　请注意一定要在fs-type选项中明确“fsfs”。因为默认情况下，Subversion知识库文件系统的数据库的最初名称为“bdb”，已被证实有些不稳定。新版本中默认名称已经更改为fsfs，但是有些老版本及非标准版的Subversion依然使用bdb。出于安全起见，还是要在创建新知识库时明确一下fsfs数据库格式，保证系统能够更稳定。</p>
 
@@ -150,7 +150,7 @@ $(document).ready(
 
 <p>　　$ touch [file.txt]</p>
 
-<p>　　$ svn import -m &#8220;[importing file to create project]&#8221; . file:///[home/username/svn-repos/project]</p>
+<p>　　$ svn import -m “[importing file to create project]” . file:///[home/username/svn-repos/project]</p>
 
 <p>　　在服务器上创建项目知识库以后，就完成了。　在将项目知识库导入知识库之前需要删除刚才创建的项目目录，因为目录中的数据现在已经安全的保存在了服务器上。既然知识库是通过一个空文件使用touch command创建完成饿，所以删除也不会造成任何损失。</p>
 
@@ -182,7 +182,7 @@ $(document).ready(
 
 <p>　　$ svn add `ls -R`</p>
 
-<p>　　$ svn ci -m &#8220;[added all base files to the project directory]&#8221;</p>
+<p>　　$ svn ci -m “[added all base files to the project directory]”</p>
 
 <p>　　cp –R命令能将目录中重要数据目录中的全部内容(在这里为/home/username/project) 复制到当前目录中 (由单独的句子指定)。svn add `ls -R` 命令将这个目录下全部内容以及所有的子目录添加到本地项目目录副本中的版本控制中。svn ci 命令将当前副本提交到服务器上的主目录中。在添加命令以后，svn客户端工具会显示添加文件列表。Ci命令会要求密码以确保你有权限进行提交。</p>
 
@@ -208,7 +208,8 @@ $(document).ready(
 
 <p>　　本文并非神化Subversion，只是对Subversion版本控制软件进行了有益的介绍，版本控制软件的使用是任何敬业的程序员都要使用的技巧。本文中的这些例子能够为您提供真切的帮助，即使您不是程序员也会感觉有益。</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/66">svn 命令</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/66">svn 命令</a></p>
+
 </div>
 
 
@@ -261,10 +262,10 @@ $(document).ready(
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -289,8 +290,12 @@ $(document).ready(
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -308,40 +313,7 @@ $(document).ready(
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

@@ -9,7 +9,7 @@
   <meta name="author" content="Weston Wei(韦旭红)">
 
   
-  <meta name="description" content="很小的时候就听说过这个人－－张国荣，记得当时香港的另一个巨星就是谭咏麟，但是觉得谭的歌曲更朗朗上口，所以当时更喜欢谭永麟。 开始关注张国荣是在前段时间在天涯的一个帖子，『娱乐八卦』 [资深粉丝]哥哥……张国荣街拍、偷拍、私下照片大起底！ , 这个帖子有很多关于张国荣的很多照片，除去他的负面新闻， &hellip;">
+  <meta name="description" content="有一个业务逻辑是这样: 如果订单已经成功，我则需要清空购物车，如果购物车为空，那么则不能执行几个Actions，如: checkout, confirm等, 我想框架应该都有beforeAction，一查API，真的可以找到，也看到YII的框架的CController源代码有这么一段: * &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -92,9 +92,9 @@ $(document).ready(
 </form>
   
 <ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/photos">Photos</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/">博客</a></li>
+  <li><a href="/photos">相册</a></li>
+  <li><a href="/blog/archives">聚合</a></li>
 </ul>
 
 </nav>
@@ -102,6 +102,85 @@ $(document).ready(
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/archives/255">关于Yii的beforeAction，afterAction的用法</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2009-05-08T00:00:00+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2009</span></span> <span class='time'>12:00 am</span></time>
+        
+           | <a href="/archives/255#disqus_thread"
+             data-disqus-identifier="http://weixuhong.com/archives/255">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>有一个业务逻辑是这样: 如果订单已经成功，我则需要清空购物车，如果购物车为空，那么则不能执行几个Actions，如: checkout, confirm等, 我想框架应该都有beforeAction，一查API，真的可以找到，也看到YII的框架的CController源代码有这么一段:</p>
+
+<pre lang="php">* Runs the action after passing through all filters.
+   * This method is invoked by {@link runActionWithFilters} after all possible filters have been executed
+   * and the action starts to run.
+   * @param CAction action to run
+   */
+  public function runAction($action)
+  {
+    $priorAction=$this-&gt;_action;
+    $this-&gt;_action=$action;
+    if($this-&gt;beforeAction($action))
+    {
+      $action-&gt;run();
+      $this-&gt;afterAction($action);
+    }
+    $this-&gt;_action=$priorAction;
+  }
+</pre>
+
+<p>从这里可以看出，YII在每执行一个阿城题噢你都要经过beforeAction，$action, afterAction, 那么我可以Overwrite这两个方法达到我想要的效果:</p>
+
+<pre lang="php">#如果购物成功，则要清空购物车的东西.
+  protected  function afterAction( $action ){
+    if ($action-&gt;getId() == 'success') {
+      Yii::app()-&gt;session-&gt;remove('cart');
+      Yii::app()-&gt;session-&gt;remove('order');
+    }
+  }
+
+  #如购物车没有东西，则不能执行除buy以外的操作
+  protected  function beforeAction( $action ){
+    $action = $action-&gt;getId();
+    if ( $action != 'buy') {
+      $this-&gt;redirect(Yii::app()-&gt;homeUrl);
+    }
+  }
+
+</pre>
+
+<ul>
+  <li>从这里看出，有点filter的意思!</li>
+</ul>
+
+<p>–EOF–</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/255">关于Yii的beforeAction，afterAction的用法</a></p>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -131,17 +210,18 @@ $(document).ready(
 
 <p>开始关注张国荣是在前段时间在天涯的一个帖子，<a href="http://www.tianya.cn/publicforum/Content/funinfo/1/1368911.shtml">『娱乐八卦』 [资深粉丝]哥哥……张国荣街拍、偷拍、私下照片大起底！ </a>, 这个帖子有很多关于张国荣的很多照片，除去他的负面新闻，他整个人真的可以说是很迷人的巨星，他的眼神，他的穿着，对待同行的小弟弟妹妹的照顾，对粉丝的态度，对比现在娱乐圈这个现状：吸毒，和所谓的成龙的“管制论”，“男人可以风流，不可以下流”等谬论，使我不得不重新审视张国荣这个人。</p>
 
-<p>我不是一个追星的人，也过了追星的年代， 但是为了更了解张，我最近听了很多关于他的歌曲和MV，包括演唱会。细细品味，没有想到“哥哥”的声音是的有磁性，充满了男人的味道，其中有两首是一直反复听《共同度过》，《想你》，这两首都是演唱会版本，《想你》这首的演唱会版本，让我见证的所谓的抚媚张国荣，现场是这样的：张穿着一件白衬衫，站在话筒慢慢歌唱，慢慢的撩起袖子，再慢慢的解开衬衫的扣子，然后再舞着性感的舞蹈&#8230;让我轻叹其舞台的表现功力真非同一般&#8230;歌曲的尾部是一段萨克斯，真的不错，如果绝唱般凄凉&#8230;</p>
+<p>我不是一个追星的人，也过了追星的年代， 但是为了更了解张，我最近听了很多关于他的歌曲和MV，包括演唱会。细细品味，没有想到“哥哥”的声音是的有磁性，充满了男人的味道，其中有两首是一直反复听《共同度过》，《想你》，这两首都是演唱会版本，《想你》这首的演唱会版本，让我见证的所谓的抚媚张国荣，现场是这样的：张穿着一件白衬衫，站在话筒慢慢歌唱，慢慢的撩起袖子，再慢慢的解开衬衫的扣子，然后再舞着性感的舞蹈…让我轻叹其舞台的表现功力真非同一般…歌曲的尾部是一段萨克斯，真的不错，如果绝唱般凄凉…</p>
 
-<p>前段时间看到一段“哥哥”讲英文的视频，那性感的英式发音，相信会迷倒千万少女，据说“哥哥”在韩国，日本的歌迷也非常庞大，有一个日本女歌迷，为了自己的偶像，把粤语练习得非常到纯正&#8230;</p>
+<p>前段时间看到一段“哥哥”讲英文的视频，那性感的英式发音，相信会迷倒千万少女，据说“哥哥”在韩国，日本的歌迷也非常庞大，有一个日本女歌迷，为了自己的偶像，把粤语练习得非常到纯正…</p>
 
 <p>我一直在想“哥哥”为什么会自杀？ 或许他内心也是和一般人样的脆弱？ 大家知道好人才会觉得苦，因为想犯什么错误, 总是非常的矛盾，有矛盾才会觉得累，才想到要解脱吧！</p>
 
 <p>祝“哥哥”在天堂安好！</p>
 
-<p>&#8211;EOF&#8211;</p>
+<p>–EOF–</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/254">抚媚张国荣</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/254">抚媚张国荣</a></p>
+
 </div>
   
   
@@ -175,8 +255,8 @@ $(document).ready(
 
   <div class="entry-content"><p>Yii的AtiveRecord中的MANY-MANY一直是我困惑的问题。需要做这样设置。</p>
 
-<p><strong>表的命名</strong><br/>
-假设我的表是这样命名:products_categories<br/>
+<p><strong>表的命名</strong><br />
+假设我的表是这样命名:products_categories<br />
 表字段:</p>
 
 <pre lang="bash">+-------------+---------+------+-----+---------+----------------+
@@ -188,43 +268,33 @@ $(document).ready(
 +-------------+---------+------+-----+---------+----------------+
 </pre>
 
-
 <p><strong>model设置</strong></p>
 
 <pre lang="php">public function relations()
-    {
-        return array(
-            'images' => array(self::HAS_MANY, 'Image', 'product_id'),
-            'brand' => array(self::BELONGS_TO, 'Brand', 'brand_id'),
-            'categories' => array(self::MANY_MANY, 'Category','products_categories(product_id , category_id)' )
-            );
-    }
+	{
+		return array(
+			'images' =&gt; array(self::HAS_MANY, 'Image', 'product_id'),
+			'brand' =&gt; array(self::BELONGS_TO, 'Brand', 'brand_id'),
+			'categories' =&gt; array(self::MANY_MANY, 'Category','products_categories(product_id , category_id)' )
+			);
+	}
 </pre>
-
-
-
 
 <p style="color:red">
   *如果你在product模型里面设置这个关系，表(table)命名一定要是:products_categories, 不然SQL语气会出错。<br /> *还有一个问题我不知道是不是Yii本身的Bug，我这里用categories命名的时候，我这样查找，竟然找不到！
 </p>
 
-
-
-
-<pre lang="php">$products = Product::model()->with('categories')->findAll("id = 227",array("order" => " name DESC"));
+<pre lang="php">$products = Product::model()-&gt;with('categories')-&gt;findAll("id = 227",array("order" =&gt; " name DESC"));
 </pre>
 
-
-
-
 <p style="color:red">
-  我把categories => cat, (就是用另外的单词代替上面的categories）就可以了，具体是什么我还没有验证！
+  我把categories =&gt; cat, (就是用另外的单词代替上面的categories）就可以了，具体是什么我还没有验证！
 </p>
 
+<p>–EOF–</p>
 
-<p>&#8211;EOF&#8211;</p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/253">关于Yii的AR（MANY-MANY)的问题</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/253">关于Yii的AR（MANY-MANY)的问题</a></p>
 </div>
   
   
@@ -256,14 +326,13 @@ $(document).ready(
   </header>
 
 
-  <div class="entry-content"><p>今天介绍的一个插件是：vimpress， 这个是可以在vim下写blog的插件（限Wordpress)。<br/>
-参考: <a href="http://friggeri.net/blog/2007/07/13/vimpress">http://friggeri.net/blog/2007/07/13/vimpress</a></p>
+  <div class="entry-content"><p>今天介绍的一个插件是：vimpress， 这个是可以在vim下写blog的插件（限Wordpress)。<br />
+参考: http://friggeri.net/blog/2007/07/13/vimpress</p>
 
-<p>*安装这个插件，并且要运行正常，你的VIM得支持Phython，可以通过:python print &#8220;hello word&#8221;, 如果有输出，证明你的VIM是支持的，如果不支持，只能重新编译VIM了，如果在Mac下面，可以通过这样的命令重新安装VIM</p>
+<p>*安装这个插件，并且要运行正常，你的VIM得支持Phython，可以通过:python print “hello word”, 如果有输出，证明你的VIM是支持的，如果不支持，只能重新编译VIM了，如果在Mac下面，可以通过这样的命令重新安装VIM</p>
 
 <pre lang="bash">sudo port install vim +python
 </pre>
-
 
 <p>下载vimpress</p>
 
@@ -272,15 +341,11 @@ curl -O http://friggeri.net/download/vimpress.tar.gz
 tar zxvf vimpress.tar.gz
 </pre>
 
-
 <p>配置你的帐号</p>
 
 <pre lang="bash">vim ./plugin/blog.vim
 *输入你正确的用户名和密码
 </pre>
-
-
-
 
 <pre lang="bash">Commands
 ":BlogList"
@@ -294,13 +359,13 @@ Saves the article to the blog
 Configuration
 </pre>
 
-
 <p>通过以上命令，你就可以在vim写Blog了，很方便.</p>
 
-<p>BTW, 还有一个插件好像叫BlogIt的，但是我测试，好像不支持中文，是在Title，经常出错，所以放弃，感觉vimpress比较好用:-)<br/>
-&#8211;EOF&#8211;</p>
+<p>BTW, 还有一个插件好像叫BlogIt的，但是我测试，好像不支持中文，是在Title，经常出错，所以放弃，感觉vimpress比较好用:-)<br />
+–EOF–</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/250">Vim常用插件之vimpress</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/250">Vim常用插件之vimpress</a></p>
+
 </div>
   
   
@@ -334,57 +399,53 @@ Configuration
 
   <div class="entry-content"><p>VIM是一款强大的编辑器，它可以做很多事情，但是如果没有插件的支持，就会显得有写单调，但是配置好之后，绝对不输给任何编辑器，当然还有Emacs，也是很强大的编辑器之一，今后我会把我VIM配置的plubin列出来，以备忘，虽然我已经把它作为一个小的项目放在SVN里，今天介绍lookupfile。</p>
 
-<p>lookupfile是通过输入关键字，就可以找到文件的插件，如同TextMate，目录下的通过关键字找文件。</p>
+<p>lookupfile是通过输入关键字，就可以找到文件的插件，如同TextMate，目录下的通过关键字找文件。 </p>
 
-<p>需要:ctags, genutils<br/>
-参考: <a href="http://easwy.com/blog/archives/advanced-vim-skills-lookupfile-plugin/">http://easwy.com/blog/archives/advanced-vim-skills-lookupfile-plugin/</a></p>
+<p>需要:ctags, genutils<br />
+参考: http://easwy.com/blog/archives/advanced-vim-skills-lookupfile-plugin/ </p>
 
-<p>安装: ctags<br/>
-Linux</p>
+<p>安装: ctags<br />
+Linux </p>
 
 <pre lang="bash">sudo apt-get install ctags 
 </pre>
 
-
-<p>Mac</p>
+<p>Mac </p>
 
 <pre lang="bash">sudo port install ctags *我在mac下面编译，但是功能不如port安装的完全，所以在mac，要用port安装. 
 </pre>
 
-
-<p>生成tags文件</p>
+<p>生成tags文件 </p>
 
 <pre lang="bash">ctags -R ./* (这一句将会会在当前目录生成一个tags的文件，以后vim,需要用到它. 
 </pre>
 
-
-<p>安装：genutils，lookupfile<br/>
-genutils可以到: <a href="http://www.vim.org/scripts/script.php?script_id=197  ">http://www.vim.org/scripts/script.php?script_id=197  </a>
-lookupfile可以到: <a href="http://www.vim.org/scripts/script.php?script_id=1581">http://www.vim.org/scripts/script.php?script_id=1581</a></p>
+<p>安装：genutils，lookupfile<br />
+genutils可以到: http://www.vim.org/scripts/script.php?script_id=197<br />
+lookupfile可以到: http://www.vim.org/scripts/script.php?script_id=1581 </p>
 
 <ul>
-<li>将文件下载到～/.vim目录下，然后解压就可以.</li>
+  <li>将文件下载到～/.vim目录下，然后解压就可以. </li>
 </ul>
 
-
-<p>配置VIM</p>
+<p>配置VIM </p>
 
 <pre lang="bash">:let g:LookupFile_TagExpr = '"./filenametags"' 
 *其中filenametags就是刚才ctags生成的tags, 但是为了方面，我们在~/.vimrc添加这一行: (let g:LookupFile_TagExpr = '"./filenametags"') 
 </pre>
 
-
-<p>接下来你就可以看到VIM的神奇了：<br/>
-：LookupFile 或者F5,就能打开lookupfile<br/>
-看图：<br/>
-<img src="http://b16.photo.store.qq.com/http_imgload.cgi?/rurl4_b=dff7d683dafddbcd0fa941ad9220442a41ac128db8e0d6bf653ae21f1d5617c1656752b9d2fb61bb084e687fd628d12065fc29b9433ecb651741bd7368ecf43e7e55d550118949967ba15a265b7d5c2a77dc23f3" alt="" /><br/>
+<p>接下来你就可以看到VIM的神奇了：<br />
+：LookupFile 或者F5,就能打开lookupfile<br />
+看图：<br />
+<img src="http://b16.photo.store.qq.com/http_imgload.cgi?/rurl4_b=dff7d683dafddbcd0fa941ad9220442a41ac128db8e0d6bf653ae21f1d5617c1656752b9d2fb61bb084e687fd628d12065fc29b9433ecb651741bd7368ecf43e7e55d550118949967ba15a265b7d5c2a77dc23f3" alt="" /><br />
 真的很棒！</p>
 
-<p>BTW,当然我这里所涉及的内容，前提条件是你要对*Nix系统要有一定的认识.</p>
+<p>BTW,当然我这里所涉及的内容，前提条件是你要对*Nix系统要有一定的认识. </p>
 
-<p>&#8211;EOF&#8211;</p>
+<p>–EOF–</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/249">Vim常用插件之lookupfile</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/249">Vim常用插件之lookupfile</a></p>
+
 </div>
   
   
@@ -420,13 +481,14 @@ lookupfile可以到: <a href="http://www.vim.org/scripts/script.php?script_id=15
 
 <p>竟然在QQblog上写了4篇文章，关于VIM和Bash的，感觉是越来越喜欢Vim了，因为可以不用鼠标，这对于一个懒人来说是很不错的。</p>
 
-<p>到了晚上，自己到徐家汇附近找了一家餐馆吃饭，感觉也不错，顺便感受这座城市的春天的风&#8230;</p>
+<p>到了晚上，自己到徐家汇附近找了一家餐馆吃饭，感觉也不错，顺便感受这座城市的春天的风…</p>
 
 <p>这个一篇垃圾文章，主要是为了测试在Vim下面写Blog的感觉，但是感觉真的不错，接下来，找一找能不能在Vim写Email的plugin，或者可以煮鸡蛋的也不错：-)</p>
 
-<p>&#8211;EOF&#8211;</p>
+<p>–EOF–</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/251">2009年的五一</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/251">2009年的五一</a></p>
+
 </div>
   
   
@@ -469,8 +531,7 @@ Vim is compiled with '+python', '+iconv', '+multi_byte',
 Python is installed, and $PATH is appropriately set. 
 </pre>
 
-
-<p>*就是说你的Vim编译的时候要build-in python +iconv, 请参考我之前的文章<a href="http://weixuhong.com/linuxunix/2009/05/01/vim%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6%E4%B9%8Blookupfile/">Vim常用插件之lookupfile</a></p>
+<p>*就是说你的Vim编译的时候要build-in python +iconv, 请参考我之前的文章<a href="http://weixuhong.com/linuxunix/2009/05/01/vim常用插件之lookupfile/">Vim常用插件之lookupfile</a></p>
 
 <p>将plugin下载到.vim，解压。</p>
 
@@ -481,25 +542,23 @@ cp postmail.gmail.conf postmail.conf
 vim postmail.con
 </pre>
 
-
-<p>修改成你自己的信息就可以了<br/>
+<p>修改成你自己的信息就可以了<br />
 * 如果出现乱码，将</p>
 
 <pre lang="php">'mail_encoding':      'UTF-8'
 </pre>
-
 
 <p>发送Email</p>
 
 <pre lang="php">:Mail
 </pre>
 
-
 <p>很cool吧!</p>
 
-<p>&#8211;EOF&#8211;</p>
+<p>–EOF–</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/252">用VIM在发送Email</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/252">用VIM在发送Email</a></p>
+
 </div>
   
   
@@ -533,7 +592,8 @@ vim postmail.con
 
   <div class="entry-content"><p><a href="http://www.weixuhong.com/content/uploads/2008/12/20080118-2dff517bcb546a3abdd7aaqloxfwjsny.gif" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/12/20080118-2dff517bcb546a3abdd7aaqloxfwjsny.gif','popup','width=1024,height=723,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/12/20080118-2dff517bcb546a3abdd7aaqloxfwjsny-tm.jpg" height="100" width="141" border="1" hspace="4" vspace="4" alt="20080118_2dff517bcb546a3abdd7aaQLOXFWjSNY" title="20080118_2dff517bcb546a3abdd7aaQLOXFWjSNY" /></a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/242">Vim键盘图</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/242">Vim键盘图</a></p>
+
 </div>
   
   
@@ -567,7 +627,8 @@ vim postmail.con
 
   <div class="entry-content"><p><a href="http://www.weixuhong.com/content/uploads/2008/12/20080520-e9fd495d8e368008d647nuxtpabqw93n.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/12/20080520-e9fd495d8e368008d647nuxtpabqw93n.png','popup','width=2048,height=1536,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/12/20080520-e9fd495d8e368008d647nuxtpabqw93n-tm.jpg" height="100" width="133" border="1" hspace="4" vspace="4" alt="20080520_e9fd495d8e368008d647NuXTpAbqw93n" title="20080520_e9fd495d8e368008d647NuXTpAbqw93n" /></a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/238">Linux kernel(图)</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/238">Linux kernel(图)</a></p>
+
 </div>
   
   
@@ -601,8 +662,8 @@ vim postmail.con
 
   <div class="entry-content"><p>利用shell一次修改同名的文件夾（超有用）</p>
 
-<p>昨天晚上因爲需要，需要把一個文件夾下面的200多同名文件夾改名，如果一個個文件修改的話，估計1個小時，後面同事Flanker幫我寫几行shell腳本，一下就搞掂，很爽吧<br/>
-复制内容到剪贴板<br/>
+<p>昨天晚上因爲需要，需要把一個文件夾下面的200多同名文件夾改名，如果一個個文件修改的話，估計1個小時，後面同事Flanker幫我寫几行shell腳本，一下就搞掂，很爽吧<br />
+复制内容到剪贴板<br />
 代码:</p>
 
 <pre lang="bash">#!/bin/bash
@@ -616,62 +677,10 @@ do
 done
 </pre>
 
-
 <p>就是將small修改成big</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/235">利用shell一次修改同名的文件夾</a></p>
-</div>
-  
-  
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/235">利用shell一次修改同名的文件夾</a></p>
 
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/archives/246">%e5%88%a9%e7%94%a8shell%e4%b8%80%e6%ac%a1%e4%bf%ae%e6%94%b9%e5%90%8c%e5%90%8d%e7%9a%84%e6%96%87%e4%bb%b6%e5%a4%be 2</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2008-12-29T00:00:00+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2008</span></span> <span class='time'>12:00 am</span></time>
-        
-           | <a href="/archives/246#disqus_thread"
-             data-disqus-identifier="http://weixuhong.com/archives/246">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>利用shell一次修改同名的文件夾（超有用）</p>
-
-<p>昨天晚上因爲需要，需要把一個文件夾下面的200多同名文件夾改名，如果一個個文件修改的話，估計1個小時，後面同事Flanker幫我寫几行shell腳本，一下就搞掂，很爽吧<br/>
-复制内容到剪贴板<br/>
-代码:</p>
-
-<pre lang="bash">#!/bin/bash
-for i in `ls -F|grep -v rn` 
-do
-  if [ -d $i/small ]
-  then mv $i/small $i/big 
-  else
-     echo "$i has no small dir"
-   fi
-done
-</pre>
-
-
-<p>就是將small修改成big</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/246"></a></p>
 </div>
   
   
@@ -692,10 +701,10 @@ done
 <aside class="sidebar">
   
     <section>
-  <h1>About Me</h1>
+  <h1>关于我</h1>
   <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
 </section><section>
-  <h1>Categories</h1>
+  <h1>分类</h1>
   <ul id="categories">
     <li class='category'><a href=' /blog/categories/angularjs/'>angularjs (2)</a></li>
 <li class='category'><a href=' /blog/categories/directive/'>directive (1)</a></li>
@@ -720,8 +729,12 @@ done
 
   </ul>
 </section><section>
-  <h1>Recent Posts</h1>
+  <h1>最新发布</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/24/test-toc/">Test Toc</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -739,40 +752,7 @@ done
         <a href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
       </li>
     
-      <li class="post">
-        <a href="/archives/602">为什么说AngularJs的Service是单例？</a>
-      </li>
-    
   </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  
-  <a href="https://github.com/gxbsst">@gxbsst</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
-
-        github.showRepos({
-            user: 'gxbsst',
-            count: 0,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: 技术感想 | 韦旭红的幸福时光]]></title>
+  <title><![CDATA[分类：技术感想 | 韦旭红的幸福时光]]></title>
   <link href="http://weixuhong.com/blog/categories/%E6%8A%80%E6%9C%AF%E6%84%9F%E6%83%B3/atom.xml" rel="self"/>
   <link href="http://weixuhong.com/"/>
-  <updated>2014-10-24T14:14:26+08:00</updated>
+  <updated>2014-10-24T15:21:07+08:00</updated>
   <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
@@ -34,17 +34,18 @@
 
 <p>所以长得这样子:</p>
 
-<p>-Xms128m<br/>
--Xmx512m<br/>
--XX:MaxPermSize=250m<br/>
--XX:+UseCompressedOops<br/>
+<p>-Xms128m<br />
+-Xmx512m<br />
+-XX:MaxPermSize=250m<br />
+-XX:+UseCompressedOops<br />
 -J-Djava.awt.im.style=on-the-spot</p>
 
 <p> </p>
 
-<p>&#8211;EOF&#8211;</p>
+<p>–EOF–</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/595">rubymine 不能输入中文？</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/595">rubymine 不能输入中文？</a></p>
+
 ]]></content>
   </entry>
   
@@ -54,31 +55,28 @@
     <updated>2011-10-13T00:00:00+08:00</updated>
     <id>http://weixuhong.com/archives/%e5%85%b3%e4%ba%8ebackbone-_-bindall</id>
     <content type="html"><![CDATA[<pre lang="javasript">_.bindAll(this, 'render');
-            this.model.bind('change', this.render);
+			this.model.bind('change', this.render);
 
 </pre>
 
-
 <p>以上这两行代码主要为了当model改变时， view执行render， 那_.bindAll有什么用呢？</p>
 
-<p>看这里：<a href="http://stackoverflow.com/questions/6079055/why-do-bindall-in-backbone-js-views">http://stackoverflow.com/questions/6079055/why-do-bindall-in-backbone-js-views</a></p>
+<p>看这里：http://stackoverflow.com/questions/6079055/why-do-bindall-in-backbone-js-views</p>
 
 <p>其中有一段是这样的：</p>
 
 <pre>Without _.bindAll( this, 'render' ) when model changes this in render will be pointing to the model, not to the view, so we won't have neither this.el nor this.$ or any other view's properties available.
 </pre>
 
-
-<p>当model被change时， this指向model, 但是我们要执行render, 那么就需要_.bindAll(this, &#8216;render&#8217;)， 使model也有这个render的方法？</p>
+<p>当model被change时， this指向model, 但是我们要执行render, 那么就需要_.bindAll(this, ‘render’)， 使model也有这个render的方法？</p>
 
 <p>请达人解答?</p>
 
 <ul>
-<li><p>新版本这样就可以</p></li>
+  <li>新版本这样就可以</li>
 </ul>
 
-
-<p>this.model.bind(&#8216;change&#8217;, this.render, this);</p>
+<p>this.model.bind(‘change’, this.render, this);</p>
 
 <p><img style="display:block; margin-left:auto; margin-right:auto;" src="http://www.weixuhong.com/content/uploads/2011/10/Screen-Shot-2011-10-14-at-1.55.50-PM.png" alt="Screen Shot 2011-10-14 at 1.55.50 PM.png" border="0" width="406" height="567" /></p>
 
@@ -94,7 +92,8 @@
 
 <p><img style="display:block; margin-left:auto; margin-right:auto;" src="http://www.weixuhong.com/content/uploads/2011/10/Screen-Shot-2011-10-18-at-3.37.23-PM.png" alt="Screen Shot 2011-10-18 at 3.37.23 PM.png" border="0" width="600" height="378" /></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/563">关于backbone _.bindAll</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/563">关于backbone _.bindAll</a></p>
+
 ]]></content>
   </entry>
   
@@ -110,8 +109,8 @@
 % osascript -e 'tell app "TextMate" to reload bundles'
 </pre>
 
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/561">APIdock in Textmate</a></p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/561">APIdock in Textmate</a></p>
 ]]></content>
   </entry>
   
@@ -121,21 +120,18 @@
     <updated>2011-06-28T00:00:00+08:00</updated>
     <id>http://weixuhong.com/archives/%e4%bd%bf%e7%94%a8vimvi%e6%89%b9%e9%87%8f%e6%9b%bf%e6%8d%a2</id>
     <content type="html"><![CDATA[<ol>
-<li>首先打开多个文件</li>
+  <li>首先打开多个文件</li>
 </ol>
 
-
-<p>如: <pre lang="c">vim ./*.html</pre></p>
+<p>如: &lt;pre lang=&#8221;c&#8221;&gt;vim ./*.html&lt;/pre&gt;</p>
 
 <p>2.使用如下命令,</p>
 
 <pre lang="c">:argdo %s/2007/2008/g | wq</pre>
 
-
 <p>*如果要单个文件修改， 则使用:</p>
 
 <pre lang="c">:next </pre>
-
 
 <p>或者使用脚本:</p>
 
@@ -143,18 +139,18 @@
 
 for file in $(grep -l -R  'Copyright © 2011' ./)
 do
-sed -e "s/Copyright © 2011/Copyright © 2011/ig" $file > /tmp/tempfile.tmp
+sed -e "s/Copyright © 2011/Copyright © 2011/ig" $file &gt; /tmp/tempfile.tmp
 mv /tmp/tempfile.tmp $file
 done
 
 </pre>
 
-
 <p>参考:</p>
 
-<p><a href="http://www.legend.ws/blog/tips-tricks/replace-text-in-multiple-files/">http://www.legend.ws/blog/tips-tricks/replace-text-in-multiple-files/</a></p>
+<p>http://www.legend.ws/blog/tips-tricks/replace-text-in-multiple-files/</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/519">使用VIM/VI批量替换</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/519">使用VIM/VI批量替换</a></p>
+
 ]]></content>
   </entry>
   
@@ -167,9 +163,9 @@ done
 
 <p><a href="http://www.ios-developer.net/iphone-ipad-programmer">Our resources for other geeks, designers and engineers.(推荐)</a></p>
 
-<p><a href="http://www.cnblogs.com/visen-0/archive/2011/06/06/2073717.html">iOS高效开发必备的10款Objective-C类库</a></p>
+<p><a href="http://www.cnblogs.com/visen-0/archive/2011/06/06/2073717.html">iOS高效开发必备的10款Objective-C类库</a> </p>
 
-<p><a href="http://iphoneexamples.com/">iPhone SDK Examples</a></p>
+<p><a href="http://iphoneexamples.com/">iPhone SDK Examples</a> </p>
 
 <p><a href="http://www.techotopia.com/index.php/An_iOS_4_iPhone_Graphics_Drawing_Tutorial_using_Quartz_2D_%28Xcode_4%29">An iOS 4 iPhone Graphics Drawing Tutorial using Quartz 2D (Xcode 4) </a></p>
 
@@ -191,7 +187,8 @@ done
 
 <p>如果您有更好的推荐， 也请追加， 非常感谢;-)</p>
 
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> &raquo; <a href="http://www.weixuhong.com/archives/503">IOS开发资源推荐</a></p>
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/503">IOS开发资源推荐</a></p>
+
 ]]></content>
   </entry>
   
