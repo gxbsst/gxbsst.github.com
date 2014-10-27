@@ -19,7 +19,8 @@ module Jekyll
       categories.sort!.map do |category|
         posts_in_category = context.registers[:site].categories[category].size
         url =  dir+"/"+category.gsub(/_|\P{Word}/, '-').gsub(/-{2,}/, '-').downcase
-        html << "<li class='category'><a href=' /#{url}/'>#{category} (#{posts_in_category})</a></li>\n"
+
+        html << "<li class='category'><a class='category' href='/#{dir}/#{category.gsub(/_|\P{Word}/, '-').gsub(/-{2,}/, '-').to_url.downcase}/'>#{category}</a></li>\n"
       end
       html
     end

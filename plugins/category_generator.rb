@@ -117,7 +117,8 @@ module Jekyll
           cate_dir = URI::escape(cate_dir)
           cate_dir = URI::parse(cate_dir)
           cate_dir = cate_dir.to_s
-          self.write_category_index(File.join(dir, cate_dir), category)
+          # self.write_category_index(File.join(dir, cate_dir), category)
+          self.write_category_index(File.join(dir, category.gsub(/_|\P{Word}/, '-').gsub(/-{2,}/, '-').to_url.downcase), category)
         end
 
       # Throw an exception if the layout couldn't be found.
