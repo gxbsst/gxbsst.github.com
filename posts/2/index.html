@@ -153,6 +153,54 @@ $(document).ready(
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2011-10-08T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2011 年10 月8 日</time>
+        
+           | <a href="/archives/561#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com/archives/561">Comments</a>
+        
+      </p>
+    
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/561" itemprop="url">APIdock in Textmate</a></h2>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><pre lang="c">% mkdir -p ~/Library/Application Support/Textmate/Bundles
+% cd ~/Library/Application Support/Textmate/Bundles
+% git clone git://github.com/lautis/ruby-on-rails-tmbundle.git "Ruby on Rails.tmbundle"
+% git clone git://github.com/lautis/ruby-tmbundle.git "Ruby.tmbundle"
+% osascript -e 'tell app "TextMate" to reload bundles'
+</pre>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/561">APIdock in Textmate</a></p>
+
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2011-09-07T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2011 年9 月7 日</time>
         
            | <a href="/archives/557#disqus_thread" itemprop="discussionUrl"
@@ -1555,62 +1603,6 @@ Connection to gitserver closed. （gitserver 连接已断开。）</p>
 
         </article>
       
-      
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2011-07-06T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2011 年7 月6 日</time>
-        
-           | <a href="/archives/529#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="http://weixuhong.com/archives/529">Comments</a>
-        
-      </p>
-    
-    
-      <h2 class="entry-title" itemprop="name headline"><a href="/archives/529" itemprop="url">Objective-c Enum 与 Typedef</a></h2>
-    
-  </header>
-
-
-  <div class="entry-content clearfix" itemprop="articleBody description"><p>今天看到enum 和 typedef， 在两个小节中书中分别出现了2个例子，如下<br />
-enum direction {north, south, east, west};<br />
-typedef enum {north, south, east, west} direction;<br />
-不禁产生疑问，这两个有什么区别，仔细对照了一下，发现是这样的：<br />
-大同小异，<br />
-同： 都是申明了一个枚举类型。<br />
-异：在使用该枚举类型定义变量的时候，语法不一样，举例如下： </p>
-
-<pre lang="c">1  enum direction {north, south, east, west};    
-3  enum direction facing = north;  
-4 
-5  typedef enum {north, south, east, west} direction;     
-7  direction facing = north; 
-</pre>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/529">objective-c enum 与 typedef</a></p>
-
-</div>
-  
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -1637,10 +1629,12 @@ typedef enum {north, south, east, west} direction;<br />
 	
 	<ul id="categories">
 		<li class='category'><a class='category' href='/blog/categories/angularjs/'>angularjs</a></li>
+<li class='category'><a class='category' href='/blog/categories/chef/'>chef</a></li>
 <li class='category'><a class='category' href='/blog/categories/directive/'>directive</a></li>
 <li class='category'><a class='category' href='/blog/categories/ide/'>ide</a></li>
 <li class='category'><a class='category' href='/blog/categories/ios/'>ios</a></li>
 <li class='category'><a class='category' href='/blog/categories/javascript/'>javascript</a></li>
+<li class='category'><a class='category' href='/blog/categories/knife-solo/'>knife-solo</a></li>
 <li class='category'><a class='category' href='/blog/categories/linux-unix/'>linux/unix</a></li>
 <li class='category'><a class='category' href='/blog/categories/php/'>php</a></li>
 <li class='category'><a class='category' href='/blog/categories/rails/'>rails</a></li>
@@ -1648,6 +1642,7 @@ typedef enum {north, south, east, west} direction;<br />
 <li class='category'><a class='category' href='/blog/categories/rspec/'>rspec</a></li>
 <li class='category'><a class='category' href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails</a></li>
 <li class='category'><a class='category' href='/blog/categories/rubymine/'>rubymine</a></li>
+<li class='category'><a class='category' href='/blog/categories/vagrant/'>vagrant</a></li>
 <li class='category'><a class='category' href='/blog/categories/xhtml-css/'>xhtml/css</a></li>
 <li class='category'><a class='category' href='/blog/categories/gong-zuo-ji-hua/'>工作计划</a></li>
 <li class='category'><a class='category' href='/blog/categories/xin-qing-sui-xie/'>心情随写</a></li>
@@ -1665,6 +1660,8 @@ typedef enum {north, south, east, west} direction;<br />
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
+    
     <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
     
     <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
@@ -1672,8 +1669,6 @@ typedef enum {north, south, east, west} direction;<br />
     <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
     
     <a class="list-group-item " href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
-    
-    <a class="list-group-item " href="/archives/602">为什么说AngularJs的Service是单例？</a>
     
   </div>
 </section>

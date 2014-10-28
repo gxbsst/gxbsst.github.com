@@ -153,6 +153,63 @@ $(document).ready(
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2010-01-06T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2010 年1 月6 日</time>
+        
+           | <a href="/archives/400#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com/archives/400">Comments</a>
+        
+      </p>
+    
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/400" itemprop="url">在firebug显示mysql Query</a></h2>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>用下面debug_mysql_query这个函数代替mysql_query</p>
+
+<pre lang="php">if (!function_exists('debug_mysql_query')) {
+ 
+    function debug_mysql_query($query)
+    {
+        $js_query = str_replace(array('\', "'"), array("\\", "\'"), $query);
+        $js_query = preg_replace('#([x00-x1F])#e', '"x" . sprintf("%02x", ord("1"))', $js_query);
+        echo ''."n";
+        return mysql_query($query);
+    }
+}
+</pre>
+
+<p><img src="http://www.weixuhong.com/content/uploads/2010/01/螢幕快照-2010-01-07-3.30.54-PM.png" alt="螢幕快照 2010-01-07 3.30.54 PM.png" border="0" width="1016" height="77" /></p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/400">在firebug显示mysql query</a></p>
+
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2010-01-05T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2010 年1 月5 日</time>
         
            | <a href="/archives/397#disqus_thread" itemprop="discussionUrl"
@@ -711,51 +768,6 @@ example.com： 为您有登录权限的国外主机</li>
 
         </article>
       
-      
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2009-10-10T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2009 年10 月10 日</time>
-        
-           | <a href="/archives/306#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="http://weixuhong.com/archives/306">Comments</a>
-        
-      </p>
-    
-    
-      <h2 class="entry-title" itemprop="name headline"><a href="/archives/306" itemprop="url">各大银行信用卡在支付宝最新的支付限额（2009年5月29日）</a></h2>
-    
-  </header>
-
-
-  <div class="entry-content clearfix" itemprop="articleBody description"><p>来源: http://club.alipay.com/show_thread-410—7294768-.htm<br />
-<a href="http://www.weixuhong.com/content/uploads/2009/10/Picture-13-1.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/10/Picture-13-1.png','popup','width=674,height=397,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/10/Picture-13-1-tm.jpg" height="400" width="679" border="1" hspace="4" vspace="4" alt="Picture 13-1" /></a><br />
-<a href="http://www.weixuhong.com/content/uploads/2009/10/Picture-14-1.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/10/Picture-14-1.png','popup','width=627,height=395,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/10/Picture-14-1-tm.jpg" height="400" width="634" border="1" hspace="4" vspace="4" alt="Picture 14-1" /></a></p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/306">各大银行信用卡在支付宝最新的支付限额（2009年5月29日）</a></p>
-
-</div>
-  
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -782,10 +794,12 @@ example.com： 为您有登录权限的国外主机</li>
 	
 	<ul id="categories">
 		<li class='category'><a class='category' href='/blog/categories/angularjs/'>angularjs</a></li>
+<li class='category'><a class='category' href='/blog/categories/chef/'>chef</a></li>
 <li class='category'><a class='category' href='/blog/categories/directive/'>directive</a></li>
 <li class='category'><a class='category' href='/blog/categories/ide/'>ide</a></li>
 <li class='category'><a class='category' href='/blog/categories/ios/'>ios</a></li>
 <li class='category'><a class='category' href='/blog/categories/javascript/'>javascript</a></li>
+<li class='category'><a class='category' href='/blog/categories/knife-solo/'>knife-solo</a></li>
 <li class='category'><a class='category' href='/blog/categories/linux-unix/'>linux/unix</a></li>
 <li class='category'><a class='category' href='/blog/categories/php/'>php</a></li>
 <li class='category'><a class='category' href='/blog/categories/rails/'>rails</a></li>
@@ -793,6 +807,7 @@ example.com： 为您有登录权限的国外主机</li>
 <li class='category'><a class='category' href='/blog/categories/rspec/'>rspec</a></li>
 <li class='category'><a class='category' href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails</a></li>
 <li class='category'><a class='category' href='/blog/categories/rubymine/'>rubymine</a></li>
+<li class='category'><a class='category' href='/blog/categories/vagrant/'>vagrant</a></li>
 <li class='category'><a class='category' href='/blog/categories/xhtml-css/'>xhtml/css</a></li>
 <li class='category'><a class='category' href='/blog/categories/gong-zuo-ji-hua/'>工作计划</a></li>
 <li class='category'><a class='category' href='/blog/categories/xin-qing-sui-xie/'>心情随写</a></li>
@@ -810,6 +825,8 @@ example.com： 为您有登录权限的国外主机</li>
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
+    
     <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
     
     <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
@@ -817,8 +834,6 @@ example.com： 为您有登录权限的国外主机</li>
     <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
     
     <a class="list-group-item " href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
-    
-    <a class="list-group-item " href="/archives/602">为什么说AngularJs的Service是单例？</a>
     
   </div>
 </section>

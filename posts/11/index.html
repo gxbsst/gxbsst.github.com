@@ -153,6 +153,65 @@ $(document).ready(
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-10-04T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年10 月4 日</time>
+        
+           | <a href="/archives/197#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com/archives/197">Comments</a>
+        
+      </p>
+    
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/197" itemprop="url">Telnet 模拟HTTP</a></h2>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><h3 id="get">模拟GET方法</h3>
+
+<pre lang="c">% telnet www.weixuhong.com 80
+  Connected to www.wexiuhong.com.
+  GET / HTTP/1.0                         [RETURN]
+ Host linyufang.net
+</pre>
+
+<h3 id="head">模拟HEAD方法</h3>
+
+<pre lang="c">% telnet www.weixuhong.com 80
+  Connected to www.wexiuhong.com.
+  HEAD / HTTP/1.0                         [RETURN]
+</pre>
+
+<p>*记住要用大写<br />
+*你可以模拟其他http方法，POST ， PUT， DELETE….</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/197">Telnet 模拟HTTP</a></p>
+
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-10-03T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年10 月3 日</time>
         
            | <a href="/archives/196#disqus_thread" itemprop="discussionUrl"
@@ -856,53 +915,6 @@ Control-o: edit-and-execute-command
 
         </article>
       
-      
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-09-02T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年9 月2 日</time>
-        
-           | <a href="/archives/170#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="http://weixuhong.com/archives/170">Comments</a>
-        
-      </p>
-    
-    
-      <h2 class="entry-title" itemprop="name headline"><a href="/archives/170" itemprop="url">一个很有意思的PHP函数 Highlight_file()</a></h2>
-    
-  </header>
-
-
-  <div class="entry-content clearfix" itemprop="articleBody description"><p>string highlight_file(string $file[,bool is_heighlight])</p>
-
-<p>有这个函数会帮你把代码heighlight输出网页，是相当的漂亮的…</p>
-
-<p>它的姐妹函数是highlight_string(string $string[,bool is_heighlight])), 顾名思义，一个是string， 一个是file…</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/170">一个很有意思的PHP函数 highlight_file()</a></p>
-
-</div>
-  
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -929,10 +941,12 @@ Control-o: edit-and-execute-command
 	
 	<ul id="categories">
 		<li class='category'><a class='category' href='/blog/categories/angularjs/'>angularjs</a></li>
+<li class='category'><a class='category' href='/blog/categories/chef/'>chef</a></li>
 <li class='category'><a class='category' href='/blog/categories/directive/'>directive</a></li>
 <li class='category'><a class='category' href='/blog/categories/ide/'>ide</a></li>
 <li class='category'><a class='category' href='/blog/categories/ios/'>ios</a></li>
 <li class='category'><a class='category' href='/blog/categories/javascript/'>javascript</a></li>
+<li class='category'><a class='category' href='/blog/categories/knife-solo/'>knife-solo</a></li>
 <li class='category'><a class='category' href='/blog/categories/linux-unix/'>linux/unix</a></li>
 <li class='category'><a class='category' href='/blog/categories/php/'>php</a></li>
 <li class='category'><a class='category' href='/blog/categories/rails/'>rails</a></li>
@@ -940,6 +954,7 @@ Control-o: edit-and-execute-command
 <li class='category'><a class='category' href='/blog/categories/rspec/'>rspec</a></li>
 <li class='category'><a class='category' href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails</a></li>
 <li class='category'><a class='category' href='/blog/categories/rubymine/'>rubymine</a></li>
+<li class='category'><a class='category' href='/blog/categories/vagrant/'>vagrant</a></li>
 <li class='category'><a class='category' href='/blog/categories/xhtml-css/'>xhtml/css</a></li>
 <li class='category'><a class='category' href='/blog/categories/gong-zuo-ji-hua/'>工作计划</a></li>
 <li class='category'><a class='category' href='/blog/categories/xin-qing-sui-xie/'>心情随写</a></li>
@@ -957,6 +972,8 @@ Control-o: edit-and-execute-command
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
+    
     <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
     
     <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
@@ -964,8 +981,6 @@ Control-o: edit-and-execute-command
     <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
     
     <a class="list-group-item " href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
-    
-    <a class="list-group-item " href="/archives/602">为什么说AngularJs的Service是单例？</a>
     
   </div>
 </section>

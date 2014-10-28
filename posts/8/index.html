@@ -153,6 +153,93 @@ $(document).ready(
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2009-05-08T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2009 年5 月8 日</time>
+        
+           | <a href="/archives/255#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com/archives/255">Comments</a>
+        
+      </p>
+    
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/255" itemprop="url">关于Yii的beforeAction，afterAction的用法</a></h2>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>有一个业务逻辑是这样: 如果订单已经成功，我则需要清空购物车，如果购物车为空，那么则不能执行几个Actions，如: checkout, confirm等, 我想框架应该都有beforeAction，一查API，真的可以找到，也看到YII的框架的CController源代码有这么一段:</p>
+
+<pre lang="php">* Runs the action after passing through all filters.
+   * This method is invoked by {@link runActionWithFilters} after all possible filters have been executed
+   * and the action starts to run.
+   * @param CAction action to run
+   */
+  public function runAction($action)
+  {
+    $priorAction=$this-&gt;_action;
+    $this-&gt;_action=$action;
+    if($this-&gt;beforeAction($action))
+    {
+      $action-&gt;run();
+      $this-&gt;afterAction($action);
+    }
+    $this-&gt;_action=$priorAction;
+  }
+</pre>
+
+<p>从这里可以看出，YII在每执行一个阿城题噢你都要经过beforeAction，$action, afterAction, 那么我可以Overwrite这两个方法达到我想要的效果:</p>
+
+<pre lang="php">#如果购物成功，则要清空购物车的东西.
+  protected  function afterAction( $action ){
+    if ($action-&gt;getId() == 'success') {
+      Yii::app()-&gt;session-&gt;remove('cart');
+      Yii::app()-&gt;session-&gt;remove('order');
+    }
+  }
+
+  #如购物车没有东西，则不能执行除buy以外的操作
+  protected  function beforeAction( $action ){
+    $action = $action-&gt;getId();
+    if ( $action != 'buy') {
+      $this-&gt;redirect(Yii::app()-&gt;homeUrl);
+    }
+  }
+
+</pre>
+
+<ul>
+  <li>从这里看出，有点filter的意思!</li>
+</ul>
+
+<p>–EOF–</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/255">关于Yii的beforeAction，afterAction的用法</a></p>
+
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2009-05-06T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2009 年5 月6 日</time>
         
            | <a href="/archives/254#disqus_thread" itemprop="discussionUrl"
@@ -712,66 +799,6 @@ done
 
         </article>
       
-      
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-12-29T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年12 月29 日</time>
-        
-           | <a href="/archives/246#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="http://weixuhong.com/archives/246">Comments</a>
-        
-      </p>
-    
-    
-      <h2 class="entry-title" itemprop="name headline"><a href="/archives/246" itemprop="url">%e5%88%a9%e7%94%a8shell%e4%b8%80%e6%ac%a1%e4%bf%ae%e6%94%b9%e5%90%8c%e5%90%8d%e7%9a%84%e6%96%87%e4%bb%b6%e5%a4%be 2</a></h2>
-    
-  </header>
-
-
-  <div class="entry-content clearfix" itemprop="articleBody description"><p>利用shell一次修改同名的文件夾（超有用） </p>
-
-<p>昨天晚上因爲需要，需要把一個文件夾下面的200多同名文件夾改名，如果一個個文件修改的話，估計1個小時，後面同事Flanker幫我寫几行shell腳本，一下就搞掂，很爽吧<br />
-复制内容到剪贴板<br />
-代码:</p>
-
-<pre lang="bash">#!/bin/bash
-for i in `ls -F|grep -v rn` 
-do
-  if [ -d $i/small ]
-  then mv $i/small $i/big 
-  else
-     echo "$i has no small dir"
-   fi
-done
-</pre>
-
-<p>就是將small修改成big</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » []<a href="http://www.weixuhong.com/archives/246">2</a></p>
-
-</div>
-  
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -798,10 +825,12 @@ done
 	
 	<ul id="categories">
 		<li class='category'><a class='category' href='/blog/categories/angularjs/'>angularjs</a></li>
+<li class='category'><a class='category' href='/blog/categories/chef/'>chef</a></li>
 <li class='category'><a class='category' href='/blog/categories/directive/'>directive</a></li>
 <li class='category'><a class='category' href='/blog/categories/ide/'>ide</a></li>
 <li class='category'><a class='category' href='/blog/categories/ios/'>ios</a></li>
 <li class='category'><a class='category' href='/blog/categories/javascript/'>javascript</a></li>
+<li class='category'><a class='category' href='/blog/categories/knife-solo/'>knife-solo</a></li>
 <li class='category'><a class='category' href='/blog/categories/linux-unix/'>linux/unix</a></li>
 <li class='category'><a class='category' href='/blog/categories/php/'>php</a></li>
 <li class='category'><a class='category' href='/blog/categories/rails/'>rails</a></li>
@@ -809,6 +838,7 @@ done
 <li class='category'><a class='category' href='/blog/categories/rspec/'>rspec</a></li>
 <li class='category'><a class='category' href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails</a></li>
 <li class='category'><a class='category' href='/blog/categories/rubymine/'>rubymine</a></li>
+<li class='category'><a class='category' href='/blog/categories/vagrant/'>vagrant</a></li>
 <li class='category'><a class='category' href='/blog/categories/xhtml-css/'>xhtml/css</a></li>
 <li class='category'><a class='category' href='/blog/categories/gong-zuo-ji-hua/'>工作计划</a></li>
 <li class='category'><a class='category' href='/blog/categories/xin-qing-sui-xie/'>心情随写</a></li>
@@ -826,6 +856,8 @@ done
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
+    
     <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
     
     <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
@@ -833,8 +865,6 @@ done
     <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
     
     <a class="list-group-item " href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
-    
-    <a class="list-group-item " href="/archives/602">为什么说AngularJs的Service是单例？</a>
     
   </div>
 </section>

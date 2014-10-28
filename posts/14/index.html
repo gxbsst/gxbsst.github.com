@@ -153,6 +153,65 @@ $(document).ready(
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-07-02T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年7 月2 日</time>
+        
+           | <a href="/archives/141#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com/archives/141">Comments</a>
+        
+      </p>
+    
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/141" itemprop="url">Rails2_0新特性_Action Mailer设置的调整</a></h2>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>用于<span style="font-family:STHeiti;">邮件服务的</span>Action mailer控件在原基<span style="font-family:STHeiti;">础上做了一些更改。特别是对于使用</span>edge rails的程序<span style="font-family:STHeiti;">员来说，这个更新尤其重要。先前的</span>ActionMailer::base.server_settings被 ActionMailer::Base.smtp_settings取代，不<span style="font-family:STHeiti;">过这个变化只停留在表面（名称的变化），而实质的语法仍被保留不变：</span></p>
+
+<p style="text-indent:40pt;">
+  <span style="color:#92d230;background-color:#4280d2;">ActionMailer::Base.delivery_method = :smtp<br /> ActionMailer::Base.smtp_settings = {<br /> :address =&gt; “smtp.mymailserver.com”,<br /> :authentication =&gt; :login,<br /> :user_name =&gt; “me”,<br /> :password =&gt; “password”<br /> }</span>
+</p>
+
+<p>在Rails 的 1-2-stable branch 下server_settings的用法已<span style="font-family:STHeiti;">经被删减。同时，</span> edge版本 中的所有命名也已被完全修改，相<span style="font-family:STHeiti;">对的，读者也需要更新自己的项目代码。</span></p>
+
+<p>而且，<span style="font-family:STHeiti;">这个升级还为我们带来两个新的扩展：为</span>ActionMailer::Base.sendmail_settings <span style="font-family:STHeiti;">设置可运行</span> sendmail 的位置以及其命令行参数 （如果你在使用sendmail)</p>
+
+<p><span style="background-color:#b0b0b0;">ActionMailer::Base.delivery_method = :sendmail<br /> ActionMailer::Base.sendmail_settings = {<br /> :location =&gt; ‘/usr/sbin/sendmail’,<br /> :arguments =&gt; ‘-i -t’</span><span style="color:#b0b0b0;background-color:#b0b0b0;"><br /> }</span><br />
+要<span style="font-family:STHeiti;">查看更多的选择可以参考</span> ActionMailer::Base API</p>
+
+<p>原文作者是 Ryan Daigle, <span style="font-family:STHeiti;">请访问他的博客</span><br />
+本片<span style="font-family:STHeiti;">译文的原文地址：</span></p>
+
+<p>http://ryandaigle.com/articles/2007/1/31/what-s-new-in-edge-rails-actionmailer-base-server_settings-deprecated</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/141">Rails2_0新特性_Action Mailer设置的调整</a></p>
+
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-06-21T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年6 月21 日</time>
         
            | <a href="/archives/140#disqus_thread" itemprop="discussionUrl"
@@ -1318,131 +1377,6 @@ sudo adduser weston(可以自动创建目录，应该比useradd)</p>
 
         </article>
       
-      
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-04-26T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年4 月26 日</time>
-        
-           | <a href="/archives/66#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="http://weixuhong.com/archives/66">Comments</a>
-        
-      </p>
-    
-    
-      <h2 class="entry-title" itemprop="name headline"><a href="/archives/66" itemprop="url">Svn 命令</a></h2>
-    
-  </header>
-
-
-  <div class="entry-content clearfix" itemprop="articleBody description"><p>列 A</p>
-
-<p>　　# addgroup [svn-users]</p>
-
-<p>　　# usermod -u [nnnn] -G [svn-users]</p>
-
-<p>　　# mkdir -m 770 [/home/svn-repos]</p>
-
-<p>　　# chgrp [svn-users] [/home/svn-repos]</p>
-
-<p>　　# svnadmin create –fs-type fsfs [/home/svn-repos]</p>
-
-<p>　　请注意一定要在fs-type选项中明确“fsfs”。因为默认情况下，Subversion知识库文件系统的数据库的最初名称为“bdb”，已被证实有些不稳定。新版本中默认名称已经更改为fsfs，但是有些老版本及非标准版的Subversion依然使用bdb。出于安全起见，还是要在创建新知识库时明确一下fsfs数据库格式，保证系统能够更稳定。</p>
-
-<p>　　在服务器上建完知识库目录以后，就可以在这个目录下创建实际的项目知识库。也许是出于直觉，你不应该直接在知识库内进行。列B告诉你如何通过单独目录在知识库目录中创建包含有被丢弃的文件的知识库，然后再通过“check in”登记来创建项目知识库。</p>
-
-<p>　　最后以前面命令中指明的用户帐号登录。从所用用户帐号的根目录开始按步骤进行。使用非根用户身份登录，前面显示“$”符号。同样的，[　]括弧中的内容可根据你的需要进行修改。记得在输入时不要输入括弧。</p>
-
-<p>　　列B</p>
-
-<p>　　$ mkdir [project]</p>
-
-<p>　　$ cd [project]</p>
-
-<p>　　$ touch [file.txt]</p>
-
-<p>　　$ svn import -m “[importing file to create project]” . file:///[home/username/svn-repos/project]</p>
-
-<p>　　在服务器上创建项目知识库以后，就完成了。　在将项目知识库导入知识库之前需要删除刚才创建的项目目录，因为目录中的数据现在已经安全的保存在了服务器上。既然知识库是通过一个空文件使用touch command创建完成饿，所以删除也不会造成任何损失。</p>
-
-<p>　　在客户端电脑上你可能需要编写项目或者访问文档，所以你还需要查看知识库中的内容并创建一个本地副本。范例如下。同样的也是假设您使用免费的类UNIX操作系统，如BSD，或者OpenSolaris这样的Linux版本。.</p>
-
-<p>　　列 C</p>
-
-<p>　　$ cd [/home/username]</p>
-
-<p>　　$ mkdir [svn-local]</p>
-
-<p>　　$ cd [svn-local]</p>
-
-<p>　　$ svn co svn+ssh://[hostname/home/username/svn-repos/project project]</p>
-
-<p>　　这时，一般都需要三次输入保存知识库的系统的密码。在本例中，除了你选择的操作系统，您还需要在客户端系统上安装功能完全的SSH客户端和SSH服务器。 Svn命令知道如何通过SSH传达网络需求，为客户端和服务器系统之间提供安全的加密连接，保护您的用户名、密码和数据不受可能注意您的网络的恶意安全破坏者侵害。</p>
-
-<p>　　Svn-local目录不是必需的。如果你愿意的话，你可以就把最新校验过的项目或者文档目录直接保存到您的用户帐号主目录下。一般最好将由 Subversion知识库维护的目录与备份方式不同的目录分别保存，以免弄混。在以前的例子中，你都无需为重要数据“项目”的目录命名，所以也不需要为最初的空文件“file.txt”命名。</p>
-
-<p>　　对项目的本地副本核完毕，就可以删除客户设备上的项目目录。然后就需要在目录内添加其他在Subversion中保存的文件，并在服务器上的Subversion知识库中进行核对。列D就为操作范例。</p>
-
-<p>　　列 D</p>
-
-<p>　　$ cd [/home/username/svn-local/project]</p>
-
-<p>　　$ svn rm file.txt</p>
-
-<p>　　$ cp -R [/home/username/project/*] .</p>
-
-<p>　　$ svn add `ls -R`</p>
-
-<p>　　$ svn ci -m “[added all base files to the project directory]”</p>
-
-<p>　　cp –R命令能将目录中重要数据目录中的全部内容(在这里为/home/username/project) 复制到当前目录中 (由单独的句子指定)。svn add `ls -R` 命令将这个目录下全部内容以及所有的子目录添加到本地项目目录副本中的版本控制中。svn ci 命令将当前副本提交到服务器上的主目录中。在添加命令以后，svn客户端工具会显示添加文件列表。Ci命令会要求密码以确保你有权限进行提交。</p>
-
-<p>　　Subversion的使用</p>
-
-<p>　　不同的图形化用户界面的使用方法也不同，各个用户的使用方式也不同。对于使用命令行的客户，最重要也是最基本的升级、管理和提交项目文件的命令是以下这些：</p>
-
-<p>　　svn up – 通过主知识库更新本地副本。在开始对任何文件的工作前都要进行更新。如果别人访问过知识库，也要在提交之前进行再次更新，是个好习惯。</p>
-
-<p>　　svn status – 告诉你哪些文件被修改过，哪些经过增改但还未被提交，哪些创建以后还未添加到版本控制，哪些文件神秘消失而没有从版本控制中删除(最大的可能是因为你忘记使用svn rm 替代 simply rm)，以及哪些文件已经从版本控制中完全删除。</p>
-
-<p>　　svn add – 我们刚才演示过，用来在版本控制中添加文件。</p>
-
-<p>　　svn rm – 从版本控制中删除文件。这样也会从本地文件系统中将相关文件删除。</p>
-
-<p>　　svn mv – 将知识库中本地副本中的某个文件移动到另一个地方，而不会造成Subversion数据库的混乱。它的工作原理有些类似标准的mv 命令，但是它只用于版本控制下的本地项目副本。</p>
-
-<p>　　svn mkdir – 创建目录，与普通的mkdir 命令很类似，但是它同时能够将目录自动加入版本控制。</p>
-
-<p>　　svn ci – 能将知识库中本地副本当前目录下以及其内部所有子目录内发生的全部变化提交给主知识库。在这一命令生效之前，必须首先解决svn状态命令报告的标有问号的部分(未知的文件状态)。在没有疑问以后，svn ci　会打开默认文本编辑器输入提交信息。如果你需要查找项目中较早版本中的文件就会用到这些文本。-m 选项能够被用来明确命令行中的提交信息，如上面创建和使用Subversion知识库中所演示的那样。这样做的目的在于给已提交的变化做出标记，以防以后什么时候可能会对之前做的修改进行分类。</p>
-
-<p>　　svn help – 为你提供大量关于Subversion命令行客户端的使用信息，例如对每个svn命令深入的解释和举例，以及除这些以外更多命令的使用方法。您可以通过输入svn help add(这里假设你需要获得关于“add”命令的信息)获得更多关于特定svn命令的信息。</p>
-
-<p>　　本文并非神化Subversion，只是对Subversion版本控制软件进行了有益的介绍，版本控制软件的使用是任何敬业的程序员都要使用的技巧。本文中的这些例子能够为您提供真切的帮助，即使您不是程序员也会感觉有益。</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/66">svn 命令</a></p>
-
-</div>
-  
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -1469,10 +1403,12 @@ sudo adduser weston(可以自动创建目录，应该比useradd)</p>
 	
 	<ul id="categories">
 		<li class='category'><a class='category' href='/blog/categories/angularjs/'>angularjs</a></li>
+<li class='category'><a class='category' href='/blog/categories/chef/'>chef</a></li>
 <li class='category'><a class='category' href='/blog/categories/directive/'>directive</a></li>
 <li class='category'><a class='category' href='/blog/categories/ide/'>ide</a></li>
 <li class='category'><a class='category' href='/blog/categories/ios/'>ios</a></li>
 <li class='category'><a class='category' href='/blog/categories/javascript/'>javascript</a></li>
+<li class='category'><a class='category' href='/blog/categories/knife-solo/'>knife-solo</a></li>
 <li class='category'><a class='category' href='/blog/categories/linux-unix/'>linux/unix</a></li>
 <li class='category'><a class='category' href='/blog/categories/php/'>php</a></li>
 <li class='category'><a class='category' href='/blog/categories/rails/'>rails</a></li>
@@ -1480,6 +1416,7 @@ sudo adduser weston(可以自动创建目录，应该比useradd)</p>
 <li class='category'><a class='category' href='/blog/categories/rspec/'>rspec</a></li>
 <li class='category'><a class='category' href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails</a></li>
 <li class='category'><a class='category' href='/blog/categories/rubymine/'>rubymine</a></li>
+<li class='category'><a class='category' href='/blog/categories/vagrant/'>vagrant</a></li>
 <li class='category'><a class='category' href='/blog/categories/xhtml-css/'>xhtml/css</a></li>
 <li class='category'><a class='category' href='/blog/categories/gong-zuo-ji-hua/'>工作计划</a></li>
 <li class='category'><a class='category' href='/blog/categories/xin-qing-sui-xie/'>心情随写</a></li>
@@ -1497,6 +1434,8 @@ sudo adduser weston(可以自动创建目录，应该比useradd)</p>
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
+    
     <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
     
     <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
@@ -1504,8 +1443,6 @@ sudo adduser weston(可以自动创建目录，应该比useradd)</p>
     <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
     
     <a class="list-group-item " href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
-    
-    <a class="list-group-item " href="/archives/602">为什么说AngularJs的Service是单例？</a>
     
   </div>
 </section>

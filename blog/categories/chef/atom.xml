@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[分类：chef | 小红博客]]></title>
+  <link href="http://weixuhong.com/blog/categories/chef/atom.xml" rel="self"/>
+  <link href="http://weixuhong.com/"/>
+  <updated>2014-10-28T11:20:16+08:00</updated>
+  <id>http://weixuhong.com/</id>
+  <author>
+    <name><![CDATA[Weston Wei(韦旭红)]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Knife-solo 初探]]></title>
+    <link href="http://weixuhong.com/blog/2014/10/28/knife-solo-chu-tan/"/>
+    <updated>2014-10-28T10:22:06+08:00</updated>
+    <id>http://weixuhong.com/blog/2014/10/28/knife-solo-chu-tan</id>
+    <content type="html"><![CDATA[<h1 id="section">写在前面的话</h1>
+
+<p>做了多年的项目， 一直使用<a href="http://capistranorb.com">capistrano</a>发布项目, 这个确实带来很大的便利。但是有点比较麻烦的地方，就是每次部署新的服务器，都像做苦力一样，去安装服务器的环境，后来了解到Chef和knife-solo, 其就可以达到类似capistrano所作的事情， 不过一个是一键发布项目，一个是一键安装服务器环境，好了，让我们开始吧！</p>
+
+<h1 id="section-1">准备工作</h1>
+
+<p>我们需要一台测试服务器，这个我们需要Vagrant帮我们实现。</p>
+
+<h2 id="vagrant">安装vagrant</h2>
+
+<ol>
+  <li>
+    <p>先到这里下载Vagrant : https://www.vagrantup.com/downloads.html
+&gt; 注意： 旧的版本是通过gem install vagrant 安装</p>
+  </li>
+  <li>
+    <p>安装box</p>
+  </li>
+</ol>
+
+<p><code>bash
+vagrant init hashicorp/precise32
+</code>
+&gt; 到这里发现更多的box: http://vagrantcloud.com</p>
+
+<ol>
+  <li>启动</li>
+</ol>
+
+<p><code>bash
+vagrant up
+</code>
+4. 配置ssh登录不需要密码</p>
+
+<p><code>bash
+vagrant ssh-config --host   服务器IP &gt;&gt; ~/.ssh/config
+</code>
+## 安装chef-solo</p>
+
+<ol>
+  <li>安装chef 和 chef-solo</li>
+</ol>
+
+<p><code>bash
+gem install chef
+gem install knife-solo
+或者
+bundle init
+编辑Gemfile
+添加: 
+source "https://rubygems.org"
+gem "knife-solo"
+执行:
+bundle install --path=vendor/bundle
+</code></p>
+
+<ol>
+  <li>初始化knife-solo项目</li>
+</ol>
+
+<p><code>bash
+knife solo init chef-repo
+cd chef-repo
+git init
+git commit -a -m "initial commit"
+knife solo prepare ServerIP --bootstrap-version 11.12.0 # 如果这里不指定版本号， 会提示找不到文件的错误
+</code>
+<code>bash
+需要指定这个版本号 --bootstrap-version 11.12.0 # 如果这里不指定版本号， 会提示找不到文件的错误
+wnloading Chef 12.0.0.alpha.2 for ubuntu...
+downloading https://www.opscode.com/chef/metadata?v=12.0.0.alpha.2&amp;prerelease=false&amp;nightlies=false&amp;p=ubuntu&amp;pv=12.04&amp;m=i686
+  to file /tmp/install.sh.5074/metadata.txt
+trying wget...
+ERROR 404
+Unable to retrieve a valid package!
+Please file a bug report at http://tickets.opscode.com
+Project: Chef
+Component: Packages
+Label: Omnibus
+Version: 12.0.0.alpha.2
+Please detail your operating system type, version and any other relevant details
+Metadata URL: https://www.opscode.com/chef/metadata?v=12.0.0.alpha.2&amp;prerelease=false&amp;nightlies=false&amp;p=ubuntu&amp;pv=12.04&amp;m=i686
+</code></p>
+
+<h1 id="knife-solo-nginx">通过Knife Solo 安装Nginx</h1>
+
+<ol>
+  <li>生成模板文件</li>
+</ol>
+
+<p><code>bash
+knife cookbook create nginx -o site-cookbooks
+</code></p>
+
+<ol>
+  <li>编辑模板</li>
+</ol>
+
+<p><code>ruby
+site-cookbooks/nginx/recipes/default.rb
+package "nginx" do
+    action :install
+end
+service "nginx" do
+    supports :status =&gt; true, :restart =&gt; true, :reload =&gt; true
+    action [:enable, :start]
+end
+template "nginx.conf" do
+    path "/etc/nginx/nginx.conf"
+    source "nginx.conf.erb"
+    owner "root"
+    group "root"
+    mode 0644
+    notifies :reload , "service[nginx]"
+end
+</code></p>
+
+<p><code>
+user vagrant;  # 这里可以用nginx，但是需要新建这个用户
+worker_processes    1;
+error_log   /var/log/nginx/error.log;
+pid /var/run/nginx.pid;
+events {
+    worker_connections 1024;
+}
+http {
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+    server {
+        listen &lt;%= node['nginx']['port'] %&gt;;
+        server_name localhost;
+        location / {
+            root /usr/share/nginx/html;
+            index index.html index.htm;
+        }
+    }
+}
+</code></p>
+
+<ol>
+  <li>在服务器上安装nginx</li>
+</ol>
+
+<p><code>bash
+knife solo cook SERVER_IP
+</code></p>
+
+<h1 id="section-2">参考</h1>
+
+<ol>
+  <li>http://qiita.com/torufurukawa/items/e20bdb9791c49d00672e</li>
+  <li>http://gogojimmy.net/2013/06/01/Chef-Solo-Basic-with-Vagrant/</li>
+  <li>https://docs.vagrantup.com/v2/getting-started/index.html</li>
+  <li>http://vagrantcloud.com</li>
+</ol>
+]]></content>
+  </entry>
+  
+</feed>

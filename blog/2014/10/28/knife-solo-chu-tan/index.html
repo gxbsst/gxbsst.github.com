@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Knife-solo 初探 - 小红博客</title>
+  <meta name="author" content="Weston Wei(韦旭红)">
+
+  
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://weixuhong.com/blog/2014/10/28/knife-solo-chu-tan">
+  <link href="/favicon.png" type="image/png" rel="icon">
+  <link href="/atom.xml" rel="alternate" title="小红博客" type="application/atom+xml">
+
+  <!-- http://opengraphprotocol.org/ -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://weixuhong.com/blog/2014/10/28/knife-solo-chu-tan">
+  <meta property="og:title" content="Knife-solo 初探 - 小红博客">
+  
+
+  <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
+
+<link href="/assets/bootstrap/dist/css/flat.css" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script> 
+
+  
+  
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+  <body   >
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <div id="wrap">
+      <header role="banner">
+        <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">小红博客</a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a rel="index" href="/">博客</a>
+                </li>
+                 <li >
+                    <a rel="index" href="/photos">相册</a>
+                </li>
+                <li >
+                    <a href="/blog/archives">聚合</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="subscribe-rss" href="/atom.xml" title="subscribe via RSS">
+                        <span class="visible-xs">RSS</span>
+                        <img class="hidden-xs" src="/images/rss.png" alt="RSS">
+                    </a>
+                </li>
+                
+            </ul>
+            
+                <form class="search navbar-form navbar-right" action="https://www.google.com/search" method="GET">
+                    <input type="hidden" name="q" value="site:weixuhong.com">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="q" placeholder="搜索">
+                    </div>
+                </form>
+            
+        </div>
+    </div>
+</nav>
+
+
+      </header>
+      <div id="main" role="main" class="container">
+        <div id="content">
+          <div class="row">
+  <div class="page-content col-md-9" itemscope itemtype="http://schema.org/Blog">
+    <meta itemprop="name" content="小红博客" />
+    <meta itemprop="description" content="这个是一个个人博客，记录生活（厨艺），技术(Javascript/AngularJs/Ruby/Ruby On Rails/CSS/HTML5)等，还有我可以的大儿子韦晰(Simon) ^_^" />
+    <meta itemprop="url" content="http://weixuhong.com" />
+    <article class="hentry" role="article" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+      
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-10-28T10:22:06+08:00"  data-updated="true" itemprop="datePublished dateCreated">2014 年10 月28 日</time>
+        
+           | <a href="#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com">Comments</a>
+        
+      </p>
+    
+    
+    <h1 class="entry-title" itemprop="name headline">
+        Knife-solo 初探
+        
+    </h1>
+    
+  </header>
+
+
+<div class="entry-content clearfix" itemprop="articleBody description"><div id="toc-container"><table class="toc" id="toc"><tbody><tr><td>
+<div id="toctitle"><h3>Contents</h3></div>
+<ul><li class="toc_level-1 toc_section-1"><a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">安装vagrant</span></a></li></ul>
+</td></tr></tbody></table></div>
+<h1 id="section">写在前面的话</h1>
+
+<p>做了多年的项目， 一直使用<a href="http://capistranorb.com">capistrano</a>发布项目, 这个确实带来很大的便利。但是有点比较麻烦的地方，就是每次部署新的服务器，都像做苦力一样，去安装服务器的环境，后来了解到Chef和knife-solo, 其就可以达到类似capistrano所作的事情， 不过一个是一键发布项目，一个是一键安装服务器环境，好了，让我们开始吧！</p>
+
+<h1 id="section-1">准备工作</h1>
+
+<p>我们需要一台测试服务器，这个我们需要Vagrant帮我们实现。</p>
+
+<h2 id="tocAnchor-1-1">安装vagrant</h2>
+
+<ol>
+  <li>
+    <p>先到这里下载Vagrant : https://www.vagrantup.com/downloads.html
+&gt; 注意： 旧的版本是通过gem install vagrant 安装</p>
+  </li>
+  <li>
+    <p>安装box</p>
+  </li>
+</ol>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr>
+<td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td>
+<td class="code"><pre><code class="bash"><span class="line">vagrant init hashicorp/precise32
+</span></code></pre></td>
+</tr></table></div></figure></notextile></div>
+<blockquote>
+  <p>到这里发现更多的box: http://vagrantcloud.com</p>
+</blockquote>
+
+<ol>
+  <li>启动</li>
+</ol>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr>
+<td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td>
+<td class="code"><pre><code class="bash"><span class="line">vagrant up
+</span></code></pre></td>
+</tr></table></div></figure></notextile></div>
+<ol>
+  <li>配置ssh登录不需要密码</li>
+</ol>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr>
+<td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td>
+<td class="code"><pre><code class="bash"><span class="line">vagrant ssh-config --host   服务器IP &gt;&gt; ~/.ssh/config
+</span></code></pre></td>
+</tr></table></div></figure></notextile></div>
+<p>## 安装chef-solo</p>
+
+<ol>
+  <li>安装chef 和 chef-solo</li>
+</ol>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr>
+<td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+</pre></td>
+<td class="code"><pre><code class="bash"><span class="line">gem install chef
+</span><span class="line">gem install knife-solo
+</span><span class="line">或者
+</span><span class="line">bundle init
+</span><span class="line">编辑Gemfile
+</span><span class="line">添加:
+</span><span class="line"><span class="nb">source</span> <span class="s2">"https://rubygems.org"</span>
+</span><span class="line">gem <span class="s2">"knife-solo"</span>
+</span><span class="line">执行:
+</span><span class="line">bundle install --path<span class="o">=</span>vendor/bundle
+</span></code></pre></td>
+</tr></table></div></figure></notextile></div>
+
+<ol>
+  <li>初始化knife-solo项目</li>
+</ol>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr>
+<td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td>
+<td class="code"><pre><code class="bash"><span class="line">knife solo init chef-repo
+</span><span class="line"><span class="nb">cd </span>chef-repo
+</span><span class="line">git init
+</span><span class="line">git commit -a -m <span class="s2">"initial commit"</span>
+</span><span class="line">knife solo prepare ServerIP --bootstrap-version 11.12.0 <span class="c"># 如果这里不指定版本号， 会提示找不到文件的错误</span>
+</span></code></pre></td>
+</tr></table></div></figure></notextile></div>
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr>
+<td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+</pre></td>
+<td class="code"><pre><code class="bash"><span class="line">需要指定这个版本号 --bootstrap-version 11.12.0 <span class="c"># 如果这里不指定版本号， 会提示找不到文件的错误</span>
+</span><span class="line">wnloading Chef 12.0.0.alpha.2 <span class="k">for</span> ubuntu...
+</span><span class="line">downloading https://www.opscode.com/chef/metadata?v<span class="o">=</span>12.0.0.alpha.2<span class="p">&amp;</span><span class="nv">prerelease</span><span class="o">=</span><span class="nb">false</span><span class="p">&amp;</span><span class="nv">nightlies</span><span class="o">=</span><span class="nb">false</span><span class="p">&amp;</span><span class="nv">p</span><span class="o">=</span>ubuntu<span class="p">&amp;</span><span class="nv">pv</span><span class="o">=</span>12.04<span class="p">&amp;</span><span class="nv">m</span><span class="o">=</span>i686
+</span><span class="line">  to file /tmp/install.sh.5074/metadata.txt
+</span><span class="line">trying wget...
+</span><span class="line">ERROR 404
+</span><span class="line">Unable to retrieve a valid package!
+</span><span class="line">Please file a bug report at http://tickets.opscode.com
+</span><span class="line">Project: Chef
+</span><span class="line">Component: Packages
+</span><span class="line">Label: Omnibus
+</span><span class="line">Version: 12.0.0.alpha.2
+</span><span class="line">Please detail your operating system <span class="nb">type</span>, version and any other relevant details
+</span><span class="line">Metadata URL: https://www.opscode.com/chef/metadata?v<span class="o">=</span>12.0.0.alpha.2<span class="p">&amp;</span><span class="nv">prerelease</span><span class="o">=</span><span class="nb">false</span><span class="p">&amp;</span><span class="nv">nightlies</span><span class="o">=</span><span class="nb">false</span><span class="p">&amp;</span><span class="nv">p</span><span class="o">=</span>ubuntu<span class="p">&amp;</span><span class="nv">pv</span><span class="o">=</span>12.04<span class="p">&amp;</span><span class="nv">m</span><span class="o">=</span>i686
+</span></code></pre></td>
+</tr></table></div></figure></notextile></div>
+
+<h1 id="knife-solo-nginx">通过Knife Solo 安装Nginx</h1>
+
+<ol>
+  <li>生成模板文件</li>
+</ol>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr>
+<td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td>
+<td class="code"><pre><code class="bash"><span class="line">knife cookbook create nginx -o site-cookbooks
+</span></code></pre></td>
+</tr></table></div></figure></notextile></div>
+
+<ol>
+  <li>编辑模板</li>
+</ol>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr>
+<td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+</pre></td>
+<td class="code"><pre><code class="ruby"><span class="line"><span class="n">site</span><span class="o">-</span><span class="n">cookbooks</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">recipes</span><span class="o">/</span><span class="n">default</span><span class="o">.</span><span class="n">rb</span>
+</span><span class="line"><span class="n">package</span> <span class="s2">"nginx"</span> <span class="k">do</span>
+</span><span class="line">    <span class="n">action</span> <span class="ss">:install</span>
+</span><span class="line"><span class="k">end</span>
+</span><span class="line"><span class="n">service</span> <span class="s2">"nginx"</span> <span class="k">do</span>
+</span><span class="line">    <span class="n">supports</span> <span class="ss">:status</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">:restart</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">:reload</span> <span class="o">=&gt;</span> <span class="kp">true</span>
+</span><span class="line">    <span class="n">action</span> <span class="o">[</span><span class="ss">:enable</span><span class="p">,</span> <span class="ss">:start</span><span class="o">]</span>
+</span><span class="line"><span class="k">end</span>
+</span><span class="line"><span class="n">template</span> <span class="s2">"nginx.conf"</span> <span class="k">do</span>
+</span><span class="line">    <span class="n">path</span> <span class="s2">"/etc/nginx/nginx.conf"</span>
+</span><span class="line">    <span class="n">source</span> <span class="s2">"nginx.conf.erb"</span>
+</span><span class="line">    <span class="n">owner</span> <span class="s2">"root"</span>
+</span><span class="line">    <span class="n">group</span> <span class="s2">"root"</span>
+</span><span class="line">    <span class="n">mode</span> <span class="mo">0644</span>
+</span><span class="line">    <span class="n">notifies</span> <span class="ss">:reload</span> <span class="p">,</span> <span class="s2">"service[nginx]"</span>
+</span><span class="line"><span class="k">end</span>
+</span></code></pre></td>
+</tr></table></div></figure></notextile></div>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr>
+<td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+<span class="line-number">6</span>
+<span class="line-number">7</span>
+<span class="line-number">8</span>
+<span class="line-number">9</span>
+<span class="line-number">10</span>
+<span class="line-number">11</span>
+<span class="line-number">12</span>
+<span class="line-number">13</span>
+<span class="line-number">14</span>
+<span class="line-number">15</span>
+<span class="line-number">16</span>
+<span class="line-number">17</span>
+<span class="line-number">18</span>
+<span class="line-number">19</span>
+</pre></td>
+<td class="code"><pre><code class="ruby"><span class="line"><span class="n">user</span> <span class="n">vagrant</span><span class="p">;</span>  <span class="c1"># 这里可以用nginx，但是需要新建这个用户</span>
+</span><span class="line"><span class="n">worker_processes</span>    <span class="mi">1</span><span class="p">;</span>
+</span><span class="line"><span class="n">error_log</span>   <span class="sr">/var/</span><span class="n">log</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">error</span><span class="o">.</span><span class="n">log</span><span class="p">;</span>
+</span><span class="line"><span class="n">pid</span> <span class="sr">/var/</span><span class="n">run</span><span class="o">/</span><span class="n">nginx</span><span class="o">.</span><span class="n">pid</span><span class="p">;</span>
+</span><span class="line"><span class="n">events</span> <span class="p">{</span>
+</span><span class="line">    <span class="n">worker_connections</span> <span class="mi">1024</span><span class="p">;</span>
+</span><span class="line"><span class="p">}</span>
+</span><span class="line"><span class="n">http</span> <span class="p">{</span>
+</span><span class="line">    <span class="kp">include</span> <span class="sr">/etc/n</span><span class="n">ginx</span><span class="o">/</span><span class="n">mime</span><span class="o">.</span><span class="n">types</span><span class="p">;</span>
+</span><span class="line">    <span class="n">default_type</span> <span class="n">application</span><span class="o">/</span><span class="n">octet</span><span class="o">-</span><span class="n">stream</span><span class="p">;</span>
+</span><span class="line">    <span class="n">server</span> <span class="p">{</span>
+</span><span class="line">        <span class="n">listen</span> <span class="o">&lt;%=</span> <span class="n">node</span><span class="o">[</span><span class="s1">'nginx'</span><span class="o">][</span><span class="s1">'port'</span><span class="o">]</span> <span class="o">%&gt;</span><span class="p">;</span>
+</span><span class="line">        <span class="n">server_name</span> <span class="n">localhost</span><span class="p">;</span>
+</span><span class="line">        <span class="n">location</span> <span class="o">/</span> <span class="p">{</span>
+</span><span class="line">            <span class="n">root</span> <span class="sr">/usr/s</span><span class="n">hare</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">html</span><span class="p">;</span>
+</span><span class="line">            <span class="n">index</span> <span class="n">index</span><span class="o">.</span><span class="n">html</span> <span class="n">index</span><span class="o">.</span><span class="n">htm</span><span class="p">;</span>
+</span><span class="line">        <span class="p">}</span>
+</span><span class="line">    <span class="p">}</span>
+</span><span class="line"><span class="p">}</span>
+</span></code></pre></td>
+</tr></table></div></figure></notextile></div>
+
+<ol>
+  <li>在服务器上安装nginx</li>
+</ol>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr>
+<td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td>
+<td class="code"><pre><code class="bash"><span class="line">knife solo cook SERVER_IP
+</span></code></pre></td>
+</tr></table></div></figure></notextile></div>
+
+<h1 id="section-2">参考</h1>
+
+<ol>
+  <li>http://qiita.com/torufurukawa/items/e20bdb9791c49d00672e</li>
+  <li>http://gogojimmy.net/2013/06/01/Chef-Solo-Basic-with-Vagrant/</li>
+  <li>https://docs.vagrantup.com/v2/getting-started/index.html</li>
+  <li>http://vagrantcloud.com</li>
+</ol>
+</div>
+
+
+      <footer>
+        <p class="meta text-muted">
+          
+  
+
+<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">Posted by <span class="fn" itemprop="name">Weston Wei(韦旭红)</span></span>
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-10-28T10:22:06+08:00"  data-updated="true" itemprop="datePublished dateCreated">2014 年10 月28 日</time>
+          
+
+<span class="glyphicon glyphicon-tags"></span>&nbsp;
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/chef/'>chef</a>, <a class='category' href='/blog/categories/knife-solo/'>knife-solo</a>, <a class='category' href='/blog/categories/vagrant/'>vagrant</a>
+  
+</span>
+
+
+        </p>
+        
+          <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://weixuhong.com/blog/2014/10/28/knife-solo-chu-tan/" data-via="Weixuhong" data-counturl="http://weixuhong.com/blog/2014/10/28/knife-solo-chu-tan/" >Tweet</a>
+  
+  
+  
+</div>
+
+        
+        
+          <ul class="meta text-muted pager">
+            
+            <li class="previous"><a href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/" title="Previous Post: Rspec 新旧方法对照表">&laquo; Rspec 新旧方法对照表</a></li>
+            
+            
+          </ul>
+        
+      </footer>
+    </article>
+    
+      <section>
+        <h2>Comments</h2>
+        <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+      </section>
+    
+  </div>
+
+  
+  <aside class="sidebar col-md-3">
+    
+      <section>
+  <h1>关于我</h1>
+  <p>一个写了多年代码的Ruby程序员，也即将是两个孩子他爸爸， 平时也热爱烘培，下厨房^_^</p>
+</section><section class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">分类</h3>
+	</div>
+	
+	<ul id="categories">
+		<li class='category'><a class='category' href='/blog/categories/angularjs/'>angularjs</a></li>
+<li class='category'><a class='category' href='/blog/categories/chef/'>chef</a></li>
+<li class='category'><a class='category' href='/blog/categories/directive/'>directive</a></li>
+<li class='category'><a class='category' href='/blog/categories/ide/'>ide</a></li>
+<li class='category'><a class='category' href='/blog/categories/ios/'>ios</a></li>
+<li class='category'><a class='category' href='/blog/categories/javascript/'>javascript</a></li>
+<li class='category'><a class='category' href='/blog/categories/knife-solo/'>knife-solo</a></li>
+<li class='category'><a class='category' href='/blog/categories/linux-unix/'>linux/unix</a></li>
+<li class='category'><a class='category' href='/blog/categories/php/'>php</a></li>
+<li class='category'><a class='category' href='/blog/categories/rails/'>rails</a></li>
+<li class='category'><a class='category' href='/blog/categories/regular-expressions/'>regular expressions</a></li>
+<li class='category'><a class='category' href='/blog/categories/rspec/'>rspec</a></li>
+<li class='category'><a class='category' href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails</a></li>
+<li class='category'><a class='category' href='/blog/categories/rubymine/'>rubymine</a></li>
+<li class='category'><a class='category' href='/blog/categories/vagrant/'>vagrant</a></li>
+<li class='category'><a class='category' href='/blog/categories/xhtml-css/'>xhtml/css</a></li>
+<li class='category'><a class='category' href='/blog/categories/gong-zuo-ji-hua/'>工作计划</a></li>
+<li class='category'><a class='category' href='/blog/categories/xin-qing-sui-xie/'>心情随写</a></li>
+<li class='category'><a class='category' href='/blog/categories/ji-zhu-gan-xiang/'>技术感想</a></li>
+<li class='category'><a class='category' href='/blog/categories/wei-fen-lei/'>未分类</a></li>
+<li class='category'><a class='category' href='/blog/categories/za-tan/'>杂谈</a></li>
+<li class='category'><a class='category' href='/blog/categories/sheng-huo-dian-di/'>生活点滴</a></li>
+<li class='category'><a class='category' href='/blog/categories/ruan-jian-shi-yong/'>软件试用</a></li>
+
+	</ul>
+</section><section class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">最新文章</h3>
+  </div>
+  
+  <div id="recent_posts" class="list-group">
+    
+    <a class="list-group-item active" href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
+    
+    <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
+    
+    <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
+    
+    <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
+    
+    <a class="list-group-item " href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
+    
+  </div>
+</section>
+
+
+
+
+
+
+    
+  </aside>
+  
+</div>
+
+        </div>
+      </div>
+    </div>
+    <footer role="contentinfo"><div class="container">
+    <p class="text-muted credits">
+  Copyright &copy; 2014 - Weston Wei(韦旭红)<br>
+  <small>
+      <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
+      <span class="credit">customized with <a href="https://github.com/kAworu/octostrap3">octostrap3</a></span>.
+  </small>
+</p>
+
+</div>
+</footer>
+    
+
+<script type="text/javascript">
+      var disqus_shortname = 'Weixuhong';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://weixuhong.com/blog/2014/10/28/knife-solo-chu-tan/';
+        var disqus_url = 'http://weixuhong.com/blog/2014/10/28/knife-solo-chu-tan/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+<script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/javascripts/modernizr-2.0.js"></script>
+
+
+  </body>
+</html>

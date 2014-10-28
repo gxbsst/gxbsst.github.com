@@ -155,6 +155,68 @@ $(document).ready(
 
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-07-27T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年7 月27 日</time>
         
+           | <a href="/archives/159#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com/archives/159">Comments</a>
+        
+      </p>
+    
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/159" itemprop="url">Ruby Long String Block(ruby长字符串的处理)</a></h2>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>http://rubyluabridge.rubyforge.org/</p>
+
+<p>*主要是为了使用long string，不用写些转义字符…</p>
+
+<pre lang="ruby">l.eval &lt;&lt;LUA_END
+        n = 5                 -- see how Ruby long strings
+        s = "hello"           -- make it easy to embed Lua code?
+        a = { 1, 2, 3, 4 }
+        h = { a='x', b='y', }
+   LUA_END
+   l.n       # =&gt; 5
+   l.s       # =&gt; “hello”
+   l.a       # =&gt; Lua::Table
+   l.a[1]    # =&gt; 1
+   l.h       # =&gt; Lua::Table
+   l.h['a']  # =&gt; “x”
+   l.h.a     # =&gt; “x”
+</pre>
+
+<p>*当然这个LUA_END，主要是和下面的配对就行吧….</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/159">Ruby long string block(ruby长字符串的处理)</a></p>
+
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-07-27T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年7 月27 日</time>
+        
            | <a href="/archives/158#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/158">Comments</a>
         
@@ -972,65 +1034,6 @@ yield me
 
         </article>
       
-      
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-07-02T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年7 月2 日</time>
-        
-           | <a href="/archives/141#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="http://weixuhong.com/archives/141">Comments</a>
-        
-      </p>
-    
-    
-      <h2 class="entry-title" itemprop="name headline"><a href="/archives/141" itemprop="url">Rails2_0新特性_Action Mailer设置的调整</a></h2>
-    
-  </header>
-
-
-  <div class="entry-content clearfix" itemprop="articleBody description"><p>用于<span style="font-family:STHeiti;">邮件服务的</span>Action mailer控件在原基<span style="font-family:STHeiti;">础上做了一些更改。特别是对于使用</span>edge rails的程序<span style="font-family:STHeiti;">员来说，这个更新尤其重要。先前的</span>ActionMailer::base.server_settings被 ActionMailer::Base.smtp_settings取代，不<span style="font-family:STHeiti;">过这个变化只停留在表面（名称的变化），而实质的语法仍被保留不变：</span></p>
-
-<p style="text-indent:40pt;">
-  <span style="color:#92d230;background-color:#4280d2;">ActionMailer::Base.delivery_method = :smtp<br /> ActionMailer::Base.smtp_settings = {<br /> :address =&gt; “smtp.mymailserver.com”,<br /> :authentication =&gt; :login,<br /> :user_name =&gt; “me”,<br /> :password =&gt; “password”<br /> }</span>
-</p>
-
-<p>在Rails 的 1-2-stable branch 下server_settings的用法已<span style="font-family:STHeiti;">经被删减。同时，</span> edge版本 中的所有命名也已被完全修改，相<span style="font-family:STHeiti;">对的，读者也需要更新自己的项目代码。</span></p>
-
-<p>而且，<span style="font-family:STHeiti;">这个升级还为我们带来两个新的扩展：为</span>ActionMailer::Base.sendmail_settings <span style="font-family:STHeiti;">设置可运行</span> sendmail 的位置以及其命令行参数 （如果你在使用sendmail)</p>
-
-<p><span style="background-color:#b0b0b0;">ActionMailer::Base.delivery_method = :sendmail<br /> ActionMailer::Base.sendmail_settings = {<br /> :location =&gt; ‘/usr/sbin/sendmail’,<br /> :arguments =&gt; ‘-i -t’</span><span style="color:#b0b0b0;background-color:#b0b0b0;"><br /> }</span><br />
-要<span style="font-family:STHeiti;">查看更多的选择可以参考</span> ActionMailer::Base API</p>
-
-<p>原文作者是 Ryan Daigle, <span style="font-family:STHeiti;">请访问他的博客</span><br />
-本片<span style="font-family:STHeiti;">译文的原文地址：</span></p>
-
-<p>http://ryandaigle.com/articles/2007/1/31/what-s-new-in-edge-rails-actionmailer-base-server_settings-deprecated</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/141">Rails2_0新特性_Action Mailer设置的调整</a></p>
-
-</div>
-  
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -1057,10 +1060,12 @@ yield me
 	
 	<ul id="categories">
 		<li class='category'><a class='category' href='/blog/categories/angularjs/'>angularjs</a></li>
+<li class='category'><a class='category' href='/blog/categories/chef/'>chef</a></li>
 <li class='category'><a class='category' href='/blog/categories/directive/'>directive</a></li>
 <li class='category'><a class='category' href='/blog/categories/ide/'>ide</a></li>
 <li class='category'><a class='category' href='/blog/categories/ios/'>ios</a></li>
 <li class='category'><a class='category' href='/blog/categories/javascript/'>javascript</a></li>
+<li class='category'><a class='category' href='/blog/categories/knife-solo/'>knife-solo</a></li>
 <li class='category'><a class='category' href='/blog/categories/linux-unix/'>linux/unix</a></li>
 <li class='category'><a class='category' href='/blog/categories/php/'>php</a></li>
 <li class='category'><a class='category' href='/blog/categories/rails/'>rails</a></li>
@@ -1068,6 +1073,7 @@ yield me
 <li class='category'><a class='category' href='/blog/categories/rspec/'>rspec</a></li>
 <li class='category'><a class='category' href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails</a></li>
 <li class='category'><a class='category' href='/blog/categories/rubymine/'>rubymine</a></li>
+<li class='category'><a class='category' href='/blog/categories/vagrant/'>vagrant</a></li>
 <li class='category'><a class='category' href='/blog/categories/xhtml-css/'>xhtml/css</a></li>
 <li class='category'><a class='category' href='/blog/categories/gong-zuo-ji-hua/'>工作计划</a></li>
 <li class='category'><a class='category' href='/blog/categories/xin-qing-sui-xie/'>心情随写</a></li>
@@ -1085,6 +1091,8 @@ yield me
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
+    
     <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
     
     <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
@@ -1092,8 +1100,6 @@ yield me
     <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
     
     <a class="list-group-item " href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
-    
-    <a class="list-group-item " href="/archives/602">为什么说AngularJs的Service是单例？</a>
     
   </div>
 </section>

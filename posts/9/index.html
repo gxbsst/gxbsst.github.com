@@ -153,6 +153,66 @@ $(document).ready(
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-12-29T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年12 月29 日</time>
+        
+           | <a href="/archives/246#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com/archives/246">Comments</a>
+        
+      </p>
+    
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/246" itemprop="url">%e5%88%a9%e7%94%a8shell%e4%b8%80%e6%ac%a1%e4%bf%ae%e6%94%b9%e5%90%8c%e5%90%8d%e7%9a%84%e6%96%87%e4%bb%b6%e5%a4%be 2</a></h2>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>利用shell一次修改同名的文件夾（超有用） </p>
+
+<p>昨天晚上因爲需要，需要把一個文件夾下面的200多同名文件夾改名，如果一個個文件修改的話，估計1個小時，後面同事Flanker幫我寫几行shell腳本，一下就搞掂，很爽吧<br />
+复制内容到剪贴板<br />
+代码:</p>
+
+<pre lang="bash">#!/bin/bash
+for i in `ls -F|grep -v rn` 
+do
+  if [ -d $i/small ]
+  then mv $i/small $i/big 
+  else
+     echo "$i has no small dir"
+   fi
+done
+</pre>
+
+<p>就是將small修改成big</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » []<a href="http://www.weixuhong.com/archives/246">2</a></p>
+
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-12-28T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年12 月28 日</time>
         
            | <a href="/archives/234#disqus_thread" itemprop="discussionUrl"
@@ -856,61 +916,6 @@ export VIMRUNTIME=“$HOME/share/vim”
 
         </article>
       
-      
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-11-16T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年11 月16 日</time>
-        
-           | <a href="/archives/215#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="http://weixuhong.com/archives/215">Comments</a>
-        
-      </p>
-    
-    
-      <h2 class="entry-title" itemprop="name headline"><a href="/archives/215" itemprop="url">生活琐事（感情，经济，家庭）</a></h2>
-    
-  </header>
-
-
-  <div class="entry-content clearfix" itemprop="articleBody description"><p>活着，不可避免的在矛盾中生活着…因为矛盾，所以才会幸福，才会痛苦，才哭，才会笑，才会累…</p>
-
-<p>前天晚上， 一个好朋友跟我讲, 他非常想哭，我问他为什么？ 他大概的意思就是：因為他是農民的兒子，所以看不了他的同事（農民工）兄弟被欺負。 具體原因我也沒有聽出個所以了， 他現在應該是工地上的監工…我这个朋友估计太多愁善感了，因为长这么大，很多事情一碰到就知道怎么处理了， 但是感觉他很矛盾，想把农民工兄弟解救，但是自己又没有能力，所以他哭了…不要觉得自己有多伟大， 其实我们只是一个小小的老百姓，你也许可以把自己说得很伟大，但是我觉得人太脆弱，一场车祸， 一场病，或者不幸喝了毒奶粉，就有可能丧命。。。我们可以主宰我们的命运么？ 不能啊， 我们只能做好自己，尽量的不要伤害别人， 或者遇到了师傅， 那就好好跟着吧…你一定会很幸福的:-)</p>
-
-<p>再昨天网上， 一个朋友在QQ空间诉苦， 说她的感情路不顺利，觉得很苦， 已经不相信真爱了， 估计你在你的QQ里面会遇到很多这样的情况，大多数都是感情的问题。 我就跟她说了， 其实世上不是没有真爱，而是真爱或许来的有点晚。。。所以不必耿耿于怀了…后面她说她很需要小孩，不知道这辈子能不能生个小孩了…哎…我觉得她现在很辛苦，估计你身边的人也是这样吧…请记住，既然你来到这个世界，就一定会有你的位置， 为人子（女），为人父（母），为什么现在一定要觉得世界不公平呢?</p>
-
-<p>今晚有一个朋友给我发来她小孩的相片，说她的儿子很可爱， 很招人喜欢。 我确实蛮羡慕做父母的人， 也许我以后做了父母也能体会到这样的心情吧，小孩的一个动作，就能让你觉得你是世界上最幸福的人…祝福天下做父母，或者即将做父母的人， 当然， 你的父母，你也要更知道疼爱他们啊，因为他们老了，就是小孩了。。。：）</p>
-
-<p>又是今晚， 朋友T说她失业了（看来经济危机已经影响着每个人）， 那我就安慰了…失业不是倒霉的事情， 或许上另外一件事情的开始， 或许你有另外的使命呢？ 不要把你的职业看得多么的重要吧， 真的不重要…也许有的朋友会奇怪：难道我就不怕么？ 说实话我真的不怕， 因为这样我更有借口回家休息，看双亲…</p>
-
-<p>*上个星期， 经过一个星期的忙碌，终于把网站的皮肤换完了…公司的新产品也发布了<br />
-* 经过几天的忙碌，colorunn的项目也完成得很顺利了<br />
-* 我又是这样到不精进了， 老是不看书*…</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/215">生活琐事（感情，经济，家庭）</a></p>
-
-</div>
-  
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -937,10 +942,12 @@ export VIMRUNTIME=“$HOME/share/vim”
 	
 	<ul id="categories">
 		<li class='category'><a class='category' href='/blog/categories/angularjs/'>angularjs</a></li>
+<li class='category'><a class='category' href='/blog/categories/chef/'>chef</a></li>
 <li class='category'><a class='category' href='/blog/categories/directive/'>directive</a></li>
 <li class='category'><a class='category' href='/blog/categories/ide/'>ide</a></li>
 <li class='category'><a class='category' href='/blog/categories/ios/'>ios</a></li>
 <li class='category'><a class='category' href='/blog/categories/javascript/'>javascript</a></li>
+<li class='category'><a class='category' href='/blog/categories/knife-solo/'>knife-solo</a></li>
 <li class='category'><a class='category' href='/blog/categories/linux-unix/'>linux/unix</a></li>
 <li class='category'><a class='category' href='/blog/categories/php/'>php</a></li>
 <li class='category'><a class='category' href='/blog/categories/rails/'>rails</a></li>
@@ -948,6 +955,7 @@ export VIMRUNTIME=“$HOME/share/vim”
 <li class='category'><a class='category' href='/blog/categories/rspec/'>rspec</a></li>
 <li class='category'><a class='category' href='/blog/categories/ruby-ruby-on-rails/'>ruby/ruby on rails</a></li>
 <li class='category'><a class='category' href='/blog/categories/rubymine/'>rubymine</a></li>
+<li class='category'><a class='category' href='/blog/categories/vagrant/'>vagrant</a></li>
 <li class='category'><a class='category' href='/blog/categories/xhtml-css/'>xhtml/css</a></li>
 <li class='category'><a class='category' href='/blog/categories/gong-zuo-ji-hua/'>工作计划</a></li>
 <li class='category'><a class='category' href='/blog/categories/xin-qing-sui-xie/'>心情随写</a></li>
@@ -965,6 +973,8 @@ export VIMRUNTIME=“$HOME/share/vim”
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
+    
     <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
     
     <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
@@ -972,8 +982,6 @@ export VIMRUNTIME=“$HOME/share/vim”
     <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
     
     <a class="list-group-item " href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
-    
-    <a class="list-group-item " href="/archives/602">为什么说AngularJs的Service是单例？</a>
     
   </div>
 </section>
