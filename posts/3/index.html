@@ -153,6 +153,50 @@ $(document).ready(
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2011-07-07T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2011 年7 月7 日</time>
+        
+           | <a href="/archives/531#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com/archives/531">Comments</a>
+        
+      </p>
+    
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/531" itemprop="url">导入Three20</a></h2>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><pre lang="c">sudo python three20/src/scripts/ttmodule.py -p /Users/weston/LearnIphone/Three20_hello/Three20_hello.xcodeproj:Three20_hello  Three20  -c Debug -c Release
+</pre>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/531">导入Three20</a></p>
+
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2011-07-06T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2011 年7 月6 日</time>
         
            | <a href="/archives/529#disqus_thread" itemprop="discussionUrl"
@@ -1251,133 +1295,6 @@ public function runController($route)
 
         </article>
       
-      
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2010-04-14T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2010 年4 月14 日</time>
-        
-           | <a href="/archives/476#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="http://weixuhong.com/archives/476">Comments</a>
-        
-      </p>
-    
-    
-      <h2 class="entry-title" itemprop="name headline"><a href="/archives/476" itemprop="url">关于iPhone的outlet, Delegate, Window, File&#8217;s Owner的关系(本文逻辑有欠紧密，请不要随便转载，以免误人子弟)</a></h2>
-    
-  </header>
-
-
-  <div class="entry-content clearfix" itemprop="articleBody description"><p>*本文仅供参考，不是权威教程，欢迎讨论</p>
-
-<div style="text-align:center;">
-  <img src="http://blog.hellojessica.info/wp-content/uploads/2010/04/Screen-shot-2010-04-14-at-10.51.18-PM.png" alt="Screen shot 2010-04-14 at 10.51.18 PM.png" border="0" width="816" height="703" />
-</div>
-
-<p>一个iPhone程序 启动的时候估计有UIApplication, Delegate, Controller, 还有UI(xib文件), 但是他们是如何工作的呢？</p>
-
-<p>为什么要用Outlet?<br />
-我的想法:<br />
-比如ROR程序中，要使用Views，views中要使用某个实例变量（当然这样比喻估计不是准确), 那在iPhone程序怎么实现呢？ 那就用outlet， 比如window —&gt; Window， 图中表示 Delegate 的outlet window 引用了 Window， 那么Delegate实例就可以使用Window实例的方法：</p>
-
-<p>delegate.m 文件中有这样一个例子</p>
-
-<ul>
-  <li>(void)applicationDidFinishLaunching:(UIApplication *)application {<br />
-[window addSubview:switchViewController.view];</li>
-</ul>
-
-<p>// Configure and show the window<br />
-[window makeKeyAndVisible];</p>
-
-<p>}</p>
-
-<p>假想:</p>
-
-<p><strong>UIApplication</strong></p>
-
-<p>UIApplication 是这个核心，它调度controller等的工作，我就把它想象成ROR的一个Application，那为什么UIApplication会有一个Outlets delegate==&gt; Delegate呢？ 这个意味着UIApplication实例可以调用Delegate实例， 但是delegate这个outlet在哪里定义呢？ 这个是我比较迷惑的地方? 或许 UIApplication 类就有这样一个outlet.</p>
-
-<div style="text-align:center;">
-  <img src="http://blog.hellojessica.info/wp-content/uploads/2010/04/Screen-shot-2010-04-14-at-10.57.30-PM.png" alt="Screen shot 2010-04-14 at 10.57.30 PM.png" border="0" width="816" height="706" />
-</div>
-
-<p><strong>Delegate</strong></p>
-
-<p>Delegate是一个Protocol，其实我可以想象成一个虚拟类（只定义方法，不实现), 在这里delegate.h 遵守了UIApplicationDelegate</p>
-
-<p>@interface iPhoneRadioAppDelegate : NSObject <uiapplicationdelegate> {  
-UIWindow *window;  
-SwitchViewController *switchViewController;  
-}</uiapplicationdelegate></p>
-
-<p>这意味着delegate.m 可以实现UIApplicationDelegate的方法</p>
-
-<p>delegate.m 中的代码</p>
-
-<ul>
-  <li>(void)applicationDidFinishLaunching:(UIApplication *)application {<br />
-[window addSubview:switchViewController.view];</li>
-</ul>
-
-<p>// Configure and show the window<br />
-[window makeKeyAndVisible];<br />
-}</p>
-
-<p>那applicationDidFinishLaunching顾名思义，就是application完成lanche之后， 我是否可以想象成UIApplication的一个Callback呢？</p>
-
-<p>第一张图中，delegate的outlet了Window, Controller， File’s Owner, 那表示，Delegate实例可以引用这几个实例, 这行代码可以证明:</p>
-
-<p>[window addSubview:switchViewController.view];</p>
-
-<p><strong>Controller</strong></p>
-
-<p>controller就是控制输出，当然包括对views的控制： 数据的处理（比如处理views中post【暂且理解用web app的方式理解】）数据，或者views如何controller要在views显示数据等等…</p>
-
-<p>Tips: </p>
-
-<p>因为有些时候，需要自己定义controller或者delegate实例到MainWindow.xib中，但是</p>
-
-<div style="text-align:center;">
-  <img src="http://blog.hellojessica.info/wp-content/uploads/2010/04/Screen-shot-2010-04-14-at-11.24.09-PM.png" alt="Screen shot 2010-04-14 at 11.24.09 PM.png" border="0" width="487" height="610" />
-</div>
-
-<p>图中的outlet不会自动出现Delegate出现定义的outlet，那只能手动添加了，添加好之后，就可以在inspetor中看到这几个outlet， 然后手动点击圆圈拉到要链接的对象就可以了</p>
-
-<div style="text-align:center;">
-  <img src="http://blog.hellojessica.info/wp-content/uploads/2010/04/Screen-shot-2010-04-14-at-11.26.45-PM.png" alt="Screen shot 2010-04-14 at 11.26.45 PM.png" border="0" width="289" height="159" />
-</div>
-
-<ul>
-  <li>文章比较混乱，只是为了理清自己的思绪，请不要转载，以免误认子弟</li>
-</ul>
-
-<p>–EOF–</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/476">关于iPhone的outlet, delegate, window, file’s Owner的关系(本文逻辑有欠紧密，请不要随便转载，以免误人子弟)</a></p>
-
-</div>
-  
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -1435,6 +1352,8 @@ SwitchViewController *switchViewController;
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/10/28/rspec-3-zhong-yao-geng-xin/">Rspec 3 重要更新</a>
+    
     <a class="list-group-item " href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
     
     <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -1442,8 +1361,6 @@ SwitchViewController *switchViewController;
     <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
     
     <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
-    
-    <a class="list-group-item " href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
     
   </div>
 </section>

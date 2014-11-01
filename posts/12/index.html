@@ -153,6 +153,86 @@ $(document).ready(
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-09-04T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年9 月4 日</time>
+        
+           | <a href="/archives/187#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com/archives/187">Comments</a>
+        
+      </p>
+    
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/187" itemprop="url">所有的console都用VI模式</a></h2>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>使用VI的同学有福了…<br />
+不管在Mysql， Shell或者IRB都可以用Vi的编辑模式</p>
+
+<p>HOWTO</p>
+
+<p>把以下脚本放到Home目录的.inputrc就可以了….</p>
+
+<pre lang="php"># Enable vi mode for many apps that use libreadline including:
+# ncftp, lftp, ftp, mysql, bc, python, etc...
+set editing-mode vi
+set keymap vi  
+
+# Chinese support requires 8 bits...
+# Enable 8bit input
+set meta-flag on
+set input-meta on
+
+# Turns off 8th bit stripping
+set convert-meta off 
+
+# Keep the 8th bit for display
+set output-meta on
+
+# Show filelist after one tab, Make file previews work like ls -F
+set visible-stats on
+set show-all-if-ambiguous on
+
+# The readline 'edit-and-execute-command' function will:
+# Invoke an editor on the current command line, and execute the result as shell
+# commands. Bash attempts to invoke $FCEDIT, $EDITOR, and emacs as the editor, in that order.
+
+Control-o: edit-and-execute-command
+# Use “bind -l” to see all readline options and “bind -P” to see options plus bindings
+# For more information on proper syntax, see:
+# http://checkmyip.com/man/sh.html
+</pre>
+
+<p>*按esc就就进入VI模式….</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/187">所有的console都用VI模式</a></p>
+
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-09-02T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年9 月2 日</time>
         
            | <a href="/archives/170#disqus_thread" itemprop="discussionUrl"
@@ -883,65 +963,6 @@ ERB.new(”&lt;%= @name %&gt;“).result( binding )  </li>
 
         </article>
       
-      
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-07-31T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年7 月31 日</time>
-        
-           | <a href="/archives/160#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="http://weixuhong.com/archives/160">Comments</a>
-        
-      </p>
-    
-    
-      <h2 class="entry-title" itemprop="name headline"><a href="/archives/160" itemprop="url">用mysql命令将数据导入到文本</a></h2>
-    
-  </header>
-
-
-  <div class="entry-content clearfix" itemprop="articleBody description"><p>为了方便程序的处理，我需要将数据库的数据导入文本</p>
-
-<p>select * from mail_tasks into outfile “/Users/weston/test/test.txt”;<br />
-*确定test这个文件夹的写权限</p>
-
-<p>后面有空我将介绍用程序怎么处理文本…</p>
-
-<p>更新:<br />
-我想用其他方法把文本的字段直接都转成数组，但都不是很理想，水平有限吧，我用了一个折中的方法，就是把内容复制到Excel，然后导出CVS文件，这样就好办了</p>
-
-<p>require ‘fastercsv’</p>
-
-<p>csv = FasterCSV.read(‘test.csv’) #=&gt;Array</p>
-
-<p>然後還有什麽事情不可以做的呢….</p>
-
-<p>*水平有限，真的需要指正，謝謝….</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/160">用mysql命令将数据导入到文本</a></p>
-
-</div>
-  
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -999,6 +1020,8 @@ ERB.new(”&lt;%= @name %&gt;“).result( binding )  </li>
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/10/28/rspec-3-zhong-yao-geng-xin/">Rspec 3 重要更新</a>
+    
     <a class="list-group-item " href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
     
     <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -1006,8 +1029,6 @@ ERB.new(”&lt;%= @name %&gt;“).result( binding )  </li>
     <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
     
     <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
-    
-    <a class="list-group-item " href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
     
   </div>
 </section>

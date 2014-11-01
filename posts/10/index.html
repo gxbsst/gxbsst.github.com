@@ -153,6 +153,78 @@ $(document).ready(
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-11-18T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年11 月18 日</time>
+        
+           | <a href="/archives/216#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com/archives/216">Comments</a>
+        
+      </p>
+    
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/216" itemprop="url">Live的FAQ的更新</a></h2>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><ul>
+  <li>FAQ用的是wordpress  </li>
+  <li>为了解决FAQ的的菜单排序的问题， 我安装了Mycategoryorder的plugin, 但是不起效果</li>
+</ul>
+
+<p>*在那个 sidebar.php 我是这样用的</p>
+
+<pre lang="php"><?php wp_list_cats('sort_column=term_order&#038;optioncount=1&#038;hierarchical=0'); ?>
+
+
+</pre>
+
+<p>后面查了源代码，原来是 wp-includes/taxonomy.php有段代码是这样的</p>
+
+<pre lang="php">591     if ( 'count' == $orderby )
+ 592         $orderby = 'tt.count';
+ 593     else if ( 'name' == $orderby )
+ 594         $orderby = 't.name';
+ 595     else if ( 'slug' == $orderby )
+ 596         $orderby = 't.slug';
+ 597     else if ( 'term_group' == $orderby )
+ 598         $orderby = 't.term_group';
+ 599     else if ( 'term_order' == $orderby )  //这个是我后面添加的
+ 600         $orderby = 't.term_order';
+ 601     else
+ 602         $orderby = 't.term_id';
+
+</pre>
+
+<p>这样这个plugin才能正常的工作</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/216">Live的FAQ的更新</a></p>
+
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-11-16T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年11 月16 日</time>
         
            | <a href="/archives/215#disqus_thread" itemprop="discussionUrl"
@@ -1023,49 +1095,6 @@ source code –&gt; .pot –&gt; .pox –&gt; .gmo –&gt; .mo –&gt; &amp;ltru
 
         </article>
       
-      
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-10-06T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年10 月6 日</time>
-        
-           | <a href="/archives/206#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="http://weixuhong.com/archives/206">Comments</a>
-        
-      </p>
-    
-    
-      <h2 class="entry-title" itemprop="name headline"><a href="/archives/206" itemprop="url">中英文对照的正则表达式cheatsheet</a></h2>
-    
-  </header>
-
-
-  <div class="entry-content clearfix" itemprop="articleBody description"><p><a href="http://www.weixuhong.com/content/uploads/2008/10/regular-expressions-cheat-sheet.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/10/regular-expressions-cheat-sheet.png','popup','width=1224,height=1584,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/10/regular-expressions-cheat-sheet-tm1.jpg" height="100" width="77" border="1" hspace="4" vspace="4" alt="Regular Expressions Cheat Sheet" /></a></p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/206">中英文对照的正则表达式cheatsheet</a></p>
-
-</div>
-  
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -1123,6 +1152,8 @@ source code –&gt; .pot –&gt; .pox –&gt; .gmo –&gt; .mo –&gt; &amp;ltru
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/10/28/rspec-3-zhong-yao-geng-xin/">Rspec 3 重要更新</a>
+    
     <a class="list-group-item " href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
     
     <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -1130,8 +1161,6 @@ source code –&gt; .pot –&gt; .pox –&gt; .gmo –&gt; .mo –&gt; &amp;ltru
     <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
     
     <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
-    
-    <a class="list-group-item " href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
     
   </div>
 </section>

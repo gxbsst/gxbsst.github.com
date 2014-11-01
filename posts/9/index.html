@@ -153,6 +153,66 @@ $(document).ready(
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-12-30T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年12 月30 日</time>
+        
+           | <a href="/archives/235#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com/archives/235">Comments</a>
+        
+      </p>
+    
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/235" itemprop="url">利用shell一次修改同名的文件夾</a></h2>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>利用shell一次修改同名的文件夾（超有用）</p>
+
+<p>昨天晚上因爲需要，需要把一個文件夾下面的200多同名文件夾改名，如果一個個文件修改的話，估計1個小時，後面同事Flanker幫我寫几行shell腳本，一下就搞掂，很爽吧<br />
+复制内容到剪贴板<br />
+代码:</p>
+
+<pre lang="bash">#!/bin/bash
+for i in `ls -F|grep -v rn`
+do
+  if [ -d $i/small ]
+  then mv $i/small $i/big
+  else
+     echo "$i has no small dir"
+   fi
+done
+</pre>
+
+<p>就是將small修改成big</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/235">利用shell一次修改同名的文件夾</a></p>
+
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-12-29T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年12 月29 日</time>
         
            | <a href="/archives/246#disqus_thread" itemprop="discussionUrl"
@@ -844,78 +904,6 @@ export VIMRUNTIME=“$HOME/share/vim”
 
         </article>
       
-      
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-11-18T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年11 月18 日</time>
-        
-           | <a href="/archives/216#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="http://weixuhong.com/archives/216">Comments</a>
-        
-      </p>
-    
-    
-      <h2 class="entry-title" itemprop="name headline"><a href="/archives/216" itemprop="url">Live的FAQ的更新</a></h2>
-    
-  </header>
-
-
-  <div class="entry-content clearfix" itemprop="articleBody description"><ul>
-  <li>FAQ用的是wordpress  </li>
-  <li>为了解决FAQ的的菜单排序的问题， 我安装了Mycategoryorder的plugin, 但是不起效果</li>
-</ul>
-
-<p>*在那个 sidebar.php 我是这样用的</p>
-
-<pre lang="php"><?php wp_list_cats('sort_column=term_order&#038;optioncount=1&#038;hierarchical=0'); ?>
-
-
-</pre>
-
-<p>后面查了源代码，原来是 wp-includes/taxonomy.php有段代码是这样的</p>
-
-<pre lang="php">591     if ( 'count' == $orderby )
- 592         $orderby = 'tt.count';
- 593     else if ( 'name' == $orderby )
- 594         $orderby = 't.name';
- 595     else if ( 'slug' == $orderby )
- 596         $orderby = 't.slug';
- 597     else if ( 'term_group' == $orderby )
- 598         $orderby = 't.term_group';
- 599     else if ( 'term_order' == $orderby )  //这个是我后面添加的
- 600         $orderby = 't.term_order';
- 601     else
- 602         $orderby = 't.term_id';
-
-</pre>
-
-<p>这样这个plugin才能正常的工作</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/216">Live的FAQ的更新</a></p>
-
-</div>
-  
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -973,6 +961,8 @@ export VIMRUNTIME=“$HOME/share/vim”
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/10/28/rspec-3-zhong-yao-geng-xin/">Rspec 3 重要更新</a>
+    
     <a class="list-group-item " href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
     
     <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -980,8 +970,6 @@ export VIMRUNTIME=“$HOME/share/vim”
     <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
     
     <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
-    
-    <a class="list-group-item " href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
     
   </div>
 </section>

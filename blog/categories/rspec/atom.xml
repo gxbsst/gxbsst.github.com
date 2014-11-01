@@ -4,7 +4,7 @@
   <title><![CDATA[分类：rspec | 小红博客]]></title>
   <link href="http://weixuhong.com/blog/categories/rspec/atom.xml" rel="self"/>
   <link href="http://weixuhong.com/"/>
-  <updated>2014-10-28T11:20:16+08:00</updated>
+  <updated>2014-11-01T22:30:45+08:00</updated>
   <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rspec 3 重要更新]]></title>
+    <link href="http://weixuhong.com/blog/2014/10/28/rspec-3-zhong-yao-geng-xin/"/>
+    <updated>2014-10-28T18:12:33+08:00</updated>
+    <id>http://weixuhong.com/blog/2014/10/28/rspec-3-zhong-yao-geng-xin</id>
+    <content type="html"><![CDATA[<p>参考这里:<a href="http://myronmars.to/n/dev-blog/2014/05/notable-changes-in-rspec-3">http://myronmars.to/n/dev-blog/2014/05/notable-changes-in-rspec-3</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rspec 新旧方法对照表]]></title>

@@ -153,6 +153,65 @@ $(document).ready(
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-07-31T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年7 月31 日</time>
+        
+           | <a href="/archives/160#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com/archives/160">Comments</a>
+        
+      </p>
+    
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/160" itemprop="url">用mysql命令将数据导入到文本</a></h2>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>为了方便程序的处理，我需要将数据库的数据导入文本</p>
+
+<p>select * from mail_tasks into outfile “/Users/weston/test/test.txt”;<br />
+*确定test这个文件夹的写权限</p>
+
+<p>后面有空我将介绍用程序怎么处理文本…</p>
+
+<p>更新:<br />
+我想用其他方法把文本的字段直接都转成数组，但都不是很理想，水平有限吧，我用了一个折中的方法，就是把内容复制到Excel，然后导出CVS文件，这样就好办了</p>
+
+<p>require ‘fastercsv’</p>
+
+<p>csv = FasterCSV.read(‘test.csv’) #=&gt;Array</p>
+
+<p>然後還有什麽事情不可以做的呢….</p>
+
+<p>*水平有限，真的需要指正，謝謝….</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/160">用mysql命令将数据导入到文本</a></p>
+
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-07-27T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年7 月27 日</time>
         
            | <a href="/archives/159#disqus_thread" itemprop="discussionUrl"
@@ -972,68 +1031,6 @@ yield me
 
         </article>
       
-      
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-07-05T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年7 月5 日</time>
-        
-           | <a href="/archives/142#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="http://weixuhong.com/archives/142">Comments</a>
-        
-      </p>
-    
-    
-      <h2 class="entry-title" itemprop="name headline"><a href="/archives/142" itemprop="url">网页状态的维持的几种方法</a></h2>
-    
-  </header>
-
-
-  <div class="entry-content clearfix" itemprop="articleBody description"><ol>
-  <li>查询字符串和附加路径信息</li>
-</ol>
-
-<p>在查询字符串嵌入一个标识符或将其作为URl的附加路径信息</p>
-
-<ol>
-  <li>隐含字段（估计这个比较少用吧）</li>
-</ol>
-
-<p>隐含的表单字段放在表单中，如果是这样的话，是不是每个页面都需要一个表单呢？</p>
-
-<ol>
-  <li>客户端的cookie(很常用的吧）<br />
-客户端请求（request,), 服务器端返回（response)一个id给客户端（set-cookie)，下次request，再通过这个cookie判断…</li>
-</ol>
-
-<ul>
-  <li>分析不全面，请同学指正…</li>
-</ul>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/142">网页状态的维持的几种方法</a></p>
-
-</div>
-  
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -1091,6 +1088,8 @@ yield me
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/10/28/rspec-3-zhong-yao-geng-xin/">Rspec 3 重要更新</a>
+    
     <a class="list-group-item " href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
     
     <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -1098,8 +1097,6 @@ yield me
     <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
     
     <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
-    
-    <a class="list-group-item " href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
     
   </div>
 </section>

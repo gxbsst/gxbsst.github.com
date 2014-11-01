@@ -155,6 +155,67 @@ $(document).ready(
 
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-04-26T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年4 月26 日</time>
         
+           | <a href="/archives/75#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com/archives/75">Comments</a>
+        
+      </p>
+    
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/75" itemprop="url">函数分析之merge</a></h2>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>def create(option={}) Account.create({:name =&gt;”test”,:budget =&gt; 44<br />
+}.merge(options))<br />
+end</p>
+
+<p>以下是merge的源代码</p>
+
+<p># File lib/set.rb, line 253<br />
+def merge(enum)<br />
+if enum.is_a?(Set)<br />
+@hash.update(enum.instance_eval { @hash })<br />
+else<br />
+enum.is_a?(Enumerable) or raise ArgumentError, “value must be enumerable”<br />
+enum.each { |o| add(o) }<br />
+end</p>
+
+<p>self<br />
+end</p>
+
+<p>我对这的理解：merge是用来更新一数组的，但是create({})相当创建了新的数组，merge正好更新新的数组</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/75">函数分析之merge</a></p>
+
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-04-26T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年4 月26 日</time>
+        
            | <a href="/archives/57#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/57">Comments</a>
         
@@ -627,55 +688,6 @@ Ext plugin http://wota.jp/svn/rails/plugins/branches/stable/ext/</p>
 
         </article>
       
-      
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-04-14T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年4 月14 日</time>
-        
-           | <a href="/archives/52#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="http://weixuhong.com/archives/52">Comments</a>
-        
-      </p>
-    
-    
-      <h2 class="entry-title" itemprop="name headline"><a href="/archives/52" itemprop="url">渴望多伦多</a></h2>
-    
-  </header>
-
-
-  <div class="entry-content clearfix" itemprop="articleBody description"><div style="float: left; margin-right: 10px; margin-bottom: 10px;">
-  <a href="http://www.yupoo.com/photos/view?id=ff808081193b8db601194c29fadb30dd" title="photo sharing"><br /> <img src="http://pic.yupoo.com/weixuhong/01650566932e/medium.jpg" width="500" height="333" style="border: solid 2px #000000;" alt="" /><br /> </a><br /> <br /> <span style="font-size: 0.8em; margin-top: 0px;"><br /> <a href="http://www.yupoo.com/photos/view?id=ff808081193b8db601194c29fadb30dd">多伦多</a><br /> 由<a href="http://weixuhong.yupoo.com/profile/">weixuhong</a>上传于<a href="http://www.yupoo.com/">Yupoo</a>, 由相机Unknown拍摄.<br /> </span>
-</div>
-
-<div>
-  说实话，真的有机会我一定去加拿大看看，我看那里的人那里的环境，过过那里的小日子，如果有更好的机会，我当然还会去那里定居的&#8230;
-</div>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/52">渴望多伦多</a></p>
-
-</div>
-  
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -733,6 +745,8 @@ Ext plugin http://wota.jp/svn/rails/plugins/branches/stable/ext/</p>
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/10/28/rspec-3-zhong-yao-geng-xin/">Rspec 3 重要更新</a>
+    
     <a class="list-group-item " href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
     
     <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -740,8 +754,6 @@ Ext plugin http://wota.jp/svn/rails/plugins/branches/stable/ext/</p>
     <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
     
     <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
-    
-    <a class="list-group-item " href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
     
   </div>
 </section>

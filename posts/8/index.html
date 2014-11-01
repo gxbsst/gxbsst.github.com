@@ -153,6 +153,73 @@ $(document).ready(
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2009-05-10T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2009 年5 月10 日</time>
+        
+           | <a href="/archives/257#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com/archives/257">Comments</a>
+        
+      </p>
+    
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/257" itemprop="url">在Yii使用Mixin &#8211; Behavior</a></h2>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>我们知道Ruby有Mixin的功能，可以扩展类的实例方法或者类方法，只需要include就可以做这样的事情，但是PHP好像没有这样好用的方法？但是在Yii有这样的方法，怎么实现呢？</p>
+
+<p>下面有一个例子:</p>
+
+<pre lang="php">Yii::app()-&gt;fileCache-&gt;attachBehavior('EFileCacheBehavior', array('class'=&gt;'EFileCacheBehavior'));
+
+</pre>
+
+<p>如果要在App启动的时候就能永这个EFileCacheBehavior,可以在Main.php配置这个文件…</p>
+
+<pre lang="php">'fileCache'=&gt;array(
+            'class'=&gt;'application.extensions.filecache.EFileCache',
+            'autoCleanExpiredCache'=&gt;false,
+            'behaviors'=&gt;array(
+                'EFileCacheBehavior'=&gt;array(
+                    'class'=&gt;'EFileCacheBehavior',
+                ),
+            ),
+        ), 
+</pre>
+
+<p>这样就可以扩展的方法了。<br />
+就是说如果EFileCacheBehavior有一个方法叫test();<br />
+那么你就可以通过：<br />
+Yii::app()-&gt;fileCache-&gt;test()调用。</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/257">在Yii使用Mixin – Behavior</a></p>
+
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2009-05-08T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2009 年5 月8 日</time>
         
            | <a href="/archives/255#disqus_thread" itemprop="discussionUrl"
@@ -739,66 +806,6 @@ vim postmail.con
 
         </article>
       
-      
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-12-30T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年12 月30 日</time>
-        
-           | <a href="/archives/235#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="http://weixuhong.com/archives/235">Comments</a>
-        
-      </p>
-    
-    
-      <h2 class="entry-title" itemprop="name headline"><a href="/archives/235" itemprop="url">利用shell一次修改同名的文件夾</a></h2>
-    
-  </header>
-
-
-  <div class="entry-content clearfix" itemprop="articleBody description"><p>利用shell一次修改同名的文件夾（超有用）</p>
-
-<p>昨天晚上因爲需要，需要把一個文件夾下面的200多同名文件夾改名，如果一個個文件修改的話，估計1個小時，後面同事Flanker幫我寫几行shell腳本，一下就搞掂，很爽吧<br />
-复制内容到剪贴板<br />
-代码:</p>
-
-<pre lang="bash">#!/bin/bash
-for i in `ls -F|grep -v rn`
-do
-  if [ -d $i/small ]
-  then mv $i/small $i/big
-  else
-     echo "$i has no small dir"
-   fi
-done
-</pre>
-
-<p>就是將small修改成big</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/235">利用shell一次修改同名的文件夾</a></p>
-
-</div>
-  
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -856,6 +863,8 @@ done
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/10/28/rspec-3-zhong-yao-geng-xin/">Rspec 3 重要更新</a>
+    
     <a class="list-group-item " href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
     
     <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -863,8 +872,6 @@ done
     <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
     
     <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
-    
-    <a class="list-group-item " href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
     
   </div>
 </section>

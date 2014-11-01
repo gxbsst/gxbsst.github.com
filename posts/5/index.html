@@ -153,6 +153,89 @@ $(document).ready(
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2010-01-07T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2010 年1 月7 日</time>
+        
+           | <a href="/archives/402#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com/archives/402">Comments</a>
+        
+      </p>
+    
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/402" itemprop="url">Nested Set Model: Copy SubTree</a></h2>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>要点：</p>
+
+<ol>
+  <li>撑宽目标node的宽度 shift R &amp;&amp; L Values</li>
+</ol>
+
+<pre lang="php">$first = $parent_manual['node']['l']+1; //The dst node l value
+
+$delta  = $current_manual['rgt'] - $current_manual['lft']+1;
+
+mysql_query('START TRANSACTION');
+  $result_a = mysql_query("UPDATE ".$thandle['table']." SET ".$thandle['lvalname']."=".$thandle['lvalname']."+$delta WHERE ".$thandle['lvalname']."&gt;=$first ");
+  $result_b = mysql_query("UPDATE ".$thandle['table']." SET ".$thandle['rvalname']."=".$thandle['rvalname']."+$delta WHERE ".$thandle['rvalname']."&gt;=$first ");
+	/*IF UPDATE IS SUCCESS ,THEN DO COMMIT*/
+	if ($result_a &#038;&#038; $result_b) {
+		mysql_query('COMMIT');
+	} else {
+		mysql_query('ROLLBACK');
+	}
+
+</pre>
+
+<ol>
+  <li>复制的操作</li>
+</ol>
+
+<pre lang="php">$delta  = $parent_manual['node']['l'] - $current_manual['lft'] + 1;
+
+	foreach ($tree as  $manual) {
+	$manual['description'] = '';
+	$manual['lft'] += $delta;
+	$manual['rgt'] += $delta ;
+	$manual['root_id'] = $root_id;
+	copy_one_item($manual, $root_id, $thandle);
+}
+
+</pre>
+
+<ul>
+  <li>其实最重要的就是$first和$delta的计算方法.</li>
+</ul>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/402">Nested set model: Copy SubTree</a></p>
+
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2010-01-06T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2010 年1 月6 日</time>
         
            | <a href="/archives/400#disqus_thread" itemprop="discussionUrl"
@@ -721,53 +804,6 @@ example.com： 为您有登录权限的国外主机</li>
 
         </article>
       
-      
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2009-10-21T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2009 年10 月21 日</time>
-        
-           | <a href="/archives/313#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="http://weixuhong.com/archives/313">Comments</a>
-        
-      </p>
-    
-    
-      <h2 class="entry-title" itemprop="name headline"><a href="/archives/313" itemprop="url">朋友留念(黄艳)</a></h2>
-    
-  </header>
-
-
-  <div class="entry-content clearfix" itemprop="articleBody description"><p><a href="http://www.weixuhong.com/content/uploads/2009/10/DSC01485-1.JPG" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/10/DSC01485-1.JPG','popup','width=3264,height=2176,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/10/DSC01485-1-tm.jpg" height="400" width="600" border="1" hspace="4" vspace="4" alt="Dsc01485-1" /></a></p>
-
-<p><a href="http://www.weixuhong.com/content/uploads/2009/10/DSC01481-1.JPG" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/10/DSC01481-1.JPG','popup','width=2176,height=3264,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/10/DSC01481-1-tm.jpg" height="400" width="266" border="1" hspace="4" vspace="4" alt="Dsc01481-1" /></a></p>
-
-<p><a href="http://www.weixuhong.com/content/uploads/2009/10/DSC01592-1.JPG" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/10/DSC01592-1.JPG','popup','width=3264,height=2176,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/10/DSC01592-1-tm.jpg" height="400" width="600" border="1" hspace="4" vspace="4" alt="Dsc01592-1" /></a></p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/313">朋友留念(黄艳)</a></p>
-
-</div>
-  
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -825,6 +861,8 @@ example.com： 为您有登录权限的国外主机</li>
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/10/28/rspec-3-zhong-yao-geng-xin/">Rspec 3 重要更新</a>
+    
     <a class="list-group-item " href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
     
     <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -832,8 +870,6 @@ example.com： 为您有登录权限的国外主机</li>
     <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
     
     <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
-    
-    <a class="list-group-item " href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
     
   </div>
 </section>

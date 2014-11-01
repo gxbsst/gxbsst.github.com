@@ -155,6 +155,51 @@ $(document).ready(
 
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-04-26T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年4 月26 日</time>
         
+           | <a href="/archives/128#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com/archives/128">Comments</a>
+        
+      </p>
+    
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/128" itemprop="url">终于把以前的blog更新到现在的blog</a></h2>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>今天下午用了些许时间把旧的blog更新到现在的blog，算是了却一张心事…</p>
+
+<p>所以您看到的一些内容应该是2007年的故事：－）</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/128">终于把以前的blog更新到现在的blog</a></p>
+
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-04-26T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年4 月26 日</time>
+        
            | <a href="/archives/105#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/105">Comments</a>
         
@@ -741,67 +786,6 @@ sqrt”, “tan”, “tanh”] </p>
 
         </article>
       
-      
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-04-26T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年4 月26 日</time>
-        
-           | <a href="/archives/75#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="http://weixuhong.com/archives/75">Comments</a>
-        
-      </p>
-    
-    
-      <h2 class="entry-title" itemprop="name headline"><a href="/archives/75" itemprop="url">函数分析之merge</a></h2>
-    
-  </header>
-
-
-  <div class="entry-content clearfix" itemprop="articleBody description"><p>def create(option={}) Account.create({:name =&gt;”test”,:budget =&gt; 44<br />
-}.merge(options))<br />
-end</p>
-
-<p>以下是merge的源代码</p>
-
-<p># File lib/set.rb, line 253<br />
-def merge(enum)<br />
-if enum.is_a?(Set)<br />
-@hash.update(enum.instance_eval { @hash })<br />
-else<br />
-enum.is_a?(Enumerable) or raise ArgumentError, “value must be enumerable”<br />
-enum.each { |o| add(o) }<br />
-end</p>
-
-<p>self<br />
-end</p>
-
-<p>我对这的理解：merge是用来更新一数组的，但是create({})相当创建了新的数组，merge正好更新新的数组</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/75">函数分析之merge</a></p>
-
-</div>
-  
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -859,6 +843,8 @@ end</p>
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/10/28/rspec-3-zhong-yao-geng-xin/">Rspec 3 重要更新</a>
+    
     <a class="list-group-item " href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
     
     <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -866,8 +852,6 @@ end</p>
     <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
     
     <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
-    
-    <a class="list-group-item " href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
     
   </div>
 </section>

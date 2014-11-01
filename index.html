@@ -153,6 +153,46 @@ $(document).ready(
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-10-28T18:12:33+08:00"  data-updated="true" itemprop="datePublished dateCreated">2014 年10 月28 日</time>
+        
+           | <a href="/blog/2014/10/28/rspec-3-zhong-yao-geng-xin/#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com/blog/2014/10/28/rspec-3-zhong-yao-geng-xin/">Comments</a>
+        
+      </p>
+    
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/blog/2014/10/28/rspec-3-zhong-yao-geng-xin/" itemprop="url">Rspec 3 重要更新</a></h2>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>参考这里:<a href="http://myronmars.to/n/dev-blog/2014/05/notable-changes-in-rspec-3">http://myronmars.to/n/dev-blog/2014/05/notable-changes-in-rspec-3</a></p>
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-10-28T10:22:06+08:00"  data-updated="true" itemprop="datePublished dateCreated">2014 年10 月28 日</time>
         
            | <a href="/blog/2014/10/28/knife-solo-chu-tan/#disqus_thread" itemprop="discussionUrl"
@@ -940,85 +980,6 @@ Allows you to execute an expression on the parent scope To pass variables from c
 
         </article>
       
-      
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2011-10-13T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2011 年10 月13 日</time>
-        
-           | <a href="/archives/563#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="http://weixuhong.com/archives/563">Comments</a>
-        
-      </p>
-    
-    
-      <h2 class="entry-title" itemprop="name headline"><a href="/archives/563" itemprop="url">关于backbone _.bindAll</a></h2>
-    
-  </header>
-
-
-  <div class="entry-content clearfix" itemprop="articleBody description"><pre lang="javasript">_.bindAll(this, 'render');
-			this.model.bind('change', this.render);
-
-</pre>
-
-<p>以上这两行代码主要为了当model改变时， view执行render， 那_.bindAll有什么用呢？</p>
-
-<p>看这里：http://stackoverflow.com/questions/6079055/why-do-bindall-in-backbone-js-views</p>
-
-<p>其中有一段是这样的：</p>
-
-<pre>Without _.bindAll( this, 'render' ) when model changes this in render will be pointing to the model, not to the view, so we won't have neither this.el nor this.$ or any other view's properties available.
-</pre>
-
-<p>当model被change时， this指向model, 但是我们要执行render, 那么就需要_.bindAll(this, ‘render’)， 使model也有这个render的方法？</p>
-
-<p>请达人解答?</p>
-
-<ul>
-  <li>新版本这样就可以</li>
-</ul>
-
-<p>this.model.bind(‘change’, this.render, this);</p>
-
-<p><img style="display:block; margin-left:auto; margin-right:auto;" src="http://www.weixuhong.com/content/uploads/2011/10/Screen-Shot-2011-10-14-at-1.55.50-PM.png" alt="Screen Shot 2011-10-14 at 1.55.50 PM.png" border="0" width="406" height="567" /></p>
-
-<p><img style="display:block; margin-left:auto; margin-right:auto;" src="http://www.weixuhong.com/content/uploads/2011/10/Screen-Shot-2011-10-14-at-2.06.54-PM.png" alt="Screen Shot 2011-10-14 at 2.06.54 PM.png" border="0" width="600" height="352" /></p>
-
-<p><img style="display:block; margin-left:auto; margin-right:auto;" src="http://www.weixuhong.com/content/uploads/2011/10/Screen-Shot-2011-10-14-at-2.18.03-PM.png" alt="Screen Shot 2011-10-14 at 2.18.03 PM.png" border="0" width="417" height="590" /></p>
-
-<p><img style="display:block; margin-left:auto; margin-right:auto;" src="http://www.weixuhong.com/content/uploads/2011/10/Screen-Shot-2011-10-14-at-3.31.51-PM.png" alt="Screen Shot 2011-10-14 at 3.31.51 PM.png" border="0" width="600" height="432" /></p>
-
-<p><img style="display:block; margin-left:auto; margin-right:auto;" src="http://www.weixuhong.com/content/uploads/2011/10/Screen-Shot-2011-10-14-at-3.33.11-PM.png" alt="Screen Shot 2011-10-14 at 3.33.11 PM.png" border="0" width="600" height="380" /></p>
-
-<p><img style="display:block; margin-left:auto; margin-right:auto;" src="http://www.weixuhong.com/content/uploads/2011/10/Screen-Shot-2011-10-17-at-5.20.27-PM.png" alt="Screen Shot 2011-10-17 at 5.20.27 PM.png" border="0" width="600" height="332" /></p>
-
-<p><img style="display:block; margin-left:auto; margin-right:auto;" src="http://www.weixuhong.com/content/uploads/2011/10/Screen-Shot-2011-10-18-at-3.37.23-PM.png" alt="Screen Shot 2011-10-18 at 3.37.23 PM.png" border="0" width="600" height="378" /></p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/563">关于backbone _.bindAll</a></p>
-
-</div>
-  
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -1076,6 +1037,8 @@ Allows you to execute an expression on the parent scope To pass variables from c
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/10/28/rspec-3-zhong-yao-geng-xin/">Rspec 3 重要更新</a>
+    
     <a class="list-group-item " href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
     
     <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -1083,8 +1046,6 @@ Allows you to execute an expression on the parent scope To pass variables from c
     <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
     
     <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
-    
-    <a class="list-group-item " href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
     
   </div>
 </section>

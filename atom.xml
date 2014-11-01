@@ -4,7 +4,7 @@
   <title><![CDATA[小红博客]]></title>
   <link href="http://weixuhong.com/atom.xml" rel="self"/>
   <link href="http://weixuhong.com/"/>
-  <updated>2014-10-28T11:20:16+08:00</updated>
+  <updated>2014-11-01T22:30:45+08:00</updated>
   <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rspec 3 重要更新]]></title>
+    <link href="http://weixuhong.com/blog/2014/10/28/rspec-3-zhong-yao-geng-xin/"/>
+    <updated>2014-10-28T18:12:33+08:00</updated>
+    <id>http://weixuhong.com/blog/2014/10/28/rspec-3-zhong-yao-geng-xin</id>
+    <content type="html"><![CDATA[<p>参考这里:<a href="http://myronmars.to/n/dev-blog/2014/05/notable-changes-in-rspec-3">http://myronmars.to/n/dev-blog/2014/05/notable-changes-in-rspec-3</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Knife-solo 初探]]></title>
@@ -1730,19 +1739,6 @@ Connection to gitserver closed. （gitserver 连接已断开。）</p>
 <p>参考: http://stackoverflow.com/questions/4297253/install-mysql2-gem-on-snow-leopard-for-rails-3-with-rvm</p>
 
 <p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/533">RuntimeError (!!! Missing the mysql2 gem. Add it to your Gemfile: gem ‘mysql2′):</a></p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[导入Three20]]></title>
-    <link href="http://weixuhong.com/archives/531"/>
-    <updated>2011-07-07T00:00:00+08:00</updated>
-    <id>http://weixuhong.com/archives/%e5%af%bc%e5%85%a5three20</id>
-    <content type="html"><![CDATA[<pre lang="c">sudo python three20/src/scripts/ttmodule.py -p /Users/weston/LearnIphone/Three20_hello/Three20_hello.xcodeproj:Three20_hello  Three20  -c Debug -c Release
-</pre>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/531">导入Three20</a></p>
 
 ]]></content>
   </entry>

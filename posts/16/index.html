@@ -155,6 +155,109 @@ $(document).ready(
 
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-04-26T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年4 月26 日</time>
         
+           | <a href="/archives/56#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com/archives/56">Comments</a>
+        
+      </p>
+    
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/56" itemprop="url">Rails Date Kit</a></h2>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>文章引用：http://www.methods.co.nz/rails_date_kit/rails_date_kit.html#toc1</p>
+
+<p>Download</p>
+
+<p>http://www.methods.co.nz/rails_date_kit/rails_date_kit_1.1.0.tar.gz</p>
+
+<p>step by step:<br />
+1.Setting application wide date display format</p>
+
+<p>ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS.merge!(<br />
+:default =&gt; ‘%d %b %Y’<br />
+)</p>
+
+<p>2.Inputting dates with the date_field helper and calendar control</p>
+
+<p>#</p>
+
+<p>Put calendar.js in ./public/javascripts.<br />
+#</p>
+
+<p>Put calendar.css in ./public/stylesheets.<br />
+#</p>
+
+<p>Put calendar_prev.png and calendar_next.png in ./public/images.<br />
+#</p>
+
+<p>Put date_helper.rb in ./app/helpers.<br />
+#</p>
+
+<p>In controllers that input dates (or in the application base controller ./app/controllers/application.rb) put:</p>
+
+<p>helper :date</p>
+
+<p>#</p>
+
+<p>Put the following lines in your page headers:</p>
+
+<p>&lt;%= stylesheet_link_tag ‘calendar’ %&gt;</p>
+
+<p>&lt;%= javascript_include_tag ‘calendar’ %&gt;<br />
+#</p>
+
+<p>In templates with forms that input dates use the date_field helper. For example:</p>
+
+<p>&lt;%= date_field(‘person’, ‘birthday’, :value =&gt; @person.birthday) %&gt;</p>
+
+<p>Note<br />
+The date value is passed explicitly to ensure it’s formatted with the :default date format (see explanation in previous section).</p>
+
+<p>3.Date Validation</p>
+
+<p>Drop date_validator.rb into ./lib.</p>
+
+<p>Require the validator in your models and add date validations. For example:</p>
+
+<p>require_dependency ‘date_validator’</p>
+
+<p>validates_dates :birthday,<br />
+:from =&gt; ’1 Jan 1930′,<br />
+:to =&gt; Date.today,<br />
+:allow_nil =&gt; true</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/56">Rails Date Kit</a></p>
+
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-04-26T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年4 月26 日</time>
+        
            | <a href="/archives/118#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/118">Comments</a>
         
@@ -903,51 +1006,6 @@ sudo update-alternatives –config editor 进行选择默认编辑器</p>
 
         </article>
       
-      
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-04-26T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年4 月26 日</time>
-        
-           | <a href="/archives/128#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="http://weixuhong.com/archives/128">Comments</a>
-        
-      </p>
-    
-    
-      <h2 class="entry-title" itemprop="name headline"><a href="/archives/128" itemprop="url">终于把以前的blog更新到现在的blog</a></h2>
-    
-  </header>
-
-
-  <div class="entry-content clearfix" itemprop="articleBody description"><p>今天下午用了些许时间把旧的blog更新到现在的blog，算是了却一张心事…</p>
-
-<p>所以您看到的一些内容应该是2007年的故事：－）</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/128">终于把以前的blog更新到现在的blog</a></p>
-
-</div>
-  
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -1005,6 +1063,8 @@ sudo update-alternatives –config editor 进行选择默认编辑器</p>
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/10/28/rspec-3-zhong-yao-geng-xin/">Rspec 3 重要更新</a>
+    
     <a class="list-group-item " href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
     
     <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
@@ -1012,8 +1072,6 @@ sudo update-alternatives –config editor 进行选择默认编辑器</p>
     <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
     
     <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
-    
-    <a class="list-group-item " href="/blog/2014/10/22/wei-angularjsde-service-shi-dan-li-%3F/">为AngularJs的Service 是单例？</a>
     
   </div>
 </section>
