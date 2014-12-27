@@ -153,6 +153,230 @@ $(document).ready(
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2010-04-19T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2010 年4 月19 日</time>
+        
+           | <a href="/archives/480#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com/archives/480">Comments</a>
+        
+      </p>
+    
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/480" itemprop="url">Yii的工作流程小解(原创)</a></h2>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><ol>
+  <li>我们可以看入口文件index.php</li>
+</ol>
+
+<pre lang="php">#index.php
+// change the following paths if necessary
+$yii=dirname(__FILE__).'/../framework/yii.php';
+$config=dirname(__FILE__).'/protected/config/main.php';
+require_once($yii);
+Yii::createWebApplication($config)-&gt;run();
+
+
+* Yii::createWebApplication($config)-&gt;run(); 这个是我们比较感兴趣的， Yii在哪里？ ===&gt; YiiBase.php, createWebApplication这个静态方法也是
+
+*Yii::createWebApplication($config) =&gt; 表示创建一个Appcication实例，它做什么？
+</pre>
+
+<ol>
+  <li>看看YiiBash.php</li>
+</ol>
+
+<pre lang="php">#YiiBash.php
+	public static function createWebApplication($config=null)
+	{
+		return self::createApplication('CWebApplication',$config);
+	}
+
+	public static function createApplication($class,$config=null)
+	{
+		return new $class($config); //==&gt; <strong>new CWebApplication()</strong>
+	}
+</pre>
+
+<p><strong><em>以上表示创建WebAPP实例， 以后的战场就在这里进行咯，这个跟ROR，或者iPhone或者其他框架都相似吧**<br />
+**</em>但是创建这个实例的时候，初始化做了什么事情呢?我们往下看</strong></p>
+
+<ol>
+  <li>到了CApplication.php</li>
+</ol>
+
+<pre lang="php">#CApplication.php
+public function __construct($config=null)
+	{
+		Yii::setApplication($this); // 这个作用就是以后你就可以使用 Yii::app()-&gt;user //还记得我说app是战场么？
+
+		// set basePath at early as possible to avoid trouble
+		//配置文件的处理
+		if(is_string($config))
+			$config=require($config);
+		if(isset($config['basePath']))
+		{
+			$this-&gt;setBasePath($config['basePath']);
+			unset($config['basePath']);
+		}
+		else
+			$this-&gt;setBasePath('protected');
+		Yii::setPathOfAlias('application',$this-&gt;getBasePath());
+		Yii::setPathOfAlias('webroot',dirname($_SERVER['SCRIPT_FILENAME']));
+		Yii::setPathOfAlias('ext',$this-&gt;getBasePath().DIRECTORY_SEPARATOR.'extensions');
+
+		$this-&gt;preinit();
+
+		$this-&gt;initSystemHandlers();
+		//注册核心组建
+		$this-&gt;registerCoreComponents();
+
+		$this-&gt;configure($config);
+		$this-&gt;attachBehaviors($this-&gt;behaviors);
+		$this-&gt;preloadComponents();
+
+		$this-&gt;init();
+	}
+
+</pre>
+
+<p><strong>*$this-&gt;registerCoreComponents(); 这个很重要，因为要实例的是CWebApplication，所以请回到CWebApplication.php</strong></p>
+
+<ol>
+  <li>CWebApplication.php</li>
+</ol>
+
+<pre lang="php">protected function registerCoreComponents()
+	{
+		parent::registerCoreComponents();
+
+		$components=array(
+			'session'=&gt;array(
+				'class'=&gt;'CHttpSession',
+			),
+			'assetManager'=&gt;array(
+				'class'=&gt;'CAssetManager',
+			),
+			'user'=&gt;array(
+				'class'=&gt;'CWebUser',
+			),
+			'themeManager'=&gt;array(
+				'class'=&gt;'CThemeManager',
+			),
+			'authManager'=&gt;array(
+				'class'=&gt;'CPhpAuthManager',
+			),
+			'clientScript'=&gt;array(
+				'class'=&gt;'CClientScript',
+			),
+		);
+
+		$this-&gt;setComponents($components);
+	}
+</pre>
+
+<p>注意$this-&gt;setComponents($components); ==&gt; 这个方法在CModule.php</p>
+
+<ul>
+  <li>registerCoreComponents 方法实现了注册Core components, 但是不实现，后面的 $this-&gt;setComponents($components);就表示实实例这些components了, 所以一个WebAPP，初始化的时候应该可以使用: session, assetManager, user, themeManager, clientScript 这几个实例， 通过Yii:app()-&gt;session调用，如果要在启动一个WebAPP的时候初始化一个对象，请在main.php配置</li>
+</ul>
+
+<p>好了，这个是一个WebAPP初始化要做的事情: 路径，配置文件，Handlers，Behaviors，Componts等</p>
+
+<ol>
+  <li>接下来就是要做run()</li>
+</ol>
+
+<pre lang="php">#CApplication.php
+
+	public function run()
+	{
+		if($this-&gt;hasEventHandler('onBeginRequest'))
+			$this-&gt;onBeginRequest(new CEvent($this));
+		$this-&gt;processRequest();
+		if($this-&gt;hasEventHandler('onEndRequest'))
+			$this-&gt;onEndRequest(new CEvent($this));
+	}
+</pre>
+
+<p><strong>*先进行onBeginRequest =&gt; processRequest =&gt; onEndRequest //相信这个些英文单词都很好理解了</strong></p>
+
+<ol>
+  <li>我们重点看$this-&gt;processRequest()</li>
+</ol>
+
+<pre lang="php">#CWebApplication.php
+	public function processRequest()
+	{
+		if(is_array($this-&gt;catchAllRequest) &#038;&#038; isset($this-&gt;catchAllRequest[0]))
+		{
+			$route=$this-&gt;catchAllRequest[0];
+			foreach(array_splice($this-&gt;catchAllRequest,1) as $name=&gt;$value)
+				$_GET[$name]=$value;
+		}
+		else
+			$route=$this-&gt;getUrlManager()-&gt;parseUrl($this-&gt;getRequest());
+		$this-&gt;runController($route);
+</pre>
+
+<p>*1.处理URL的部分，知道哪部分是Controller, 哪部分是Action等，这个部分由urlManager来处理<br />
+*重要的在这里: $this-&gt;runController($route)</p>
+
+<ol>
+  <li>看看runController($route)</li>
+</ol>
+
+<pre lang="php">#CWebApplication.php
+public function runController($route)
+	{
+		if(($ca=$this-&gt;createController($route))!==null)
+		{
+			list($controller,$actionID)=$ca;
+			$oldController=$this-&gt;_controller;
+			$this-&gt;_controller=$controller;
+			$controller-&gt;init();
+			$controller-&gt;run($actionID);
+			$this-&gt;_controller=$oldController;
+		}
+		else
+			throw new CHttpException(404,Yii::t('yii','Unable to resolve the request "{route}".',
+				array('{route}'=&gt;$route===''?$this-&gt;defaultController:$route)));
+	
+</pre>
+
+<p>*以上当然是创建一个controller的实例，然后执行一个action方法, 这个时候,WebApp环境又多了一个controller的实例</p>
+
+<p>所有流程就是这样了，当然错漏很难免，但请赐教;-)</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/480">Yii的工作流程小解(原创)</a></p>
+
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2010-04-14T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2010 年4 月14 日</time>
         
            | <a href="/archives/476#disqus_thread" itemprop="discussionUrl"
@@ -894,71 +1118,6 @@ Alternatively, you may use the video download links to the right.
 
         </article>
       
-      
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2010-01-08T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2010 年1 月8 日</time>
-        
-           | <a href="/archives/417#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="http://weixuhong.com/archives/417">Comments</a>
-        
-      </p>
-    
-    
-      <h2 class="entry-title" itemprop="name headline"><a href="/archives/417" itemprop="url">在中国注册申请Google Voice</a></h2>
-    
-  </header>
-
-
-  <div class="entry-content clearfix" itemprop="articleBody description"><blockquote>
-  <p>传说中的Google Voice,据说是打美国的电话、短信都是免费的， 但是现在的只是限制于美国本土， 不过我们国内用户使用也有个好处，就是可以免费的发送短信， 不足的是，只能发送英文短信， 中文短信会无法发送…</p>
-</blockquote>
-
-<p><strong>1. 注册Google Voice</strong></p>
-
-<p>到<a href="https://services.google.com/fb/forms/googlevoiceinvite/">https://services.google.com/fb/forms/googlevoiceinvite/</a></p>
-
-<p><img src="http://www.weixuhong.com/content/uploads/2010/01/Google-Voice-invitation-request-–-Google.jpg" alt="Google Voice invitation request – Google.jpg" border="0" width="761" height="394" /></p>
-
-<p>这里申请一个邀请， 因为Google Voice现在还不是开放的， 所以请参考我以前的文章: <a href="http://weixuhong.com/%e5%bf%83%e6%83%85%e9%9a%8f%e5%86%99/2009/11/30/%e5%a6%82%e6%9e%9c%e4%bd%bf%e7%94%a8ssh%e9%9a%a7%e9%81%93%e7%bf%bb%e5%a2%99%e4%b8%8a%e7%bd%91-windows-%e7%af%87%e5%8e%9f%e5%88%9b/">SSH 翻墙（一)</a> <a href="http://weixuhong.com/%e5%bf%83%e6%83%85%e9%9a%8f%e5%86%99/2009/11/14/%e5%a6%82%e6%9e%9c%e4%bd%bf%e7%94%a8ssh%e9%9a%a7%e9%81%93%e4%b8%8a%e7%bd%91-for-mac%e7%af%87/">翻墙(二)</a></p>
-
-<p><cite>*当然如果有需要的朋友，我还有两个邀请名额;-)</cite></p>
-
-<p><strong>2. 去注册一个美国虚拟电话号码</strong></p>
-
-<p>可以到<a href="http://www.virtualphoneline.com/signup/index.php">这里申请</a></p>
-
-<p><img src="http://www.weixuhong.com/content/uploads/2010/01/Virtual-Phone-Line.jpg" alt="Virtual Phone Line.jpg" border="0" width="767" height="554" /></p>
-
-<p><strong>3.更具体看视频吧</strong></p>
-
-<p>也可以参考这篇文章: http://www.cnbeta.com/articles/90493.htm</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/417">在中国注册申请Google Voice</a></p>
-
-</div>
-  
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -993,6 +1152,7 @@ Alternatively, you may use the video download links to the right.
 <li class='category'><a class='category' href='/blog/categories/knife-solo/'>knife-solo</a></li>
 <li class='category'><a class='category' href='/blog/categories/linux-unix/'>linux/unix</a></li>
 <li class='category'><a class='category' href='/blog/categories/php/'>php</a></li>
+<li class='category'><a class='category' href='/blog/categories/postgresql/'>postgresql</a></li>
 <li class='category'><a class='category' href='/blog/categories/rails/'>rails</a></li>
 <li class='category'><a class='category' href='/blog/categories/regular-expressions/'>regular expressions</a></li>
 <li class='category'><a class='category' href='/blog/categories/rspec/'>rspec</a></li>
@@ -1016,6 +1176,8 @@ Alternatively, you may use the video download links to the right.
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/12/27/postgresql-fen-zu-cha-xun/">Postgresql 分组查询</a>
+    
     <a class="list-group-item " href="/blog/2014/10/28/rspec-3-zhong-yao-geng-xin/">Rspec 3 重要更新</a>
     
     <a class="list-group-item " href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
@@ -1023,8 +1185,6 @@ Alternatively, you may use the video download links to the right.
     <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
     
     <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
-    
-    <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
     
   </div>
 </section>

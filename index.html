@@ -153,6 +153,133 @@ $(document).ready(
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-12-27T14:47:01+08:00"  data-updated="true" itemprop="datePublished dateCreated">2014 年12 月27 日</time>
+        
+           | <a href="/blog/2014/12/27/postgresql-fen-zu-cha-xun/#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com/blog/2014/12/27/postgresql-fen-zu-cha-xun/">Comments</a>
+        
+      </p>
+    
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/blog/2014/12/27/postgresql-fen-zu-cha-xun/" itemprop="url">Postgresql 分组查询</a></h2>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><h3 id="section">数据</h3>
+<p>最近有一个项目，有一个表数据结构如下</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>description</th>
+      <th>technique_id</th>
+      <th>references_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name_1</td>
+      <td>description 1</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>name_2</td>
+      <td>description 2</td>
+      <td>2</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>name_1</td>
+      <td>description 1</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>name_2</td>
+      <td>description 2</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>name_1</td>
+      <td>description 1</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>name_2</td>
+      <td>description 2</td>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>name_2</td>
+      <td>description 2</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>name_1</td>
+      <td>description 1</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>name_2</td>
+      <td>description 2</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="section-1">需求</h3>
+<p><strong>现在需要通过一条sql语句， 通过几个 technique_id 查找， 每个technique_id 查找3条， 并且按照references_count降序</strong></p>
+
+<h3 id="section-2">实现</h3>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class="sql"><span class="line"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">from</span> <span class="p">(</span>
+</span><span class="line">  <span class="k">SELECT</span> <span class="o">*</span><span class="p">,</span> <span class="n">RANK</span><span class="p">()</span> <span class="n">OVER</span> <span class="p">(</span><span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">technique_id</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">reference_count</span> <span class="k">DESC</span><span class="p">)</span> <span class="k">AS</span> <span class="n">RP</span> <span class="k">FROM</span> <span class="n">gauges</span>
+</span><span class="line"><span class="p">)</span>
+</span><span class="line"><span class="k">G</span> <span class="k">WHERE</span> <span class="k">G</span><span class="p">.</span><span class="n">rp</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="err">&quot;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h3 id="section-3">参考</h3>
+
+<p>http://thehobt.blogspot.jp/2009/02/rownumber-rank-and-denserank.html</p>
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-10-28T18:12:33+08:00"  data-updated="true" itemprop="datePublished dateCreated">2014 年10 月28 日</time>
         
            | <a href="/blog/2014/10/28/rspec-3-zhong-yao-geng-xin/#disqus_thread" itemprop="discussionUrl"
@@ -855,131 +982,6 @@ Allows you to execute an expression on the parent scope To pass variables from c
 
         </article>
       
-      
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-05-05T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2013 年5 月5 日</time>
-        
-           | <a href="/archives/591#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="http://weixuhong.com/archives/591">Comments</a>
-        
-      </p>
-    
-    
-      <h2 class="entry-title" itemprop="name headline"><a href="/archives/591" itemprop="url">马尔代夫－卡尼岛(Kani)</a></h2>
-    
-  </header>
-
-
-  <div class="entry-content clearfix" itemprop="articleBody description"><p>值得再去一次的地方, 吃的喝的都免费</p>
-
-<p>离4月19日度假归来已经4天， 但是一回到家，就伴随着耳鸣、咳嗽，流鼻涕、全身乏力， 一直到今天还是如此;-(， 相当难受！</p>
-
-<p>虽然归来已经几天，但是想到在那宛如天堂的地方， 都会不由自主的发自内心的笑…</p>
-
-<p>我们这次的目的地是马尔代夫卡尼岛（参考:</p>
-
-<p>http://baike.baidu.com/view/481080.htm</p>
-
-<p>）， 行程为6日4晚， 意思就是两天在飞机， 4天在岛上。</p>
-
-<p><img src="/content/uploads/psu-2.jpeg" alt="" />  </p>
-
-<p><img src="/content/uploads/psu.jpeg" alt="" />  </p>
-
-<p><img src="/content/uploads/psu-3.jpeg" alt="" />  </p>
-
-<p><img src="/content/uploads/psu-4.jpeg" alt="" />  </p>
-
-<p><img src="/content/uploads/psu-5.jpeg" alt="" />  </p>
-
-<p><img src="/content/uploads/psu-6.jpeg" alt="" />  </p>
-
-<p><img src="/content/uploads/psu-7.jpeg" alt="" />  </p>
-
-<p><img src="/content/uploads/psu-8.jpeg" alt="" />  </p>
-
-<p>我们4月14日启程， 刚开始不顺利， 早上我闹钟不醒， 我没有洗漱就出门， 接着是我的Parter 忘记带了护照， 还好有磁悬浮， 最终我们顺利赶到机场， 乘坐新加坡航空飞6个小时到新加坡，然后等7个小时， 再从新加坡飞4个小时到达马尔代夫马累机场，然后坐30分钟的船， 晚上10点（北京时间4月15日凌晨1点）到达卡尼岛。 </p>
-
-<p>因为到达岛上已经晚上10点多， 我们放好行李，就直奔岛上的酒吧喝酒了， 在海边，享受海风， 端着酒，抽着烟， 就这样开始我们的卡尼岛度假了…</p>
-
-<p>一早起来， 去吃完丰盛的早餐，然后去参加台湾姑娘G.O关于岛上 活动的说明会， 岛上的很多活动都是免费的， 当然包括吃的。我们今天的计划是去浮潜， 参加测试后， 工作人员发给我们工具， 然后坐船离岛10分钟的路程， 带好潜水用具，就到海里看鱼了。</p>
-
-<p>由于是第一次潜水，还不是很熟悉， 而且海浪比较大， 一不小心，我的相机掉到海里了;(, 有些郁闷， 不过遨游在海里， 谁会介意这些小事？看着海中哪些以前只有电视看到的漂亮的鱼， 你会觉得爽呆了…</p>
-
-<p>图片</p>
-
-<p>浮潜45分钟后，我们就返回岛上了， 我们到游泳池占了两个位置， 点了饮料（当然都是免费的）， 就开始边游泳，边看晒太阳，看着远处的美景。岛上以欧美人比较多，特别是法国人，其次有来自中国大陆，台湾、香港，泰国，韩国、日本等国家，也许欧美人享受习惯了， 他们或许都是以生活为主， 感觉这就是他们的生活。他们是不介意阳光爆晒的。晚上7:30开饭， 有意大利菜，法国菜，泰国菜，中国菜，很多点心。</p>
-
-<p>接着晚上9:30，是岛上每天都举行的主题晚会，一直到11点多，一天的行程结束了。</p>
-
-<p>16日</p>
-
-<p>因为前一天已经玩的太累， 这天主要是环岛游，划船，帆船，游泳池晒太阳为主。晚上还是酒吧…</p>
-
-<p>17日</p>
-
-<p>今天就要搬去水上屋，所以一大早起来，就直接在游泳池等了，下午2点钟才搬过去。水上屋有专门的保安，一进去才知道那才是整个岛的精华所在，我震撼了。吃的、住的都比外面高一个级别啊。 水上屋才有免费的WIFI，吧台精致的点心，各种饮料等等。屋下面，可以直接游泳，看鱼，或者看远方的美景。一切是那么的和谐。需要注意的是14岁以下的小孩是不可以住水上屋的。 晚上还可以看到魔鬼鱼。屋内也准备了香槟、咖啡，放着CD，早餐有服务员送来，终于感受到了什么叫做被服务了，原来这才是生活啊。 至少我再一次被震撼了，即使住怎么样的5星级酒店都感觉不如卡尼岛的水上屋啊， 因为那种风景是一般的酒店没有的。</p>
-
-<p>18日</p>
-
-<p>因为今天离岛时间，但是要等到晚上8:25分， 所以今天我们的计划还是浮潜， 因为今天涨潮，又看到了之前没有看到的鱼，收获颇丰啊。</p>
-
-<p>图片</p>
-
-<p>晚上8:25分，在卡尼岛G.O的热情欢送下，我们去了马尔代夫机场。 晚上11:25的航班， 飞了4个小时，到达新加坡机场，候机2个小时， 再飞6个小时，北京时间4月19日15点钟， 到达上海浦东国际机场，旅程结束。</p>
-
-<p>推荐</p>
-
-<p>水上屋</p>
-
-<p>tips：</p>
-
-<p>那里是岛上的精华，记得保安说过，之前有一个法国人，包了岛上的全部水上屋，住了两个星期。</p>
-
-<p>西餐</p>
-
-<p>岛上的西餐厅，需要提前一天预定， 但是那是免费的</p>
-
-<p>浮潜</p>
-
-<p>浮潜可以看到很多漂亮的鱼，还有珊瑚，那时其他地方没有的。且也是免费的。</p>
-
-<p>其他</p>
-
-<p>如果到那个地方， 就不要带伞去了，那里就是去晒太阳的。如果不会讲英文，岛上有讲中文的G.O, 他们大部分来自台湾。好像大陆有一个。 </p>
-
-<p>不要在岛上买东西了，一个打火机就两美金，其他东西贵到什么程度呢？</p>
-
-<p>其实文中叙述的，都不能道出在那边的感受的十分之一， 而且很重要的一点，那里中国人很少， 你不会看到不和谐的事情发生。</p>
-
-<p>–EOF–</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/591">马尔代夫－卡尼岛(Kani)</a></p>
-
-</div>
-  
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -1014,6 +1016,7 @@ Allows you to execute an expression on the parent scope To pass variables from c
 <li class='category'><a class='category' href='/blog/categories/knife-solo/'>knife-solo</a></li>
 <li class='category'><a class='category' href='/blog/categories/linux-unix/'>linux/unix</a></li>
 <li class='category'><a class='category' href='/blog/categories/php/'>php</a></li>
+<li class='category'><a class='category' href='/blog/categories/postgresql/'>postgresql</a></li>
 <li class='category'><a class='category' href='/blog/categories/rails/'>rails</a></li>
 <li class='category'><a class='category' href='/blog/categories/regular-expressions/'>regular expressions</a></li>
 <li class='category'><a class='category' href='/blog/categories/rspec/'>rspec</a></li>
@@ -1037,6 +1040,8 @@ Allows you to execute an expression on the parent scope To pass variables from c
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/12/27/postgresql-fen-zu-cha-xun/">Postgresql 分组查询</a>
+    
     <a class="list-group-item " href="/blog/2014/10/28/rspec-3-zhong-yao-geng-xin/">Rspec 3 重要更新</a>
     
     <a class="list-group-item " href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
@@ -1044,8 +1049,6 @@ Allows you to execute an expression on the parent scope To pass variables from c
     <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
     
     <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
-    
-    <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
     
   </div>
 </section>

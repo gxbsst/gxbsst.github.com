@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[分类：postgresql | 小红博客]]></title>
+  <link href="http://weixuhong.com/blog/categories/postgresql/atom.xml" rel="self"/>
+  <link href="http://weixuhong.com/"/>
+  <updated>2014-12-27T15:10:09+08:00</updated>
+  <id>http://weixuhong.com/</id>
+  <author>
+    <name><![CDATA[Weston Wei(韦旭红)]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Postgresql 分组查询]]></title>
+    <link href="http://weixuhong.com/blog/2014/12/27/postgresql-fen-zu-cha-xun/"/>
+    <updated>2014-12-27T14:47:01+08:00</updated>
+    <id>http://weixuhong.com/blog/2014/12/27/postgresql-fen-zu-cha-xun</id>
+    <content type="html"><![CDATA[<h3 id="section">数据</h3>
+<p>最近有一个项目，有一个表数据结构如下</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>description</th>
+      <th>technique_id</th>
+      <th>references_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name_1</td>
+      <td>description 1</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>name_2</td>
+      <td>description 2</td>
+      <td>2</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>name_1</td>
+      <td>description 1</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>name_2</td>
+      <td>description 2</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>name_1</td>
+      <td>description 1</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>name_2</td>
+      <td>description 2</td>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>name_2</td>
+      <td>description 2</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>name_1</td>
+      <td>description 1</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>name_2</td>
+      <td>description 2</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="section-1">需求</h3>
+<p><strong>现在需要通过一条sql语句， 通过几个 technique_id 查找， 每个technique_id 查找3条， 并且按照references_count降序</strong></p>
+
+<h3 id="section-2">实现</h3>
+
+<p><code>sql
+SELECT * from (
+  SELECT *, RANK() OVER (PARTITION BY technique_id ORDER BY reference_count DESC) AS RP FROM gauges
+) 
+G WHERE G.rp &lt;= 3"
+</code></p>
+
+<h3 id="section-3">参考</h3>
+
+<p>http://thehobt.blogspot.jp/2009/02/rownumber-rank-and-denserank.html</p>
+]]></content>
+  </entry>
+  
+</feed>

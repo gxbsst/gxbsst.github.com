@@ -155,6 +155,215 @@ $(document).ready(
 
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-04-26T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年4 月26 日</time>
         
+           | <a href="/archives/55#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com/archives/55">Comments</a>
+        
+      </p>
+    
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/55" itemprop="url">ROR一些技巧 ROR一些技巧</a></h2>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>1．更改默认首页</p>
+
+<p>Rails要求URL需要以 http://localhost:3000/controller_name/action_name 的形式，由此我们似乎无法存放我们的主页，其实我们要做的只是修改 routes.rb(config/routes.rb)</p>
+
+<p>1.route：</p>
+
+<p>routes.rb文件中，写入类似语句 map.connect ‘:controller/:action/:id’ ，进行routing，习惯上称其为 route</p>
+
+<p>2.优先级：先创建的 route 有高的优先级</p>
+
+<p>3.修改http://localhost:3000/ 指向的controller</p>
+
+<p>1）先删除public下面的index.rhtml</p>
+
+<p>2）添加一个route：</p>
+
+<p>map.connect ”, :controller =&gt; “controller_name”</p>
+
+<p>2．简单的块和迭代器</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Easier collections with to_proc – Sick of writing things like post.collect {</td>
+      <td>p</td>
+      <td>p.title } or post.select {</td>
+      <td>p</td>
+      <td>p.activated? }.collect{</td>
+      <td>p</td>
+      <td>p.title} ? A little Ruby hackery that allows you to convert symbols into proc references makes it easy. You can write post.collect(&amp;:title) or post.select(&amp;:activated?).collect(&amp;:title) instead! Learn a lot more about this.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>糟糕的写法就象post.collect {</td>
+      <td>p</td>
+      <td>p.title } 或 post.select {</td>
+      <td>p</td>
+      <td>p.activated? }.collect{</td>
+      <td>p</td>
+      <td>p.title}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Ruby允许使用符号来简化操作。你能用post.collect(&amp;:title) 或post.select(&amp;:activated?).collect(&amp;:title)来代替。</p>
+
+<p>当想把字符串从小写转变成大写的时候一般会这么做：</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>result = names.map {</td>
+      <td>name</td>
+      <td>name.upcase}使用符号可以改写成：</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>result = names.map(&amp;:upcase)</p>
+
+<p>3．使用to_sentence方法转变数组</p>
+
+<p>Convert arrays to sentences in views – If you were collecting a bunch of names to be shown in a view, you might end up with an array like [‘Peter’, ‘Fred’, ‘Chris’], and joining these with commas and inserting ‘and’ before the final one is a common pain. Not so, if you use the array method to_sentence as provided in Rails. names.to_sentence would return Peter, Fred, and Chris.</p>
+
+<p>当你正在处理一个串名字的时候，你可能会用数组来解决问题，你或许会用逗号间隔它们，并在最后一个元素前加上’和’，如果你使用to_sentence方法就能大大简化这一操作。</p>
+
+<p>Temp = %w{张三 李四 和 王五}</p>
+
+<p>一般用用这样的方式来输出张三，李四和王五，可以使用to_sentence方法来简化这一操作</p>
+
+<p>Temp = %w{张三 李四 王五}</p>
+
+<p>Puts temp. to_sentence</p>
+
+<p>使用to_param可以输出张三/李四/王五</p>
+
+<p>4．判断数据是否存在</p>
+
+<p>Check for existence – When doing a Model.find(id), an exception can be returned if the item with an id of ‘id’ doesn’t exist. If you want to avoid this, use Model.exists?(id) first to get a true or false for whether that item exists or not.</p>
+
+<p>用模型.find(id)来查询数据库中的数据，怎样避免查询出它不存在呢？可以使用Model.exists?(id) 如：Person.exists?(5)</p>
+
+<p>5．使用Number helper来格式化数据</p>
+
+<p>Number helpers for common number tasks – All of these number helpers aren’t commonly used but provide great shortcuts: number_to_currency(1234567.948) # =&gt; $1,234,567.95 or human_size(1234567890) # =&gt; 1.1GB or number_with_delimiter(999999999) # =&gt; 999,999,999.</p>
+
+<p>There are others.</p>
+
+<p>方法列表如下：</p>
+
+<p>human_size<br />
+number_to_currency<br />
+number_to_human_size<br />
+number_to_percentage<br />
+number_to_phone<br />
+number_with_delimiter<br />
+number_with_precision<br />
+效果分别如下：</p>
+
+<p>human_size(1234567890) =&gt; 1.1 GB<br />
+number_to_currency(1234567890) =&gt; $1,234,567,890.00<br />
+number_to_human_size(1234567890) =&gt; 1.1 GB<br />
+number_to_percentage(1234567890) =&gt; 1234567890.000%<br />
+number_to_phone(1234567890) =&gt; 123-456-7890<br />
+number_with_delimiter(1234567890) =&gt; 1,234,567,890<br />
+number_with_precision(1234567890) =&gt; 1234567890.000</p>
+
+<p>使用时需用到ruby安装目录下的该helpers</p>
+
+<p>%ruby%librubygems1.8gemsactionpack-1.12.5</p>
+
+<p>libaction_viewhelpersnumber_helper.rb</p>
+
+<p>6．取得request的一些有用信息</p>
+
+<p>Get lots of info about requests – Checking request.post? and request.xhr? are popular ways to look for POST and AJAX requests, but some of the other request methods are lesser used. For example: request.subdomains can return an array of subdomains that you could use as part of your authentication scheme, request.request_uri returns the full local request URL, request.host returns the full hostname, request.method returns the HTTP method as a lowercase symbol, and request.ssl? returns true if it’s an HTTPS / SSL request.</p>
+
+<p>Request的一些方法展示：</p>
+
+<p>accepts<br />
+content_type<br />
+delete?<br />
+domain<br />
+formatted_post?<br />
+get?<br />
+head?<br />
+host<br />
+host_with_port<br />
+method<br />
+parameters<br />
+path<br />
+path_parameters<br />
+port<br />
+port_string<br />
+post?<br />
+post_format<br />
+protocol<br />
+put?<br />
+raw_post<br />
+relative_url_root<br />
+remote_ip<br />
+request_uri<br />
+server_software<br />
+ssl?<br />
+standard_port<br />
+subdomains<br />
+symbolized_path_parameters<br />
+xhr?<br />
+xml_http_request?<br />
+xml_post?<br />
+yaml_post?<br />
+参考Class<br />
+ActionController::AbstractRequest</p>
+
+<p>7．计算平均，最大，最小的方法。</p>
+
+<p>average<br />
+calculate<br />
+count<br />
+maximum<br />
+minimum<br />
+sum<br />
+参考ActiveRecord::Calculations::ClassMethods</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/55">ROR一些技巧 ROR一些技巧</a></p>
+
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-04-26T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年4 月26 日</time>
+        
            | <a href="/archives/56#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/56">Comments</a>
         
@@ -959,53 +1168,6 @@ this.respondTo = respondTo;
 
         </article>
       
-      
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-04-26T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年4 月26 日</time>
-        
-           | <a href="/archives/64#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="http://weixuhong.com/archives/64">Comments</a>
-        
-      </p>
-    
-    
-      <h2 class="entry-title" itemprop="name headline"><a href="/archives/64" itemprop="url">解决svn Ci时不是vim 编辑器的问题</a></h2>
-    
-  </header>
-
-
-  <div class="entry-content clearfix" itemprop="articleBody description"><p>在装了ubuntu后，svn ci 的编辑器不是vim ,我就全部安装了vim以后，默认的编辑器就是vim了<br />
-sudo apt-get install vim-full</p>
-
-<p>如果还不可以就用以下命令：<br />
-sudo update-alternatives –config editor 进行选择默认编辑器</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/64">解决svn ci时不是vim 编辑器的问题</a></p>
-
-</div>
-  
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -1040,6 +1202,7 @@ sudo update-alternatives –config editor 进行选择默认编辑器</p>
 <li class='category'><a class='category' href='/blog/categories/knife-solo/'>knife-solo</a></li>
 <li class='category'><a class='category' href='/blog/categories/linux-unix/'>linux/unix</a></li>
 <li class='category'><a class='category' href='/blog/categories/php/'>php</a></li>
+<li class='category'><a class='category' href='/blog/categories/postgresql/'>postgresql</a></li>
 <li class='category'><a class='category' href='/blog/categories/rails/'>rails</a></li>
 <li class='category'><a class='category' href='/blog/categories/regular-expressions/'>regular expressions</a></li>
 <li class='category'><a class='category' href='/blog/categories/rspec/'>rspec</a></li>
@@ -1063,6 +1226,8 @@ sudo update-alternatives –config editor 进行选择默认编辑器</p>
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/12/27/postgresql-fen-zu-cha-xun/">Postgresql 分组查询</a>
+    
     <a class="list-group-item " href="/blog/2014/10/28/rspec-3-zhong-yao-geng-xin/">Rspec 3 重要更新</a>
     
     <a class="list-group-item " href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
@@ -1070,8 +1235,6 @@ sudo update-alternatives –config editor 进行选择默认编辑器</p>
     <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
     
     <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
-    
-    <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
     
   </div>
 </section>

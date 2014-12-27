@@ -153,6 +153,61 @@ $(document).ready(
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-09-14T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年9 月14 日</time>
+        
+           | <a href="/archives/212#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com/archives/212">Comments</a>
+        
+      </p>
+    
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/212" itemprop="url">西湖游</a></h2>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>9月13-9月14日</p>
+
+<p>杭州西湖游<br />
+天气： 下雨<br />
+住： A Hotel （标间180，但是很小，下次不去了住了）<br />
+游： 西湖（徒步走了一圈， 清坊街）<br />
+图片在Picasaweb…</p>
+
+<ul>
+  <li>本来要去钱塘江观潮的，但是下雨，没有成行…  </li>
+  <li>灵隐寺，中山公园等景点没有去，下去一定要去  </li>
+  <li>下次去的时候，应该租自行车…</li>
+</ul>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/212">西湖游</a></p>
+
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-09-04T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年9 月4 日</time>
         
            | <a href="/archives/187#disqus_thread" itemprop="discussionUrl"
@@ -854,115 +909,6 @@ EXTENSION=`/bin/date “+%Y-%m-%d”`
 
         </article>
       
-      
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-08-05T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年8 月5 日</time>
-        
-           | <a href="/archives/161#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="http://weixuhong.com/archives/161">Comments</a>
-        
-      </p>
-    
-    
-      <h2 class="entry-title" itemprop="name headline"><a href="/archives/161" itemprop="url">关于rails引用binding的对话</a></h2>
-    
-  </header>
-
-
-  <div class="entry-content clearfix" itemprop="articleBody description"><ul>
-  <li>以下是我同事Jerry的谈话介绍</li>
-</ul>
-
-<p>鸡蛋黄(77883817) 19:29:17<br />
-我说的简单了点，真正的 Rails 的代码会另外复制一个状态创造 binding 的 </p>
-
-<p>鸡蛋黄(77883817) 19:29:44<br />
-比如有个模板是 &lt;%= @name %&gt; </p>
-
-<p>鸡蛋黄(77883817) 19:30:09<br />
-然后有个对象<br />
-class People<br />
-def initialize(name)<br />
-@name = name<br />
-end<br />
-end </p>
-
-<p>鸡蛋黄(77883817) 19:30:29<br />
-那么 People.new(“your name”).send(:binding) 就会得到一个 binding 对象 </p>
-
-<p>鸡蛋黄(77883817) 19:30:51<br />
-可以说这个对象就是保存了这个 people 实例的环境，自然包括了 @name </p>
-
-<p>微风(297749) 19:31:13<br />
-binding是这个对象的context，可以这样理解？ </p>
-
-<p>鸡蛋黄(77883817) 19:31:15<br />
-ERB.new(“&lt;%= @name %&gt;”).result( binding ) 能得到结果 </p>
-
-<p>鸡蛋黄(77883817) 19:31:17<br />
-可以 </p>
-
-<p>鸡蛋黄(77883817) 19:31:35<br />
-有了binding </p>
-
-<p>鸡蛋黄(77883817) 19:31:42<br />
-甚至可以调用私有方法…… </p>
-
-<p>古月星辰(65009835) 19:31:44<br />
-可以给action指定layout吗？ </p>
-
-<p>鸡蛋黄(77883817) 19:31:46<br />
-有点不太干净哦？ </p>
-
-<p>鸡蛋黄(77883817) 19:31:58<br />
-render :action =&gt; “action”, :layout =&gt; “abc </p>
-
-<ul>
-  <li>
-    <ol>
-      <li>将实例的变量放到binding环境<br />
-People.new(”your name“).send(:binding)  </li>
-    </ol>
-  </li>
-  <li>
-    <ol>
-      <li>引用binding的环境的变量…<br />
-ERB.new(”&lt;%= @name %&gt;“).result( binding )  </li>
-    </ol>
-  </li>
-  <li>
-    <ol>
-      <li>甚至可以调用私有方法…… (如果People有私有方法，也可以调用)</li>
-    </ol>
-  </li>
-</ul>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/161">关于rails引用binding的对话</a></p>
-
-</div>
-  
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -997,6 +943,7 @@ ERB.new(”&lt;%= @name %&gt;“).result( binding )  </li>
 <li class='category'><a class='category' href='/blog/categories/knife-solo/'>knife-solo</a></li>
 <li class='category'><a class='category' href='/blog/categories/linux-unix/'>linux/unix</a></li>
 <li class='category'><a class='category' href='/blog/categories/php/'>php</a></li>
+<li class='category'><a class='category' href='/blog/categories/postgresql/'>postgresql</a></li>
 <li class='category'><a class='category' href='/blog/categories/rails/'>rails</a></li>
 <li class='category'><a class='category' href='/blog/categories/regular-expressions/'>regular expressions</a></li>
 <li class='category'><a class='category' href='/blog/categories/rspec/'>rspec</a></li>
@@ -1020,6 +967,8 @@ ERB.new(”&lt;%= @name %&gt;“).result( binding )  </li>
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/12/27/postgresql-fen-zu-cha-xun/">Postgresql 分组查询</a>
+    
     <a class="list-group-item " href="/blog/2014/10/28/rspec-3-zhong-yao-geng-xin/">Rspec 3 重要更新</a>
     
     <a class="list-group-item " href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
@@ -1027,8 +976,6 @@ ERB.new(”&lt;%= @name %&gt;“).result( binding )  </li>
     <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
     
     <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
-    
-    <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
     
   </div>
 </section>

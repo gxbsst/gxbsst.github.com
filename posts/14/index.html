@@ -153,6 +153,120 @@ $(document).ready(
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-07-19T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年7 月19 日</time>
+        
+           | <a href="/archives/144#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com/archives/144">Comments</a>
+        
+      </p>
+    
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/144" itemprop="url">Block, Closures and Proc(块，闭包和Proc）的关系</a></h2>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>a = 1<br />
+pr = Proc.new{ puts a }<br />
+闭包可以用Proc来创建，参数是block…</p>
+
+<p>This example shows a return failing because the context of its block no longer exists.<br />
+def meth2(&amp;b)<br />
+b<br />
+end<br />
+*因为block是没有上下文(环境),如果你都没有在办公室这个环境，我当然不能叫你出办公室.<br />
+但是闭包就不一样啊，闭包有自己的上下文，所以可以用这个以下方法<br />
+* 补充： return 会返回值(true, false, nil,其他，后面的代码就补执行)，它的接受者是调用它的对象…接受者都没有，当然会出错…</p>
+
+<p>*block只是代码块的匿名函数…或者说一个环境的一个配件…</p>
+
+<pre lang="ruby">def meth4
+p = Proc.new { return 99 }
+p.call
+puts “Never get here”
+end
+meth4 → 99
+</pre>
+
+<p>*p是一个proc创建的闭包，有自己的上下文（环境），所以可以return…</p>
+
+<p>*block 是closure， 它能记住其被定义时的上下文， 并再调用时使用该上下文:</p>
+
+<pre lang="ruby">class Holder
+  CONST = 100
+  def call_block
+    a = 101
+    @a = 102
+    @@a = 103
+    yield
+  end
+
+
+
+end
+
+
+class Creator
+  CONST = 0
+  def create_block
+    a = 1
+    @a = 2
+    @@a = 3
+    proc do   #=&gt; return proc 
+      puts “a = #{a}”
+      puts “@a = #{@a}”
+      puts “@@a = #{@@a}”
+      puts yield
+    end
+  end
+  
+ end
+
+
+block = Creator.new.create_block{“yield me”} #=&gt; return a block 
+
+Holder.new.call_block(&#038;block) #return the original context
+
+a = 1
+@a = 2
+@@a = 3
+yield me
+
+
+</pre>
+
+<p>*3种方式将block转化成Proc对象</p>
+
+<p>参考Programming ruby 第二版 P358</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/144">Block, Closures And Proc(块，闭包和Proc）的关系</a></p>
+
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-07-05T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年7 月5 日</time>
         
            | <a href="/archives/142#disqus_thread" itemprop="discussionUrl"
@@ -1349,51 +1463,6 @@ http {
 
         </article>
       
-      
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-04-26T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年4 月26 日</time>
-        
-           | <a href="/archives/59#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="http://weixuhong.com/archives/59">Comments</a>
-        
-      </p>
-    
-    
-      <h2 class="entry-title" itemprop="name headline"><a href="/archives/59" itemprop="url">Unexpected Inconsistency Ubuntu</a></h2>
-    
-  </header>
-
-
-  <div class="entry-content clearfix" itemprop="articleBody description"><p>昨天远程启动了我的ubuntu服务器，没想到出现了unexpected inconsistency 这个错误，然后到google 输入unexpected inconsistency ubuntu就找到了解决的方法<br />
-就是用fsck 就修复了<br />
-可以参看http://www.owalog.com/blog.php?myess1=45这篇文章</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/59">unexpected inconsistency ubuntu</a></p>
-
-</div>
-  
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -1428,6 +1497,7 @@ http {
 <li class='category'><a class='category' href='/blog/categories/knife-solo/'>knife-solo</a></li>
 <li class='category'><a class='category' href='/blog/categories/linux-unix/'>linux/unix</a></li>
 <li class='category'><a class='category' href='/blog/categories/php/'>php</a></li>
+<li class='category'><a class='category' href='/blog/categories/postgresql/'>postgresql</a></li>
 <li class='category'><a class='category' href='/blog/categories/rails/'>rails</a></li>
 <li class='category'><a class='category' href='/blog/categories/regular-expressions/'>regular expressions</a></li>
 <li class='category'><a class='category' href='/blog/categories/rspec/'>rspec</a></li>
@@ -1451,6 +1521,8 @@ http {
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/12/27/postgresql-fen-zu-cha-xun/">Postgresql 分组查询</a>
+    
     <a class="list-group-item " href="/blog/2014/10/28/rspec-3-zhong-yao-geng-xin/">Rspec 3 重要更新</a>
     
     <a class="list-group-item " href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
@@ -1458,8 +1530,6 @@ http {
     <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
     
     <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
-    
-    <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
     
   </div>
 </section>

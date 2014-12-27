@@ -4,7 +4,7 @@
   <title><![CDATA[小红博客]]></title>
   <link href="http://weixuhong.com/atom.xml" rel="self"/>
   <link href="http://weixuhong.com/"/>
-  <updated>2014-11-13T18:44:17+08:00</updated>
+  <updated>2014-12-27T15:10:09+08:00</updated>
   <id>http://weixuhong.com/</id>
   <author>
     <name><![CDATA[Weston Wei(韦旭红)]]></name>
@@ -12,6 +12,102 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Postgresql 分组查询]]></title>
+    <link href="http://weixuhong.com/blog/2014/12/27/postgresql-fen-zu-cha-xun/"/>
+    <updated>2014-12-27T14:47:01+08:00</updated>
+    <id>http://weixuhong.com/blog/2014/12/27/postgresql-fen-zu-cha-xun</id>
+    <content type="html"><![CDATA[<h3 id="section">数据</h3>
+<p>最近有一个项目，有一个表数据结构如下</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>description</th>
+      <th>technique_id</th>
+      <th>references_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name_1</td>
+      <td>description 1</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>name_2</td>
+      <td>description 2</td>
+      <td>2</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>name_1</td>
+      <td>description 1</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>name_2</td>
+      <td>description 2</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>name_1</td>
+      <td>description 1</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>name_2</td>
+      <td>description 2</td>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>name_2</td>
+      <td>description 2</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>name_1</td>
+      <td>description 1</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>name_2</td>
+      <td>description 2</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="section-1">需求</h3>
+<p><strong>现在需要通过一条sql语句， 通过几个 technique_id 查找， 每个technique_id 查找3条， 并且按照references_count降序</strong></p>
+
+<h3 id="section-2">实现</h3>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class="sql"><span class="line"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">from</span> <span class="p">(</span>
+</span><span class="line">  <span class="k">SELECT</span> <span class="o">*</span><span class="p">,</span> <span class="n">RANK</span><span class="p">()</span> <span class="n">OVER</span> <span class="p">(</span><span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">technique_id</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">reference_count</span> <span class="k">DESC</span><span class="p">)</span> <span class="k">AS</span> <span class="n">RP</span> <span class="k">FROM</span> <span class="n">gauges</span>
+</span><span class="line"><span class="p">)</span>
+</span><span class="line"><span class="k">G</span> <span class="k">WHERE</span> <span class="k">G</span><span class="p">.</span><span class="n">rp</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="err">&quot;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<h3 id="section-3">参考</h3>
+
+<p>http://thehobt.blogspot.jp/2009/02/rownumber-rank-and-denserank.html</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rspec 3 重要更新]]></title>
@@ -1697,48 +1793,6 @@ $ git push origin master
 Connection to gitserver closed. （gitserver 连接已断开。）</p>
 
 <p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/541">小组级git服务器搭建（转)</a></p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[RuntimeError (!!! Missing the Mysql2 Gem. Add It to Your Gemfile: Gem &#8216;mysql2&#8242;):]]></title>
-    <link href="http://weixuhong.com/archives/533"/>
-    <updated>2011-07-07T00:00:00+08:00</updated>
-    <id>http://weixuhong.com/archives/runtimeerror-missing-the-mysql2-gem-add-it-to-your-gemfile-gem-mysql2</id>
-    <content type="html"><![CDATA[<p>在Rails3 出现这个错误，做以下工作:</p>
-
-<ol>
-  <li>在Gemfile</li>
-</ol>
-
-<pre lang="ruby">gem 'mysql2', '~&gt; 0.2.6'
-</pre>
-
-<p>2.</p>
-
-<pre lang="ruby">bundle update
-</pre>
-
-<ol>
-  <li>在datababse.yml</li>
-</ol>
-
-<pre lang="ruby">development:
-  adapter: mysql2
-  encoding: utf8
-  database: devise
-  # pool: 5
-  username: root
-  password:
-  reconnect: true
-  socket: /tmp/mysql.sock
-  
-</pre>
-
-<p>参考: http://stackoverflow.com/questions/4297253/install-mysql2-gem-on-snow-leopard-for-rails-3-with-rvm</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/533">RuntimeError (!!! Missing the mysql2 gem. Add it to your Gemfile: gem ‘mysql2′):</a></p>
 
 ]]></content>
   </entry>

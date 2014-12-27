@@ -155,6 +155,61 @@ $(document).ready(
 
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2009-05-10T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2009 年5 月10 日</time>
         
+           | <a href="/archives/256#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com/archives/256">Comments</a>
+        
+      </p>
+    
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/256" itemprop="url">Yii不同Model使用不同的数据库(Multiple Database)</a></h2>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>在Yii如果其中有一个Model需要链接到不同的数据库，我可以重写getDbConnection这个方法：<br />
+比如我在Product这个model里面这样设置:</p>
+
+<pre lang="php">public function getDbConnection()
+  {
+    $db = new CDbConnection('mysql:host=localhost;dbname=store', 'root', '');
+    $db-&gt;active = true;
+    return $db;
+  }
+</pre>
+
+<p>但是如果要在behavior里面实现呢？那我们可以试一试!<br />
+经过在Behavior添加，没有发现成功，是不是有其他的方法呢？期待…</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/256">Yii不同Model使用不同的数据库(Multiple Database)</a></p>
+
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2009-05-10T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2009 年5 月10 日</time>
+        
            | <a href="/archives/257#disqus_thread" itemprop="discussionUrl"
              data-disqus-identifier="http://weixuhong.com/archives/257">Comments</a>
         
@@ -763,49 +818,6 @@ vim postmail.con
 
         </article>
       
-      
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2008-12-30T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2008 年12 月30 日</time>
-        
-           | <a href="/archives/238#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="http://weixuhong.com/archives/238">Comments</a>
-        
-      </p>
-    
-    
-      <h2 class="entry-title" itemprop="name headline"><a href="/archives/238" itemprop="url">Linux Kernel(图)</a></h2>
-    
-  </header>
-
-
-  <div class="entry-content clearfix" itemprop="articleBody description"><p><a href="http://www.weixuhong.com/content/uploads/2008/12/20080520-e9fd495d8e368008d647nuxtpabqw93n.png" onclick="window.open('http://www.weixuhong.com/content/uploads/2008/12/20080520-e9fd495d8e368008d647nuxtpabqw93n.png','popup','width=2048,height=1536,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2008/12/20080520-e9fd495d8e368008d647nuxtpabqw93n-tm.jpg" height="100" width="133" border="1" hspace="4" vspace="4" alt="20080520_e9fd495d8e368008d647NuXTpAbqw93n" title="20080520_e9fd495d8e368008d647NuXTpAbqw93n" /></a></p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/238">Linux kernel(图)</a></p>
-
-</div>
-  
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -840,6 +852,7 @@ vim postmail.con
 <li class='category'><a class='category' href='/blog/categories/knife-solo/'>knife-solo</a></li>
 <li class='category'><a class='category' href='/blog/categories/linux-unix/'>linux/unix</a></li>
 <li class='category'><a class='category' href='/blog/categories/php/'>php</a></li>
+<li class='category'><a class='category' href='/blog/categories/postgresql/'>postgresql</a></li>
 <li class='category'><a class='category' href='/blog/categories/rails/'>rails</a></li>
 <li class='category'><a class='category' href='/blog/categories/regular-expressions/'>regular expressions</a></li>
 <li class='category'><a class='category' href='/blog/categories/rspec/'>rspec</a></li>
@@ -863,6 +876,8 @@ vim postmail.con
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/12/27/postgresql-fen-zu-cha-xun/">Postgresql 分组查询</a>
+    
     <a class="list-group-item " href="/blog/2014/10/28/rspec-3-zhong-yao-geng-xin/">Rspec 3 重要更新</a>
     
     <a class="list-group-item " href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
@@ -870,8 +885,6 @@ vim postmail.con
     <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
     
     <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
-    
-    <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
     
   </div>
 </section>

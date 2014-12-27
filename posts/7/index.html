@@ -153,6 +153,50 @@ $(document).ready(
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2009-09-17T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2009 年9 月17 日</time>
+        
+           | <a href="/archives/279#disqus_thread" itemprop="discussionUrl"
+             data-disqus-identifier="http://weixuhong.com/archives/279">Comments</a>
+        
+      </p>
+    
+    
+      <h2 class="entry-title" itemprop="name headline"><a href="/archives/279" itemprop="url">Linux结构图</a></h2>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><p><a href="http://www.weixuhong.com/content/uploads/2009/09/oreilly_linux_poster.pdf" onclick="window.open('http://www.weixuhong.com/content/uploads/2009/09/oreilly_linux_poster.pdf','popup','width=1296,height=1296,scrollbars=no,resizable=yes,toolbar=no,directories=no,location=no,menubar=no,status=yes,left=0,top=0');return false"><img src="http://www.weixuhong.com/content/uploads/2009/09/oreilly_linux_poster-tm.jpg" height="500" width="500" border="1" hspace="4" vspace="4" alt="Oreilly Linux Poster" /></a><br />
+这是一个巨大的 18 x 18 英寸 画片， – “Linux 系统剖析”。它拥有大量的关于 Linux、顶级 Linux 杂志、网站等的信息。另外，它还列举了 Linux 系统上受欢迎的软件及其站点，以及有用的工具书（毕竟是来自 O’Reilly</p>
+
+<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/279">Linux结构图</a></p>
+
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2009-09-08T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2009 年9 月8 日</time>
         
            | <a href="/archives/276#disqus_thread" itemprop="discussionUrl"
@@ -779,61 +823,6 @@ for /r . %%a in (.) do @if exist “%%a.svn” rd /s /q “%%a.svn”<br />
 
         </article>
       
-      
-        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-          
-  <header class="page-header">
-    
-      <p class="meta text-muted text-uppercase">
-        
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2009-05-10T00:00:00+08:00"  data-updated="true" itemprop="datePublished dateCreated">2009 年5 月10 日</time>
-        
-           | <a href="/archives/256#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="http://weixuhong.com/archives/256">Comments</a>
-        
-      </p>
-    
-    
-      <h2 class="entry-title" itemprop="name headline"><a href="/archives/256" itemprop="url">Yii不同Model使用不同的数据库(Multiple Database)</a></h2>
-    
-  </header>
-
-
-  <div class="entry-content clearfix" itemprop="articleBody description"><p>在Yii如果其中有一个Model需要链接到不同的数据库，我可以重写getDbConnection这个方法：<br />
-比如我在Product这个model里面这样设置:</p>
-
-<pre lang="php">public function getDbConnection()
-  {
-    $db = new CDbConnection('mysql:host=localhost;dbname=store', 'root', '');
-    $db-&gt;active = true;
-    return $db;
-  }
-</pre>
-
-<p>但是如果要在behavior里面实现呢？那我们可以试一试!<br />
-经过在Behavior添加，没有发现成功，是不是有其他的方法呢？期待…</p>
-
-<p>转载请注明：<a href="http://www.weixuhong.com">韦旭红的点点滴滴</a> » <a href="http://www.weixuhong.com/archives/256">Yii不同Model使用不同的数据库(Multiple Database)</a></p>
-
-</div>
-  
-  
-
-
-        </article>
-      
     </div>
 
     <ul class="pager">
@@ -868,6 +857,7 @@ for /r . %%a in (.) do @if exist “%%a.svn” rd /s /q “%%a.svn”<br />
 <li class='category'><a class='category' href='/blog/categories/knife-solo/'>knife-solo</a></li>
 <li class='category'><a class='category' href='/blog/categories/linux-unix/'>linux/unix</a></li>
 <li class='category'><a class='category' href='/blog/categories/php/'>php</a></li>
+<li class='category'><a class='category' href='/blog/categories/postgresql/'>postgresql</a></li>
 <li class='category'><a class='category' href='/blog/categories/rails/'>rails</a></li>
 <li class='category'><a class='category' href='/blog/categories/regular-expressions/'>regular expressions</a></li>
 <li class='category'><a class='category' href='/blog/categories/rspec/'>rspec</a></li>
@@ -891,6 +881,8 @@ for /r . %%a in (.) do @if exist “%%a.svn” rd /s /q “%%a.svn”<br />
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/12/27/postgresql-fen-zu-cha-xun/">Postgresql 分组查询</a>
+    
     <a class="list-group-item " href="/blog/2014/10/28/rspec-3-zhong-yao-geng-xin/">Rspec 3 重要更新</a>
     
     <a class="list-group-item " href="/blog/2014/10/28/knife-solo-chu-tan/">Knife-solo 初探</a>
@@ -898,8 +890,6 @@ for /r . %%a in (.) do @if exist “%%a.svn” rd /s /q “%%a.svn”<br />
     <a class="list-group-item " href="/blog/2014/10/24/rspec-xin-jiu-fang-fa-dui-zhao-biao/">Rspec 新旧方法对照表</a>
     
     <a class="list-group-item " href="/blog/2014/10/23/rubymine-bu-neng-shu-ru-zhong-wen-%3F/">Rubymine 不能输入中文？</a>
-    
-    <a class="list-group-item " href="/blog/2014/10/22/kan-liao-jie-angularjsde-zhi-ling-zhong-de-at-equals/">看了解AngularJs的指令中的@,=</a>
     
   </div>
 </section>
