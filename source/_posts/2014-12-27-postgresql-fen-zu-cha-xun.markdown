@@ -9,7 +9,7 @@ categories: ['postgresql']
 ### 数据
 最近有一个项目，有一个表数据结构如下
 
-<table>
+<table class="table">
 <thead>
 <tr>
   <td>name</td>
